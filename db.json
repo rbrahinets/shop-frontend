@@ -1,3 +1,135 @@
 {
-
+  "cart": [
+    {
+      "id": 1,
+      "total_cost": 0,
+      "user_id": 2
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Books"
+    },
+    {
+      "id": 2,
+      "name": "Car"
+    },
+    {
+      "id": 3,
+      "name": "Clothes"
+    },
+    {
+      "id": 4,
+      "name": "Electronics"
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "first_name": "admin",
+      "last_name": "admin",
+      "email": "admin",
+      "phone": "",
+      "password": "$2a$12$xeqcbrSzWGfjlocTYPbkjeCBjOrWSNVhvpSWdW4Aui5i9Zy6J3OQW"
+    },
+    {
+      "id": 2,
+      "first_name": "Bart",
+      "last_name": "Simpson",
+      "email": "bart.simpson@gmail.com",
+      "phone": "+380639876543",
+      "password": "$2a$12$HhNn8itQOcSQiIR2d1ns7e2Y4eOI5beyzBmAsTeEHURVuXqxXn8D2"
+    }
+  ],
+  "role": [
+    {
+      "id": 1,
+      "name": "ROLE_ADMIN"
+    },
+    {
+      "id": 2,
+      "name": "ROLE_USER"
+    }
+  ],
+  "user_role": [
+    {
+      "user_id": 1,
+      "role_id": 1
+    },
+    {
+      "user_id": 2,
+      "role_id": 2
+    }
+  ],
+  "wallet": [
+    {
+      "id": 1,
+      "number": "1234567890",
+      "amount_of_money": 1000000,
+      "user_id": 2
+    }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "name": "Clean Code",
+      "describe": "Author: Uncle Bob",
+      "price": 1000.0,
+      "barcode": "105002741351",
+      "in_stock": true,
+      "image": ""
+    },
+    {
+      "id": 2,
+      "name": "Chevrolet Camaro",
+      "describe": "Transformer Bumblebee",
+      "price": 3000000.0,
+      "barcode": "985002741365",
+      "in_stock": false,
+      "image": ""
+    },
+    {
+      "id": 3,
+      "name": "Hoodie",
+      "describe": "Warm hoodie",
+      "price": 500.0,
+      "barcode": "335002741300",
+      "in_stock": true,
+      "image": ""
+    },
+    {
+      "id": 4,
+      "name": "Samsung A02",
+      "describe": "Cool Smartphone",
+      "price": 4300.0,
+      "barcode": "125002741350",
+      "in_stock": true,
+      "image": ""
+    }
+  ],
+  "product_category": [
+    {
+      "product_id": 1,
+      "category_id": 1
+    },
+    {
+      "product_id": 2,
+      "category_id": 2
+    },
+    {
+      "product_id": 3,
+      "category_id": 3
+    },
+    {
+      "product_id": 4,
+      "category_id": 4
+    }
+  ],
+  "products_carts": [
+    {
+      "product_id": 1,
+      "cart_id": 1
+    }
+  ]
 }
