@@ -7,11 +7,13 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header/header.component';
+import {ButtonComponent} from './button/button/button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,
