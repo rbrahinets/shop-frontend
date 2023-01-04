@@ -1,0 +1,11 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: auto;
+  margin: 15px auto;
+  padding-left: 15px;
+  border: 1px solid steelblue;
+  border-radius: 5px;
+  background-color: aquamarine;
+}
