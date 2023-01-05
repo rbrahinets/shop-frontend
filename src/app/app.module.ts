@@ -8,12 +8,14 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header/header.component';
 import {ButtonComponent} from './button/button/button.component';
+import {FooterComponent} from './footer/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ButtonComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
