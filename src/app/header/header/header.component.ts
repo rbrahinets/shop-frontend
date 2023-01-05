@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggleProducts() {
-    alert('Click on Products');
+  goToPage(link: string): void {
+    alert(`Go to ${link}`);
   }
 }
