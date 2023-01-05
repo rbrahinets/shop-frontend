@@ -1,1 +1,1 @@
-# Frontend for web application 'Shop'
+# Front-end for web application 'Shop'
