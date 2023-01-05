@@ -1,7 +1,13 @@
 <header>
   <h1>{{title}}</h1>
-  <shop-button
-    text="Products"
-    (btnClick)="goToPage('products')"
-  ></shop-button>
+  <div>
+    <shop-button
+      text="Categories"
+      (btnClick)="goToPage('categories')"
+    ></shop-button>
+    <shop-button
+      text="Products"
+      (btnClick)="goToPage('products')"
+    ></shop-button>
+  </div>
 </header>
