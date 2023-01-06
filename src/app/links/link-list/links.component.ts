@@ -17,4 +17,8 @@ export class LinksComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  click(link): void {
+    alert(`Forward to ${link}`);
+  }
 }
