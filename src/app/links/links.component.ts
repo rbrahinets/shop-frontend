@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-links',
+  selector: 'shop-links',
   templateUrl: './links.component.html',
   styleUrls: ['./links.component.css']
 })
 export class LinksComponent implements OnInit {
+  @Input() link: string;
+  links: string[] = [
+    'link1',
+    'link2',
+    'link3',
+  ];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-
 }
