@@ -1,4 +1,4 @@
-<div
-  *ngFor="let link of links">
-  <h3>{{link}}</h3>
-</div>
+<shop-link
+  *ngFor="let link of links"
+  [link]="link"
+></shop-link>

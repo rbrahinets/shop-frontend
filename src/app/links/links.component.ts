@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'shop-links',
@@ -6,7 +6,6 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./links.component.css']
 })
 export class LinksComponent implements OnInit {
-  @Input() link: string;
   links: string[] = [
     'link1',
     'link2',
