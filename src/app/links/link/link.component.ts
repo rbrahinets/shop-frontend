@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Link} from "../shared/link.model";
 
 @Component({
   selector: 'shop-link',
@@ -6,8 +7,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./link.component.css']
 })
 export class LinkComponent implements OnInit {
-  @Input() link: string;
-  @Output() onClickLink: EventEmitter<string> = new EventEmitter();
+  @Input() link: Link;
+  @Output() onClickLink: EventEmitter<Link> = new EventEmitter();
 
   constructor() {
   }
@@ -15,7 +16,7 @@ export class LinkComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClick(link): void {
+  onClick(link: Link): void {
     this.onClickLink.emit(link);
   }
 }
