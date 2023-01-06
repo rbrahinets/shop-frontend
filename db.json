@@ -131,5 +131,23 @@
       "product_id": 1,
       "cart_id": 1
     }
+  ],
+  "links": [
+    {
+      "id": 1,
+      "text": "Clean Code"
+    },
+    {
+      "id": 2,
+      "text": "Samsung A02"
+    },
+    {
+      "id": 3,
+      "text": "Chevrolet Camaro"
+    },
+    {
+      "id": 4,
+      "text": "Hoodie"
+    }
   ]
 }
