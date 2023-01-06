@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {LinkService} from "../shared/link.service";
+import {Link} from "../shared/link.model";
 
 @Component({
   selector: 'shop-links',
@@ -6,19 +8,20 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./links.component.css']
 })
 export class LinksComponent implements OnInit {
-  links: string[] = [
-    'link1',
-    'link2',
-    'link3',
-  ];
+  links: Link[] = [];
 
-  constructor() {
+  constructor(
+    private linkService: LinkService
+  ) {
   }
 
   ngOnInit(): void {
+    this.linkService.getLinks().subscribe(
+      (links) => this.links = links
+    );
   }
 
-  click(link): void {
-    alert(`Forward to ${link}`);
+  click(link: Link): void {
+    alert(`Go to ${link.text}`);
   }
 }
