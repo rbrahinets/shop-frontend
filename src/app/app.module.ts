@@ -9,7 +9,7 @@ import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {ButtonComponent} from './button/button.component';
 import {FooterComponent} from './footer/footer.component';
-import {LinksComponent} from './links/links.component';
+import {LinksComponent} from './links/link-list/links.component';
 import {LinkComponent} from './link/link.component';
 
 @NgModule({
