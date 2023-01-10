@@ -3,11 +3,11 @@ import {LinkService} from "../shared/link.service";
 import {Link} from "../shared/link.model";
 
 @Component({
-  selector: 'shop-links',
-  templateUrl: './links.component.html',
-  styleUrls: ['./links.component.css']
+  selector: 'shop-link-list',
+  templateUrl: './link-list.component.html',
+  styleUrls: ['./link-list.component.css']
 })
-export class LinksComponent implements OnInit {
+export class LinkListComponent implements OnInit {
   links: Link[] = [];
 
   constructor(

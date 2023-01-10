@@ -1,20 +1,20 @@
 // import {ComponentFixture, TestBed} from '@angular/core/testing';
 //
-// import {LinksComponent} from './links.component';
+// import {LinkListComponent} from './links.component';
 //
-// describe('LinksComponent', () => {
-//   let component: LinksComponent;
-//   let fixture: ComponentFixture<LinksComponent>;
+// describe('LinkListComponent', () => {
+//   let component: LinkListComponent;
+//   let fixture: ComponentFixture<LinkListComponent>;
 //
 //   beforeEach(async () => {
 //     await TestBed.configureTestingModule({
-//       declarations: [LinksComponent]
+//       declarations: [LinkListComponent]
 //     })
 //       .compileComponents();
 //   });
 //
 //   beforeEach(() => {
-//     fixture = TestBed.createComponent(LinksComponent);
+//     fixture = TestBed.createComponent(LinkListComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });

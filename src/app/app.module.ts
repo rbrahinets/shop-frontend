@@ -9,7 +9,7 @@ import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {ButtonComponent} from './button/button.component';
 import {FooterComponent} from './footer/footer.component';
-import {LinksComponent} from './links/link-list/links.component';
+import {LinkListComponent} from './links/link-list/link-list.component';
 import {LinkComponent} from './links/link/link.component';
 import {ProductsComponent} from './products/products-list/products.component';
 import {ProductComponent} from './products/product/product.component';
@@ -17,7 +17,7 @@ import {CategoryComponent} from './categories/category/category.component';
 import {CategoryListComponent} from './categories/category-list/category-list.component';
 
 const shopRoutes: Routes = [
-  {path: '', component: LinksComponent},
+  {path: '', component: LinkListComponent},
   {path: 'products', component: ProductsComponent},
 ];
 
@@ -27,7 +27,7 @@ const shopRoutes: Routes = [
     HeaderComponent,
     ButtonComponent,
     FooterComponent,
-    LinksComponent,
+    LinkListComponent,
     LinkComponent,
     ProductsComponent,
     ProductComponent,
