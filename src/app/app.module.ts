@@ -12,6 +12,7 @@ import {FooterComponent} from './footer/footer.component';
 import {LinksComponent} from './links/link-list/links.component';
 import {LinkComponent} from './links/link/link.component';
 import {ProductsComponent} from './products/products-list/products.component';
+import {ProductComponent} from './products/product/product.component';
 
 const shopRoutes: Routes = [
   {path: '', component: LinksComponent},
@@ -27,6 +28,7 @@ const shopRoutes: Routes = [
     LinksComponent,
     LinkComponent,
     ProductsComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
