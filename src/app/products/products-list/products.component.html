@@ -1,0 +1,5 @@
+<shop-product
+  *ngFor="let product of products"
+  [product]="product"
+  (onClickLink)="click(product.id)"
+></shop-product>
