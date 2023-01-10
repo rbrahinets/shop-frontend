@@ -21,6 +21,7 @@ const shopRoutes: Routes = [
   {path: '', component: LinkListComponent},
   {path: 'categories', component: CategoryListComponent},
   {path: 'products', component: ProductListComponent},
+  {path: 'profile', component: ProfileComponent},
 ];
 
 @NgModule({
