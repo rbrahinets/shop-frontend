@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   title: string = 'Shop';
+  logged: boolean = true;
 
   constructor(
     private router: Router
@@ -15,6 +16,10 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onToggleLogIO(): void {
+    this.logged = !this.logged;
   }
 
   hasRoute(route: string): boolean {

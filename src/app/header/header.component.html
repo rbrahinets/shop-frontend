@@ -15,7 +15,8 @@
     ></shop-button>
   </div>
   <shop-button
-    text="Log In"
-    routerLink="/login"
+    text="{{logged ? 'Log Out' : 'Log In'}}"
+    routerLink="{{logged ? '/logout' : '/login'}}"
+    (click)="onToggleLogIO()"
   ></shop-button>
 </header>
