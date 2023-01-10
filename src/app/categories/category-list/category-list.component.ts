@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {CategoryService} from "../shared/category.service";
+import {Category} from "../shared/category.model";
 
 @Component({
   selector: 'shop-category-list',
@@ -6,10 +8,17 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./category-list.component.css']
 })
 export class CategoryListComponent implements OnInit {
-  constructor() {
+  categories: Category[] = [];
+
+  constructor(
+    private categoryService: CategoryService
+  ) {
   }
 
   ngOnInit(): void {
+    this.categoryService.getCategories().subscribe(
+      (categories) => this.categories = categories
+    );
   }
 
   click(id: number): void {
