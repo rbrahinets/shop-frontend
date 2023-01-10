@@ -6,7 +6,7 @@
       "user_id": 2
     }
   ],
-  "category": [
+  "categories": [
     {
       "id": 1,
       "name": "Books"
@@ -70,7 +70,7 @@
       "user_id": 2
     }
   ],
-  "product": [
+  "products": [
     {
       "id": 1,
       "name": "Clean Code",
