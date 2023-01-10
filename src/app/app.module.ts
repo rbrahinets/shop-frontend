@@ -15,6 +15,7 @@ import {ProductListComponent} from './products/products-list/product-list.compon
 import {ProductComponent} from './products/product/product.component';
 import {CategoryComponent} from './categories/category/category.component';
 import {CategoryListComponent} from './categories/category-list/category-list.component';
+import {ProfileComponent} from './profiles/profile/profile.component';
 
 const shopRoutes: Routes = [
   {path: '', component: LinkListComponent},
@@ -34,6 +35,7 @@ const shopRoutes: Routes = [
     ProductComponent,
     CategoryComponent,
     CategoryListComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
