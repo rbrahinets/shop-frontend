@@ -13,8 +13,4 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  goToPage(link: string): void {
-    alert(`Go to ${link}`);
-  }
 }
