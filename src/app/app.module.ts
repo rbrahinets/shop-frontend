@@ -11,6 +11,7 @@ import {ButtonComponent} from './button/button.component';
 import {FooterComponent} from './footer/footer.component';
 import {LinksComponent} from './links/link-list/links.component';
 import {LinkComponent} from './links/link/link.component';
+import {ProductsComponent} from './products/products.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {LinkComponent} from './links/link/link.component';
     FooterComponent,
     LinksComponent,
     LinkComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,
