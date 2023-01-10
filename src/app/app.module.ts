@@ -11,7 +11,7 @@ import {ButtonComponent} from './button/button.component';
 import {FooterComponent} from './footer/footer.component';
 import {LinksComponent} from './links/link-list/links.component';
 import {LinkComponent} from './links/link/link.component';
-import {ProductsComponent} from './products/products.component';
+import {ProductsComponent} from './products/products-list/products.component';
 
 const shopRoutes: Routes = [
   {path: '', component: LinksComponent},
