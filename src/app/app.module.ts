@@ -15,6 +15,7 @@ import {ProductsComponent} from './products/products.component';
 
 const shopRoutes: Routes = [
   {path: '', component: LinksComponent},
+  {path: 'products', component: ProductsComponent},
 ];
 
 @NgModule({
