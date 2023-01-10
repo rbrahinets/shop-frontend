@@ -18,6 +18,7 @@ import {CategoryListComponent} from './categories/category-list/category-list.co
 
 const shopRoutes: Routes = [
   {path: '', component: LinkListComponent},
+  {path: 'categories', component: CategoryListComponent},
   {path: 'products', component: ProductListComponent},
 ];
 
