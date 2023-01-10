@@ -13,6 +13,10 @@ import {LinksComponent} from './links/link-list/links.component';
 import {LinkComponent} from './links/link/link.component';
 import {ProductsComponent} from './products/products.component';
 
+const shopRoutes: Routes = [
+  {path: '', component: LinksComponent},
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +32,7 @@ import {ProductsComponent} from './products/products.component';
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
+    RouterModule.forRoot(shopRoutes, {enableTracing: true}),
   ],
   providers: [],
   bootstrap: [AppComponent,]
