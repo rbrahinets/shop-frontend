@@ -1,5 +1,5 @@
 {
-  "cart": [
+  "carts": [
     {
       "id": 1,
       "total_cost": 0,
@@ -24,7 +24,7 @@
       "name": "Electronics"
     }
   ],
-  "user": [
+  "users": [
     {
       "id": 1,
       "first_name": "admin",
@@ -42,7 +42,7 @@
       "password": "$2a$12$HhNn8itQOcSQiIR2d1ns7e2Y4eOI5beyzBmAsTeEHURVuXqxXn8D2"
     }
   ],
-  "role": [
+  "roles": [
     {
       "id": 1,
       "name": "ROLE_ADMIN"
@@ -62,7 +62,7 @@
       "role_id": 2
     }
   ],
-  "wallet": [
+  "wallets": [
     {
       "id": 1,
       "number": "1234567890",
