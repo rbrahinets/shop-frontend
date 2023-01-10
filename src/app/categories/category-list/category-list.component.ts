@@ -11,4 +11,8 @@ export class CategoryListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  click(id: number): void {
+    alert(`Go to categories/${id}`);
+  }
 }
