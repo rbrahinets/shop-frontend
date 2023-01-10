@@ -78,7 +78,7 @@
       "price": 1000.0,
       "barcode": "105002741351",
       "in_stock": true,
-      "image": ""
+      "image": "/assets/images/clean-code.jpg"
     },
     {
       "id": 2,
@@ -87,7 +87,7 @@
       "price": 3000000.0,
       "barcode": "985002741365",
       "in_stock": false,
-      "image": ""
+      "image": "/assets/images/chevrolet-camaro.jpg"
     },
     {
       "id": 3,
@@ -96,7 +96,7 @@
       "price": 500.0,
       "barcode": "335002741300",
       "in_stock": true,
-      "image": ""
+      "image": "/assets/images/hoodie.jpg"
     },
     {
       "id": 4,
@@ -105,7 +105,7 @@
       "price": 4300.0,
       "barcode": "125002741350",
       "in_stock": true,
-      "image": ""
+      "image": "/assets/images/samsung-a02.jpg"
     }
   ],
   "product_category": [
@@ -124,6 +124,10 @@
     {
       "product_id": 4,
       "category_id": 4
+    },
+    {
+      "product_id": 100,
+      "category_id": 100
     }
   ],
   "products_carts": [
