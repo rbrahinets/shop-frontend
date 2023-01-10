@@ -3,11 +3,11 @@ import {Product} from "../shared/product.model";
 import {ProductService} from "../shared/product.service";
 
 @Component({
-  selector: 'shop-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  selector: 'shop-product-list',
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class ProductListComponent implements OnInit {
   products: Product[] = [];
 
   constructor(

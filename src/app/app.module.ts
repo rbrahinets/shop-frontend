@@ -11,14 +11,14 @@ import {ButtonComponent} from './button/button.component';
 import {FooterComponent} from './footer/footer.component';
 import {LinkListComponent} from './links/link-list/link-list.component';
 import {LinkComponent} from './links/link/link.component';
-import {ProductsComponent} from './products/products-list/products.component';
+import {ProductListComponent} from './products/products-list/product-list.component';
 import {ProductComponent} from './products/product/product.component';
 import {CategoryComponent} from './categories/category/category.component';
 import {CategoryListComponent} from './categories/category-list/category-list.component';
 
 const shopRoutes: Routes = [
   {path: '', component: LinkListComponent},
-  {path: 'products', component: ProductsComponent},
+  {path: 'products', component: ProductListComponent},
 ];
 
 @NgModule({
@@ -29,7 +29,7 @@ const shopRoutes: Routes = [
     FooterComponent,
     LinkListComponent,
     LinkComponent,
-    ProductsComponent,
+    ProductListComponent,
     ProductComponent,
     CategoryComponent,
     CategoryListComponent,
