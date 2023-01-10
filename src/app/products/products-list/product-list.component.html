@@ -1,5 +1,6 @@
 <shop-product
   *ngFor="let product of products"
   [product]="product"
+  [imagePath]="product.image"
   (onClickLink)="click(product.id)"
 ></shop-product>

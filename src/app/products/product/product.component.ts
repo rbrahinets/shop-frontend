@@ -8,6 +8,7 @@ import {Product} from "../shared/product.model";
 })
 export class ProductComponent implements OnInit {
   @Input() product: Product;
+  @Input() imagePath: string;
   @Output() onClickLink: EventEmitter<Product> = new EventEmitter();
 
   constructor() {
