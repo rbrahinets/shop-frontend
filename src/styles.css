@@ -37,3 +37,21 @@
 .btn:active {
   transform: scale(0.98);
 }
+
+.form {
+  width: 50%;
+  margin: 20px auto;
+}
+
+.form-control {
+  margin: 20px auto;
+}
+
+.form-control input {
+  width: 100%;
+  height: 40%;
+  padding: 5px 10px;
+  font-size: 17px;
+  text-align: center;
+}
+
