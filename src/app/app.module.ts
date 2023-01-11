@@ -23,6 +23,7 @@ const shopRoutes: Routes = [
   {path: '', component: MainComponent},
   {path: 'categories', component: CategoryListComponent},
   {path: 'products', component: ProductListComponent},
+  {path: 'products/:id', component: SelectedProductComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'login', component: LogInComponent},
   {path: 'registration', component: RegistrationComponent},
