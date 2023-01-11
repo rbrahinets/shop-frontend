@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {CategoryService} from "../shared/category.service";
-import {Category} from "../shared/category.model";
+import {CategoryService} from '../shared/category.service';
+import {Category} from '../shared/category.model';
 
 @Component({
   selector: 'shop-category-list',
@@ -19,9 +19,5 @@ export class CategoryListComponent implements OnInit {
     this.categoryService.getCategories().subscribe(
       (categories) => this.categories = categories
     );
-  }
-
-  click(id: number): void {
-    alert(`Go to categories/${id}`);
   }
 }
