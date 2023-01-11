@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Product} from "../shared/product.model";
 
 @Component({
@@ -9,15 +9,10 @@ import {Product} from "../shared/product.model";
 export class ProductComponent implements OnInit {
   @Input() product: Product;
   @Input() imagePath: string;
-  @Output() onClickLink: EventEmitter<Product> = new EventEmitter();
 
   constructor() {
   }
 
   ngOnInit(): void {
-  }
-
-  onClick(product: Product): void {
-    this.onClickLink.emit(product);
   }
 }

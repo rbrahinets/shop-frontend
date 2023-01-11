@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from "../shared/product.model";
-import {ProductService} from "../shared/product.service";
+import {Product} from '../shared/product.model';
+import {ProductService} from '../shared/product.service';
 
 @Component({
   selector: 'shop-product-list',
@@ -19,9 +19,5 @@ export class ProductListComponent implements OnInit {
     this.productService.getProducts().subscribe(
       (products) => this.products = products
     );
-  }
-
-  click(id: number): void {
-    alert(`Go to products/${id}`);
   }
 }
