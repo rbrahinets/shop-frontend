@@ -1,1 +1,5 @@
-<p>selected-category works!</p>
+<shop-product
+  *ngFor="let product of products"
+  [product]="product"
+  [imagePath]="product.image"
+></shop-product>
