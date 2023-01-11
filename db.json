@@ -52,7 +52,7 @@
       "name": "ROLE_USER"
     }
   ],
-  "user_role": [
+  "user-role": [
     {
       "user_id": 1,
       "role_id": 1
@@ -108,29 +108,29 @@
       "image": "/assets/images/samsung-a02.jpg"
     }
   ],
-  "products_category": [
+  "products-category": [
     {
-      "product_id": 1,
-      "category_id": 1
+      "productId": 1,
+      "categoryId": 1
     },
     {
-      "product_id": 2,
-      "category_id": 2
+      "productId": 2,
+      "categoryId": 2
     },
     {
-      "product_id": 3,
-      "category_id": 3
+      "productId": 3,
+      "categoryId": 3
     },
     {
-      "product_id": 4,
-      "category_id": 4
+      "productId": 4,
+      "categoryId": 4
     },
     {
-      "product_id": 100,
-      "category_id": 100
+      "productId": 100,
+      "categoryId": 100
     }
   ],
-  "products_carts": [
+  "products-carts": [
     {
       "product_id": 1,
       "cart_id": 1
