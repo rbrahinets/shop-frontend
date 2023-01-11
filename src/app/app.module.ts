@@ -23,6 +23,7 @@ import { SelectedCategoryComponent } from './categories/selected-category/select
 const shopRoutes: Routes = [
   {path: '', component: MainComponent},
   {path: 'categories', component: CategoryListComponent},
+  {path: 'categories/:id', component: SelectedCategoryComponent},
   {path: 'products', component: ProductListComponent},
   {path: 'products/:id', component: SelectedProductComponent},
   {path: 'profile', component: ProfileComponent},
