@@ -18,6 +18,7 @@ import {ProfileComponent} from './profiles/profile/profile.component';
 import {LogInComponent} from './log-in/log-in.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {MainComponent} from './main/main.component';
+import { SelectedCategoryComponent } from './categories/selected-category/selected-category.component';
 
 const shopRoutes: Routes = [
   {path: '', component: MainComponent},
@@ -44,6 +45,7 @@ const shopRoutes: Routes = [
     LogInComponent,
     RegistrationComponent,
     MainComponent,
+    SelectedCategoryComponent,
   ],
   imports: [
     BrowserModule,
