@@ -11,6 +11,7 @@ import {ButtonComponent} from './button/button.component';
 import {FooterComponent} from './footer/footer.component';
 import {ProductListComponent} from './products/products-list/product-list.component';
 import {ProductComponent} from './products/product/product.component';
+import {SelectedProductComponent} from './products/selected-product/selected-product.component';
 import {CategoryComponent} from './categories/category/category.component';
 import {CategoryListComponent} from './categories/category-list/category-list.component';
 import {ProfileComponent} from './profiles/profile/profile.component';
@@ -35,6 +36,7 @@ const shopRoutes: Routes = [
     FooterComponent,
     ProductListComponent,
     ProductComponent,
+    SelectedProductComponent,
     CategoryComponent,
     CategoryListComponent,
     ProfileComponent,
