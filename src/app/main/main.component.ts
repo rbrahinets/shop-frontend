@@ -29,6 +29,10 @@ export class MainComponent implements OnInit {
     );
   }
 
+  click(id: number): void {
+    alert(`Go to products/${id}`);
+  }
+
   private getRandomIds(
     quantity: number,
     max: number
