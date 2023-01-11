@@ -9,8 +9,6 @@ import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {ButtonComponent} from './button/button.component';
 import {FooterComponent} from './footer/footer.component';
-import {LinkListComponent} from './links/link-list/link-list.component';
-import {LinkComponent} from './links/link/link.component';
 import {ProductListComponent} from './products/products-list/product-list.component';
 import {ProductComponent} from './products/product/product.component';
 import {CategoryComponent} from './categories/category/category.component';
@@ -35,8 +33,6 @@ const shopRoutes: Routes = [
     HeaderComponent,
     ButtonComponent,
     FooterComponent,
-    LinkListComponent,
-    LinkComponent,
     ProductListComponent,
     ProductComponent,
     CategoryComponent,
