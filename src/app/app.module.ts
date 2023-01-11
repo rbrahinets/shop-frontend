@@ -23,6 +23,7 @@ const shopRoutes: Routes = [
   {path: 'categories', component: CategoryListComponent},
   {path: 'products', component: ProductListComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'login', component: LogInComponent},
 ];
 
 @NgModule({
