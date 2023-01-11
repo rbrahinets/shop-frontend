@@ -17,6 +17,7 @@ import {CategoryComponent} from './categories/category/category.component';
 import {CategoryListComponent} from './categories/category-list/category-list.component';
 import {ProfileComponent} from './profiles/profile/profile.component';
 import {LogInComponent} from './log-in/log-in.component';
+import {RegistrationComponent} from './registration/registration.component';
 
 const shopRoutes: Routes = [
   {path: '', component: LinkListComponent},
@@ -40,6 +41,7 @@ const shopRoutes: Routes = [
     CategoryListComponent,
     ProfileComponent,
     LogInComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,
