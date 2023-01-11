@@ -21,7 +21,7 @@ import {RegistrationComponent} from './registration/registration.component';
 import {MainComponent} from './main/main.component';
 
 const shopRoutes: Routes = [
-  {path: '', component: LinkListComponent},
+  {path: '', component: MainComponent},
   {path: 'categories', component: CategoryListComponent},
   {path: 'products', component: ProductListComponent},
   {path: 'profile', component: ProfileComponent},
