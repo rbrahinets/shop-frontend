@@ -2,8 +2,8 @@
   "carts": [
     {
       "id": 1,
-      "total_cost": 0,
-      "user_id": 2
+      "totalCost": 0,
+      "userId": 2
     }
   ],
   "categories": [
@@ -27,16 +27,16 @@
   "users": [
     {
       "id": 1,
-      "first_name": "admin",
-      "last_name": "admin",
+      "firstName": "admin",
+      "lastName": "admin",
       "email": "admin",
       "phone": "",
       "password": "$2a$12$xeqcbrSzWGfjlocTYPbkjeCBjOrWSNVhvpSWdW4Aui5i9Zy6J3OQW"
     },
     {
       "id": 2,
-      "first_name": "Bart",
-      "last_name": "Simpson",
+      "firstName": "Bart",
+      "lastName": "Simpson",
       "email": "bart.simpson@gmail.com",
       "phone": "+380639876543",
       "password": "$2a$12$HhNn8itQOcSQiIR2d1ns7e2Y4eOI5beyzBmAsTeEHURVuXqxXn8D2"
@@ -54,20 +54,20 @@
   ],
   "user-role": [
     {
-      "user_id": 1,
-      "role_id": 1
+      "userId": 1,
+      "roleId": 1
     },
     {
-      "user_id": 2,
-      "role_id": 2
+      "userId": 2,
+      "roleId": 2
     }
   ],
   "wallets": [
     {
       "id": 1,
       "number": "1234567890",
-      "amount_of_money": 1000000,
-      "user_id": 2
+      "amountOfMoney": 1000000,
+      "userId": 2
     }
   ],
   "products": [
@@ -77,7 +77,7 @@
       "describe": "Author: Uncle Bob",
       "price": 1000.0,
       "barcode": "105002741351",
-      "in_stock": true,
+      "inStock": true,
       "image": "/assets/images/clean-code.jpg"
     },
     {
@@ -86,7 +86,7 @@
       "describe": "Transformer Bumblebee",
       "price": 3000000.0,
       "barcode": "985002741365",
-      "in_stock": false,
+      "inStock": false,
       "image": "/assets/images/chevrolet-camaro.jpg"
     },
     {
@@ -95,7 +95,7 @@
       "describe": "Warm hoodie",
       "price": 500.0,
       "barcode": "335002741300",
-      "in_stock": true,
+      "inStock": true,
       "image": "/assets/images/hoodie.jpg"
     },
     {
@@ -104,7 +104,7 @@
       "describe": "Cool Smartphone",
       "price": 4300.0,
       "barcode": "125002741350",
-      "in_stock": true,
+      "inStock": true,
       "image": "/assets/images/samsung-a02.jpg"
     }
   ],
@@ -132,8 +132,8 @@
   ],
   "products-carts": [
     {
-      "product_id": 1,
-      "cart_id": 1
+      "productId": 1,
+      "cartId": 1
     }
   ]
 }
