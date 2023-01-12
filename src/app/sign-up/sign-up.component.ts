@@ -26,6 +26,10 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit(): void {
+    if (!this.isValidDataForSignUp()) {
+      return;
+    }
+
     this.userService.getUsers().subscribe(
       (users) => {
         const id = (users.length as number) + 1;
@@ -44,5 +48,44 @@ export class SignUpComponent implements OnInit {
     );
 
     this.router.navigate(['/sign-in']).then();
+  }
+
+  private isValidDataForSignUp(): boolean {
+    if (!this.firstName) {
+      alert('You haven\'t entered a first name');
+      return;
+    }
+
+    if (!this.lastName) {
+      alert('You haven\'t entered a last name');
+      return false;
+    }
+
+    if (!this.email) {
+      alert('You haven\'t entered a email');
+      return false;
+    }
+
+    if (!this.phone) {
+      alert('You haven\'t entered a phone');
+      return false;
+    }
+
+    if (!this.password) {
+      alert('You haven\'t entered a password');
+      return false;
+    }
+
+    if (!this.confirmPassword) {
+      alert('You haven\'t entered a confirm password');
+      return false;
+    }
+
+    if (this.password !== this.confirmPassword) {
+      alert('Your passwords are different');
+      return false;
+    }
+
+    return true;
   }
 }
