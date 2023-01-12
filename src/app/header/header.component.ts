@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {LogInConfig} from '../log-in/shared/log-in.config';
+import {Cookie} from 'ng2-cookies/ng2-cookies';
 
 @Component({
   selector: 'shop-header',
@@ -9,29 +9,24 @@ import {LogInConfig} from '../log-in/shared/log-in.config';
 })
 export class HeaderComponent implements OnInit {
   title: string = 'Shop';
-  static _logged: boolean = LogInConfig.userId > 0;
+  logged: boolean;
+
   constructor(
     private router: Router
   ) {
   }
 
   ngOnInit(): void {
+    let userId: number = Number(Cookie.get('userId'));
+    this.logged = userId > 0;
   }
 
   onToggleLogOut(): void {
-    LogInConfig.userId = 0;
+    Cookie.set('userId', '0');
     this.logged = !this.logged;
   }
 
   hasRoute(route: string): boolean {
     return this.router.url === route;
-  }
-
-  get logged(): boolean {
-    return HeaderComponent._logged;
-  }
-
-  set logged(value: boolean) {
-    HeaderComponent._logged = value;
   }
 }

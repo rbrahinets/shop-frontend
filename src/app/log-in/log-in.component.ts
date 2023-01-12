@@ -1,9 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
 import {LogInDto} from './shared/log-in.dto';
-import {LogInConfig} from './shared/log-in.config';
 import {UserService} from '../users/shared/user.service';
-import {HeaderComponent} from '../header/header.component';
+import {Cookie} from 'ng2-cookies/ng2-cookies';
 
 @Component({
   selector: 'shop-log-in',
@@ -32,9 +31,9 @@ export class LogInComponent implements OnInit {
             (this.login === user.email || this.login === user.phone)
             && this.password === user.password
           ) {
-            LogInConfig.userId = user.id;
-            HeaderComponent._logged = !HeaderComponent._logged;
-            this.router.navigate(['/']).then(() => {});
+            Cookie.set('userId', String(user.id));
+            this.router.navigate(['/'])
+              .then(() => window.location.reload());
           }
         }
       }
