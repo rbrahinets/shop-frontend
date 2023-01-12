@@ -11,7 +11,7 @@ import {ButtonComponent} from './button/button.component';
 import {FooterComponent} from './footer/footer.component';
 import {ProductListComponent} from './products/product-list/product-list.component';
 import {ProductListItemComponent} from './products/product-list-item/product-list-item.component';
-import {SelectedProductComponent} from './products/selected-product/selected-product.component';
+import {ProductComponent} from './products/product/product.component';
 import {CategoryListComponent} from './categories/category-list/category-list.component';
 import {CategoryListItemComponent} from './categories/category-list-item/category-list-item.component';
 import {CategoryComponent} from './categories/category/category.component';
@@ -25,7 +25,7 @@ const shopRoutes: Routes = [
   {path: 'categories', component: CategoryListComponent},
   {path: 'categories/:id', component: CategoryComponent},
   {path: 'products', component: ProductListComponent},
-  {path: 'products/:id', component: SelectedProductComponent},
+  {path: 'products/:id', component: ProductComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'login', component: LogInComponent},
   {path: 'registration', component: RegistrationComponent},
@@ -39,7 +39,7 @@ const shopRoutes: Routes = [
     FooterComponent,
     ProductListComponent,
     ProductListItemComponent,
-    SelectedProductComponent,
+    ProductComponent,
     CategoryListComponent,
     CategoryListItemComponent,
     CategoryComponent,

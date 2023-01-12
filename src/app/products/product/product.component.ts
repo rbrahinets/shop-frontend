@@ -4,11 +4,11 @@ import {Product} from '../shared/product.model';
 import {ProductService} from '../shared/product.service';
 
 @Component({
-  selector: 'shop-selected-product',
-  templateUrl: './selected-product.component.html',
-  styleUrls: ['./selected-product.component.css']
+  selector: 'shop-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.css']
 })
-export class SelectedProductComponent implements OnInit {
+export class ProductComponent implements OnInit {
   product: Product;
   imagePath: string;
 
