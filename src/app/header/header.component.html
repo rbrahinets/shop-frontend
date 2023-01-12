@@ -2,24 +2,19 @@
   <h1 id="main-page" routerLink="/">{{title}}</h1>
   <div>
     <shop-button
-      *ngIf="!hasRoute('/categories')"
+      *ngIf="!hasRoute('/categories') && !hasRoute('/login') && !hasRoute('/registration')"
       text="Categories"
       routerLink="/categories"
     ></shop-button>
     <shop-button
-      *ngIf="!hasRoute('/products')"
+      *ngIf="!hasRoute('/products') && !hasRoute('/login') && !hasRoute('/registration')"
       text="Products"
       routerLink="/products"
     ></shop-button>
     <shop-button
-      *ngIf="logged && !hasRoute('/profile')"
+      *ngIf="logged && !hasRoute('/profile') && !hasRoute('/login') && !hasRoute('/registration')"
       text="Profile"
       routerLink="/profile"
     ></shop-button>
   </div>
-  <shop-button
-    text="{{logged ? 'Log Out' : 'Log In'}}"
-    routerLink="{{logged ? '/' : '/login'}}"
-    (click)="onToggleLogIO()"
-  ></shop-button>
 </header>
