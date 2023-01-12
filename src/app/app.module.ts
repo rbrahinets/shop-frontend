@@ -16,8 +16,8 @@ import {CategoryListComponent} from './categories/category-list/category-list.co
 import {CategoryListItemComponent} from './categories/category-list-item/category-list-item.component';
 import {CategoryComponent} from './categories/category/category.component';
 import {ProfileComponent} from './profile/profile.component';
-import {LogInComponent} from './log-in/log-in.component';
-import {RegistrationComponent} from './registration/registration.component';
+import {SignInComponent} from './sign-in/sign-in.component';
+import {SignUpComponent} from './sign-up/sign-up.component';
 import {MainComponent} from './main/main.component';
 
 const shopRoutes: Routes = [
@@ -27,8 +27,8 @@ const shopRoutes: Routes = [
   {path: 'products', component: ProductListComponent},
   {path: 'products/:id', component: ProductComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'login', component: LogInComponent},
-  {path: 'registration', component: RegistrationComponent},
+  {path: 'sign-in', component: SignInComponent},
+  {path: 'sign-up', component: SignUpComponent},
 ];
 
 @NgModule({
@@ -44,8 +44,8 @@ const shopRoutes: Routes = [
     CategoryListItemComponent,
     CategoryComponent,
     ProfileComponent,
-    LogInComponent,
-    RegistrationComponent,
+    SignInComponent,
+    SignUpComponent,
     MainComponent,
   ],
   imports: [

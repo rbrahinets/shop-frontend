@@ -1,5 +1,5 @@
 <div class="center">
-  <h1>Log In</h1>
+  <h1>Sign In</h1>
   <form
     class="form"
     (ngSubmit)="onSubmit()"
@@ -9,7 +9,7 @@
         type="text"
         name="login"
         id="login"
-        placeholder="Email or phone"
+        placeholder="Email or Phone"
         [(ngModel)]="login"
       />
     </div>
@@ -22,10 +22,10 @@
         [(ngModel)]="password"
       />
     </div>
-    <input type="submit" value="Log In" class="btn"/>
+    <input type="submit" value="Sign In" class="btn"/>
   </form>
   <shop-button
-    text="Registration"
-    routerLink="/registration"
+    text="Sign Up"
+    routerLink="/sign-up"
   ></shop-button>
 </div>

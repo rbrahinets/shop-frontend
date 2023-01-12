@@ -1,16 +1,16 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
-import {LogInDto} from './shared/log-in.dto';
+import {SignInUserDto} from './shared/sign-in-user.dto';
 import {UserService} from '../users/shared/user.service';
 import {Cookie} from 'ng2-cookies/ng2-cookies';
 
 @Component({
-  selector: 'shop-log-in',
-  templateUrl: './log-in.component.html',
-  styleUrls: ['./log-in.component.css']
+  selector: 'shop-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.css']
 })
-export class LogInComponent implements OnInit {
-  @Output() onLogIn: EventEmitter<LogInDto> = new EventEmitter();
+export class SignInComponent implements OnInit {
+  @Output() onLogIn: EventEmitter<SignInUserDto> = new EventEmitter();
   login: string;
   password: string;
 

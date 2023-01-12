@@ -2,28 +2,28 @@
   <h1 id="main-page" routerLink="/">{{title}}</h1>
   <div>
     <shop-button
-      *ngIf="!hasRoute('/categories') && !hasRoute('/login') && !hasRoute('/registration')"
+      *ngIf="!hasRoute('/categories') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
       text="Categories"
       routerLink="/categories"
     ></shop-button>
     <shop-button
-      *ngIf="!hasRoute('/products') && !hasRoute('/login') && !hasRoute('/registration')"
+      *ngIf="!hasRoute('/products') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
       text="Products"
       routerLink="/products"
     ></shop-button>
     <shop-button
-      *ngIf="logged && !hasRoute('/profile') && !hasRoute('/login') && !hasRoute('/registration')"
+      *ngIf="logged && !hasRoute('/profile') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
       text="Profile"
       routerLink="/profile"
     ></shop-button>
   </div>
   <shop-button
-    *ngIf="!logged && !hasRoute('/login') && !hasRoute('/registration')"
-    text="Log In"
-    routerLink="/login"
+    *ngIf="!logged && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
+    text="Sign In"
+    routerLink="/sign-in"
   ></shop-button>
   <shop-button
-    *ngIf="logged && !hasRoute('/login') && !hasRoute('/registration')"
+    *ngIf="logged && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
     text="Log Out"
     routerLink="/"
     (click)="onToggleLogOut()"
