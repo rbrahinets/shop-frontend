@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {SignInUserDto} from './shared/sign-in-user.dto';
 import {UserService} from '../users/shared/user.service';
 import {Cookie} from 'ng2-cookies/ng2-cookies';
+import {User} from '../users/shared/user.model';
 
 @Component({
   selector: 'shop-sign-in',
@@ -24,18 +25,38 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit(): void {
+    if (!this.login) {
+      alert('You haven\'t entered a login');
+      return;
+    }
+
+    if (!this.password) {
+      alert('You haven\'t entered a password');
+      return;
+    }
+
     this.userService.getUsers().subscribe(
       (users) => {
-        for (const user of users) {
+        let user: User;
+
+        for (const u of users) {
           if (
-            (this.login === user.email || this.login === user.phone)
-            && this.password === user.password
+            (this.login === u.email || this.login === u.phone)
+            && this.password === u.password
           ) {
-            Cookie.set('userId', String(user.id));
-            this.router.navigate(['/'])
-              .then(() => window.location.reload());
+            user = u;
+            break;
           }
         }
+
+        if (!user) {
+          alert('You have entered an incorrect login or password');
+          return;
+        }
+
+        Cookie.set('userId', String(user.id));
+        this.router.navigate(['/'])
+          .then(() => window.location.reload());
       }
     );
   }
