@@ -15,7 +15,7 @@ import {ProductComponent} from './products/product/product.component';
 import {CategoryListComponent} from './categories/category-list/category-list.component';
 import {CategoryListItemComponent} from './categories/category-list-item/category-list-item.component';
 import {CategoryComponent} from './categories/category/category.component';
-import {ProfileComponent} from './profiles/profile/profile.component';
+import {ProfileComponent} from './profile/profile.component';
 import {LogInComponent} from './log-in/log-in.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {MainComponent} from './main/main.component';
