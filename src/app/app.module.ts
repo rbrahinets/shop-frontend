@@ -9,16 +9,16 @@ import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {ButtonComponent} from './button/button.component';
 import {FooterComponent} from './footer/footer.component';
-import {ProductListComponent} from './products/product-list/product-list.component';
 import {ProductListItemComponent} from './products/product-list-item/product-list-item.component';
+import {ProductListComponent} from './products/product-list/product-list.component';
 import {SelectedProductComponent} from './products/selected-product/selected-product.component';
-import {CategoryComponent} from './categories/category/category.component';
 import {CategoryListComponent} from './categories/category-list/category-list.component';
+import {CategoryListItemComponent} from './categories/category-list-item/category-list-item.component';
+import {SelectedCategoryComponent} from './categories/selected-category/selected-category.component';
 import {ProfileComponent} from './profiles/profile/profile.component';
 import {LogInComponent} from './log-in/log-in.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {MainComponent} from './main/main.component';
-import { SelectedCategoryComponent } from './categories/selected-category/selected-category.component';
 
 const shopRoutes: Routes = [
   {path: '', component: MainComponent},
@@ -40,7 +40,7 @@ const shopRoutes: Routes = [
     ProductListComponent,
     ProductListItemComponent,
     SelectedProductComponent,
-    CategoryComponent,
+    CategoryListItemComponent,
     CategoryListComponent,
     ProfileComponent,
     LogInComponent,

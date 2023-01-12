@@ -1,20 +1,20 @@
 // import {ComponentFixture, TestBed} from '@angular/core/testing';
 //
-// import {SelectedCategoryComponent} from './selected-category.component';
+// import {CategoryListItemComponent} from './category-list-item.component';
 //
-// describe('SelectedCategoryComponent', () => {
-//   let component: SelectedCategoryComponent;
-//   let fixture: ComponentFixture<SelectedCategoryComponent>;
+// describe('CategoryListItemComponent', () => {
+//   let component: CategoryListItemComponent;
+//   let fixture: ComponentFixture<CategoryListItemComponent>;
 //
 //   beforeEach(async () => {
 //     await TestBed.configureTestingModule({
-//       declarations: [SelectedCategoryComponent]
+//       declarations: [CategoryListItemComponent]
 //     })
 //       .compileComponents();
 //   });
 //
 //   beforeEach(() => {
-//     fixture = TestBed.createComponent(SelectedCategoryComponent);
+//     fixture = TestBed.createComponent(CategoryListItemComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });
