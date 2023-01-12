@@ -1,4 +1,4 @@
-export interface ProductsCategoryDto {
+export class ProductsCategoryDto {
   productId: number;
   categoryId: number;
 }

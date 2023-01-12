@@ -1,9 +1,9 @@
-export interface Product {
+export class Product {
   id?: number;
   name: string;
   describe: string;
   price: number;
   barcode: string;
-  in_stock: boolean;
+  inStock: boolean;
   image: string;
 }
