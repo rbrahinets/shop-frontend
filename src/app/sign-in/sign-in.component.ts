@@ -23,13 +23,7 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (!this.login) {
-      alert('You haven\'t entered a login');
-      return;
-    }
-
-    if (!this.password) {
-      alert('You haven\'t entered a password');
+    if (!this.isValidDataForSignIn()) {
       return;
     }
 
@@ -57,5 +51,19 @@ export class SignInComponent implements OnInit {
           .then(() => window.location.reload());
       }
     );
+  }
+
+  private isValidDataForSignIn(): boolean {
+    if (!this.login) {
+      alert('You haven\'t entered a login');
+      return false;
+    }
+
+    if (!this.password) {
+      alert('You haven\'t entered a password');
+      return false;
+    }
+
+    return true;
   }
 }
