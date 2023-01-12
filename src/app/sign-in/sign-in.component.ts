@@ -1,6 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {SignInUserDto} from './shared/sign-in-user.dto';
 import {UserService} from '../users/shared/user.service';
 import {Cookie} from 'ng2-cookies/ng2-cookies';
 import {User} from '../users/shared/user.model';
@@ -11,7 +10,6 @@ import {User} from '../users/shared/user.model';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-  @Output() onLogIn: EventEmitter<SignInUserDto> = new EventEmitter();
   login: string;
   password: string;
 
