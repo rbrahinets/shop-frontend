@@ -17,4 +17,15 @@
       routerLink="/profile"
     ></shop-button>
   </div>
+  <shop-button
+    *ngIf="!logged && !hasRoute('/login') && !hasRoute('/registration')"
+    text="Log In"
+    routerLink="/login"
+  ></shop-button>
+  <shop-button
+    *ngIf="logged && !hasRoute('/login') && !hasRoute('/registration')"
+    text="Log Out"
+    routerLink="/"
+    (click)="onToggleLogOut()"
+  ></shop-button>
 </header>
