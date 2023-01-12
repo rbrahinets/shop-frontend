@@ -7,7 +7,7 @@ import {Category} from '../shared/category.model';
   styleUrls: ['./category-list-item.component.css']
 })
 export class CategoryListItemComponent implements OnInit {
-  @Input() category: Category;
+  @Input() category = new Category();
 
   constructor() {
   }

@@ -6,7 +6,7 @@ import {ProductService} from '../../products/shared/product.service';
 import {ProductsCategoryDto} from '../shared/products-category.dto';
 
 @Component({
-  selector: 'shop-category-list-item',
+  selector: 'shop-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })

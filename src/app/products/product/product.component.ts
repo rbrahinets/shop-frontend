@@ -9,7 +9,7 @@ import {ProductService} from '../shared/product.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  product: Product;
+  product = new Product();
   imagePath: string;
 
   constructor(

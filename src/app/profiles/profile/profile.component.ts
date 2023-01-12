@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Profile} from "../shared/profile.model";
-import {UserService} from "../shared/user.service";
+import {Profile} from '../shared/profile.model';
+import {UserService} from '../shared/user.service';
 
 @Component({
   selector: 'shop-profiles',
@@ -8,7 +8,7 @@ import {UserService} from "../shared/user.service";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  profile: Profile;
+  profile = new Profile();
 
   constructor(
     private userService: UserService

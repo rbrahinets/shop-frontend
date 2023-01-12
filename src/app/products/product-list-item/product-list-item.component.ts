@@ -7,7 +7,7 @@ import {Product} from "../shared/product.model";
   styleUrls: ['./product-list-item.component.css']
 })
 export class ProductListItemComponent implements OnInit {
-  @Input() product: Product;
+  @Input() product = new Product();
   @Input() imagePath: string;
 
   constructor() {
