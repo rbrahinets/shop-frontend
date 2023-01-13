@@ -31,7 +31,7 @@
       "lastName": "admin",
       "email": "admin",
       "phone": "",
-      "password": "$2a$12$xeqcbrSzWGfjlocTYPbkjeCBjOrWSNVhvpSWdW4Aui5i9Zy6J3OQW"
+      "password": "admin"
     },
     {
       "id": 2,
@@ -39,7 +39,7 @@
       "lastName": "Simpson",
       "email": "bart.simpson@gmail.com",
       "phone": "+380639876543",
-      "password": "$2a$12$HhNn8itQOcSQiIR2d1ns7e2Y4eOI5beyzBmAsTeEHURVuXqxXn8D2"
+      "password": "bart"
     }
   ],
   "roles": [
@@ -54,10 +54,12 @@
   ],
   "user-role": [
     {
+      "id": 1,
       "userId": 1,
       "roleId": 1
     },
     {
+      "id": 2,
       "userId": 2,
       "roleId": 2
     }
@@ -75,7 +77,7 @@
       "id": 1,
       "name": "Clean Code",
       "describe": "Author: Uncle Bob",
-      "price": 1000.0,
+      "price": 1000,
       "barcode": "105002741351",
       "inStock": true,
       "image": "/assets/images/clean-code.jpg"
@@ -84,7 +86,7 @@
       "id": 2,
       "name": "Chevrolet Camaro",
       "describe": "Transformer Bumblebee",
-      "price": 3000000.0,
+      "price": 3000000,
       "barcode": "985002741365",
       "inStock": false,
       "image": "/assets/images/chevrolet-camaro.jpg"
@@ -93,7 +95,7 @@
       "id": 3,
       "name": "Hoodie",
       "describe": "Warm hoodie",
-      "price": 500.0,
+      "price": 500,
       "barcode": "335002741300",
       "inStock": true,
       "image": "/assets/images/hoodie.jpg"
@@ -102,7 +104,7 @@
       "id": 4,
       "name": "Samsung A02",
       "describe": "Cool Smartphone",
-      "price": 4300.0,
+      "price": 4300,
       "barcode": "125002741350",
       "inStock": true,
       "image": "/assets/images/samsung-a02.jpg"
@@ -124,10 +126,6 @@
     {
       "productId": 4,
       "categoryId": 4
-    },
-    {
-      "productId": 100,
-      "categoryId": 100
     }
   ],
   "products-carts": [
