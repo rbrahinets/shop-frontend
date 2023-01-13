@@ -25,7 +25,6 @@
   <shop-button
     *ngIf="logged && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
     text="Log Out"
-    routerLink="/"
     (click)="onToggleLogOut()"
   ></shop-button>
 </header>

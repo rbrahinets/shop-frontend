@@ -37,7 +37,8 @@ export class HeaderComponent implements OnInit {
     Cookie.set('userId', '0');
     Cookie.set('userRole', '');
     this.logged = !this.logged;
-    window.location.reload();
+    this.router.navigate(['/'])
+      .then(() => window.location.reload());
   }
 
   hasRoute(route: string): boolean {
