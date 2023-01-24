@@ -14,6 +14,10 @@ export class CartService {
   ) {
   }
 
+  getCarts(): Observable<Cart[]> {
+    return this.http.get<Cart[]>(this.apiUrl);
+  }
+
   getCart(id: number): Observable<Cart> {
     return this.http.get<Cart>(`${this.apiUrl}/${id}`);
   }
