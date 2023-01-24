@@ -16,6 +16,11 @@
       text="Profile"
       routerLink="/profile"
     ></shop-button>
+    <shop-button
+      *ngIf="logged && !hasRoute('/cart') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
+      text="Cart"
+      routerLink="/cart"
+    ></shop-button>
   </div>
   <div>
     <shop-button
