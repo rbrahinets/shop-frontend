@@ -1,5 +1,8 @@
 <div>
-  <div *ngFor="let product of products">
+  <div
+    class="product"
+    *ngFor="let product of products"
+  >
     <h3>Product: {{product.name}}</h3>
     <p>Price: {{product.price}}</p>
   </div>
