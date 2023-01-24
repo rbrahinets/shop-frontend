@@ -1,9 +1,8 @@
 <div>
-  <h1>Cart</h1>
   <div *ngFor="let product of products">
-    <h3>{{product.name}}</h3>
-    <h4>{{product.price}}</h4>
+    <h3>Product: {{product.name}}</h3>
+    <p>Price: {{product.price}}</p>
   </div>
   <hr/>
-  <h3>Total Cost: {{cart.totalCost}}$</h3>
+  <h3>Total Cost: {{cart.totalCost}}</h3>
 </div>
