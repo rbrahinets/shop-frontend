@@ -19,6 +19,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {SignInComponent} from './sign-in/sign-in.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import {MainComponent} from './main/main.component';
+import {CartComponent} from './cart/cart.component';
 
 const shopRoutes: Routes = [
   {path: '', component: MainComponent},
@@ -47,6 +48,7 @@ const shopRoutes: Routes = [
     SignInComponent,
     SignUpComponent,
     MainComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
