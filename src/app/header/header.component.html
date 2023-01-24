@@ -17,14 +17,16 @@
       routerLink="/profile"
     ></shop-button>
   </div>
-  <shop-button
-    *ngIf="!logged && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
-    text="Sign In"
-    routerLink="/sign-in"
-  ></shop-button>
-  <shop-button
-    *ngIf="logged && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
-    text="Log Out"
-    (click)="onToggleLogOut()"
-  ></shop-button>
+  <div>
+    <shop-button
+      *ngIf="!logged && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
+      text="Sign In"
+      routerLink="/sign-in"
+    ></shop-button>
+    <shop-button
+      *ngIf="logged && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
+      text="Log Out"
+      (click)="onToggleLogOut()"
+    ></shop-button>
+  </div>
 </header>
