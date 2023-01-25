@@ -3,6 +3,8 @@ import {Router} from '@angular/router';
 import {UserService} from '../users/shared/user.service';
 import {User} from '../users/shared/user.model';
 import {UserRoleService} from '../users/shared/user-role.service';
+import {Cart} from '../cart/shared/cart.model';
+import {CartService} from '../cart/shared/cart.service';
 
 @Component({
   selector: 'shop-sign-up',
@@ -20,6 +22,7 @@ export class SignUpComponent implements OnInit {
   constructor(
     private userService: UserService,
     private userRoleService: UserRoleService,
+    private cartService: CartService,
     private router: Router
   ) {
   }
@@ -47,6 +50,17 @@ export class SignUpComponent implements OnInit {
 
         this.userService.saveUser(newUser).subscribe();
         this.userRoleService.saveRoleForUser(newUser).subscribe();
+
+        const cart = new Cart();
+
+        this.cartService.getCarts().subscribe(
+          (carts) => cart.id = (carts.length as number) + 1
+        );
+
+        cart.totalCost = 0;
+        cart.userId = newUser.id;
+
+        this.cartService.saveCart(cart).subscribe();
       }
     );
 
