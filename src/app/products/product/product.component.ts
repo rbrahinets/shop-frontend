@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {Cookie} from 'ng2-cookies/ng2-cookies';
 import {Product} from '../shared/product.model';
 import {ProductService} from '../shared/product.service';
+import {ProductsCartsService} from '../../cart/shared/products-carts.service';
+import {CartService} from '../../cart/shared/cart.service';
 
 @Component({
   selector: 'shop-product',
@@ -14,6 +17,8 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
+    private cartService: CartService,
+    private productsCartsService: ProductsCartsService,
     private router: Router
   ) {
   }
@@ -26,6 +31,29 @@ export class ProductComponent implements OnInit {
       (product) => {
         this.product = product;
         this.imagePath = product.image;
+      }
+    );
+  }
+
+  onSubmit(): void {
+    const userId: number = Number(Cookie.get('userId'));
+
+    this.cartService.getCarts().subscribe(
+      (carts) => {
+        let cartId: number = 0;
+
+        for (const cart of carts) {
+          if (cart.userId === userId) {
+            cartId = cart.id;
+          }
+        }
+
+        this.productsCartsService.saveProductToCart(
+          this.product.id,
+          cartId
+        ).subscribe();
+
+        alert(`'${this.product.name}' Added to Cart`);
       }
     );
   }
