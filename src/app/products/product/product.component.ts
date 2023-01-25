@@ -54,6 +54,9 @@ export class ProductComponent implements OnInit {
           currentCart
         ).subscribe();
 
+        currentCart.totalCost += this.product.price;
+        this.cartService.updateCart(currentCart).subscribe(() => {});
+
         alert(`'${this.product.name}' Added to Cart`);
       }
     );
