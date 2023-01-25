@@ -5,6 +5,7 @@ import {Product} from '../shared/product.model';
 import {ProductService} from '../shared/product.service';
 import {ProductsCartsService} from '../../cart/shared/products-carts.service';
 import {CartService} from '../../cart/shared/cart.service';
+import {Cart} from '../../cart/shared/cart.model';
 
 @Component({
   selector: 'shop-product',
@@ -40,17 +41,17 @@ export class ProductComponent implements OnInit {
 
     this.cartService.getCarts().subscribe(
       (carts) => {
-        let cartId: number = 0;
+        let currentCart: Cart;
 
         for (const cart of carts) {
           if (cart.userId === userId) {
-            cartId = cart.id;
+            currentCart = cart;
           }
         }
 
         this.productsCartsService.saveProductToCart(
-          this.product.id,
-          cartId
+          this.product,
+          currentCart
         ).subscribe();
 
         alert(`'${this.product.name}' Added to Cart`);
