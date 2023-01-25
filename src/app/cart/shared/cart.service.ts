@@ -31,4 +31,9 @@ export class CartService {
   saveCart(cart: Cart): Observable<Cart> {
     return this.http.post<Cart>(this.apiUrl, cart, httpOptions);
   }
+
+  updateCart(cart: Cart): Observable<Cart> {
+    const url = `${this.apiUrl}/${cart.id}`;
+    return this.http.put<Cart>(url, cart, httpOptions);
+  }
 }
