@@ -17,6 +17,10 @@ export class ProductsCartsService {
   ) {
   }
 
+  getProductsCarts(): Observable<ProductsCartsDto[]> {
+    return this.http.get<ProductsCartsDto[]>(this.apiUrl);
+  }
+
   getProductsFromCart(cartId: number): Observable<Product[]> {
     let products: Product[] = [];
 
