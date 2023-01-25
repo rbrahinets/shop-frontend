@@ -4,6 +4,7 @@ import {Observable, of} from 'rxjs';
 import {Product} from '../../products/shared/product.model';
 import {ProductsCartsDto} from './products-carts.dto';
 import {ProductService} from '../../products/shared/product.service';
+import {Cart} from './cart.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -46,8 +47,8 @@ export class ProductsCartsService {
   }
 
   saveProductToCart(
-    productId: number,
-    cartId: number
+    product: Product,
+    cart: Cart
   ): Observable<ProductsCartsDto> {
     const productCart = new ProductsCartsDto();
 
@@ -56,8 +57,8 @@ export class ProductsCartsService {
         productCart.id = (productsCarts.length as number) + 1
     );
 
-    productCart.productId = productId;
-    productCart.cartId = cartId;
+    productCart.productId = product.id;
+    productCart.cartId = cart.id;
 
     return this.http.post<ProductsCartsDto>(this.apiUrl, productCart, httpOptions);
   }
