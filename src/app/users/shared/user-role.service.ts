@@ -14,6 +14,10 @@ export class UserRoleService {
   ) {
   }
 
+  getUsersRoles(): Observable<UserRoleDto[]> {
+    return this.http.get<UserRoleDto[]>(this.apiUrl);
+  }
+
   getRoleForUser(userId: number): Observable<UserRoleDto> {
     return this.http.get<UserRoleDto>(`${this.apiUrl}/${userId}`);
   }
