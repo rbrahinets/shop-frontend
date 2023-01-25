@@ -24,7 +24,7 @@ export class ProductsCartsService {
   getProductsFromCart(cartId: number): Observable<Product[]> {
     let products: Product[] = [];
 
-    this.http.get<ProductsCartsDto[]>(this.apiUrl).subscribe(
+    this.getProductsCarts().subscribe(
       (productsCarts) => {
         for (const productCart of productsCarts) {
           if (productCart.cartId === cartId) {
