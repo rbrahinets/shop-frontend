@@ -1,9 +1,15 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {Product} from '../../products/shared/product.model';
 import {ProductsCartsDto} from './products-carts.dto';
 import {ProductService} from '../../products/shared/product.service';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +43,22 @@ export class ProductsCartsService {
     );
 
     return of(products);
+  }
+
+  saveProductToCart(
+    productId: number,
+    cartId: number
+  ): Observable<ProductsCartsDto> {
+    const productCart = new ProductsCartsDto();
+
+    this.getProductsCarts().subscribe(
+      (productsCarts) =>
+        productCart.id = (productsCarts.length as number) + 1
+    );
+
+    productCart.productId = productId;
+    productCart.cartId = cartId;
+
+    return this.http.post<ProductsCartsDto>(this.apiUrl, productCart, httpOptions);
   }
 }
