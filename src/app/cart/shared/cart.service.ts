@@ -1,7 +1,13 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Cart} from './cart.model';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +26,9 @@ export class CartService {
 
   getCart(id: number): Observable<Cart> {
     return this.http.get<Cart>(`${this.apiUrl}/${id}`);
+  }
+
+  saveCart(cart: Cart): Observable<Cart> {
+    return this.http.post<Cart>(this.apiUrl, cart, httpOptions);
   }
 }
