@@ -33,9 +33,7 @@ export class UserRoleService {
     const userRole = new UserRoleDto();
 
     this.getUsersRoles().subscribe(
-      (roleUsersRoles) => {
-        userRole.id = (roleUsersRoles.length as number) + 1;
-      }
+      (roleUsersRoles) => userRole.id = (roleUsersRoles.length as number) + 1
     );
 
     userRole.roleId = 2;
