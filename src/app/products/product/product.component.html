@@ -5,4 +5,7 @@
   <h4>Barcode: {{product.barcode}}</h4>
   <h4>Price: {{product.price}}</h4>
   <h4>{{product.inStock ? 'Is in stock' : 'Isn\'t in stock'}}</h4>
+  <form (ngSubmit)="onSubmit()">
+    <input type="submit" value="Add to Cart" class="btn"/>
+  </form>
 </div>
