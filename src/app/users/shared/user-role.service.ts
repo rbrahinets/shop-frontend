@@ -1,7 +1,14 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {User} from './user.model';
 import {UserRoleDto} from './user-role.dto';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +27,20 @@ export class UserRoleService {
 
   getRoleForUser(userId: number): Observable<UserRoleDto> {
     return this.http.get<UserRoleDto>(`${this.apiUrl}/${userId}`);
+  }
+
+  saveRoleForUser(user: User): Observable<UserRoleDto> {
+    const userRole = new UserRoleDto();
+
+    this.getUsersRoles().subscribe(
+      (roleUsersRoles) => {
+        userRole.id = (roleUsersRoles.length as number) + 1;
+      }
+    );
+
+    userRole.roleId = 2;
+    userRole.userId = user.id;
+
+    return this.http.post<UserRoleDto>(this.apiUrl, userRole, httpOptions);
   }
 }
