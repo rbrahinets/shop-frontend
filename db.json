@@ -2,7 +2,7 @@
   "carts": [
     {
       "id": 1,
-      "totalCost": 0,
+      "totalCost": 1000,
       "userId": 2
     }
   ],
@@ -130,6 +130,7 @@
   ],
   "products-carts": [
     {
+      "id": 1,
       "productId": 1,
       "cartId": 1
     }
