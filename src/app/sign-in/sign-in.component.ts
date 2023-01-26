@@ -22,7 +22,7 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(): void {
+  onSignIn(): void {
     if (!this.isValidDataForSignIn()) {
       return;
     }
