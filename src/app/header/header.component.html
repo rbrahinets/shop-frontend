@@ -22,6 +22,12 @@
       text="Cart"
       routerLink="/cart"
     ></shop-button>
+    <shop-button
+      *ngIf="logged && userRole === 'ROLE_USER'
+      && !hasRoute('/wallet') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
+      text="Wallet"
+      routerLink="/wallet"
+    ></shop-button>
   </div>
   <div>
     <shop-button
