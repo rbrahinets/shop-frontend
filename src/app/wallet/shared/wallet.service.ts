@@ -1,7 +1,13 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Wallet} from './wallet.model';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +26,10 @@ export class WalletService {
 
   getWalletById(id: number): Observable<Wallet> {
     return this.http.get<Wallet>(`${this.apiUrl}/${id}`);
+  }
+
+  updateWallet(wallet: Wallet): Observable<Wallet> {
+    const url = `${this.apiUrl}/${wallet.id}`;
+    return this.http.put<Wallet>(url, wallet, httpOptions);
   }
 }
