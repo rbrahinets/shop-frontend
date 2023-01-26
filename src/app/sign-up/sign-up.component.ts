@@ -5,6 +5,8 @@ import {User} from '../users/shared/user.model';
 import {UserRoleService} from '../users/shared/user-role.service';
 import {Cart} from '../cart/shared/cart.model';
 import {CartService} from '../cart/shared/cart.service';
+import {WalletService} from '../wallet/shared/wallet.service';
+import {Wallet} from "../wallet/shared/wallet.model";
 
 @Component({
   selector: 'shop-sign-up',
@@ -23,6 +25,7 @@ export class SignUpComponent implements OnInit {
     private userService: UserService,
     private userRoleService: UserRoleService,
     private cartService: CartService,
+    private walletService: WalletService,
     private router: Router
   ) {
   }
@@ -61,6 +64,18 @@ export class SignUpComponent implements OnInit {
         cart.userId = newUser.id;
 
         this.cartService.saveCart(cart).subscribe();
+
+        const wallet = new Wallet();
+
+        this.walletService.getWallets().subscribe(
+          (wallets) => wallet.id = (wallets.length as number) + 1
+        );
+
+        wallet.amountOfMoney = 0;
+        wallet.number = '';
+        wallet.userId = newUser.id;
+
+        this.walletService.saveWallet(wallet).subscribe();
       }
     );
 
