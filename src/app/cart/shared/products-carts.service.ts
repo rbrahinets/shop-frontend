@@ -62,4 +62,25 @@ export class ProductsCartsService {
 
     return this.http.post<ProductsCartsDto>(this.apiUrl, productCart, httpOptions);
   }
+
+  deleteProductFromCart(
+    product: Product,
+    cart: Cart
+  ): void {
+    this.getProductsCarts().subscribe(
+      (productsCarts) => {
+        for (const productCart of productsCarts) {
+          if (
+            productCart.productId === product.id
+            && productCart.cartId === cart.id
+          ) {
+            this.http.delete<ProductsCartsDto>(
+              `${this.apiUrl}/${productCart.id}`
+            ).subscribe();
+            break;
+          }
+        }
+      }
+    );
+  }
 }
