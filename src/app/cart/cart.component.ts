@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
+import {faTimes} from '@fortawesome/free-solid-svg-icons';
 import {Cart} from './shared/cart.model';
 import {CartService} from './shared/cart.service';
 import {Product} from '../products/shared/product.model';
 import {ProductsCartsService} from './shared/products-carts.service';
 import {Cookie} from 'ng2-cookies/ng2-cookies';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'shop-cart',
@@ -14,9 +16,12 @@ export class CartComponent implements OnInit {
   cart = new Cart();
   products: Product[] = [];
 
+  faTimes = faTimes;
+
   constructor(
     private cartService: CartService,
-    private productsCartsService: ProductsCartsService
+    private productsCartsService: ProductsCartsService,
+    private router: Router
   ) {
   }
 
@@ -38,10 +43,20 @@ export class CartComponent implements OnInit {
             this.cart = cart;
             this.productsCartsService.getProductsFromCart(cart.id).subscribe(
               (products) => this.products = products
-            )
+            );
           }
         );
       }
     );
+  }
+
+  deleteProductFromCart(product: Product) {
+    this.productsCartsService
+      .deleteProductFromCart(product, this.cart);
+    this.cart.totalCost -= product.price;
+    this.cartService.updateCart(this.cart)
+      .subscribe();
+    this.router.navigate(['/cart'])
+      .then(() => window.location.reload());
   }
 }
