@@ -20,6 +20,7 @@ import {SignInComponent} from './sign-in/sign-in.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import {MainComponent} from './main/main.component';
 import {CartComponent} from './cart/cart.component';
+import {WalletComponent} from './wallet/wallet.component';
 
 const shopRoutes: Routes = [
   {path: '', component: MainComponent},
@@ -50,6 +51,7 @@ const shopRoutes: Routes = [
     SignUpComponent,
     MainComponent,
     CartComponent,
+    WalletComponent,
   ],
   imports: [
     BrowserModule,
