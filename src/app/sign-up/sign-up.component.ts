@@ -33,7 +33,7 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(): void {
+  onSignUp(): void {
     if (!this.isValidDataForSignUp()) {
       return;
     }
