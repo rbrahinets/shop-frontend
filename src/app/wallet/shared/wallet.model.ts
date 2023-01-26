@@ -1,4 +1,4 @@
-export class WalletModel {
+export class Wallet {
   id?: number;
   number: string;
   amountOfMoney: number;
