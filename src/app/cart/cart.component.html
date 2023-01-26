@@ -4,7 +4,14 @@
     class="product"
     *ngFor="let product of products"
   >
-    <h3>Product: {{product.name}}</h3>
+    <h3>
+      Product: {{product.name}}
+      <fa-icon
+        (click)="deleteProductFromCart(product)"
+        [ngStyle]="{color: 'red', cursor: 'pointer'}"
+        [icon]="faTimes"
+      ></fa-icon>
+    </h3>
     <p>Price: {{product.price}}</p>
   </div>
   <hr/>
