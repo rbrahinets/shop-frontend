@@ -21,14 +21,14 @@ import {SignUpComponent} from './sign-up/sign-up.component';
 import {MainComponent} from './main/main.component';
 import {CartComponent} from './cart/cart.component';
 import {WalletComponent} from './wallet/wallet.component';
-import {ProductService} from "./products/shared/product.service";
-import {CategoryService} from "./categories/shared/category.service";
-import {CartService} from "./cart/shared/cart.service";
-import {WalletService} from "./wallet/shared/wallet.service";
-import {ProductsCartsService} from "./cart/shared/products-carts.service";
-import {ProductsCategoryService} from "./categories/shared/products-category.service";
-import {UserService} from "./users/shared/user.service";
-import {UserRoleService} from "./users/shared/user-role.service";
+import {ProductService} from './products/shared/product.service';
+import {CategoryService} from './categories/shared/category.service';
+import {CartService} from './cart/shared/cart.service';
+import {WalletService} from './wallet/shared/wallet.service';
+import {ProductsCartsService} from './cart/shared/products-carts.service';
+import {ProductsCategoryService} from './categories/shared/products-category.service';
+import {UserService} from './users/shared/user.service';
+import {UserRoleService} from './users/shared/user-role.service';
 
 const shopRoutes: Routes = [
   {path: '', component: MainComponent},
