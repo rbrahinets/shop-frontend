@@ -24,7 +24,7 @@ export class WalletService {
     return this.http.get<Wallet[]>(this.apiUrl);
   }
 
-  getWalletById(id: number): Observable<Wallet> {
+  getWallet(id: number): Observable<Wallet> {
     return this.http.get<Wallet>(`${this.apiUrl}/${id}`);
   }
 

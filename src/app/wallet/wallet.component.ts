@@ -29,7 +29,7 @@ export class WalletComponent implements OnInit {
           }
         }
 
-        this.walletService.getWalletById(walletId).subscribe(
+        this.walletService.getWallet(walletId).subscribe(
           (wallet) => {
             this.wallet = wallet;
           }
