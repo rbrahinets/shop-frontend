@@ -32,6 +32,7 @@ const shopRoutes: Routes = [
   {path: 'sign-in', component: SignInComponent},
   {path: 'sign-up', component: SignUpComponent},
   {path: 'cart', component: CartComponent},
+  {path: 'wallet', component: WalletComponent},
 ];
 
 @NgModule({
