@@ -28,6 +28,10 @@ export class WalletService {
     return this.http.get<Wallet>(`${this.apiUrl}/${id}`);
   }
 
+  saveWallet(wallet: Wallet): Observable<Wallet> {
+    return this.http.post<Wallet>(this.apiUrl, wallet, httpOptions);
+  }
+
   updateWallet(wallet: Wallet): Observable<Wallet> {
     const url = `${this.apiUrl}/${wallet.id}`;
     return this.http.put<Wallet>(url, wallet, httpOptions);
