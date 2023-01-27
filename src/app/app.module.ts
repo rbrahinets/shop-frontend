@@ -8,6 +8,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {ButtonModule} from './button/button.module';
 import {SignInModule} from './sign-in/sign-in.module';
 import {SignInRoutingModule} from './sign-in/sign-in-routing.module';
+import {SignUpModule} from './sign-up/sign-up.module';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
@@ -57,7 +58,6 @@ const shopRoutes: Routes = [
     CategoryListItemComponent,
     CategoryComponent,
     ProfileComponent,
-    SignUpComponent,
     MainComponent,
     CartComponent,
     WalletComponent,
@@ -71,6 +71,7 @@ const shopRoutes: Routes = [
     ButtonModule,
     SignInModule,
     SignInRoutingModule,
+    SignUpModule,
   ],
   providers: [
     ProductService,
