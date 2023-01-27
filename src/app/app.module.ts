@@ -29,6 +29,7 @@ import {ProductsCategoryService} from './categories/shared/products-category.ser
 import {UserService} from './users/shared/user.service';
 import {UserRoleService} from './users/shared/user-role.service';
 import {ButtonModule} from './button/button.module';
+import {SignInModule} from './sign-in/sign-in.module';
 
 const shopRoutes: Routes = [
   {path: '', component: MainComponent},
@@ -55,7 +56,6 @@ const shopRoutes: Routes = [
     CategoryListItemComponent,
     CategoryComponent,
     ProfileComponent,
-    SignInComponent,
     SignUpComponent,
     MainComponent,
     CartComponent,
@@ -68,6 +68,7 @@ const shopRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(shopRoutes, {enableTracing: true}),
     ButtonModule,
+    SignInModule,
   ],
   providers: [
     ProductService,
