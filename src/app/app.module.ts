@@ -12,9 +12,9 @@ import {SignUpModule} from './sign-up/sign-up.module';
 import {SignUpRoutingModule} from './sign-up/sign-up-routing.module';
 import {ProfileModule} from './profile/profile.module';
 import {ProfileRoutingModule} from './profile/profile-routing.module';
+import {HeaderModule} from './header/header.module';
 
 import {AppComponent} from './app.component';
-import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {ProductListComponent} from './products/product-list/product-list.component';
 import {ProductListItemComponent} from './products/product-list-item/product-list-item.component';
@@ -48,7 +48,6 @@ const shopRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     FooterComponent,
     ProductListComponent,
     ProductListItemComponent,
@@ -73,6 +72,7 @@ const shopRoutes: Routes = [
     SignUpRoutingModule,
     ProfileModule,
     ProfileRoutingModule,
+    HeaderModule,
   ],
   providers: [
     ProductService,
