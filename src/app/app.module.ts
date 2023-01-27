@@ -7,7 +7,6 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
-import {ButtonComponent} from './button/button.component';
 import {FooterComponent} from './footer/footer.component';
 import {ProductListComponent} from './products/product-list/product-list.component';
 import {ProductListItemComponent} from './products/product-list-item/product-list-item.component';
@@ -29,6 +28,7 @@ import {ProductsCartsService} from './cart/shared/products-carts.service';
 import {ProductsCategoryService} from './categories/shared/products-category.service';
 import {UserService} from './users/shared/user.service';
 import {UserRoleService} from './users/shared/user-role.service';
+import {ButtonModule} from './button/button.module';
 
 const shopRoutes: Routes = [
   {path: '', component: MainComponent},
@@ -47,7 +47,6 @@ const shopRoutes: Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
-    ButtonComponent,
     FooterComponent,
     ProductListComponent,
     ProductListItemComponent,
@@ -68,6 +67,7 @@ const shopRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(shopRoutes, {enableTracing: true}),
+    ButtonModule,
   ],
   providers: [
     ProductService,
