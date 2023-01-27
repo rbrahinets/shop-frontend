@@ -9,6 +9,7 @@ import {ButtonModule} from './button/button.module';
 import {SignInModule} from './sign-in/sign-in.module';
 import {SignInRoutingModule} from './sign-in/sign-in-routing.module';
 import {SignUpModule} from './sign-up/sign-up.module';
+import {SignUpRoutingModule} from './sign-up/sign-up-routing.module';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
@@ -20,7 +21,6 @@ import {CategoryListComponent} from './categories/category-list/category-list.co
 import {CategoryListItemComponent} from './categories/category-list-item/category-list-item.component';
 import {CategoryComponent} from './categories/category/category.component';
 import {ProfileComponent} from './profile/profile.component';
-import {SignUpComponent} from './sign-up/sign-up.component';
 import {MainComponent} from './main/main.component';
 import {CartComponent} from './cart/cart.component';
 import {WalletComponent} from './wallet/wallet.component';
@@ -41,7 +41,6 @@ const shopRoutes: Routes = [
   {path: 'products', component: ProductListComponent},
   {path: 'products/:id', component: ProductComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'sign-up', component: SignUpComponent},
   {path: 'cart', component: CartComponent},
   {path: 'wallet', component: WalletComponent},
 ];
@@ -72,6 +71,7 @@ const shopRoutes: Routes = [
     SignInModule,
     SignInRoutingModule,
     SignUpModule,
+    SignUpRoutingModule,
   ],
   providers: [
     ProductService,
