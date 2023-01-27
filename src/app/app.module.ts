@@ -10,6 +10,7 @@ import {SignInModule} from './sign-in/sign-in.module';
 import {SignInRoutingModule} from './sign-in/sign-in-routing.module';
 import {SignUpModule} from './sign-up/sign-up.module';
 import {SignUpRoutingModule} from './sign-up/sign-up-routing.module';
+import {ProfileModule} from './profile/profile.module';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
@@ -56,7 +57,6 @@ const shopRoutes: Routes = [
     CategoryListComponent,
     CategoryListItemComponent,
     CategoryComponent,
-    ProfileComponent,
     MainComponent,
     CartComponent,
     WalletComponent,
@@ -72,6 +72,7 @@ const shopRoutes: Routes = [
     SignInRoutingModule,
     SignUpModule,
     SignUpRoutingModule,
+    ProfileModule,
   ],
   providers: [
     ProductService,
