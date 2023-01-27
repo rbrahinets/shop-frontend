@@ -13,9 +13,9 @@ import {SignUpRoutingModule} from './sign-up/sign-up-routing.module';
 import {ProfileModule} from './profile/profile.module';
 import {ProfileRoutingModule} from './profile/profile-routing.module';
 import {HeaderModule} from './header/header.module';
+import {FooterModule} from './footer/footer.module';
 
 import {AppComponent} from './app.component';
-import {FooterComponent} from './footer/footer.component';
 import {ProductListComponent} from './products/product-list/product-list.component';
 import {ProductListItemComponent} from './products/product-list-item/product-list-item.component';
 import {ProductComponent} from './products/product/product.component';
@@ -48,7 +48,6 @@ const shopRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
     ProductListComponent,
     ProductListItemComponent,
     ProductComponent,
@@ -73,6 +72,7 @@ const shopRoutes: Routes = [
     ProfileModule,
     ProfileRoutingModule,
     HeaderModule,
+    FooterModule,
   ],
   providers: [
     ProductService,
