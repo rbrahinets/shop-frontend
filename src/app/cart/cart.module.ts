@@ -8,7 +8,7 @@ import {ProductsCartsService} from './shared/products-carts.service';
 @NgModule({
   imports: [
     CommonModule,
-    FontAwesomeModule,
+    FontAwesomeModule
   ],
   declarations: [CartComponent],
   exports: [CartComponent],
