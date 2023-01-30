@@ -22,11 +22,9 @@ import {CartModule} from './cart/cart.module';
 import {CartRoutingModule} from './cart/cart-routing.module';
 import {WalletModule} from './wallet/wallet.module';
 import {WalletRoutingModule} from './wallet/wallet-routing.module';
+import {UsersModule} from './users/users.module';
 
 import {AppComponent} from './app.component';
-
-import {UserService} from './users/shared/user.service';
-import {UserRoleService} from './users/shared/user-role.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -53,10 +51,7 @@ import {UserRoleService} from './users/shared/user-role.service';
     CartRoutingModule,
     WalletModule,
     WalletRoutingModule,
-  ],
-  providers: [
-    UserService,
-    UserRoleService,
+    UsersModule,
   ],
   bootstrap: [AppComponent]
 })
