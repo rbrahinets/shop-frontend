@@ -14,10 +14,10 @@ import {ProfileModule} from './profile/profile.module';
 import {ProfileRoutingModule} from './profile/profile-routing.module';
 import {HeaderModule} from './header/header.module';
 import {FooterModule} from './footer/footer.module';
+import {ProductsModule} from './products/products.module';
 
 import {AppComponent} from './app.component';
 import {ProductListComponent} from './products/product-list/product-list.component';
-import {ProductListItemComponent} from './products/product-list-item/product-list-item.component';
 import {ProductComponent} from './products/product/product.component';
 import {CategoryListComponent} from './categories/category-list/category-list.component';
 import {CategoryListItemComponent} from './categories/category-list-item/category-list-item.component';
@@ -26,7 +26,6 @@ import {MainComponent} from './main/main.component';
 import {CartComponent} from './cart/cart.component';
 import {WalletComponent} from './wallet/wallet.component';
 
-import {ProductService} from './products/shared/product.service';
 import {CategoryService} from './categories/shared/category.service';
 import {CartService} from './cart/shared/cart.service';
 import {WalletService} from './wallet/shared/wallet.service';
@@ -48,9 +47,6 @@ const shopRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
-    ProductListItemComponent,
-    ProductComponent,
     CategoryListComponent,
     CategoryListItemComponent,
     CategoryComponent,
@@ -73,9 +69,9 @@ const shopRoutes: Routes = [
     ProfileRoutingModule,
     HeaderModule,
     FooterModule,
+    ProductsModule
   ],
   providers: [
-    ProductService,
     CategoryService,
     ProductsCategoryService,
     UserService,
