@@ -15,11 +15,10 @@ import {ProfileRoutingModule} from './profile/profile-routing.module';
 import {HeaderModule} from './header/header.module';
 import {FooterModule} from './footer/footer.module';
 import {ProductsModule} from './products/products.module';
+import {ProductsRoutingModule} from './products/products-routing.module';
 import {MainModule} from './main/main.module';
 
 import {AppComponent} from './app.component';
-import {ProductListComponent} from './products/product-list/product-list.component';
-import {ProductComponent} from './products/product/product.component';
 import {CategoryListComponent} from './categories/category-list/category-list.component';
 import {CategoryListItemComponent} from './categories/category-list-item/category-list-item.component';
 import {CategoryComponent} from './categories/category/category.component';
@@ -39,8 +38,6 @@ const shopRoutes: Routes = [
   {path: '', component: MainComponent},
   {path: 'categories', component: CategoryListComponent},
   {path: 'categories/:id', component: CategoryComponent},
-  {path: 'products', component: ProductListComponent},
-  {path: 'products/:id', component: ProductComponent},
   {path: 'cart', component: CartComponent},
   {path: 'wallet', component: WalletComponent},
 ];
@@ -70,6 +67,7 @@ const shopRoutes: Routes = [
     HeaderModule,
     FooterModule,
     ProductsModule,
+    ProductsRoutingModule,
     MainModule
   ],
   providers: [
