@@ -1,5 +1,5 @@
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
@@ -17,12 +17,12 @@ import {FooterModule} from './footer/footer.module';
 import {ProductsModule} from './products/products.module';
 import {ProductsRoutingModule} from './products/products-routing.module';
 import {MainModule} from './main/main.module';
+import {MainRoutingModule} from './main/main-routing.module';
 
 import {AppComponent} from './app.component';
 import {CategoryListComponent} from './categories/category-list/category-list.component';
 import {CategoryListItemComponent} from './categories/category-list-item/category-list-item.component';
 import {CategoryComponent} from './categories/category/category.component';
-import {MainComponent} from './main/main.component';
 import {CartComponent} from './cart/cart.component';
 import {WalletComponent} from './wallet/wallet.component';
 
@@ -35,7 +35,6 @@ import {UserService} from './users/shared/user.service';
 import {UserRoleService} from './users/shared/user-role.service';
 
 const shopRoutes: Routes = [
-  {path: '', component: MainComponent},
   {path: 'categories', component: CategoryListComponent},
   {path: 'categories/:id', component: CategoryComponent},
   {path: 'cart', component: CartComponent},
@@ -68,7 +67,8 @@ const shopRoutes: Routes = [
     FooterModule,
     ProductsModule,
     ProductsRoutingModule,
-    MainModule
+    MainModule,
+    MainRoutingModule
   ],
   providers: [
     CategoryService,
