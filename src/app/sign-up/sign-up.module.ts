@@ -5,6 +5,10 @@ import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {ButtonModule} from '../button/button.module';
 import {SignUpComponent} from './sign-up.component';
+import {UserService} from '../users/shared/user.service';
+import {UserRoleService} from '../users/shared/user-role.service';
+import {CartService} from '../cart/shared/cart.service';
+import {WalletService} from '../wallet/shared/wallet.service';
 
 @NgModule({
   imports: [
@@ -15,7 +19,13 @@ import {SignUpComponent} from './sign-up.component';
     HttpClientModule
   ],
   declarations: [SignUpComponent],
-  exports: [SignUpComponent]
+  exports: [SignUpComponent],
+  providers: [
+    UserService,
+    UserRoleService,
+    CartService,
+    WalletService
+  ]
 })
 export class SignUpModule {
 }

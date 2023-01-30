@@ -4,6 +4,7 @@ import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {ButtonModule} from '../button/button.module';
 import {HeaderComponent} from './header.component';
+import {UserRoleService} from '../users/shared/user-role.service';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import {HeaderComponent} from './header.component';
     HttpClientModule
   ],
   declarations: [HeaderComponent],
-  exports: [HeaderComponent]
+  exports: [HeaderComponent],
+  providers: [UserRoleService]
 })
 export class HeaderModule {
 }

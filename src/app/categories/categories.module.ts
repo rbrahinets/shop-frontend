@@ -7,6 +7,7 @@ import {CategoryListItemComponent} from './category-list-item/category-list-item
 import {CategoryComponent} from './category/category.component';
 import {CategoryService} from './shared/category.service';
 import {ProductsCategoryService} from './shared/products-category.service';
+import {ProductService} from '../products/shared/product.service';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import {ProductsCategoryService} from './shared/products-category.service';
   ],
   providers: [
     CategoryService,
-    ProductsCategoryService
+    ProductsCategoryService,
+    ProductService
   ]
 })
 export class CategoriesModule {
