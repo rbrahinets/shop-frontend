@@ -20,9 +20,9 @@ import {MainRoutingModule} from './main/main-routing.module';
 import {CategoriesModule} from './categories/categories.module';
 import {CategoriesRoutingModule} from './categories/categories-routing.module';
 import {CartModule} from './cart/cart.module';
+import {CartRoutingModule} from './cart/cart-routing.module';
 
 import {AppComponent} from './app.component';
-import {CartComponent} from './cart/cart.component';
 import {WalletComponent} from './wallet/wallet.component';
 
 import {WalletService} from './wallet/shared/wallet.service';
@@ -31,7 +31,6 @@ import {UserService} from './users/shared/user.service';
 import {UserRoleService} from './users/shared/user-role.service';
 
 const shopRoutes: Routes = [
-  {path: 'cart', component: CartComponent},
   {path: 'wallet', component: WalletComponent},
 ];
 
@@ -61,6 +60,7 @@ const shopRoutes: Routes = [
     CategoriesModule,
     CategoriesRoutingModule,
     CartModule,
+    CartRoutingModule,
   ],
   providers: [
     ProductsCategoryService,
