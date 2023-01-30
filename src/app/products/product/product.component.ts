@@ -15,6 +15,7 @@ import {Cart} from '../../cart/shared/cart.model';
 export class ProductComponent implements OnInit {
   product = new Product();
   imagePath: string;
+  logged: boolean;
 
   constructor(
     private productService: ProductService,
@@ -25,6 +26,9 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let userId: number = Number(Cookie.get('userId'));
+    this.logged = userId > 0;
+
     let path: string[] = (<string>this.router.url).split('/');
     const id: number = +path[path.length - 1];
 

@@ -6,7 +6,7 @@
   <h4>Price: {{product.price}}</h4>
   <h4>{{product.inStock ? 'Is in stock' : 'Isn\'t in stock'}}</h4>
   <form
-    *ngIf="product.inStock"
+    *ngIf="logged && product.inStock"
     (ngSubmit)="onSubmit()"
   >
     <input type="submit" value="Add to Cart" class="btn"/>
