@@ -15,6 +15,7 @@ import {ProfileRoutingModule} from './profile/profile-routing.module';
 import {HeaderModule} from './header/header.module';
 import {FooterModule} from './footer/footer.module';
 import {ProductsModule} from './products/products.module';
+import {MainModule} from './main/main.module';
 
 import {AppComponent} from './app.component';
 import {ProductListComponent} from './products/product-list/product-list.component';
@@ -50,7 +51,6 @@ const shopRoutes: Routes = [
     CategoryListComponent,
     CategoryListItemComponent,
     CategoryComponent,
-    MainComponent,
     CartComponent,
     WalletComponent,
   ],
@@ -69,7 +69,8 @@ const shopRoutes: Routes = [
     ProfileRoutingModule,
     HeaderModule,
     FooterModule,
-    ProductsModule
+    ProductsModule,
+    MainModule
   ],
   providers: [
     CategoryService,
