@@ -21,11 +21,11 @@ import {CategoriesModule} from './categories/categories.module';
 import {CategoriesRoutingModule} from './categories/categories-routing.module';
 import {CartModule} from './cart/cart.module';
 import {CartRoutingModule} from './cart/cart-routing.module';
+import {WalletModule} from './wallet/wallet.module';
 
 import {AppComponent} from './app.component';
 import {WalletComponent} from './wallet/wallet.component';
 
-import {WalletService} from './wallet/shared/wallet.service';
 import {UserService} from './users/shared/user.service';
 import {UserRoleService} from './users/shared/user-role.service';
 
@@ -34,10 +34,7 @@ const shopRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    WalletComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -60,11 +57,11 @@ const shopRoutes: Routes = [
     CategoriesRoutingModule,
     CartModule,
     CartRoutingModule,
+    WalletModule
   ],
   providers: [
     UserService,
     UserRoleService,
-    WalletService,
   ],
   bootstrap: [AppComponent]
 })
