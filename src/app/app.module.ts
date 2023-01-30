@@ -26,7 +26,6 @@ import {AppComponent} from './app.component';
 import {WalletComponent} from './wallet/wallet.component';
 
 import {WalletService} from './wallet/shared/wallet.service';
-import {ProductsCategoryService} from './categories/shared/products-category.service';
 import {UserService} from './users/shared/user.service';
 import {UserRoleService} from './users/shared/user-role.service';
 
@@ -63,7 +62,6 @@ const shopRoutes: Routes = [
     CartRoutingModule,
   ],
   providers: [
-    ProductsCategoryService,
     UserService,
     UserRoleService,
     WalletService,
