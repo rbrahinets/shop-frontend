@@ -19,10 +19,9 @@ import {ProductsRoutingModule} from './products/products-routing.module';
 import {MainModule} from './main/main.module';
 import {MainRoutingModule} from './main/main-routing.module';
 import {CategoriesModule} from './categories/categories.module';
+import {CategoriesRoutingModule} from './categories/categories-routing.module';
 
 import {AppComponent} from './app.component';
-import {CategoryListComponent} from './categories/category-list/category-list.component';
-import {CategoryComponent} from './categories/category/category.component';
 import {CartComponent} from './cart/cart.component';
 import {WalletComponent} from './wallet/wallet.component';
 
@@ -34,8 +33,6 @@ import {UserService} from './users/shared/user.service';
 import {UserRoleService} from './users/shared/user-role.service';
 
 const shopRoutes: Routes = [
-  {path: 'categories', component: CategoryListComponent},
-  {path: 'categories/:id', component: CategoryComponent},
   {path: 'cart', component: CartComponent},
   {path: 'wallet', component: WalletComponent},
 ];
@@ -65,7 +62,8 @@ const shopRoutes: Routes = [
     ProductsRoutingModule,
     MainModule,
     MainRoutingModule,
-    CategoriesModule
+    CategoriesModule,
+    CategoriesRoutingModule,
   ],
   providers: [
     ProductsCategoryService,
