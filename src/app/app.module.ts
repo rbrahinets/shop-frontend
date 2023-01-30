@@ -18,15 +18,14 @@ import {ProductsModule} from './products/products.module';
 import {ProductsRoutingModule} from './products/products-routing.module';
 import {MainModule} from './main/main.module';
 import {MainRoutingModule} from './main/main-routing.module';
+import {CategoriesModule} from './categories/categories.module';
 
 import {AppComponent} from './app.component';
 import {CategoryListComponent} from './categories/category-list/category-list.component';
-import {CategoryListItemComponent} from './categories/category-list-item/category-list-item.component';
 import {CategoryComponent} from './categories/category/category.component';
 import {CartComponent} from './cart/cart.component';
 import {WalletComponent} from './wallet/wallet.component';
 
-import {CategoryService} from './categories/shared/category.service';
 import {CartService} from './cart/shared/cart.service';
 import {WalletService} from './wallet/shared/wallet.service';
 import {ProductsCartsService} from './cart/shared/products-carts.service';
@@ -44,9 +43,6 @@ const shopRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    CategoryListComponent,
-    CategoryListItemComponent,
-    CategoryComponent,
     CartComponent,
     WalletComponent,
   ],
@@ -68,10 +64,10 @@ const shopRoutes: Routes = [
     ProductsModule,
     ProductsRoutingModule,
     MainModule,
-    MainRoutingModule
+    MainRoutingModule,
+    CategoriesModule
   ],
   providers: [
-    CategoryService,
     ProductsCategoryService,
     UserService,
     UserRoleService,
