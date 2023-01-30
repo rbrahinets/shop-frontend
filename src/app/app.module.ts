@@ -1,8 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
-import {RouterModule, Routes} from '@angular/router';
+import {RouterModule} from '@angular/router';
 
 import {ButtonModule} from './button/button.module';
 import {SignInModule} from './sign-in/sign-in.module';
@@ -22,24 +21,19 @@ import {CategoriesRoutingModule} from './categories/categories-routing.module';
 import {CartModule} from './cart/cart.module';
 import {CartRoutingModule} from './cart/cart-routing.module';
 import {WalletModule} from './wallet/wallet.module';
+import {WalletRoutingModule} from './wallet/wallet-routing.module';
 
 import {AppComponent} from './app.component';
-import {WalletComponent} from './wallet/wallet.component';
 
 import {UserService} from './users/shared/user.service';
 import {UserRoleService} from './users/shared/user-role.service';
-
-const shopRoutes: Routes = [
-  {path: 'wallet', component: WalletComponent},
-];
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot(shopRoutes, {enableTracing: true}),
+    RouterModule,
     ButtonModule,
     SignInModule,
     SignInRoutingModule,
@@ -57,7 +51,8 @@ const shopRoutes: Routes = [
     CategoriesRoutingModule,
     CartModule,
     CartRoutingModule,
-    WalletModule
+    WalletModule,
+    WalletRoutingModule,
   ],
   providers: [
     UserService,
