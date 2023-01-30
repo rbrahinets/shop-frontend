@@ -3,7 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {ProductListComponent} from './product-list/product-list.component';
 import {ProductComponent} from './product/product.component';
 
-const productRoutes: Routes = [
+const productsRoutes: Routes = [
   {path: 'products', component: ProductListComponent},
   {path: 'products/:id', component: ProductComponent},
 ];
@@ -11,7 +11,7 @@ const productRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(
-      productRoutes,
+      productsRoutes,
       {enableTracing: true}
     )
   ]
