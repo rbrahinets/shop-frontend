@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 
 import {ButtonModule} from './button/button.module';
@@ -30,7 +29,6 @@ import {AppComponent} from './app.component';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    HttpClientModule,
     RouterModule,
     ButtonModule,
     SignInModule,

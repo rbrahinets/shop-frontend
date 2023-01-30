@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 import {ButtonModule} from '../button/button.module';
 import {SignUpComponent} from './sign-up.component';
 
@@ -10,7 +11,8 @@ import {SignUpComponent} from './sign-up.component';
     CommonModule,
     FormsModule,
     RouterModule,
-    ButtonModule
+    ButtonModule,
+    HttpClientModule
   ],
   declarations: [SignUpComponent],
   exports: [SignUpComponent]

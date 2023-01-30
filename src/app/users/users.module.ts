@@ -1,10 +1,14 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {UserService} from "./shared/user.service";
-import {UserRoleService} from "./shared/user-role.service";
+import {HttpClientModule} from '@angular/common/http';
+import {UserService} from './shared/user.service';
+import {UserRoleService} from './shared/user-role.service';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    HttpClientModule
+  ],
   declarations: [],
   exports: [],
   providers: [
