@@ -1,5 +1,11 @@
 <header>
-  <h1 id="main-page" routerLink="/">{{title}}</h1>
+  <div>
+    <shop-button
+      text="{{title}}"
+      color="aqua"
+      (btnClick)="onClickButton('/')"
+    ></shop-button>
+  </div>
   <div>
     <shop-button
       *ngIf="!hasRoute('/categories') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
