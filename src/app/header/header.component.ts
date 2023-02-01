@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {Cookie} from 'ng2-cookies/ng2-cookies';
 import {UserRoleService} from '../users/shared/user-role.service';
 import {NavigationService} from '../shared/navigation.service';
+import {UserService} from '../users/shared/user.service';
 
 @Component({
   selector: 'shop-header',
@@ -22,11 +23,12 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let userId: number = Number(Cookie.get('userId'));
-    this.logged = userId > 0;
+    this.logged = UserService.getCurrentUserId() > 0;
 
-    if (userId > 0) {
-      this.userRoleService.getRoleForUser(userId).subscribe(
+    if (this.logged) {
+      this.userRoleService.getRoleForUser(
+        UserService.getCurrentUserId()
+      ).subscribe(
         (userRole) => {
           this.userRole = userRole.roleId === 1 ? 'ROLE_ADMIN' : 'ROLE_USER';
           Cookie.set('userRole', this.userRole);
