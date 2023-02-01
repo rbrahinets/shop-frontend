@@ -26,6 +26,10 @@ export class UserRoleService {
     return Cookie.get('userRole');
   }
 
+  static setRoleOfCurrentUser(role: string): void {
+    Cookie.set('userRole', role);
+  }
+
   getUsersRoles(): Observable<UserRoleDto[]> {
     return this.http.get<UserRoleDto[]>(this.apiUrl);
   }
