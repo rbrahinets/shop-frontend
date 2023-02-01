@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {UserService} from '../users/shared/user.service';
 import {Cookie} from 'ng2-cookies/ng2-cookies';
 import {User} from '../users/shared/user.model';
+import {NavigationService} from '../shared/navigation.service';
 
 @Component({
   selector: 'shop-sign-in',
@@ -15,8 +16,10 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private navigation: NavigationService
   ) {
+    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {
@@ -65,5 +68,9 @@ export class SignInComponent implements OnInit {
     }
 
     return true;
+  }
+
+  onClickSignUp(endpoint: string) {
+    this.navigation.goToEndpoint(endpoint);
   }
 }
