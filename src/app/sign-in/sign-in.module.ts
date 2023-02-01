@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {ButtonModule} from '../button/button.module';
 import {SignInComponent} from './sign-in.component';
+import {NavigationService} from '../shared/navigation.service';
 import {UserService} from '../users/shared/user.service';
 
 @NgModule({
@@ -17,7 +18,10 @@ import {UserService} from '../users/shared/user.service';
   ],
   declarations: [SignInComponent],
   exports: [SignInComponent],
-  providers: [UserService]
+  providers: [
+    NavigationService,
+    UserService
+  ]
 })
 export class SignInModule {
 }

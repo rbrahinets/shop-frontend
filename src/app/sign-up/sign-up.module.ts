@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {ButtonModule} from '../button/button.module';
 import {SignUpComponent} from './sign-up.component';
+import {NavigationService} from '../shared/navigation.service';
 import {UserService} from '../users/shared/user.service';
 import {UserRoleService} from '../users/shared/user-role.service';
 import {CartService} from '../cart/shared/cart.service';
@@ -21,6 +22,7 @@ import {WalletService} from '../wallet/shared/wallet.service';
   declarations: [SignUpComponent],
   exports: [SignUpComponent],
   providers: [
+    NavigationService,
     UserService,
     UserRoleService,
     CartService,
