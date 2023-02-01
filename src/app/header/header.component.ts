@@ -10,14 +10,13 @@ import {NavigationService} from '../shared/navigation.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  title: string = 'Shop';
   logged: boolean;
   userRole: string;
 
   constructor(
     private router: Router,
     private userRoleService: UserRoleService,
-    private navigation: NavigationService
+    private navigation: NavigationService,
   ) {
     this.navigation = new NavigationService(this.router);
   }
