@@ -1,9 +1,6 @@
 <div class="center">
   <h1>Sign In</h1>
-  <form
-    class="form"
-    (ngSubmit)="onSignIn()"
-  >
+  <form class="form">
     <div class="form-control">
       <input
         type="text"
@@ -22,7 +19,11 @@
         [(ngModel)]="password"
       />
     </div>
-    <input type="submit" value="Sign In" class="btn"/>
+    <shop-button
+      text="Sign In"
+      color="#ffff00"
+      (btnClick)="onSignIn()"
+    ></shop-button>
   </form>
   <shop-button
     text="Sign Up"
