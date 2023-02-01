@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {Cookie} from 'ng2-cookies/ng2-cookies';
 import {UserRoleService} from '../users/shared/user-role.service';
 import {NavigationService} from '../shared/navigation.service';
 import {UserService} from '../users/shared/user.service';
@@ -31,7 +30,7 @@ export class HeaderComponent implements OnInit {
       ).subscribe(
         (userRole) => {
           this.userRole = userRole.roleId === 1 ? 'ROLE_ADMIN' : 'ROLE_USER';
-          Cookie.set('userRole', this.userRole);
+          UserRoleService.setRoleOfCurrentUser(this.userRole);
         }
       );
     }
@@ -50,8 +49,8 @@ export class HeaderComponent implements OnInit {
   }
 
   private onSignOut() {
-    Cookie.set('userId', '0');
-    Cookie.set('userRole', '');
+    UserService.setCurrentUserId('0');
+    UserRoleService.setRoleOfCurrentUser('');
     this.logged = !this.logged;
     this.navigation.goToEndpoint('/');
   }
