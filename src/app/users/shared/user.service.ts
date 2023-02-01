@@ -25,6 +25,10 @@ export class UserService {
     return Number(Cookie.get('userId'));
   }
 
+  static setCurrentUserId(id: string): void {
+    Cookie.set('userId', id);
+  }
+
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.apiUrl);
   }
