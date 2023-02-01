@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Cookie} from 'ng2-cookies/ng2-cookies';
 import {User} from './user.model';
 import {UserRoleDto} from './user-role.dto';
 
@@ -19,6 +20,10 @@ export class UserRoleService {
   constructor(
     private http: HttpClient
   ) {
+  }
+
+  static getRoleOfCurrentUser(): string {
+    return Cookie.get('userRole');
   }
 
   getUsersRoles(): Observable<UserRoleDto[]> {
