@@ -3,25 +3,26 @@ import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 
 import {ButtonModule} from './button/button.module';
-import {SignInModule} from './sign-in/sign-in.module';
-import {SignInRoutingModule} from './sign-in/sign-in-routing.module';
-import {SignUpModule} from './sign-up/sign-up.module';
-import {SignUpRoutingModule} from './sign-up/sign-up-routing.module';
-import {ProfileModule} from './profile/profile.module';
-import {ProfileRoutingModule} from './profile/profile-routing.module';
 import {HeaderModule} from './header/header.module';
 import {FooterModule} from './footer/footer.module';
-import {ProductsModule} from './products/products.module';
-import {ProductsRoutingModule} from './products/products-routing.module';
 import {MainModule} from './main/main.module';
-import {MainRoutingModule} from './main/main-routing.module';
+import {SignInModule} from './sign-in/sign-in.module';
+import {SignUpModule} from './sign-up/sign-up.module';
 import {CategoriesModule} from './categories/categories.module';
-import {CategoriesRoutingModule} from './categories/categories-routing.module';
+import {ProductsModule} from './products/products.module';
+import {ProfileModule} from './profile/profile.module';
 import {CartModule} from './cart/cart.module';
-import {CartRoutingModule} from './cart/cart-routing.module';
 import {WalletModule} from './wallet/wallet.module';
-import {WalletRoutingModule} from './wallet/wallet-routing.module';
 import {UsersModule} from './users/users.module';
+
+import {MainRoutingModule} from './main/main-routing.module';
+import {SignInRoutingModule} from './sign-in/sign-in-routing.module';
+import {SignUpRoutingModule} from './sign-up/sign-up-routing.module';
+import {CategoriesRoutingModule} from './categories/categories-routing.module';
+import {ProductsRoutingModule} from './products/products-routing.module';
+import {ProfileRoutingModule} from './profile/profile-routing.module';
+import {CartRoutingModule} from './cart/cart-routing.module';
+import {WalletRoutingModule} from './wallet/wallet-routing.module';
 
 import {AppComponent} from './app.component';
 
@@ -31,25 +32,25 @@ import {AppComponent} from './app.component';
     BrowserModule,
     RouterModule,
     ButtonModule,
-    SignInModule,
-    SignInRoutingModule,
-    SignUpModule,
-    SignUpRoutingModule,
-    ProfileModule,
-    ProfileRoutingModule,
     HeaderModule,
     FooterModule,
-    ProductsModule,
-    ProductsRoutingModule,
     MainModule,
-    MainRoutingModule,
+    SignInModule,
+    SignUpModule,
     CategoriesModule,
-    CategoriesRoutingModule,
+    ProductsModule,
+    ProfileModule,
     CartModule,
-    CartRoutingModule,
     WalletModule,
-    WalletRoutingModule,
     UsersModule,
+    MainRoutingModule,
+    SignInRoutingModule,
+    SignUpRoutingModule,
+    CategoriesRoutingModule,
+    ProductsRoutingModule,
+    ProfileRoutingModule,
+    CartRoutingModule,
+    WalletRoutingModule,
   ],
   bootstrap: [AppComponent]
 })
