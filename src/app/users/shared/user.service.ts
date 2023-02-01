@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Cookie} from 'ng2-cookies/ng2-cookies';
 import {User} from './user.model';
 
 const httpOptions = {
@@ -18,6 +19,10 @@ export class UserService {
   constructor(
     private http: HttpClient
   ) {
+  }
+
+  static getCurrentUserId(): number {
+    return Number(Cookie.get('userId'));
   }
 
   getUsers(): Observable<User[]> {
