@@ -5,33 +5,33 @@
       *ngIf="!hasRoute('/categories') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
       text="Categories"
       color="#33ff33"
-      routerLink="/categories"
+      (btnClick)="onClickButton('/categories')"
     ></shop-button>
     <shop-button
       *ngIf="!hasRoute('/products') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
       text="Products"
       color="#33ff33"
-      routerLink="/products"
+      (btnClick)="onClickButton('/products')"
     ></shop-button>
     <shop-button
       *ngIf="logged && !hasRoute('/profile') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
       text="Profile"
       color="#33ff33"
-      routerLink="/profile"
+      (btnClick)="onClickButton('/profile')"
     ></shop-button>
     <shop-button
       *ngIf="logged && userRole === 'ROLE_USER'
       && !hasRoute('/cart') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
       text="Cart"
       color="#33ff33"
-      routerLink="/cart"
+      (btnClick)="onClickButton('/cart')"
     ></shop-button>
     <shop-button
       *ngIf="logged && userRole === 'ROLE_USER'
       && !hasRoute('/wallet') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
       text="Wallet"
       color="#33ff33"
-      routerLink="/wallet"
+      (btnClick)="onClickButton('/wallet')"
     ></shop-button>
   </div>
   <div>
@@ -39,13 +39,13 @@
       *ngIf="!logged && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
       text="Sign In"
       color="#0000ff"
-      routerLink="/sign-in"
+      (btnClick)="onClickButton('/sign-in')"
     ></shop-button>
     <shop-button
       *ngIf="logged && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
       text="Sign Out"
       color="#0000ff"
-      (click)="onToggleLogOut()"
+      (btnClick)="onClickButton('/sign-out')"
     ></shop-button>
   </div>
 </header>

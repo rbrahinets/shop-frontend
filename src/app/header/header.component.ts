@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Cookie} from 'ng2-cookies/ng2-cookies';
 import {UserRoleService} from '../users/shared/user-role.service';
+import {NavigationService} from '../shared/navigation.service';
 
 @Component({
   selector: 'shop-header',
@@ -15,8 +16,10 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private userRoleService: UserRoleService
+    private userRoleService: UserRoleService,
+    private navigation: NavigationService
   ) {
+    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {
@@ -33,15 +36,22 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  onToggleLogOut(): void {
+  hasRoute(route: string): boolean {
+    return this.router.url === route;
+  }
+
+  onClickButton(endpoint: string): void {
+    if (endpoint === '/sign-out') {
+      this.onSignOut();
+      return;
+    }
+    this.navigation.goToEndpoint(endpoint);
+  }
+
+  private onSignOut() {
     Cookie.set('userId', '0');
     Cookie.set('userRole', '');
     this.logged = !this.logged;
-    this.router.navigate(['/'])
-      .then(() => window.location.reload());
-  }
-
-  hasRoute(route: string): boolean {
-    return this.router.url === route;
+    this.navigation.goToEndpoint('/');
   }
 }
