@@ -14,6 +14,7 @@ import {ProfileModule} from './profile/profile.module';
 import {CartModule} from './cart/cart.module';
 import {WalletModule} from './wallet/wallet.module';
 import {UsersModule} from './users/users.module';
+import {SharedModule} from './shared/shared.module';
 
 import {MainRoutingModule} from './main/main-routing.module';
 import {SignInRoutingModule} from './sign-in/sign-in-routing.module';
@@ -43,6 +44,7 @@ import {AppComponent} from './app.component';
     CartModule,
     WalletModule,
     UsersModule,
+    SharedModule,
     MainRoutingModule,
     SignInRoutingModule,
     SignUpRoutingModule,
