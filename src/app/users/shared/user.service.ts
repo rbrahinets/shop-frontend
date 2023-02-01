@@ -29,6 +29,10 @@ export class UserService {
     Cookie.set('userId', id);
   }
 
+  static isUserLogged(): boolean {
+    return UserService.getCurrentUserId() > 0;
+  }
+
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.apiUrl);
   }

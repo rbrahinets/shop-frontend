@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.logged = UserService.getCurrentUserId() > 0;
+    this.logged = UserService.isUserLogged();
 
     if (this.logged) {
       this.setRoleForUser();
