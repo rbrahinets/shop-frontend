@@ -6,7 +6,8 @@ import {UserRoleService} from '../users/shared/user-role.service';
 import {Cart} from '../cart/shared/cart.model';
 import {CartService} from '../cart/shared/cart.service';
 import {WalletService} from '../wallet/shared/wallet.service';
-import {Wallet} from "../wallet/shared/wallet.model";
+import {Wallet} from '../wallet/shared/wallet.model';
+import {NavigationService} from '../shared/navigation.service';
 
 @Component({
   selector: 'shop-sign-up',
@@ -26,8 +27,10 @@ export class SignUpComponent implements OnInit {
     private userRoleService: UserRoleService,
     private cartService: CartService,
     private walletService: WalletService,
-    private router: Router
+    private router: Router,
+    private navigation: NavigationService
   ) {
+    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {
@@ -119,5 +122,9 @@ export class SignUpComponent implements OnInit {
     }
 
     return true;
+  }
+
+  onClickSignIn(endpoint: string) {
+    this.navigation.goToEndpoint(endpoint);
   }
 }
