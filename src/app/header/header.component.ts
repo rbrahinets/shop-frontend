@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {UserRoleService} from '../users/shared/user-role.service';
 import {NavigationService} from '../shared/navigation.service';
 import {UserService} from '../users/shared/user.service';
+import {UserRoleDto} from '../users/shared/user-role.dto';
 
 @Component({
   selector: 'shop-header',
@@ -38,6 +39,7 @@ export class HeaderComponent implements OnInit {
       this.onSignOut();
       return;
     }
+
     this.navigation.goToEndpoint(endpoint);
   }
 
@@ -45,8 +47,8 @@ export class HeaderComponent implements OnInit {
     this.userRoleService.getRoleForUser(
       UserService.getCurrentUserId()
     ).subscribe(
-      (userRole) => {
-        this.userRole = userRole.roleId === 1 ? 'ROLE_ADMIN' : 'ROLE_USER';
+      (userRole: UserRoleDto) => {
+        this.userRole = UserRoleService.getRoleById(userRole.roleId);
         UserRoleService.setRoleOfCurrentUser(this.userRole);
       }
     );

@@ -30,6 +30,10 @@ export class UserRoleService {
     Cookie.set('userRole', role);
   }
 
+  static getRoleById(id: number): string {
+    return id === 1 ? 'ROLE_ADMIN' : 'ROLE_USER';
+  }
+
   getUsersRoles(): Observable<UserRoleDto[]> {
     return this.http.get<UserRoleDto[]>(this.apiUrl);
   }
