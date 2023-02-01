@@ -25,14 +25,7 @@ export class HeaderComponent implements OnInit {
     this.logged = UserService.getCurrentUserId() > 0;
 
     if (this.logged) {
-      this.userRoleService.getRoleForUser(
-        UserService.getCurrentUserId()
-      ).subscribe(
-        (userRole) => {
-          this.userRole = userRole.roleId === 1 ? 'ROLE_ADMIN' : 'ROLE_USER';
-          UserRoleService.setRoleOfCurrentUser(this.userRole);
-        }
-      );
+      this.setRoleForUser();
     }
   }
 
@@ -46,6 +39,17 @@ export class HeaderComponent implements OnInit {
       return;
     }
     this.navigation.goToEndpoint(endpoint);
+  }
+
+  private setRoleForUser() {
+    this.userRoleService.getRoleForUser(
+      UserService.getCurrentUserId()
+    ).subscribe(
+      (userRole) => {
+        this.userRole = userRole.roleId === 1 ? 'ROLE_ADMIN' : 'ROLE_USER';
+        UserRoleService.setRoleOfCurrentUser(this.userRole);
+      }
+    );
   }
 
   private onSignOut() {
