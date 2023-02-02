@@ -16,7 +16,39 @@ export class SignInValidator {
       return true;
     }
 
+    if (login.includes('@')) {
+      if (!this.validateEmail(login)) {
+        return this.isInvalidLogin();
+      }
+    } else if (login.includes('+')) {
+      if (!this.validatePhone(login)) {
+        return this.isInvalidLogin();
+      }
+    } else {
+      return this.isInvalidLogin();
+    }
+
     return true;
+  }
+
+  private static isInvalidLogin(): boolean {
+    alert('You have entered an invalid login');
+    return false;
+  }
+
+  private static validateEmail(email: string) {
+    return !(
+      email.startsWith('@')
+      || !email.endsWith('.com')
+      || email.endsWith('@.com')
+    );
+  }
+
+  private static validatePhone(phone: string) {
+    return !(
+      !phone.startsWith('+')
+      || phone.length < 12
+    );
   }
 
   private static validatePassword(password: string): boolean {
