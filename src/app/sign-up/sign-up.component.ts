@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {NavigationService} from '../shared/navigation.service';
+import {SignUpValidator} from './sign-up.validator';
+import {SignUpDto} from './sign-up.dto';
 import {UserService} from '../users/shared/user.service';
-import {User} from '../users/shared/user.model';
 import {UserRoleService} from '../users/shared/user-role.service';
-import {Cart} from '../cart/shared/cart.model';
 import {CartService} from '../cart/shared/cart.service';
 import {WalletService} from '../wallet/shared/wallet.service';
+import {User} from '../users/shared/user.model';
+import {Cart} from '../cart/shared/cart.model';
 import {Wallet} from '../wallet/shared/wallet.model';
-import {NavigationService} from '../shared/navigation.service';
-import {SignUpDto} from './sign-up.dto';
-import {SignUpValidator} from './sign-up.validator';
 
 @Component({
   selector: 'shop-sign-up',
@@ -25,12 +25,12 @@ export class SignUpComponent implements OnInit {
   confirmPassword: string;
 
   constructor(
+    private router: Router,
+    private navigation: NavigationService,
     private userService: UserService,
     private userRoleService: UserRoleService,
     private cartService: CartService,
-    private walletService: WalletService,
-    private router: Router,
-    private navigation: NavigationService
+    private walletService: WalletService
   ) {
     this.navigation = new NavigationService(this.router);
   }
@@ -44,7 +44,7 @@ export class SignUpComponent implements OnInit {
     }
 
     this.signUp();
-    this.router.navigate(['/sign-in']).then();
+    this.navigation.goToEndpoint('/sign-in');
   }
 
   onClickSignIn(endpoint: string) {
