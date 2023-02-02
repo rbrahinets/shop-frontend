@@ -5,7 +5,8 @@ export class SignUpValidator {
     return SignUpValidator.validateFirstName(credential.firstName)
       && SignUpValidator.validateLastName(credential.lastName)
       && SignUpValidator.validateEmail(credential.email)
-      && SignUpValidator.validatePhone(credential.phone);
+      && SignUpValidator.validatePhone(credential.phone)
+      && SignUpValidator.validatePassword(credential.password);
   }
 
   private static validateFirstName(firstName: string): boolean {
@@ -38,6 +39,15 @@ export class SignUpValidator {
   private static validatePhone(phone: string): boolean {
     if (!phone) {
       alert('You haven\'t entered a phone');
+      return false;
+    }
+
+    return true;
+  }
+
+  private static validatePassword(password: string): boolean {
+    if (!password) {
+      alert('You haven\'t entered a password');
       return false;
     }
 
