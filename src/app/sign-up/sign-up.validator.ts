@@ -88,12 +88,10 @@ export class SignUpValidator {
     password: string,
     confirmPassword: string
   ): boolean {
-    if (!confirmPassword) {
-      alert('You haven\'t entered a confirm password');
-      return false;
-    }
-
-    if (password !== confirmPassword) {
+    if (
+      !confirmPassword
+      || password !== confirmPassword
+    ) {
       alert('Your passwords are different');
       return false;
     }
