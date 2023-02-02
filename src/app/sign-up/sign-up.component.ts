@@ -55,7 +55,7 @@ export class SignUpComponent implements OnInit {
         };
 
         this.addNewUser(newUser);
-        this.userRoleService.saveRoleForUser(newUser).subscribe();
+        this.addRoleForNewUser(newUser);
 
         const cart = new Cart();
 
@@ -104,5 +104,9 @@ export class SignUpComponent implements OnInit {
 
   private addNewUser(user: User): void {
     this.userService.saveUser(user).subscribe();
+  }
+
+  private addRoleForNewUser(user: User): void {
+    this.userRoleService.saveRoleForUser(user).subscribe();
   }
 }
