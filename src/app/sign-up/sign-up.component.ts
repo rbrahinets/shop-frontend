@@ -43,24 +43,7 @@ export class SignUpComponent implements OnInit {
       return;
     }
 
-    this.userService.getUsers().subscribe(
-      (users) => {
-        const user: User = {
-          id: (users.length as number) + 1,
-          firstName: this.firstName,
-          lastName: this.lastName,
-          email: this.email,
-          phone: this.phone,
-          password: this.password
-        };
-
-        this.addNewUser(user);
-        this.addRoleForNewUser(user);
-        this.addCartForNewUser(user);
-        this.addWalletForNewUser(user);
-      }
-    );
-
+    this.signUp();
     this.router.navigate(['/sign-in']).then();
   }
 
@@ -81,11 +64,31 @@ export class SignUpComponent implements OnInit {
     );
   }
 
+  private signUp() {
+    this.userService.getUsers().subscribe(
+      (users) => {
+        const user: User = {
+          id: (users.length as number) + 1,
+          firstName: this.firstName,
+          lastName: this.lastName,
+          email: this.email,
+          phone: this.phone,
+          password: this.password
+        };
+
+        this.addNewUser(user);
+        this.addRoleForNewUser(user);
+        this.addCartForNewUser(user);
+        this.addWalletForNewUser(user);
+      }
+    );
+  }
+
   private addNewUser(user: User): void {
     this.userService.saveUser(user).subscribe();
   }
 
-  private addRoleForNewUser(user: User): void  {
+  private addRoleForNewUser(user: User): void {
     this.userRoleService.saveRoleForUser(user).subscribe();
   }
 
