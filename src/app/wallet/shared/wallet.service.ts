@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Wallet} from './wallet.model';
+import {User} from '../../users/shared/user.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -35,5 +36,19 @@ export class WalletService {
   updateWallet(wallet: Wallet): Observable<Wallet> {
     const url = `${this.apiUrl}/${wallet.id}`;
     return this.http.put<Wallet>(url, wallet, httpOptions);
+  }
+
+  saveWalletForUser(user: User): void {
+    const wallet = new Wallet();
+
+    this.getWallets().subscribe(
+      (wallets) => wallet.id = (wallets.length as number) + 1
+    );
+
+    wallet.amountOfMoney = 0;
+    wallet.number = '';
+    wallet.userId = user.id;
+
+    this.saveWallet(wallet).subscribe();
   }
 }
