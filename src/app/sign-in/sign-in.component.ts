@@ -4,6 +4,8 @@ import {UserService} from '../users/shared/user.service';
 import {Cookie} from 'ng2-cookies/ng2-cookies';
 import {User} from '../users/shared/user.model';
 import {NavigationService} from '../shared/navigation.service';
+import {SignInValidator} from './sign-in.validator';
+import {SignInDto} from './sign-in.dto';
 
 @Component({
   selector: 'shop-sign-in',
@@ -26,7 +28,7 @@ export class SignInComponent implements OnInit {
   }
 
   onSignIn(): void {
-    if (!this.isValidDataForSignIn()) {
+    if (!this.isValidCredential()) {
       return;
     }
 
@@ -56,21 +58,16 @@ export class SignInComponent implements OnInit {
     );
   }
 
-  private isValidDataForSignIn(): boolean {
-    if (!this.login) {
-      alert('You haven\'t entered a login');
-      return false;
-    }
-
-    if (!this.password) {
-      alert('You haven\'t entered a password');
-      return false;
-    }
-
-    return true;
-  }
-
   onClickSignUp(endpoint: string) {
     this.navigation.goToEndpoint(endpoint);
+  }
+
+  private isValidCredential(): boolean {
+    const credential = new SignInDto(
+      this.login,
+      this.password
+    );
+
+    return SignInValidator.validate(credential);
   }
 }
