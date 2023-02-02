@@ -8,7 +8,6 @@ import {UserRoleService} from '../users/shared/user-role.service';
 import {CartService} from '../cart/shared/cart.service';
 import {WalletService} from '../wallet/shared/wallet.service';
 import {User} from '../users/shared/user.model';
-import {Cart} from '../cart/shared/cart.model';
 import {Wallet} from '../wallet/shared/wallet.model';
 
 @Component({
@@ -94,16 +93,7 @@ export class SignUpComponent implements OnInit {
   }
 
   private addCartForNewUser(user: User): void {
-    const cart = new Cart();
-
-    this.cartService.getCarts().subscribe(
-      (carts) => cart.id = (carts.length as number) + 1
-    );
-
-    cart.totalCost = 0;
-    cart.userId = user.id;
-
-    this.cartService.saveCart(cart).subscribe();
+    this.cartService.saveCartForUser(user);
   }
 
   private addWalletForNewUser(user: User): void {
