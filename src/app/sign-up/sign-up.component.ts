@@ -56,17 +56,7 @@ export class SignUpComponent implements OnInit {
 
         this.addNewUser(newUser);
         this.addRoleForNewUser(newUser);
-
-        const cart = new Cart();
-
-        this.cartService.getCarts().subscribe(
-          (carts) => cart.id = (carts.length as number) + 1
-        );
-
-        cart.totalCost = 0;
-        cart.userId = newUser.id;
-
-        this.cartService.saveCart(cart).subscribe();
+        this.addCartForNewUser(newUser);
 
         const wallet = new Wallet();
 
@@ -108,5 +98,15 @@ export class SignUpComponent implements OnInit {
 
   private addRoleForNewUser(user: User): void {
     this.userRoleService.saveRoleForUser(user).subscribe();
+  }
+
+  private addCartForNewUser(user: User): void {
+    const cart = new Cart();
+    this.cartService.getCarts().subscribe(
+      (carts) => cart.id = (carts.length as number) + 1
+    );
+    cart.totalCost = 0;
+    cart.userId = user.id;
+    this.cartService.saveCart(cart).subscribe();
   }
 }
