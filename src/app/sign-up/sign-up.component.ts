@@ -44,7 +44,6 @@ export class SignUpComponent implements OnInit {
     }
 
     this.signUp();
-    this.navigation.goToEndpoint('/sign-in');
   }
 
   onClickSignIn(endpoint: string) {
@@ -80,6 +79,8 @@ export class SignUpComponent implements OnInit {
         this.addRoleForNewUser(user);
         this.addCartForNewUser(user);
         this.addWalletForNewUser(user);
+
+        this.navigation.goToEndpoint('/sign-in');
       }
     );
   }
@@ -94,22 +95,28 @@ export class SignUpComponent implements OnInit {
 
   private addCartForNewUser(user: User): void {
     const cart = new Cart();
+
     this.cartService.getCarts().subscribe(
       (carts) => cart.id = (carts.length as number) + 1
     );
+
     cart.totalCost = 0;
     cart.userId = user.id;
+
     this.cartService.saveCart(cart).subscribe();
   }
 
   private addWalletForNewUser(user: User): void {
     const wallet = new Wallet();
+
     this.walletService.getWallets().subscribe(
       (wallets) => wallet.id = (wallets.length as number) + 1
     );
+
     wallet.amountOfMoney = 0;
     wallet.number = '';
     wallet.userId = user.id;
+
     this.walletService.saveWallet(wallet).subscribe();
   }
 }

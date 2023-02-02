@@ -59,6 +59,7 @@ export class SignInComponent implements OnInit {
 
         this.setIdForUser(users);
         this.setRoleForUser(users);
+
         this.navigation.goToEndpoint('/', true);
       }
     );
