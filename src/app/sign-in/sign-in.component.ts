@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {UserService} from '../users/shared/user.service';
-import {Cookie} from 'ng2-cookies/ng2-cookies';
-import {User} from '../users/shared/user.model';
 import {NavigationService} from '../shared/navigation.service';
-import {SignInValidator} from './sign-in.validator';
+import {UserService} from '../users/shared/user.service';
+import {UserRoleService} from '../users/shared/user-role.service';
+import {User} from '../users/shared/user.model';
 import {SignInDto} from './sign-in.dto';
+import {SignInValidator} from './sign-in.validator';
 
 @Component({
   selector: 'shop-sign-in',
@@ -17,9 +17,10 @@ export class SignInComponent implements OnInit {
   password: string;
 
   constructor(
-    private userService: UserService,
     private router: Router,
-    private navigation: NavigationService
+    private navigation: NavigationService,
+    private userService: UserService,
+    private userRoleService: UserRoleService
   ) {
     this.navigation = new NavigationService(this.router);
   }
@@ -41,9 +42,9 @@ export class SignInComponent implements OnInit {
           return;
         }
 
-        Cookie.set('userId', String(user.id));
-        this.router.navigate(['/'])
-          .then(() => window.location.reload());
+        UserService.setCurrentUserId(String(user.id));
+        this.userRoleService.setRoleForCurrentUser(user.id);
+        this.navigation.goToEndpoint('/', true);
       }
     );
   }
