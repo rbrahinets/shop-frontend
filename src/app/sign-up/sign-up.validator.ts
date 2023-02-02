@@ -57,7 +57,17 @@ export class SignUpValidator {
       return false;
     }
 
+    if (this.isInvalidPhone(phone)) {
+      alert('You have entered an invalid phone');
+      return false;
+    }
+
     return true;
+  }
+
+  private static isInvalidPhone(phone: string) {
+    return !phone.startsWith('+')
+      || phone.length < 12;
   }
 
   private static validatePassword(password: string): boolean {
