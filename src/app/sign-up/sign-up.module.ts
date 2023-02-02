@@ -16,18 +16,18 @@ import {WalletService} from '../wallet/shared/wallet.service';
     CommonModule,
     FormsModule,
     RouterModule,
-    ButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule
   ],
   declarations: [SignUpComponent],
-  exports: [SignUpComponent],
   providers: [
     NavigationService,
     UserService,
     UserRoleService,
     CartService,
     WalletService
-  ]
+  ],
+  exports: [SignUpComponent]
 })
 export class SignUpModule {
 }

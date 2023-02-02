@@ -10,11 +10,11 @@ import {UserRoleService} from './shared/user-role.service';
     HttpClientModule
   ],
   declarations: [],
-  exports: [],
   providers: [
     UserService,
     UserRoleService,
   ],
+  exports: [],
 })
 export class UsersModule {
 }

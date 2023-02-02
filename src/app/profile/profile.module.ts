@@ -10,8 +10,8 @@ import {UserService} from '../users/shared/user.service';
     HttpClientModule
   ],
   declarations: [ProfileComponent],
-  exports: [ProfileComponent],
-  providers: [UserService]
+  providers: [UserService],
+  exports: [ProfileComponent]
 })
 export class ProfileModule {
 }

@@ -10,8 +10,8 @@ import {WalletService} from './shared/wallet.service';
     HttpClientModule
   ],
   declarations: [WalletComponent],
-  exports: [WalletComponent],
-  providers: [WalletService]
+  providers: [WalletService],
+  exports: [WalletComponent]
 })
 export class WalletModule {
 }

@@ -16,12 +16,12 @@ import {UserRoleService} from '../users/shared/user-role.service';
     ButtonModule
   ],
   declarations: [HeaderComponent],
-  exports: [HeaderComponent],
   providers: [
     NavigationService,
     UserService,
     UserRoleService
-  ]
+  ],
+  exports: [HeaderComponent]
 })
 export class HeaderModule {
 }

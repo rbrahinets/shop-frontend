@@ -13,11 +13,11 @@ import {ProductsCartsService} from './shared/products-carts.service';
     HttpClientModule
   ],
   declarations: [CartComponent],
-  exports: [CartComponent],
   providers: [
     CartService,
     ProductsCartsService
-  ]
+  ],
+  exports: [CartComponent]
 })
 export class CartModule {
 }

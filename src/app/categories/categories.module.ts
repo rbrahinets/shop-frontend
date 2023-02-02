@@ -20,15 +20,15 @@ import {ProductService} from '../products/shared/product.service';
     CategoryListItemComponent,
     CategoryComponent
   ],
-  exports: [
-    CategoryListComponent,
-    CategoryListItemComponent,
-    CategoryComponent
-  ],
   providers: [
     CategoryService,
     ProductsCategoryService,
     ProductService
+  ],
+  exports: [
+    CategoryListComponent,
+    CategoryListItemComponent,
+    CategoryComponent
   ]
 })
 export class CategoriesModule {

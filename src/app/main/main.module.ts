@@ -12,8 +12,8 @@ import {ProductService} from '../products/shared/product.service';
     HttpClientModule
   ],
   declarations: [MainComponent],
-  exports: [MainComponent],
-  providers: [ProductService]
+  providers: [ProductService],
+  exports: [MainComponent]
 })
 export class MainModule {
 }

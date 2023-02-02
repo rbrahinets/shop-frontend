@@ -22,15 +22,15 @@ import {ProductsCartsService} from '../cart/shared/products-carts.service';
     ProductListItemComponent,
     ProductComponent
   ],
-  exports: [
-    ProductListComponent,
-    ProductListItemComponent,
-    ProductComponent
-  ],
   providers: [
     ProductService,
     CartService,
     ProductsCartsService
+  ],
+  exports: [
+    ProductListComponent,
+    ProductListItemComponent,
+    ProductComponent
   ]
 })
 export class ProductsModule {
