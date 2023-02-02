@@ -33,18 +33,8 @@ export class SignInComponent implements OnInit {
     }
 
     this.userService.getUsers().subscribe(
-      (users) => {
-        let user: User;
-
-        for (const u of users) {
-          if (
-            (this.login === u.email || this.login === u.phone)
-            && this.password === u.password
-          ) {
-            user = u;
-            break;
-          }
-        }
+      (users: User[]) => {
+        let user: User = this.findUserByCredential(users);
 
         if (!user) {
           alert('You have entered an incorrect login or password');
@@ -60,6 +50,17 @@ export class SignInComponent implements OnInit {
 
   onClickSignUp(endpoint: string) {
     this.navigation.goToEndpoint(endpoint);
+  }
+
+  private findUserByCredential(users: User[]): User {
+    for (const user of users) {
+      if (
+        (this.login === user.email || this.login === user.phone)
+        && this.password === user.password
+      ) {
+        return user;
+      }
+    }
   }
 
   private isValidCredential(): boolean {
