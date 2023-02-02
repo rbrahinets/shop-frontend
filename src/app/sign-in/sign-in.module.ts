@@ -7,21 +7,23 @@ import {ButtonModule} from '../button/button.module';
 import {SignInComponent} from './sign-in.component';
 import {NavigationService} from '../shared/navigation.service';
 import {UserService} from '../users/shared/user.service';
+import {UserRoleService} from '../users/shared/user-role.service';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
-    ButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule
   ],
   declarations: [SignInComponent],
-  exports: [SignInComponent],
   providers: [
     NavigationService,
-    UserService
-  ]
+    UserService,
+    UserRoleService
+  ],
+  exports: [SignInComponent]
 })
 export class SignInModule {
 }
