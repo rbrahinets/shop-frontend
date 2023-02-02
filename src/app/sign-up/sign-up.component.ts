@@ -45,7 +45,7 @@ export class SignUpComponent implements OnInit {
 
     this.userService.getUsers().subscribe(
       (users) => {
-        const newUser: User = {
+        const user: User = {
           id: (users.length as number) + 1,
           firstName: this.firstName,
           lastName: this.lastName,
@@ -54,21 +54,10 @@ export class SignUpComponent implements OnInit {
           password: this.password
         };
 
-        this.addNewUser(newUser);
-        this.addRoleForNewUser(newUser);
-        this.addCartForNewUser(newUser);
-
-        const wallet = new Wallet();
-
-        this.walletService.getWallets().subscribe(
-          (wallets) => wallet.id = (wallets.length as number) + 1
-        );
-
-        wallet.amountOfMoney = 0;
-        wallet.number = '';
-        wallet.userId = newUser.id;
-
-        this.walletService.saveWallet(wallet).subscribe();
+        this.addNewUser(user);
+        this.addRoleForNewUser(user);
+        this.addCartForNewUser(user);
+        this.addWalletForNewUser(user);
       }
     );
 
@@ -96,7 +85,7 @@ export class SignUpComponent implements OnInit {
     this.userService.saveUser(user).subscribe();
   }
 
-  private addRoleForNewUser(user: User): void {
+  private addRoleForNewUser(user: User): void  {
     this.userRoleService.saveRoleForUser(user).subscribe();
   }
 
@@ -108,5 +97,16 @@ export class SignUpComponent implements OnInit {
     cart.totalCost = 0;
     cart.userId = user.id;
     this.cartService.saveCart(cart).subscribe();
+  }
+
+  private addWalletForNewUser(user: User): void {
+    const wallet = new Wallet();
+    this.walletService.getWallets().subscribe(
+      (wallets) => wallet.id = (wallets.length as number) + 1
+    );
+    wallet.amountOfMoney = 0;
+    wallet.number = '';
+    wallet.userId = user.id;
+    this.walletService.saveWallet(wallet).subscribe();
   }
 }
