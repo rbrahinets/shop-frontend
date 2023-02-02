@@ -76,6 +76,11 @@ export class SignUpValidator {
       return false;
     }
 
+    if (password.length < 4) {
+      alert('You enter a short password');
+      return false;
+    }
+
     return true;
   }
 
