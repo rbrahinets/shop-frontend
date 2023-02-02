@@ -3,7 +3,6 @@ import {Router} from '@angular/router';
 import {UserRoleService} from '../users/shared/user-role.service';
 import {NavigationService} from '../shared/navigation.service';
 import {UserService} from '../users/shared/user.service';
-import {UserRoleDto} from '../users/shared/user-role.dto';
 
 @Component({
   selector: 'shop-header',
@@ -24,10 +23,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.logged = UserService.isUserLogged();
-
-    if (this.logged) {
-      this.setRoleForUser();
-    }
+    this.userRole = UserRoleService.getRoleOfCurrentUser();
   }
 
   hasRoute(route: string): boolean {
@@ -41,17 +37,6 @@ export class HeaderComponent implements OnInit {
     }
 
     this.navigation.goToEndpoint(endpoint);
-  }
-
-  private setRoleForUser() {
-    this.userRoleService.getRoleForUser(
-      UserService.getCurrentUserId()
-    ).subscribe(
-      (userRole: UserRoleDto) => {
-        this.userRole = UserRoleService.getRoleById(userRole.roleId);
-        UserRoleService.setRoleOfCurrentUser(this.userRole);
-      }
-    );
   }
 
   private onSignOut() {
