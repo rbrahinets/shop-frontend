@@ -41,12 +41,12 @@ export class SignInComponent implements OnInit {
   }
 
   private isValidCredential(): boolean {
-    const credential = new SignInDto(
-      this.login,
-      this.password
+    return SignInValidator.validate(
+      new SignInDto(
+        this.login,
+        this.password
+      )
     );
-
-    return SignInValidator.validate(credential);
   }
 
   private signIn(): void {
