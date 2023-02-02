@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Cart} from './cart.model';
+import {User} from '../../users/shared/user.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -35,5 +36,18 @@ export class CartService {
   updateCart(cart: Cart): Observable<Cart> {
     const url = `${this.apiUrl}/${cart.id}`;
     return this.http.put<Cart>(url, cart, httpOptions);
+  }
+
+  saveCartForUser(user: User): void {
+    const cart = new Cart();
+
+    this.getCarts().subscribe(
+      (carts) => cart.id = (carts.length as number) + 1
+    );
+
+    cart.totalCost = 0;
+    cart.userId = user.id;
+
+    this.saveCart(cart).subscribe();
   }
 }
