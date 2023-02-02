@@ -12,6 +12,10 @@ export class SignInValidator {
       return false;
     }
 
+    if (login === 'admin') {
+      return true;
+    }
+
     return true;
   }
 
