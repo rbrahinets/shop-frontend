@@ -45,10 +45,8 @@ export class SignUpComponent implements OnInit {
 
     this.userService.getUsers().subscribe(
       (users) => {
-        const id = (users.length as number) + 1;
-
         const newUser: User = {
-          id: id,
+          id: (users.length as number) + 1,
           firstName: this.firstName,
           lastName: this.lastName,
           email: this.email,
@@ -56,7 +54,7 @@ export class SignUpComponent implements OnInit {
           password: this.password
         };
 
-        this.userService.saveUser(newUser).subscribe();
+        this.addNewUser(newUser);
         this.userRoleService.saveRoleForUser(newUser).subscribe();
 
         const cart = new Cart();
@@ -102,5 +100,9 @@ export class SignUpComponent implements OnInit {
         this.confirmPassword
       )
     );
+  }
+
+  private addNewUser(user: User): void {
+    this.userService.saveUser(user).subscribe();
   }
 }
