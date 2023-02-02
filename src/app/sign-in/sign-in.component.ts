@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NavigationService} from '../shared/navigation.service';
+import {SignInValidator} from './sign-in.validator';
+import {SignInDto} from './sign-in.dto';
 import {UserService} from '../users/shared/user.service';
 import {UserRoleService} from '../users/shared/user-role.service';
 import {User} from '../users/shared/user.model';
-import {SignInDto} from './sign-in.dto';
-import {SignInValidator} from './sign-in.validator';
 
 @Component({
   selector: 'shop-sign-in',
@@ -57,8 +57,8 @@ export class SignInComponent implements OnInit {
           return;
         }
 
-        UserService.setCurrentUserId(String(this.findUserByCredential(users).id));
-        this.userRoleService.setRoleForCurrentUser(this.findUserByCredential(users).id);
+        this.setIdForUser(users);
+        this.setRoleForUser(users);
         this.navigation.goToEndpoint('/', true);
       }
     );
@@ -73,5 +73,17 @@ export class SignInComponent implements OnInit {
         return user;
       }
     }
+  }
+
+  private setIdForUser(users: User[]) {
+    UserService.setCurrentUserId(
+      String(this.findUserByCredential(users).id)
+    );
+  }
+
+  private setRoleForUser(users: User[]) {
+    this.userRoleService.setRoleForCurrentUser(
+      this.findUserByCredential(users).id
+    );
   }
 }
