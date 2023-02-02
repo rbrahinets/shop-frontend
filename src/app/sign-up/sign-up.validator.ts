@@ -6,7 +6,11 @@ export class SignUpValidator {
       && SignUpValidator.validateLastName(credential.lastName)
       && SignUpValidator.validateEmail(credential.email)
       && SignUpValidator.validatePhone(credential.phone)
-      && SignUpValidator.validatePassword(credential.password);
+      && SignUpValidator.validatePassword(credential.password)
+      && SignUpValidator.validateConfirmPassword(
+        credential.password,
+        credential.confirmPassword,
+      );
   }
 
   private static validateFirstName(firstName: string): boolean {
@@ -48,6 +52,23 @@ export class SignUpValidator {
   private static validatePassword(password: string): boolean {
     if (!password) {
       alert('You haven\'t entered a password');
+      return false;
+    }
+
+    return true;
+  }
+
+  private static validateConfirmPassword(
+    password: string,
+    confirmPassword: string
+  ): boolean {
+    if (!confirmPassword) {
+      alert('You haven\'t entered a confirm password');
+      return false;
+    }
+
+    if (password !== confirmPassword) {
+      alert('Your passwords are different');
       return false;
     }
 
