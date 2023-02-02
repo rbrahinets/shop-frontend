@@ -46,7 +46,8 @@ export class SignUpValidator {
   }
 
   private static isInvalidEmail(email: string) {
-    return email.startsWith('@')
+    return !email.includes('@')
+      || email.startsWith('@')
       || !email.endsWith('.com')
       || email.endsWith('@.com');
   }
