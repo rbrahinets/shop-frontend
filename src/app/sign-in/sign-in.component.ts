@@ -33,24 +33,35 @@ export class SignInComponent implements OnInit {
       return;
     }
 
+    this.signIn();
+  }
+
+  onClickSignUp(endpoint: string): void {
+    this.navigation.goToEndpoint(endpoint);
+  }
+
+  private isValidCredential(): boolean {
+    const credential = new SignInDto(
+      this.login,
+      this.password
+    );
+
+    return SignInValidator.validate(credential);
+  }
+
+  private signIn(): void {
     this.userService.getUsers().subscribe(
       (users: User[]) => {
-        let user: User = this.findUserByCredential(users);
-
-        if (!user) {
+        if (!this.findUserByCredential(users)) {
           alert('You have entered an incorrect login or password');
           return;
         }
 
-        UserService.setCurrentUserId(String(user.id));
-        this.userRoleService.setRoleForCurrentUser(user.id);
+        UserService.setCurrentUserId(String(this.findUserByCredential(users).id));
+        this.userRoleService.setRoleForCurrentUser(this.findUserByCredential(users).id);
         this.navigation.goToEndpoint('/', true);
       }
     );
-  }
-
-  onClickSignUp(endpoint: string) {
-    this.navigation.goToEndpoint(endpoint);
   }
 
   private findUserByCredential(users: User[]): User {
@@ -62,14 +73,5 @@ export class SignInComponent implements OnInit {
         return user;
       }
     }
-  }
-
-  private isValidCredential(): boolean {
-    const credential = new SignInDto(
-      this.login,
-      this.password
-    );
-
-    return SignInValidator.validate(credential);
   }
 }
