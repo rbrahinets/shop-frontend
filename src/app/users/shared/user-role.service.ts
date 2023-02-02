@@ -34,6 +34,15 @@ export class UserRoleService {
     return id === 1 ? 'ROLE_ADMIN' : 'ROLE_USER';
   }
 
+  setRoleForCurrentUser(userId: number) {
+    this.getRoleForUser(userId)
+      .subscribe((userRole: UserRoleDto) => {
+        UserRoleService.setRoleOfCurrentUser(
+          UserRoleService.getRoleById(userRole.roleId)
+        );
+      });
+  }
+
   getUsersRoles(): Observable<UserRoleDto[]> {
     return this.http.get<UserRoleDto[]>(this.apiUrl);
   }
