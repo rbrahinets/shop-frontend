@@ -1,0 +1,24 @@
+export class PhoneValidator {
+  static validate(phone: string): boolean {
+    return PhoneValidator.validatePhone(phone);
+  }
+
+  private static validatePhone(phone: string): boolean {
+    if (!phone) {
+      alert('You haven\'t entered a phone');
+      return false;
+    }
+
+    if (PhoneValidator.isInvalidPhone(phone)) {
+      alert('You have entered an invalid phone');
+      return false;
+    }
+
+    return true;
+  }
+
+  private static isInvalidPhone(phone: string) {
+    return !phone.startsWith('+')
+      || phone.length < 12;
+  }
+}

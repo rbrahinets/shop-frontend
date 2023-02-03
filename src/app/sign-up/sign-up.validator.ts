@@ -1,12 +1,13 @@
 import {SignUpDto} from './sign-up.dto';
 import {EmailValidator} from '../validators/email.validator';
+import {PhoneValidator} from '../validators/phone.validator';
 
 export class SignUpValidator {
   static validate(credential: SignUpDto): boolean {
     return SignUpValidator.validateFirstName(credential.firstName)
       && SignUpValidator.validateLastName(credential.lastName)
       && EmailValidator.validate(credential.email)
-      && SignUpValidator.validatePhone(credential.phone)
+      && PhoneValidator.validate(credential.phone)
       && SignUpValidator.validatePassword(credential.password)
       && SignUpValidator.validateConfirmPassword(
         credential.password,
@@ -30,25 +31,6 @@ export class SignUpValidator {
     }
 
     return true;
-  }
-
-  private static validatePhone(phone: string): boolean {
-    if (!phone) {
-      alert('You haven\'t entered a phone');
-      return false;
-    }
-
-    if (this.isInvalidPhone(phone)) {
-      alert('You have entered an invalid phone');
-      return false;
-    }
-
-    return true;
-  }
-
-  private static isInvalidPhone(phone: string) {
-    return !phone.startsWith('+')
-      || phone.length < 12;
   }
 
   private static validatePassword(password: string): boolean {
