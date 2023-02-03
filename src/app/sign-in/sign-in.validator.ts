@@ -1,4 +1,6 @@
 import {SignInDto} from './sign-in.dto';
+import {EmailValidator} from '../validators/email.validator';
+import {PhoneValidator} from '../validators/phone.validator';
 
 export class SignInValidator {
   static validate(credential: SignInDto): boolean {
@@ -16,39 +18,18 @@ export class SignInValidator {
       return true;
     }
 
+    return !SignInValidator.isInvalidLogin(login);
+  }
+
+  private static isInvalidLogin(login: string): boolean {
     if (login.includes('@')) {
-      if (!this.validateEmail(login)) {
-        return this.isInvalidLogin();
-      }
+      return !EmailValidator.validate(login);
     } else if (login.includes('+')) {
-      if (!this.validatePhone(login)) {
-        return this.isInvalidLogin();
-      }
-    } else {
-      return this.isInvalidLogin();
+      return !PhoneValidator.validate(login);
     }
 
-    return true;
-  }
-
-  private static isInvalidLogin(): boolean {
     alert('You have entered an invalid login');
-    return false;
-  }
-
-  private static validateEmail(email: string) {
-    return !(
-      email.startsWith('@')
-      || !email.endsWith('.com')
-      || email.endsWith('@.com')
-    );
-  }
-
-  private static validatePhone(phone: string) {
-    return !(
-      !phone.startsWith('+')
-      || phone.length < 12
-    );
+    return true;
   }
 
   private static validatePassword(password: string): boolean {
