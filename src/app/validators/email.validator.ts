@@ -7,9 +7,7 @@ export class EmailValidator {
     if (!email) {
       alert('You haven\'t entered an email');
       return false;
-    }
-
-    if (EmailValidator.isInvalidEmail(email)) {
+    } else if (EmailValidator.isInvalidEmail(email)) {
       alert('You have entered an invalid email');
       return false;
     }
@@ -17,7 +15,7 @@ export class EmailValidator {
     return true;
   }
 
-  private static isInvalidEmail(email: string) {
+  private static isInvalidEmail(email: string): boolean {
     return !email.includes('@')
       || email.startsWith('@')
       || !email.endsWith('.com')

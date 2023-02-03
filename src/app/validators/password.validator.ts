@@ -7,9 +7,7 @@ export class PasswordValidator {
     if (!password) {
       alert('You haven\'t entered a password');
       return false;
-    }
-
-    if (password.length < 4) {
+    } else if (password.length < 4) {
       alert('You enter a short password');
       return false;
     }

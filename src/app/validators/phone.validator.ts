@@ -7,9 +7,7 @@ export class PhoneValidator {
     if (!phone) {
       alert('You haven\'t entered a phone');
       return false;
-    }
-
-    if (PhoneValidator.isInvalidPhone(phone)) {
+    } else if (PhoneValidator.isInvalidPhone(phone)) {
       alert('You have entered an invalid phone');
       return false;
     }
@@ -17,7 +15,7 @@ export class PhoneValidator {
     return true;
   }
 
-  private static isInvalidPhone(phone: string) {
+  private static isInvalidPhone(phone: string): boolean {
     return !phone.startsWith('+')
       || phone.length < 12;
   }

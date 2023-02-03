@@ -13,9 +13,7 @@ export class SignInValidator {
     if (!login) {
       alert('You haven\'t entered a login');
       return false;
-    }
-
-    if (login === 'admin') {
+    } else if (login === 'admin') {
       return true;
     }
 
