@@ -2,6 +2,7 @@ import {SignUpDto} from './sign-up.dto';
 import {EmailValidator} from '../validators/email.validator';
 import {PhoneValidator} from '../validators/phone.validator';
 import {PasswordValidator} from '../validators/password.validator';
+import {ConfirmPasswordValidator} from '../validators/confirm-password.validator';
 
 export class SignUpValidator {
   static validate(credential: SignUpDto): boolean {
@@ -10,7 +11,7 @@ export class SignUpValidator {
       && EmailValidator.validate(credential.email)
       && PhoneValidator.validate(credential.phone)
       && PasswordValidator.validate(credential.password)
-      && SignUpValidator.validateConfirmPassword(
+      && ConfirmPasswordValidator.validate(
         credential.password,
         credential.confirmPassword,
       );
@@ -28,21 +29,6 @@ export class SignUpValidator {
   private static validateLastName(lastName: string): boolean {
     if (!lastName) {
       alert('You haven\'t entered a last name');
-      return false;
-    }
-
-    return true;
-  }
-
-  private static validateConfirmPassword(
-    password: string,
-    confirmPassword: string
-  ): boolean {
-    if (
-      !confirmPassword
-      || password !== confirmPassword
-    ) {
-      alert('Your passwords are different');
       return false;
     }
 
