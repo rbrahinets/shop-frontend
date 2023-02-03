@@ -1,11 +1,12 @@
 import {SignInDto} from './sign-in.dto';
 import {EmailValidator} from '../validators/email.validator';
 import {PhoneValidator} from '../validators/phone.validator';
+import {PasswordValidator} from '../validators/password.validator';
 
 export class SignInValidator {
   static validate(credential: SignInDto): boolean {
     return SignInValidator.validateLogin(credential.login)
-      && SignInValidator.validatePassword(credential.password);
+      && PasswordValidator.validate(credential.password);
   }
 
   private static validateLogin(login: string): boolean {
@@ -29,20 +30,6 @@ export class SignInValidator {
     }
 
     alert('You have entered an invalid login');
-    return true;
-  }
-
-  private static validatePassword(password: string): boolean {
-    if (!password) {
-      alert('You haven\'t entered a password');
-      return false;
-    }
-
-    if (password.length < 4) {
-      alert('You enter a short password');
-      return false;
-    }
-
     return true;
   }
 }
