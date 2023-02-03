@@ -1,10 +1,11 @@
 import {SignUpDto} from './sign-up.dto';
+import {EmailValidator} from '../validators/email.validator';
 
 export class SignUpValidator {
   static validate(credential: SignUpDto): boolean {
     return SignUpValidator.validateFirstName(credential.firstName)
       && SignUpValidator.validateLastName(credential.lastName)
-      && SignUpValidator.validateEmail(credential.email)
+      && EmailValidator.validate(credential.email)
       && SignUpValidator.validatePhone(credential.phone)
       && SignUpValidator.validatePassword(credential.password)
       && SignUpValidator.validateConfirmPassword(
@@ -29,27 +30,6 @@ export class SignUpValidator {
     }
 
     return true;
-  }
-
-  private static validateEmail(email: string): boolean {
-    if (!email) {
-      alert('You haven\'t entered an email');
-      return false;
-    }
-
-    if (this.isInvalidEmail(email)) {
-      alert('You have entered an invalid email');
-      return false;
-    }
-
-    return true;
-  }
-
-  private static isInvalidEmail(email: string) {
-    return !email.includes('@')
-      || email.startsWith('@')
-      || !email.endsWith('.com')
-      || email.endsWith('@.com');
   }
 
   private static validatePhone(phone: string): boolean {

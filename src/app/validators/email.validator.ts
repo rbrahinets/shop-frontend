@@ -1,0 +1,26 @@
+export class EmailValidator {
+  static validate(email: string): boolean {
+    return EmailValidator.validateEmail(email);
+  }
+
+  private static validateEmail(email: string): boolean {
+    if (!email) {
+      alert('You haven\'t entered an email');
+      return false;
+    }
+
+    if (EmailValidator.isInvalidEmail(email)) {
+      alert('You have entered an invalid email');
+      return false;
+    }
+
+    return true;
+  }
+
+  private static isInvalidEmail(email: string) {
+    return !email.includes('@')
+      || email.startsWith('@')
+      || !email.endsWith('.com')
+      || email.endsWith('@.com');
+  }
+}
