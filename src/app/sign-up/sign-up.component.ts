@@ -65,14 +65,14 @@ export class SignUpComponent implements OnInit {
   private signUp() {
     this.userService.getUsers().subscribe(
       (users) => {
-        const user: User = {
-          id: (users.length as number) + 1,
-          firstName: this.firstName,
-          lastName: this.lastName,
-          email: this.email,
-          phone: this.phone,
-          password: this.password
-        };
+        const user = new User(
+          (users.length as number) + 1,
+          this.firstName,
+          this.lastName,
+          this.email,
+          this.phone,
+          this.password
+        );
 
         this.addNewUser(user);
         this.addRoleForNewUser(user);
