@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {NavigationService} from '../shared/navigation.service';
 import {SignInValidator} from './shared/sign-in.validator';
 import {SignInDto} from './shared/sign-in.dto';
+import {LoggedUserService} from '../users/shared/logged-user.service';
 import {UserService} from '../users/shared/user.service';
 import {UserRoleService} from '../users/shared/user-role.service';
 import {User} from '../users/shared/user.model';
@@ -66,6 +67,18 @@ export class SignInComponent implements OnInit {
     );
   }
 
+  private setIdForUser(users: User[]) {
+    LoggedUserService.setUserId(
+      String(this.findUserByCredential(users).id)
+    );
+  }
+
+  private setRoleForUser(users: User[]) {
+    this.userRoleService.setRoleForCurrentUser(
+      this.findUserByCredential(users).id
+    );
+  }
+
   private findUserByCredential(users: User[]): User {
     for (const user of users) {
       if (
@@ -75,17 +88,5 @@ export class SignInComponent implements OnInit {
         return user;
       }
     }
-  }
-
-  private setIdForUser(users: User[]) {
-    UserService.setCurrentUserId(
-      String(this.findUserByCredential(users).id)
-    );
-  }
-
-  private setRoleForUser(users: User[]) {
-    this.userRoleService.setRoleForCurrentUser(
-      this.findUserByCredential(users).id
-    );
   }
 }

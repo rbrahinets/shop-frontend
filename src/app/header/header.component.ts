@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {UserRoleService} from '../users/shared/user-role.service';
 import {NavigationService} from '../shared/navigation.service';
-import {UserService} from '../users/shared/user.service';
+import {LoggedUserService} from '../users/shared/logged-user.service';
 
 @Component({
   selector: 'shop-header',
@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.logged = UserService.isUserLogged();
+    this.logged = LoggedUserService.isUserLogged();
     this.userRole = UserRoleService.getRoleOfCurrentUser();
   }
 
@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
   }
 
   private onSignOut() {
-    UserService.setCurrentUserId('0');
+    LoggedUserService.setUserId('0');
     UserRoleService.setRoleOfCurrentUser('');
     this.logged = !this.logged;
     this.navigation.goToEndpoint('/');

@@ -6,6 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ButtonModule} from '../button/button.module';
 import {SignInComponent} from './sign-in.component';
 import {NavigationService} from '../shared/navigation.service';
+import {LoggedUserService} from '../users/shared/logged-user.service';
 import {UserService} from '../users/shared/user.service';
 import {UserRoleService} from '../users/shared/user-role.service';
 
@@ -20,6 +21,7 @@ import {UserRoleService} from '../users/shared/user-role.service';
   declarations: [SignInComponent],
   providers: [
     NavigationService,
+    LoggedUserService,
     UserService,
     UserRoleService
   ],

@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
+import {LoggedUserService} from './shared/logged-user.service';
 import {UserService} from './shared/user.service';
 import {UserRoleService} from './shared/user-role.service';
 
@@ -11,6 +12,7 @@ import {UserRoleService} from './shared/user-role.service';
   ],
   declarations: [],
   providers: [
+    LoggedUserService,
     UserService,
     UserRoleService,
   ],
