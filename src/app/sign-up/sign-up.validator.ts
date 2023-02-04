@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {SignUpDto} from './sign-up.dto';
-import {FirstNameValidator} from '../validators/first-name.validator';
-import {LastNameValidator} from '../validators/last-name.validator';
-import {EmailValidator} from '../validators/email.validator';
-import {PhoneValidator} from '../validators/phone.validator';
-import {PasswordValidator} from '../validators/password.validator';
-import {ConfirmPasswordValidator} from '../validators/confirm-password.validator';
+import {FirstNameValidator} from '../shared/validators/first-name.validator';
+import {LastNameValidator} from '../shared/validators/last-name.validator';
+import {EmailValidator} from '../shared/validators/email.validator';
+import {PhoneValidator} from '../shared/validators/phone.validator';
+import {PasswordValidator} from '../shared/validators/password.validator';
+import {ConfirmPasswordValidator} from '../shared/validators/confirm-password.validator';
 
 @Injectable({
   providedIn: 'root'
