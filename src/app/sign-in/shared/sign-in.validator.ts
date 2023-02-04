@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {SignInDto} from './sign-in.dto';
-import {EmailValidator} from '../shared/validators/email.validator';
-import {PhoneValidator} from '../shared/validators/phone.validator';
-import {PasswordValidator} from '../shared/validators/password.validator';
+import {EmailValidator} from '../../shared/validators/email.validator';
+import {PhoneValidator} from '../../shared/validators/phone.validator';
+import {PasswordValidator} from '../../shared/validators/password.validator';
 
 @Injectable({
   providedIn: 'root'

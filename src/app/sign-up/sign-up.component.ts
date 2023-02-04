@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NavigationService} from '../shared/navigation.service';
-import {SignUpValidator} from './sign-up.validator';
-import {SignUpDto} from './sign-up.dto';
+import {SignUpValidator} from './shared/sign-up.validator';
+import {SignUpDto} from './shared/sign-up.dto';
 import {UserService} from '../users/shared/user.service';
 import {UserRoleService} from '../users/shared/user-role.service';
 import {CartService} from '../cart/shared/cart.service';
