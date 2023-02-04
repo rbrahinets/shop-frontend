@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {UserRoleService} from '../users/shared/user-role.service';
 import {NavigationService} from '../shared/navigation.service';
 import {LoggedUserService} from '../users/shared/logged-user.service';
 
@@ -15,7 +14,6 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private userRoleService: UserRoleService,
     private navigation: NavigationService,
   ) {
     this.navigation = new NavigationService(this.router);
@@ -23,7 +21,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.logged = LoggedUserService.isUserLogged();
-    this.userRole = UserRoleService.getRoleOfCurrentUser();
+    this.userRole = LoggedUserService.getRoleOfUser();
   }
 
   hasRoute(route: string): boolean {
@@ -41,7 +39,7 @@ export class HeaderComponent implements OnInit {
 
   private onSignOut() {
     LoggedUserService.setUserId('0');
-    UserRoleService.setRoleOfCurrentUser('');
+    LoggedUserService.setRoleOfUser('');
     this.logged = !this.logged;
     this.navigation.goToEndpoint('/');
   }

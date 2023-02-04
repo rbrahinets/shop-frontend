@@ -74,7 +74,7 @@ export class SignInComponent implements OnInit {
   }
 
   private setRoleForUser(users: User[]) {
-    this.userRoleService.setRoleForCurrentUser(
+    this.userRoleService.setRoleForLoggedUser(
       this.findUserByCredential(users).id
     );
   }

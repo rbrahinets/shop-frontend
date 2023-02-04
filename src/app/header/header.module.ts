@@ -6,7 +6,6 @@ import {ButtonModule} from '../button/button.module';
 import {HeaderComponent} from './header.component';
 import {NavigationService} from '../shared/navigation.service';
 import {LoggedUserService} from '../users/shared/logged-user.service';
-import {UserRoleService} from '../users/shared/user-role.service';
 
 @NgModule({
   imports: [
@@ -18,8 +17,7 @@ import {UserRoleService} from '../users/shared/user-role.service';
   declarations: [HeaderComponent],
   providers: [
     NavigationService,
-    LoggedUserService,
-    UserRoleService
+    LoggedUserService
   ],
   exports: [HeaderComponent]
 })

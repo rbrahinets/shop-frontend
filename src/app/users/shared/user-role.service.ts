@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Cookie} from 'ng2-cookies/ng2-cookies';
 import {User} from './user.model';
 import {UserRoleDto} from './user-role.dto';
+import {LoggedUserService} from "./logged-user.service";
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -20,27 +20,6 @@ export class UserRoleService {
   constructor(
     private http: HttpClient
   ) {
-  }
-
-  static getRoleOfCurrentUser(): string {
-    return Cookie.get('userRole');
-  }
-
-  static setRoleOfCurrentUser(role: string): void {
-    Cookie.set('userRole', role);
-  }
-
-  static getRoleById(id: number): string {
-    return id === 1 ? 'ROLE_ADMIN' : 'ROLE_USER';
-  }
-
-  setRoleForCurrentUser(userId: number) {
-    this.getRoleForUser(userId)
-      .subscribe((userRole: UserRoleDto) => {
-        UserRoleService.setRoleOfCurrentUser(
-          UserRoleService.getRoleById(userRole.roleId)
-        );
-      });
   }
 
   getUsersRoles(): Observable<UserRoleDto[]> {
@@ -62,5 +41,15 @@ export class UserRoleService {
     userRole.userId = user.id;
 
     return this.http.post<UserRoleDto>(this.apiUrl, userRole, httpOptions);
+  }
+
+  setRoleForLoggedUser(userId: number) {
+    this.getRoleForUser(userId)
+      .subscribe(
+        (userRole: UserRoleDto) =>
+          LoggedUserService.setRoleOfUser(
+            LoggedUserService.getRoleById(userRole.roleId)
+          )
+      )
   }
 }
