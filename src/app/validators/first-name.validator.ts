@@ -1,5 +1,10 @@
+import {Injectable} from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
 export class FirstNameValidator {
-  static validate(firstName: string): boolean {
+  validate(firstName: string): boolean {
     return FirstNameValidator.validateFirstName(firstName);
   }
 

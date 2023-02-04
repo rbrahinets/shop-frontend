@@ -25,6 +25,7 @@ export class SignUpComponent implements OnInit {
   constructor(
     private router: Router,
     private navigation: NavigationService,
+    private validator: SignUpValidator,
     private userService: UserService,
     private userRoleService: UserRoleService,
     private cartService: CartService,
@@ -49,7 +50,7 @@ export class SignUpComponent implements OnInit {
   }
 
   private isValidCredential(): boolean {
-    return SignUpValidator.validate(
+    return this.validator.validate(
       new SignUpDto(
         this.firstName,
         this.lastName,

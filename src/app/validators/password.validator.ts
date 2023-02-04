@@ -1,5 +1,10 @@
+import {Injectable} from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
 export class PasswordValidator {
-  static validate(password: string): boolean {
+  validate(password: string): boolean {
     return PasswordValidator.validatePassword(password);
   }
 

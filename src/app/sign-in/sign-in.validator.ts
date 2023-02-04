@@ -1,15 +1,26 @@
+import {Injectable} from '@angular/core';
 import {SignInDto} from './sign-in.dto';
 import {EmailValidator} from '../validators/email.validator';
 import {PhoneValidator} from '../validators/phone.validator';
 import {PasswordValidator} from '../validators/password.validator';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class SignInValidator {
-  static validate(credential: SignInDto): boolean {
-    return SignInValidator.validateLogin(credential.login)
-      && PasswordValidator.validate(credential.password);
+  constructor(
+    private emailValidator: EmailValidator,
+    private phoneValidator: PhoneValidator,
+    private passwordValidator: PasswordValidator
+  ) {
   }
 
-  private static validateLogin(login: string): boolean {
+  validate(credential: SignInDto): boolean {
+    return this.validateLogin(credential.login)
+      && this.passwordValidator.validate(credential.password);
+  }
+
+  private validateLogin(login: string): boolean {
     if (!login) {
       alert('You haven\'t entered a login');
       return false;
@@ -17,14 +28,14 @@ export class SignInValidator {
       return true;
     }
 
-    return !SignInValidator.isInvalidLogin(login);
+    return !this.isInvalidLogin(login);
   }
 
-  private static isInvalidLogin(login: string): boolean {
+  private isInvalidLogin(login: string): boolean {
     if (login.includes('@')) {
-      return !EmailValidator.validate(login);
+      return !this.emailValidator.validate(login);
     } else if (login.includes('+')) {
-      return !PhoneValidator.validate(login);
+      return !this.phoneValidator.validate(login);
     }
 
     alert('You have entered an invalid login');

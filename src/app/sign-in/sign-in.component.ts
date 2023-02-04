@@ -19,6 +19,7 @@ export class SignInComponent implements OnInit {
   constructor(
     private router: Router,
     private navigation: NavigationService,
+    private validator: SignInValidator,
     private userService: UserService,
     private userRoleService: UserRoleService
   ) {
@@ -41,7 +42,7 @@ export class SignInComponent implements OnInit {
   }
 
   private isValidCredential(): boolean {
-    return SignInValidator.validate(
+    return this.validator.validate(
       new SignInDto(
         this.login,
         this.password

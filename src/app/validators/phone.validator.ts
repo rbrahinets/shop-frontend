@@ -1,5 +1,10 @@
+import {Injectable} from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
 export class PhoneValidator {
-  static validate(phone: string): boolean {
+  validate(phone: string): boolean {
     return PhoneValidator.validatePhone(phone);
   }
 
