@@ -20,7 +20,7 @@ export class Random {
       });
   }
 
-  private static getRangeOfNumbers() {
+  private static getRangeOfNumbers(): number[] {
     let numbers: number[] = [];
     for (let i = 0; i < 50; i++) {
       numbers.push(i);
@@ -31,7 +31,7 @@ export class Random {
   private static getRandomId(
     rangeOfNumbers: number[],
     max: number
-  ) {
+  ): number {
     return rangeOfNumbers[
       Math.floor(max * Math.random())
       ];

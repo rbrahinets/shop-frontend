@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
     this.userService.getUserById(
       LoggedUserService.getUserId()
     ).subscribe(
-      (user) => this.user = user
+      (user: User) => this.user = user
     );
   }
 }
