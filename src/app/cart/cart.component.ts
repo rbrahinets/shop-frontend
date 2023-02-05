@@ -27,24 +27,29 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartService.getCarts().subscribe(
       (carts) => {
-        let cartId: number = 0;
-
-        for (const cart of carts) {
-          if (cart.userId === LoggedUserService.getUserId()) {
-            cartId = cart.id;
-          }
-        }
-
-        this.cartService.getCart(cartId).subscribe(
+        this.cartService.getCart(
+          CartComponent.getCartId(carts)
+        ).subscribe(
           (cart) => {
             this.cart = cart;
-            this.productsCartsService.getProductsFromCart(cart.id).subscribe(
+            this.productsCartsService
+              .getProductsFromCart(cart.id).subscribe(
               (products) => this.products = products
             );
           }
         );
       }
     );
+  }
+
+  private static getCartId(carts: Cart[]): number {
+    for (const cart of carts) {
+      if (cart.userId === LoggedUserService.getUserId()) {
+        return cart.id;
+      }
+    }
+
+    return 0;
   }
 
   deleteProductFromCart(product: Product) {
