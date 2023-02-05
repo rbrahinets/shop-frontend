@@ -8,7 +8,7 @@ export class Random {
     return Array(quantity)
       .fill(undefined)
       .map(() => {
-        const id = rangeOfNumbers[Math.floor(max * Math.random())];
+        const id = Random.getRandomId(rangeOfNumbers, max);
         max--;
 
         const index = rangeOfNumbers.indexOf(id, 0);
@@ -26,5 +26,14 @@ export class Random {
       numbers.push(i);
     }
     return numbers;
+  }
+
+  private static getRandomId(
+    rangeOfNumbers: number[],
+    max: number
+  ) {
+    return rangeOfNumbers[
+      Math.floor(max * Math.random())
+      ];
   }
 }
