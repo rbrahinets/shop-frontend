@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from "../products/shared/product.model";
-import {ProductService} from "../products/shared/product.service";
+import {Product} from '../products/shared/product.model';
+import {ProductService} from '../products/shared/product.service';
 
 @Component({
   selector: 'shop-main',
@@ -22,13 +22,10 @@ export class MainComponent implements OnInit {
   private setRandomProducts(): void {
     this.productService.getProducts().subscribe(
       (products) => {
-        const ids: number[] = this.getRandomIds(
-          MainComponent.getCountOfProducts(),
-          products.length
-        );
+        const idsOfProducts: number[] = this.getIdsOfProducts(products);
 
         for (let i = 0; i < MainComponent.getCountOfProducts(); i++) {
-          this.products.push(products[ids[i]]);
+          this.products.push(products[idsOfProducts[i]]);
         }
       }
     );
@@ -36,6 +33,13 @@ export class MainComponent implements OnInit {
 
   private static getCountOfProducts(): number {
     return 5;
+  }
+
+  private getIdsOfProducts(products: Product[]): number[] {
+    return this.getRandomIds(
+      MainComponent.getCountOfProducts(),
+      products.length
+    );
   }
 
   private getRandomIds(
