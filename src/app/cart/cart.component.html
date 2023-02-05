@@ -1,5 +1,5 @@
 <div>
-  <h2 *ngIf="products.length <= 0">Cart is empty!</h2>
+  <h2 *ngIf="products.length <= 0">Cart is Empty!</h2>
   <div
     class="product"
     *ngFor="let product of products"
@@ -7,9 +7,9 @@
     <h3>
       Product: {{product.name}}
       <fa-icon
-        (click)="deleteProductFromCart(product)"
-        [ngStyle]="{color: 'red', cursor: 'pointer'}"
         [icon]="faTimes"
+        [ngStyle]="{color: 'red', cursor: 'pointer'}"
+        (click)="deleteProductFromCart(product)"
       ></fa-icon>
     </h3>
     <p>Price: {{product.price}}</p>
