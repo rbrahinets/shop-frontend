@@ -1,13 +1,8 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from './user.model';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-};
+import {Http} from '../../shared/http';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +24,6 @@ export class UserService {
   }
 
   saveUser(user: User): Observable<User> {
-    return this.http.post<User>(this.apiUrl, user, httpOptions);
+    return this.http.post<User>(this.apiUrl, user, Http.getHttpOptions());
   }
 }

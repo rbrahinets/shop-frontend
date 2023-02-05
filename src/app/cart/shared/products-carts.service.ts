@@ -1,16 +1,11 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {Product} from '../../products/shared/product.model';
 import {ProductsCartsDto} from './products-carts.dto';
 import {ProductService} from '../../products/shared/product.service';
 import {Cart} from './cart.model';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-};
+import {Http} from '../../shared/http';
 
 @Injectable({
   providedIn: 'root'
@@ -60,7 +55,11 @@ export class ProductsCartsService {
     productCart.productId = product.id;
     productCart.cartId = cart.id;
 
-    return this.http.post<ProductsCartsDto>(this.apiUrl, productCart, httpOptions);
+    return this.http.post<ProductsCartsDto>(
+      this.apiUrl,
+      productCart,
+      Http.getHttpOptions()
+    );
   }
 
   deleteProductFromCart(
