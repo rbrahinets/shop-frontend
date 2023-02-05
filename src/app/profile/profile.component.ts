@@ -17,6 +17,10 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setProfileOfUser();
+  }
+
+  private setProfileOfUser(): void {
     this.userService.getUserById(
       LoggedUserService.getUserId()
     ).subscribe(
