@@ -22,13 +22,17 @@ export class MainComponent implements OnInit {
   private setRandomProducts(): void {
     this.productService.getProducts().subscribe(
       (products) => {
-        const idsOfProducts: number[] = this.getIdsOfProducts(products);
-
-        for (let i = 0; i < MainComponent.getCountOfProducts(); i++) {
-          this.products.push(products[idsOfProducts[i]]);
-        }
+        this.addProductsToArray(products);
       }
     );
+  }
+
+  private addProductsToArray(products: Product[]) {
+    const idsOfProducts: number[] = this.getIdsOfProducts(products);
+
+    for (let i = 0; i < MainComponent.getCountOfProducts(); i++) {
+      this.products.push(products[idsOfProducts[i]]);
+    }
   }
 
   private static getCountOfProducts(): number {
