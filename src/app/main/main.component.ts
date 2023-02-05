@@ -22,9 +22,7 @@ export class MainComponent implements OnInit {
 
   private setRandomProducts(): void {
     this.productService.getProducts().subscribe(
-      (products: Product[]) => {
-        this.addProductsToArray(products);
-      }
+      (products: Product[]) => this.addProductsToArray(products)
     );
   }
 
