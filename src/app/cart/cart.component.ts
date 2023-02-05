@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {faTimes} from '@fortawesome/free-solid-svg-icons';
+import {Router} from '@angular/router';
 import {Cart} from './shared/cart.model';
-import {CartService} from './shared/cart.service';
 import {Product} from '../products/shared/product.model';
+import {CartService} from './shared/cart.service';
 import {ProductsCartsService} from './shared/products-carts.service';
-import {Cookie} from 'ng2-cookies/ng2-cookies';
-import {Router} from "@angular/router";
+import {LoggedUserService} from "../users/shared/logged-user.service";
 
 @Component({
   selector: 'shop-cart',
@@ -15,7 +15,6 @@ import {Router} from "@angular/router";
 export class CartComponent implements OnInit {
   cart = new Cart();
   products: Product[] = [];
-
   faTimes = faTimes;
 
   constructor(
@@ -26,14 +25,12 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const userId: number = Number(Cookie.get('userId'));
-
     this.cartService.getCarts().subscribe(
       (carts) => {
         let cartId: number = 0;
 
         for (const cart of carts) {
-          if (cart.userId === userId) {
+          if (cart.userId === LoggedUserService.getUserId()) {
             cartId = cart.id;
           }
         }
