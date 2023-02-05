@@ -25,9 +25,12 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setCart();
+  }
+
+  private setCart(): void {
     this.cartService.getCarts().subscribe(
-      (carts: Cart[]) => {
-        this.cartService.getCart(
+      (carts: Cart[]) => this.cartService.getCart(
           CartComponent.getCartId(carts)
         ).subscribe(
           (cart: Cart) => {
@@ -37,8 +40,7 @@ export class CartComponent implements OnInit {
               (products: Product[]) => this.products = products
             );
           }
-        );
-      }
+        )
     );
   }
 
