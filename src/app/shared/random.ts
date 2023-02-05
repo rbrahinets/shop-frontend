@@ -3,23 +3,28 @@ export class Random {
     quantity: number,
     max: number
   ): number[] {
-    let range: number[] = [];
-    for (let i = 0; i < 50; i++) {
-      range.push(i);
-    }
+    const rangeOfNumbers = Random.getRangeOfNumbers();
 
     return Array(quantity)
       .fill(undefined)
       .map(() => {
-        const id = range[Math.floor(max * Math.random())];
+        const id = rangeOfNumbers[Math.floor(max * Math.random())];
         max--;
 
-        const index = range.indexOf(id, 0);
+        const index = rangeOfNumbers.indexOf(id, 0);
         if (index > -1) {
-          range.splice(index, 1);
+          rangeOfNumbers.splice(index, 1);
         }
 
         return id;
       });
+  }
+
+  private static getRangeOfNumbers() {
+    let numbers: number[] = [];
+    for (let i = 0; i < 50; i++) {
+      numbers.push(i);
+    }
+    return numbers;
   }
 }
