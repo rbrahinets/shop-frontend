@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../users/shared/user.model';
 import {UserService} from '../users/shared/user.service';
-import {Cookie} from 'ng2-cookies/ng2-cookies';
+import {LoggedUserService} from '../users/shared/logged-user.service';
 
 @Component({
   selector: 'shop-profile',
@@ -17,9 +17,9 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let userId: number = Number(Cookie.get('userId'));
-
-    this.userService.getUserById(userId).subscribe(
+    this.userService.getUserById(
+      LoggedUserService.getUserId()
+    ).subscribe(
       (user) => this.user = user
     );
   }
