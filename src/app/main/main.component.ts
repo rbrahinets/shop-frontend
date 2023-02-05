@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from '../products/shared/product.model';
 import {ProductService} from '../products/shared/product.service';
+import {Random} from '../shared/random';
 
 @Component({
   selector: 'shop-main',
@@ -28,45 +29,21 @@ export class MainComponent implements OnInit {
   }
 
   private addProductsToArray(products: Product[]) {
-    const idsOfProducts: number[] = this.getIdsOfProducts(products);
+    const idsOfProducts: number[] = MainComponent.getIdsOfProducts(products);
 
     for (let i = 0; i < MainComponent.getCountOfProducts(); i++) {
       this.products.push(products[idsOfProducts[i]]);
     }
   }
 
-  private static getCountOfProducts(): number {
-    return 5;
-  }
-
-  private getIdsOfProducts(products: Product[]): number[] {
-    return this.getRandomIds(
+  private static getIdsOfProducts(products: Product[]): number[] {
+    return Random.getRandomIds(
       MainComponent.getCountOfProducts(),
       products.length
     );
   }
 
-  private getRandomIds(
-    quantity: number,
-    max: number
-  ): number[] {
-    let range: number[] = [];
-    for (let i = 0; i < 50; i++) {
-      range.push(i);
-    }
-
-    return Array(quantity)
-      .fill(undefined)
-      .map(() => {
-        const id = range[Math.floor(max * Math.random())];
-        max--;
-
-        const index = range.indexOf(id, 0);
-        if (index > -1) {
-          range.splice(index, 1);
-        }
-
-        return id;
-      });
+  private static getCountOfProducts(): number {
+    return 5;
   }
 }
