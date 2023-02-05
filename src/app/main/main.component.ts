@@ -16,6 +16,10 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setRandomProducts();
+  }
+
+  private setRandomProducts(): void {
     this.productService.getProducts().subscribe(
       (products) => {
         const ids: number[] = this.getRandomIds(
@@ -30,7 +34,7 @@ export class MainComponent implements OnInit {
     );
   }
 
-  private static getCountOfProducts() {
+  private static getCountOfProducts(): number {
     return 5;
   }
 
