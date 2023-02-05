@@ -5,7 +5,7 @@ import {Cart} from './shared/cart.model';
 import {Product} from '../products/shared/product.model';
 import {CartService} from './shared/cart.service';
 import {ProductsCartsService} from './shared/products-carts.service';
-import {LoggedUserService} from "../users/shared/logged-user.service";
+import {LoggedUserService} from '../users/shared/logged-user.service';
 
 @Component({
   selector: 'shop-cart',
@@ -26,15 +26,15 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartService.getCarts().subscribe(
-      (carts) => {
+      (carts: Cart[]) => {
         this.cartService.getCart(
           CartComponent.getCartId(carts)
         ).subscribe(
-          (cart) => {
+          (cart: Cart) => {
             this.cart = cart;
             this.productsCartsService
               .getProductsFromCart(cart.id).subscribe(
-              (products) => this.products = products
+              (products: Product[]) => this.products = products
             );
           }
         );
