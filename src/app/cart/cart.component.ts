@@ -28,19 +28,32 @@ export class CartComponent implements OnInit {
     this.setCart();
   }
 
+  deleteProductFromCart(product: Product): void {
+    this.productsCartsService
+      .deleteProductFromCart(product, this.cart);
+    this.cart.totalCost -= product.price;
+    this.cartService.updateCart(this.cart).subscribe();
+    this.router.navigate(['/cart'])
+      .then(() => window.location.reload());
+  }
+
   private setCart(): void {
     this.cartService.getCarts().subscribe(
       (carts: Cart[]) => this.cartService.getCart(
-          CartComponent.getCartId(carts)
-        ).subscribe(
-          (cart: Cart) => {
-            this.cart = cart;
-            this.productsCartsService
-              .getProductsFromCart(cart.id).subscribe(
-              (products: Product[]) => this.products = products
-            );
-          }
-        )
+        CartComponent.getCartId(carts)
+      ).subscribe(
+        (cart: Cart) => {
+          this.cart = cart;
+          this.setProductsForCart(cart);
+        }
+      )
+    );
+  }
+
+  private setProductsForCart(cart: Cart): void {
+    this.productsCartsService
+      .getProductsFromCart(cart.id).subscribe(
+      (products: Product[]) => this.products = products
     );
   }
 
@@ -52,15 +65,5 @@ export class CartComponent implements OnInit {
     }
 
     return 0;
-  }
-
-  deleteProductFromCart(product: Product) {
-    this.productsCartsService
-      .deleteProductFromCart(product, this.cart);
-    this.cart.totalCost -= product.price;
-    this.cartService.updateCart(this.cart)
-      .subscribe();
-    this.router.navigate(['/cart'])
-      .then(() => window.location.reload());
   }
 }
