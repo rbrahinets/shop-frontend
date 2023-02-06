@@ -11,7 +11,7 @@ import {Http} from '../../shared/http';
   providedIn: 'root'
 })
 export class ProductsCartsService {
-  private apiUrl = 'http://localhost:8080/products-carts';
+  private apiUrl: string = 'http://localhost:8080/products-carts';
 
   constructor(
     private http: HttpClient,
@@ -24,14 +24,16 @@ export class ProductsCartsService {
   }
 
   getProductsFromCart(cartId: number): Observable<Product[]> {
-    let products: Product[] = [];
+    const products: Product[] = [];
 
     this.getProductsCarts().subscribe(
-      (productsCarts) => {
+      (productsCarts: ProductsCartsDto[]) => {
         for (const productCart of productsCarts) {
           if (productCart.cartId === cartId) {
-            this.productService.getProduct(productCart.productId).subscribe(
-              (product) => products.push(product)
+            this.productService.getProduct(
+              productCart.productId
+            ).subscribe(
+              (product: Product) => products.push(product)
             )
           }
         }
@@ -48,7 +50,7 @@ export class ProductsCartsService {
     const productCart = new ProductsCartsDto();
 
     this.getProductsCarts().subscribe(
-      (productsCarts) =>
+      (productsCarts: ProductsCartsDto[]) =>
         productCart.id = (productsCarts.length as number) + 1
     );
 
@@ -67,7 +69,7 @@ export class ProductsCartsService {
     cart: Cart
   ): void {
     this.getProductsCarts().subscribe(
-      (productsCarts) => {
+      (productsCarts: ProductsCartsDto[]) => {
         for (const productCart of productsCarts) {
           if (
             productCart.productId === product.id
