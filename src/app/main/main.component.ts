@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from '../products/shared/product.model';
 import {ProductService} from '../products/shared/product.service';
-import {Random} from '../shared/random';
+import {RandomProductService} from '../products/shared/random-product.service';
 
 @Component({
   selector: 'shop-main',
@@ -22,26 +22,8 @@ export class MainComponent implements OnInit {
 
   private setRandomProducts(): void {
     this.productService.getProducts().subscribe(
-      (products: Product[]) => this.addProductsToArray(products)
+      (products: Product[]) =>
+        this.products = RandomProductService.getRandomProducts(products)
     );
-  }
-
-  private addProductsToArray(products: Product[]): void {
-    const idsOfProducts: number[] = MainComponent.getIdsOfProducts(products);
-
-    for (let i = 0; i < MainComponent.getCountOfProducts(); i++) {
-      this.products.push(products[idsOfProducts[i]]);
-    }
-  }
-
-  private static getIdsOfProducts(products: Product[]): number[] {
-    return Random.getRandomIds(
-      MainComponent.getCountOfProducts(),
-      products.length
-    );
-  }
-
-  private static getCountOfProducts(): number {
-    return 5;
   }
 }
