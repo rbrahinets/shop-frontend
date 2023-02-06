@@ -9,7 +9,7 @@ import {Http} from '../../shared/http';
   providedIn: 'root'
 })
 export class CartService {
-  private apiUrl = 'http://localhost:8080/carts';
+  private apiUrl: string = 'http://localhost:8080/carts';
 
   constructor(
     private http: HttpClient
@@ -25,19 +25,26 @@ export class CartService {
   }
 
   saveCart(cart: Cart): Observable<Cart> {
-    return this.http.post<Cart>(this.apiUrl, cart, Http.getHttpOptions());
+    return this.http.post<Cart>(
+      this.apiUrl,
+      cart,
+      Http.getHttpOptions()
+    );
   }
 
   updateCart(cart: Cart): Observable<Cart> {
-    const url = `${this.apiUrl}/${cart.id}`;
-    return this.http.put<Cart>(url, cart, Http.getHttpOptions());
+    return this.http.put<Cart>(
+      `${this.apiUrl}/${cart.id}`,
+      cart,
+      Http.getHttpOptions()
+    );
   }
 
   saveCartForUser(user: User): void {
     const cart = new Cart();
 
     this.getCarts().subscribe(
-      (carts) => cart.id = (carts.length as number) + 1
+      (carts: Cart[]) => cart.id = (carts.length as number) + 1
     );
 
     cart.totalCost = 0;
