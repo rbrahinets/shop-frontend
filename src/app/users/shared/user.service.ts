@@ -8,7 +8,7 @@ import {Http} from '../../shared/http';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:8080/users';
+  private apiUrl: string = 'http://localhost:8080/users';
 
   constructor(
     private http: HttpClient
@@ -24,6 +24,10 @@ export class UserService {
   }
 
   saveUser(user: User): Observable<User> {
-    return this.http.post<User>(this.apiUrl, user, Http.getHttpOptions());
+    return this.http.post<User>(
+      this.apiUrl,
+      user,
+      Http.getHttpOptions()
+    );
   }
 }
