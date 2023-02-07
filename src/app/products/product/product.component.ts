@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {Cookie} from 'ng2-cookies/ng2-cookies';
 import {Product} from '../shared/product.model';
 import {ProductService} from '../shared/product.service';
 import {ProductsCartsService} from '../../cart/shared/products-carts.service';
 import {CartService} from '../../cart/shared/cart.service';
 import {Cart} from '../../cart/shared/cart.model';
+import {LoggedUserService} from "../../users/shared/logged-user.service";
 
 @Component({
   selector: 'shop-product',
@@ -26,8 +26,7 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let userId: number = Number(Cookie.get('userId'));
-    this.logged = userId > 0;
+    this.logged = LoggedUserService.getUserId() > 0;
 
     let path: string[] = (<string>this.router.url).split('/');
     const id: number = +path[path.length - 1];
@@ -41,14 +40,12 @@ export class ProductComponent implements OnInit {
   }
 
   onAddToCart(): void {
-    const userId: number = Number(Cookie.get('userId'));
-
     this.cartService.getCarts().subscribe(
       (carts) => {
         let currentCart: Cart;
 
         for (const cart of carts) {
-          if (cart.userId === userId) {
+          if (cart.userId === LoggedUserService.getUserId()) {
             currentCart = cart;
           }
         }
@@ -59,7 +56,8 @@ export class ProductComponent implements OnInit {
         ).subscribe();
 
         currentCart.totalCost += this.product.price;
-        this.cartService.updateCart(currentCart).subscribe(() => {});
+        this.cartService.updateCart(currentCart).subscribe(() => {
+        });
 
         alert(`'${this.product.name}' Added to Cart`);
       }
