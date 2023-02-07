@@ -20,7 +20,7 @@ export class WalletComponent implements OnInit {
     this.setWalletForUser();
   }
 
-  private setWalletForUser() {
+  private setWalletForUser(): void {
     this.walletService.getWallets().subscribe(
       (wallets: Wallet[]) => {
         this.walletService.getWallet(
@@ -32,7 +32,7 @@ export class WalletComponent implements OnInit {
     );
   }
 
-  private static getWalletIdForCurrentUser(wallets: Wallet[]) {
+  private static getWalletIdForCurrentUser(wallets: Wallet[]): number {
     for (const wallet of wallets) {
       if (wallet.userId === LoggedUserService.getUserId()) {
         return wallet.id;
