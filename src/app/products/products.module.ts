@@ -9,6 +9,7 @@ import {ProductComponent} from './product/product.component';
 import {ProductService} from './shared/product.service';
 import {CartService} from '../cart/shared/cart.service';
 import {ProductsCartsService} from '../cart/shared/products-carts.service';
+import {LoggedUserService} from '../users/shared/logged-user.service';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import {ProductsCartsService} from '../cart/shared/products-carts.service';
   providers: [
     ProductService,
     CartService,
-    ProductsCartsService
+    ProductsCartsService,
+    LoggedUserService
   ],
   exports: [
     ProductListComponent,
