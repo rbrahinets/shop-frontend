@@ -21,10 +21,10 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.setProductsForCategory();
+    this.setProducts();
   }
 
-  private setProductsForCategory(): void {
+  private setProducts(): void {
     this.productsCategoryService.getProductsCategory()
       .subscribe(
         (productsCategory: ProductsCategoryDto[]) =>
@@ -35,14 +35,6 @@ export class CategoryComponent implements OnInit {
       );
   }
 
-  private getCurrentCategoryId(): number {
-    return +this.getCurrentPath()[this.getCurrentPath().length - 1];
-  }
-
-  private getCurrentPath(): string[] {
-    return (this.router.url as string).split('/');
-  }
-
   private setProductsFromCategory(
     categoryId: number,
     productsCategory: ProductsCategoryDto[]
@@ -51,9 +43,17 @@ export class CategoryComponent implements OnInit {
       if (pc.categoryId === categoryId) {
         this.productService.getProduct(pc.productId)
           .subscribe(
-            (product) => this.products.push(product)
+            (product: Product) => this.products.push(product)
           );
       }
     }
+  }
+
+  private getCurrentCategoryId(): number {
+    return +this.getCurrentPath()[this.getCurrentPath().length - 1];
+  }
+
+  private getCurrentPath(): string[] {
+    return (this.router.url as string).split('/');
   }
 }
