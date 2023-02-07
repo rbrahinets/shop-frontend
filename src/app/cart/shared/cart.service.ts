@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Cart} from './cart.model';
 import {User} from '../../users/shared/user.model';
 import {Http} from '../../shared/http';
+import {LoggedUserService} from '../../users/shared/logged-user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,16 @@ export class CartService {
   constructor(
     private http: HttpClient
   ) {
+  }
+
+  static getCartForCurrentUser(carts: Cart[]): Cart {
+    for (const cart of carts) {
+      if (cart.userId === LoggedUserService.getUserId()) {
+        return cart;
+      }
+    }
+
+    return undefined;
   }
 
   getCarts(): Observable<Cart[]> {
