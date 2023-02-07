@@ -21,4 +21,13 @@ export class NavigationService {
       this.router.navigate([endpoint]).then();
     }
   }
+
+  getCurrentPathId(): number {
+    let currentPath = this.getCurrentPath();
+    return +currentPath[currentPath.length - 1];
+  }
+
+  private getCurrentPath(): string[] {
+    return (this.router.url as string).split('/');
+  }
 }

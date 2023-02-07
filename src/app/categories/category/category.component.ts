@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from '../../products/shared/product.model';
 import {ProductsCategoryService} from '../shared/products-category.service';
 import {ProductService} from '../../products/shared/product.service';
-import {CategoryService} from '../shared/category.service';
+import {NavigationService} from '../../shared/navigation.service';
 import {ProductsCategoryDto} from '../shared/products-category.dto';
 
 @Component({
@@ -16,7 +16,7 @@ export class CategoryComponent implements OnInit {
   constructor(
     private productsCategoryService: ProductsCategoryService,
     private productService: ProductService,
-    private categoryService: CategoryService,
+    private navigationService: NavigationService
   ) {
   }
 
@@ -29,7 +29,7 @@ export class CategoryComponent implements OnInit {
       .subscribe(
         (productsCategory: ProductsCategoryDto[]) =>
           this.setProductsFromCategory(
-            this.categoryService.getCurrentCategoryId(),
+            this.navigationService.getCurrentPathId(),
             productsCategory
           )
       );
