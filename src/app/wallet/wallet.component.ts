@@ -17,8 +17,12 @@ export class WalletComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setWalletForUser();
+  }
+
+  private setWalletForUser() {
     this.walletService.getWallets().subscribe(
-      (wallets) => {
+      (wallets: Wallet[]) => {
         let walletId: number = 0;
 
         for (const wallet of wallets) {
@@ -28,7 +32,7 @@ export class WalletComponent implements OnInit {
         }
 
         this.walletService.getWallet(walletId).subscribe(
-          (wallet) => {
+          (wallet: Wallet) => {
             this.wallet = wallet;
           }
         );
