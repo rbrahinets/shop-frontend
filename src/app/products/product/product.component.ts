@@ -27,19 +27,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkLoggedUser();
-
-    this.productService.getProduct(
-      this.navigationService.getCurrentPathId()
-    ).subscribe(
-      (product) => {
-        this.product = product;
-        this.imagePath = product.image;
-      }
-    );
-  }
-
-  private checkLoggedUser(): void {
-    this.logged = LoggedUserService.getUserId() > 0;
+    this.setProduct();
   }
 
   onAddToCart(): void {
@@ -63,6 +51,21 @@ export class ProductComponent implements OnInit {
         });
 
         alert(`'${this.product.name}' Added to Cart`);
+      }
+    );
+  }
+
+  private checkLoggedUser(): void {
+    this.logged = LoggedUserService.getUserId() > 0;
+  }
+
+  private setProduct(): void {
+    this.productService.getProduct(
+      this.navigationService.getCurrentPathId()
+    ).subscribe(
+      (product) => {
+        this.product = product;
+        this.imagePath = product.image;
       }
     );
   }
