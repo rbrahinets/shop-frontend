@@ -31,24 +31,17 @@ export class ProductComponent implements OnInit {
   }
 
   onAddToCart(): void {
-    this.cartService.getCarts().subscribe(
-      (carts) => {
-        let currentCart: Cart;
-
-        for (const cart of carts) {
-          if (cart.userId === LoggedUserService.getUserId()) {
-            currentCart = cart;
-          }
-        }
-
+    this.cartService.getCart(
+      LoggedUserService.getUserId()
+    ).subscribe(
+      (cart: Cart) => {
         this.productsCartsService.saveProductToCart(
           this.product,
-          currentCart
+          cart
         ).subscribe();
 
-        currentCart.totalCost += this.product.price;
-        this.cartService.updateCart(currentCart).subscribe(() => {
-        });
+        cart.totalCost += this.product.price;
+        this.cartService.updateCart(cart).subscribe();
 
         alert(`'${this.product.name}' Added to Cart`);
       }
