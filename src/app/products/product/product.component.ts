@@ -40,7 +40,7 @@ export class ProductComponent implements OnInit {
     );
   }
 
-  onSubmit(): void {
+  onAddToCart(): void {
     const userId: number = Number(Cookie.get('userId'));
 
     this.cartService.getCarts().subscribe(
