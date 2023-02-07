@@ -36,10 +36,7 @@ export class ProductComponent implements OnInit {
     ).subscribe(
       (cart: Cart) => {
         this.addProductToCart(cart);
-
-        cart.totalCost += this.product.price;
-        this.cartService.updateCart(cart).subscribe();
-
+        this.updateTotalPriceInCart(cart);
         alert(`'${this.product.name}' Added to Cart`);
       }
     );
@@ -64,5 +61,10 @@ export class ProductComponent implements OnInit {
     this.productsCartsService.saveProductToCart(
       this.product, cart
     ).subscribe();
+  }
+
+  private updateTotalPriceInCart(cart: Cart): void {
+    cart.totalCost += this.product.price;
+    this.cartService.updateCart(cart).subscribe();
   }
 }
