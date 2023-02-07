@@ -26,7 +26,7 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.logged = LoggedUserService.getUserId() > 0;
+    this.checkLoggedUser();
 
     this.productService.getProduct(
       this.navigationService.getCurrentPathId()
@@ -36,6 +36,10 @@ export class ProductComponent implements OnInit {
         this.imagePath = product.image;
       }
     );
+  }
+
+  private checkLoggedUser(): void {
+    this.logged = LoggedUserService.getUserId() > 0;
   }
 
   onAddToCart(): void {
