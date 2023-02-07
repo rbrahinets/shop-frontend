@@ -21,12 +21,16 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setProductsForCategory();
+  }
+
+  private setProductsForCategory() {
     let path: string[] = (<string>this.router.url).split('/');
     const categoryId: number = +path[path.length - 1];
 
     this.productsCategoryService.getProductsCategory()
       .subscribe(
-        (productsCategory) =>
+        (productsCategory: ProductsCategoryDto[]) =>
           this.setProductsFromCategory(
             categoryId,
             productsCategory
