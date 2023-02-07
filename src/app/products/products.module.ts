@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
-import {FormsModule} from '@angular/forms';
+import {ButtonModule} from '../button/button.module';
 import {HttpClientModule} from '@angular/common/http';
 import {ProductListComponent} from './product-list/product-list.component';
 import {ProductListItemComponent} from './product-list-item/product-list-item.component';
@@ -14,7 +14,7 @@ import {ProductsCartsService} from '../cart/shared/products-carts.service';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule,
+    ButtonModule,
     HttpClientModule
   ],
   declarations: [
