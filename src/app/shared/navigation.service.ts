@@ -13,7 +13,7 @@ export class NavigationService {
   goToEndpoint(
     endpoint: string,
     reload: boolean = false
-  ) {
+  ): void {
     if (reload && endpoint) {
       this.router.navigate([endpoint])
         .then(() => window.location.reload());
