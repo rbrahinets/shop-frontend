@@ -35,10 +35,7 @@ export class ProductComponent implements OnInit {
       LoggedUserService.getUserId()
     ).subscribe(
       (cart: Cart) => {
-        this.productsCartsService.saveProductToCart(
-          this.product,
-          cart
-        ).subscribe();
+        this.addProductToCart(cart);
 
         cart.totalCost += this.product.price;
         this.cartService.updateCart(cart).subscribe();
@@ -61,5 +58,11 @@ export class ProductComponent implements OnInit {
         this.imagePath = product.image;
       }
     );
+  }
+
+  private addProductToCart(cart: Cart): void {
+    this.productsCartsService.saveProductToCart(
+      this.product, cart
+    ).subscribe();
   }
 }
