@@ -16,8 +16,12 @@ export class CategoryListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setCategories();
+  }
+
+  private setCategories() {
     this.categoryService.getCategories().subscribe(
-      (categories) => this.categories = categories
+      (categories: Category[]) => this.categories = categories
     );
   }
 }
