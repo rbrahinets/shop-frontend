@@ -4,11 +4,11 @@
   <h4>Describe: {{product.describe}}</h4>
   <h4>Barcode: {{product.barcode}}</h4>
   <h4>Price: {{product.price}}</h4>
-  <h4>{{product.inStock ? 'Is in stock' : 'Isn\'t in stock'}}</h4>
-  <form
+  <h4>{{product.inStock ? 'In Stock' : 'Out of Stock'}}</h4>
+  <shop-button
     *ngIf="logged && product.inStock"
-    (ngSubmit)="onSubmit()"
-  >
-    <input type="submit" value="Add to Cart" class="btn"/>
-  </form>
+    text="Add to Cart"
+    color="#00ffff"
+    (btnClick)="onAddToCart()"
+  ></shop-button>
 </div>
