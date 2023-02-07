@@ -24,18 +24,23 @@ export class CategoryComponent implements OnInit {
     this.setProductsForCategory();
   }
 
-  private setProductsForCategory() {
-    let path: string[] = (<string>this.router.url).split('/');
-    const categoryId: number = +path[path.length - 1];
-
+  private setProductsForCategory(): void {
     this.productsCategoryService.getProductsCategory()
       .subscribe(
         (productsCategory: ProductsCategoryDto[]) =>
           this.setProductsFromCategory(
-            categoryId,
+            this.getCurrentCategoryId(),
             productsCategory
           )
       );
+  }
+
+  private getCurrentCategoryId(): number {
+    return +this.getCurrentPath()[this.getCurrentPath().length - 1];
+  }
+
+  private getCurrentPath(): string[] {
+    return (this.router.url as string).split('/');
   }
 
   private setProductsFromCategory(
