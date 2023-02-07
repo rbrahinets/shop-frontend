@@ -31,12 +31,15 @@ export class ProductComponent implements OnInit {
   }
 
   onAddToCart(): void {
-    this.cartService.getCart(
-      LoggedUserService.getUserId()
-    ).subscribe(
-      (cart: Cart) => {
-        this.addProductToCart(cart);
-        this.updateTotalPriceInCart(cart);
+    this.cartService.getCarts().subscribe(
+      (carts: Cart[]) => {
+        if (!CartService.getCartForCurrentUser(carts)) {
+          return;
+        }
+
+        this.addProductToCart(CartService.getCartForCurrentUser(carts));
+        this.updateTotalPriceInCart(CartService.getCartForCurrentUser(carts));
+
         alert(`'${this.product.name}' Added to Cart`);
       }
     );
@@ -50,7 +53,7 @@ export class ProductComponent implements OnInit {
     this.productService.getProduct(
       this.navigationService.getCurrentPathId()
     ).subscribe(
-      (product) => {
+      (product: Product) => {
         this.product = product;
         this.imagePath = product.image;
       }
