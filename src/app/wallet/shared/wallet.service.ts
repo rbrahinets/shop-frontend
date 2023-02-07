@@ -9,7 +9,7 @@ import {Http} from '../../shared/http';
   providedIn: 'root'
 })
 export class WalletService {
-  private apiUrl = 'http://localhost:8080/wallets';
+  private apiUrl: string = 'http://localhost:8080/wallets';
 
   constructor(
     private http: HttpClient
@@ -33,9 +33,8 @@ export class WalletService {
   }
 
   updateWallet(wallet: Wallet): Observable<Wallet> {
-    const url = `${this.apiUrl}/${wallet.id}`;
     return this.http.put<Wallet>(
-      url,
+      `${this.apiUrl}/${wallet.id}`,
       wallet,
       Http.getHttpOptions()
     );
@@ -45,7 +44,7 @@ export class WalletService {
     const wallet = new Wallet();
 
     this.getWallets().subscribe(
-      (wallets) => wallet.id = (wallets.length as number) + 1
+      (wallets: Wallet[]) => wallet.id = (wallets.length as number) + 1
     );
 
     wallet.amountOfMoney = 0;
