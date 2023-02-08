@@ -6,7 +6,6 @@ import {SignUpDto} from './shared/sign-up.dto';
 import {UserService} from '../users/shared/user.service';
 import {UserRoleService} from '../users/shared/user-role.service';
 import {CartService} from '../cart/shared/cart.service';
-import {WalletService} from '../wallet/shared/wallet.service';
 import {User} from '../users/shared/user.model';
 
 @Component({
@@ -28,8 +27,7 @@ export class SignUpComponent implements OnInit {
     private validator: SignUpValidator,
     private userService: UserService,
     private userRoleService: UserRoleService,
-    private cartService: CartService,
-    private walletService: WalletService
+    private cartService: CartService
   ) {
     this.navigation = new NavigationService(this.router);
   }
@@ -76,7 +74,6 @@ export class SignUpComponent implements OnInit {
         this.addNewUser(user);
         this.addRoleForNewUser(user);
         this.addCartForNewUser(user);
-        this.addWalletForNewUser(user);
 
         this.navigation.goToEndpoint('/sign-in');
       }
@@ -93,9 +90,5 @@ export class SignUpComponent implements OnInit {
 
   private addCartForNewUser(user: User): void {
     this.cartService.saveCartForUser(user);
-  }
-
-  private addWalletForNewUser(user: User): void {
-    this.walletService.saveWalletForUser(user);
   }
 }
