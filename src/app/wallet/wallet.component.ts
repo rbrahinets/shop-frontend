@@ -21,6 +21,11 @@ export class WalletComponent implements OnInit {
     this.connectToWallet();
   }
 
+  onConnectToWallet(): void {
+    this.walletService.saveWalletForCurrentUser();
+    this.connectToWallet();
+  }
+
   private connectToWallet(): void {
     this.walletService.getWallets().subscribe(
       (wallets: Wallet[]) => {
