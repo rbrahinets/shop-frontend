@@ -16,6 +16,16 @@ export class WalletService {
   ) {
   }
 
+  static getWalletForCurrentUser(wallets: Wallet[]): Wallet {
+    for (const wallet of wallets) {
+      if (wallet.userId === LoggedUserService.getUserId()) {
+        return wallet;
+      }
+    }
+
+    return undefined;
+  }
+
   getWallets(): Observable<Wallet[]> {
     return this.http.get<Wallet[]>(this.apiUrl);
   }
