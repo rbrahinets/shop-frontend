@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Cookie} from 'ng2-cookies/ng2-cookies';
 import {Wallet} from './wallet.model';
 import {Http} from '../../shared/http';
 import {LoggedUserService} from '../../users/shared/logged-user.service';
@@ -14,6 +15,18 @@ export class WalletService {
   constructor(
     private http: HttpClient
   ) {
+  }
+
+  static getWalletId(): number {
+    return Number(Cookie.get('walletId'));
+  }
+
+  static setWalletId(id: string): void {
+    Cookie.set('walletId', id);
+  }
+
+  static isWalletAdded(): boolean {
+    return WalletService.getWalletId() > 0;
   }
 
   static getWalletForCurrentUser(wallets: Wallet[]): Wallet {
