@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Wallet} from './shared/wallet.model';
 import {WalletService} from './shared/wallet.service';
-import {LoggedUserService} from '../users/shared/logged-user.service';
 
 @Component({
   selector: 'shop-wallet',
@@ -10,35 +9,31 @@ import {LoggedUserService} from '../users/shared/logged-user.service';
 })
 export class WalletComponent implements OnInit {
   wallet = new Wallet();
+  isConnectedToWallet: boolean;
 
   constructor(
     private walletService: WalletService
   ) {
+    this.isConnectedToWallet = WalletService.isWalletAdded();
   }
 
   ngOnInit(): void {
-    this.setWalletForUser();
+    this.connectToWallet();
   }
 
-  private setWalletForUser(): void {
+  private connectToWallet(): void {
     this.walletService.getWallets().subscribe(
       (wallets: Wallet[]) => {
-        this.walletService.getWallet(
-          WalletComponent.getWalletIdForCurrentUser(wallets)
-        ).subscribe(
-          (wallet: Wallet) => this.wallet = wallet
-        );
+        if (!WalletService.getWalletForCurrentUser(wallets)) {
+          WalletService.setWalletId('0');
+          this.isConnectedToWallet = WalletService.isWalletAdded();
+          return;
+        }
+
+        this.wallet = WalletService.getWalletForCurrentUser(wallets);
+        WalletService.setWalletId(String(this.wallet.id));
+        this.isConnectedToWallet = WalletService.isWalletAdded();
       }
     );
-  }
-
-  private static getWalletIdForCurrentUser(wallets: Wallet[]): number {
-    for (const wallet of wallets) {
-      if (wallet.userId === LoggedUserService.getUserId()) {
-        return wallet.id;
-      }
-    }
-
-    return 0;
   }
 }
