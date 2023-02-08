@@ -12,6 +12,7 @@ import {CategoriesModule} from './categories/categories.module';
 import {ProductsModule} from './products/products.module';
 import {ProfileModule} from './profile/profile.module';
 import {CartModule} from './cart/cart.module';
+import {StripePaymentModule} from './stripe-payment/stripe-payment.module';
 import {UsersModule} from './users/users.module';
 import {SharedModule} from './shared/shared.module';
 
@@ -49,6 +50,7 @@ import {AppComponent} from './app.component';
     ProductsRoutingModule,
     ProfileRoutingModule,
     CartRoutingModule,
+    StripePaymentModule,
   ],
   bootstrap: [AppComponent]
 })
