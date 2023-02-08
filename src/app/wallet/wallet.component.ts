@@ -14,7 +14,7 @@ export class WalletComponent implements OnInit {
   constructor(
     private walletService: WalletService
   ) {
-    this.isConnectedToWallet = WalletService.isWalletAdded();
+    this.isConnectedToWallet = WalletService.isConnectedToWallet();
   }
 
   ngOnInit(): void {
@@ -31,13 +31,13 @@ export class WalletComponent implements OnInit {
       (wallets: Wallet[]) => {
         if (!WalletService.getWalletForCurrentUser(wallets)) {
           WalletService.setWalletId('0');
-          this.isConnectedToWallet = WalletService.isWalletAdded();
+          this.isConnectedToWallet = WalletService.isConnectedToWallet();
           return;
         }
 
         this.wallet = WalletService.getWalletForCurrentUser(wallets);
         WalletService.setWalletId(String(this.wallet.id));
-        this.isConnectedToWallet = WalletService.isWalletAdded();
+        this.isConnectedToWallet = WalletService.isConnectedToWallet();
       }
     );
   }

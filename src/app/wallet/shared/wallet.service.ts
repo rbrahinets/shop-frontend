@@ -25,7 +25,7 @@ export class WalletService {
     Cookie.set('walletId', id);
   }
 
-  static isWalletAdded(): boolean {
+  static isConnectedToWallet(): boolean {
     return WalletService.getWalletId() > 0;
   }
 
