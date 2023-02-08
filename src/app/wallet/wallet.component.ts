@@ -30,8 +30,6 @@ export class WalletComponent implements OnInit {
     this.walletService.getWallets().subscribe(
       (wallets: Wallet[]) => {
         if (!WalletService.getWalletForCurrentUser(wallets)) {
-          WalletService.setWalletId('0');
-          this.isConnectedToWallet = WalletService.isConnectedToWallet();
           return;
         }
 
