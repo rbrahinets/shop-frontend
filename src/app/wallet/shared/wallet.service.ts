@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Wallet} from './wallet.model';
-import {User} from '../../users/shared/user.model';
 import {Http} from '../../shared/http';
+import {LoggedUserService} from '../../users/shared/logged-user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -40,16 +40,16 @@ export class WalletService {
     );
   }
 
-  saveWalletForUser(user: User): void {
+  saveWalletForCurrentUser(): void {
     const wallet = new Wallet();
 
     this.getWallets().subscribe(
       (wallets: Wallet[]) => wallet.id = (wallets.length as number) + 1
     );
 
-    wallet.amountOfMoney = 0;
-    wallet.number = '';
-    wallet.userId = user.id;
+    wallet.amountOfMoney = 1000000;
+    wallet.number = '1234567890';
+    wallet.userId = LoggedUserService.getUserId();
 
     this.saveWallet(wallet).subscribe();
   }
