@@ -9,3 +9,17 @@ header {
   border-radius: 5px;
   background-color: aquamarine;
 }
+
+img {
+  max-width: 100px;
+}
+
+.btn-image {
+  background-color: aquamarine;
+  border: 0;
+  cursor: pointer;
+}
+
+.btn-image:active {
+  transform: scale(0.98);
+}
