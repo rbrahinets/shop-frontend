@@ -10,7 +10,7 @@ import {LoggedUserService} from '../../users/shared/logged-user.service';
   providedIn: 'root'
 })
 export class CartService {
-  private apiUrl: string = 'http://localhost:8080/carts';
+  private apiUrl: string = 'http://localhost:8080/carts/';
 
   constructor(
     private http: HttpClient
@@ -32,7 +32,7 @@ export class CartService {
   }
 
   getCart(id: number): Observable<Cart> {
-    return this.http.get<Cart>(`${this.apiUrl}/${id}`);
+    return this.http.get<Cart>(`${this.apiUrl + id}`);
   }
 
   saveCart(cart: Cart): Observable<Cart> {
@@ -45,7 +45,7 @@ export class CartService {
 
   updateCart(cart: Cart): Observable<Cart> {
     return this.http.put<Cart>(
-      `${this.apiUrl}/${cart.id}`,
+      `${this.apiUrl + cart.id}`,
       cart,
       Http.getHttpOptions()
     );

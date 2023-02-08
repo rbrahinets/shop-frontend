@@ -10,7 +10,7 @@ import {Http} from '../../shared/http';
   providedIn: 'root'
 })
 export class UserRoleService {
-  private apiUrl: string = 'http://localhost:8080/user-role';
+  private apiUrl: string = 'http://localhost:8080/user-role/';
 
   constructor(
     private http: HttpClient
@@ -22,7 +22,7 @@ export class UserRoleService {
   }
 
   getRoleForUser(userId: number): Observable<UserRoleDto> {
-    return this.http.get<UserRoleDto>(`${this.apiUrl}/${userId}`);
+    return this.http.get<UserRoleDto>(`${this.apiUrl + userId}`);
   }
 
   saveRoleForUser(user: User): Observable<UserRoleDto> {

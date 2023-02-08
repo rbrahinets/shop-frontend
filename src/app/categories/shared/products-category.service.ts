@@ -7,7 +7,7 @@ import {ProductsCategoryDto} from './products-category.dto';
   providedIn: 'root'
 })
 export class ProductsCategoryService {
-  private apiUrl = 'http://localhost:8080/products-category';
+  private apiUrl = 'http://localhost:8080/products-category/';
 
   constructor(
     private http: HttpClient

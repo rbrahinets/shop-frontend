@@ -11,7 +11,7 @@ import {Http} from '../../shared/http';
   providedIn: 'root'
 })
 export class ProductsCartsService {
-  private apiUrl: string = 'http://localhost:8080/products-carts';
+  private apiUrl: string = 'http://localhost:8080/products-carts/';
 
   constructor(
     private http: HttpClient,
@@ -76,7 +76,7 @@ export class ProductsCartsService {
             && productCart.cartId === cart.id
           ) {
             this.http.delete<ProductsCartsDto>(
-              `${this.apiUrl}/${productCart.id}`
+              `${this.apiUrl + productCart.id}`
             ).subscribe();
             break;
           }
