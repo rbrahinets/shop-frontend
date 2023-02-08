@@ -4,11 +4,13 @@ import {HttpClientModule} from '@angular/common/http';
 import {WalletComponent} from './wallet.component';
 import {WalletService} from './shared/wallet.service';
 import {LoggedUserService} from '../users/shared/logged-user.service';
+import {ButtonModule} from '../button/button.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule
   ],
   declarations: [WalletComponent],
   providers: [
