@@ -12,7 +12,6 @@ import {CategoriesModule} from './categories/categories.module';
 import {ProductsModule} from './products/products.module';
 import {ProfileModule} from './profile/profile.module';
 import {CartModule} from './cart/cart.module';
-import {WalletModule} from './wallet/wallet.module';
 import {UsersModule} from './users/users.module';
 import {SharedModule} from './shared/shared.module';
 
@@ -23,7 +22,6 @@ import {CategoriesRoutingModule} from './categories/categories-routing.module';
 import {ProductsRoutingModule} from './products/products-routing.module';
 import {ProfileRoutingModule} from './profile/profile-routing.module';
 import {CartRoutingModule} from './cart/cart-routing.module';
-import {WalletRoutingModule} from './wallet/wallet-routing.module';
 
 import {AppComponent} from './app.component';
 
@@ -42,7 +40,6 @@ import {AppComponent} from './app.component';
     ProductsModule,
     ProfileModule,
     CartModule,
-    WalletModule,
     UsersModule,
     SharedModule,
     MainRoutingModule,
@@ -52,7 +49,6 @@ import {AppComponent} from './app.component';
     ProductsRoutingModule,
     ProfileRoutingModule,
     CartRoutingModule,
-    WalletRoutingModule,
   ],
   bootstrap: [AppComponent]
 })

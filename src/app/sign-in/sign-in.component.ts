@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NavigationService} from '../shared/navigation.service';
-import {WalletService} from '../wallet/shared/wallet.service';
 import {SignInValidator} from './shared/sign-in.validator';
 import {SignInDto} from './shared/sign-in.dto';
 import {LoggedUserService} from '../users/shared/logged-user.service';
@@ -29,7 +28,6 @@ export class SignInComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    WalletService.setWalletId('0');
   }
 
   onSignIn(): void {

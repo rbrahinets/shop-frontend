@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NavigationService} from '../shared/navigation.service';
 import {LoggedUserService} from '../users/shared/logged-user.service';
-import {WalletService} from '../wallet/shared/wallet.service';
 
 @Component({
   selector: 'shop-header',
@@ -41,7 +40,6 @@ export class HeaderComponent implements OnInit {
   private onSignOut() {
     LoggedUserService.setUserId('0');
     LoggedUserService.setRoleOfUser('');
-    WalletService.setWalletId('0');
     this.logged = !this.logged;
     this.navigation.goToEndpoint('/');
   }

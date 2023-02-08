@@ -9,7 +9,6 @@ import {NavigationService} from '../shared/navigation.service';
 import {UserService} from '../users/shared/user.service';
 import {UserRoleService} from '../users/shared/user-role.service';
 import {CartService} from '../cart/shared/cart.service';
-import {WalletService} from '../wallet/shared/wallet.service';
 
 @NgModule({
   imports: [
@@ -25,7 +24,6 @@ import {WalletService} from '../wallet/shared/wallet.service';
     UserService,
     UserRoleService,
     CartService,
-    WalletService
   ],
   exports: [SignUpComponent]
 })
