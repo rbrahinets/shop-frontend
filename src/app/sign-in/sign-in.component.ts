@@ -60,42 +60,34 @@ export class SignInComponent implements OnInit {
           return;
         }
 
-        this.setIdForUser(users);
-        this.setRoleForUser(users);
+        SignInComponent.setIdForUser(this.findUserByCredential(users));
+        this.setRoleForUser(this.findUserByCredential(users));
 
         this.navigation.goToEndpoint('/', true);
       }
     );
   }
 
-  private setIdForUser(users: User[]) {
-    LoggedUserService.setUserId(
-      String(this.findUserByCredential(users).id)
-    );
+  private static setIdForUser(user: User) {
+    LoggedUserService.setUserId(String(user.id));
   }
 
-  private setRoleForUser(users: User[]) {
-    this.userRoleService.setRoleForLoggedUser(
-      this.findUserByCredential(users).id
-    );
+  private setRoleForUser(user: User) {
+    this.userRoleService.setRoleForLoggedUser(user.id);
   }
 
   private findUserByCredential(users: User[]): User {
     for (const user of users) {
       if (
-        this.login === user.email
-        || this.login === user.phone
+        (this.login === user.email || this.login === user.phone)
+        && this.isMatchedPasswords(user.password)
       ) {
-        if (this.isMatchedPasswords(user.password)) {
-          return undefined;
-        }
-
         return user;
       }
     }
   }
 
   private isMatchedPasswords(password: string) {
-    return !bcrypt.compareSync(this.password, password);
+    return bcrypt.compareSync(this.password, password);
   }
 }
