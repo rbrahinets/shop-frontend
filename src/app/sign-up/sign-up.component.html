@@ -55,6 +55,15 @@
         [(ngModel)]="confirmPassword"
       />
     </div>
+    <div class="form-control">
+      <label for="is-admin">Is Admin?</label>
+      <input
+          type="checkbox"
+          name="is-admin"
+          id="is-admin"
+          (click)="onChangeIsAdmin()"
+        />
+    </div>
     <shop-button
       text="Sign Up"
       color="#ffff00"
