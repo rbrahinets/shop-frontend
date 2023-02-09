@@ -25,14 +25,18 @@ export class UserRoleService {
     return this.http.get<UserRoleDto>(`${this.apiUrl + userId}`);
   }
 
-  saveRoleForUser(user: User): Observable<UserRoleDto> {
+  saveRoleForUser(
+    user: User,
+    isAdmin: boolean
+  ): Observable<UserRoleDto> {
     const userRole = new UserRoleDto();
 
     this.getUsersRoles().subscribe(
-      (roleUsersRoles) => userRole.id = (roleUsersRoles.length as number) + 1
+      (roleUsersRoles: UserRoleDto[]) =>
+        userRole.id = (roleUsersRoles.length as number) + 1
     );
 
-    userRole.roleId = 2;
+    userRole.roleId = isAdmin ? 1 : 2;
     userRole.userId = user.id;
 
     return this.http.post<UserRoleDto>(
