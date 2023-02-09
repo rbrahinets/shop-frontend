@@ -6,7 +6,7 @@
   <h4>Price: {{product.price}}</h4>
   <h4>{{product.inStock ? 'In Stock' : 'Out of Stock'}}</h4>
   <shop-button
-    *ngIf="logged && product.inStock"
+    *ngIf="logged && isUser && product.inStock"
     text="Add to Cart"
     color="#00ffff"
     (btnClick)="onAddToCart()"

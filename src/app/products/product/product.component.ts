@@ -16,6 +16,7 @@ export class ProductComponent implements OnInit {
   product = new Product();
   imagePath: string;
   logged: boolean;
+  isUser: boolean;
 
   constructor(
     private productService: ProductService,
@@ -28,6 +29,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.checkLoggedUser();
     this.setProduct();
+    this.isUser = LoggedUserService.getRoleOfUser() === 'ROLE_USER';
   }
 
   onAddToCart(): void {
