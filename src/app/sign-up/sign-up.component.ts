@@ -51,6 +51,10 @@ export class SignUpComponent implements OnInit {
     this.navigation.goToEndpoint(endpoint);
   }
 
+  onChangeIsAdmin(): void {
+    this.isAdmin = !this.isAdmin;
+  }
+
   private isValidCredential(): boolean {
     return this.validator.validate(
       new SignUpDto(
