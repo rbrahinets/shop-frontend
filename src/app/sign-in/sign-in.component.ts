@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import * as bcrypt from 'bcryptjs';
 import {NavigationService} from '../shared/navigation.service';
 import {SignInValidator} from './shared/sign-in.validator';
 import {SignInDto} from './shared/sign-in.dto';
@@ -82,9 +83,13 @@ export class SignInComponent implements OnInit {
   private findUserByCredential(users: User[]): User {
     for (const user of users) {
       if (
-        (this.login === user.email || this.login === user.phone)
-        && this.password === user.password
+        this.login === user.email
+        || this.login === user.phone
       ) {
+        if (!bcrypt.compareSync(this.password, user.password)) {
+          return undefined;
+        }
+
         return user;
       }
     }

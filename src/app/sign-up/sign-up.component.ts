@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import * as bcrypt from 'bcryptjs';
 import {NavigationService} from '../shared/navigation.service';
 import {SignUpValidator} from './shared/sign-up.validator';
 import {SignUpDto} from './shared/sign-up.dto';
@@ -62,14 +63,14 @@ export class SignUpComponent implements OnInit {
 
   private signUp() {
     this.userService.getUsers().subscribe(
-      (users) => {
+      (users: User[]) => {
         const user = new User();
         user.id = (users.length as number) + 1;
         user.firstName = this.firstName;
         user.lastName = this.lastName;
         user.email = this.email;
         user.phone = this.phone;
-        user.password = this.password;
+        user.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10));
 
         this.addNewUser(user);
         this.addRoleForNewUser(user);
