@@ -22,6 +22,7 @@ export class SignUpComponent implements OnInit {
   password: string;
   confirmPassword: string;
   isAdmin: boolean;
+  adminNumber: string;
 
   constructor(
     private router: Router,
@@ -58,8 +59,10 @@ export class SignUpComponent implements OnInit {
         this.email,
         this.phone,
         this.password,
-        this.confirmPassword
-      )
+        this.confirmPassword,
+        this.adminNumber
+      ),
+      this.isAdmin
     );
   }
 
@@ -73,6 +76,7 @@ export class SignUpComponent implements OnInit {
         user.email = this.email;
         user.phone = this.phone;
         user.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10));
+        user.adminNumber = this.isAdmin ? this.adminNumber : "";
 
         this.addNewUser(user);
         this.addRoleForNewUser(user, this.isAdmin);
