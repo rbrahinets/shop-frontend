@@ -5,7 +5,8 @@ export class SignUpDto {
     private _email: string,
     private _phone: string,
     private _password: string,
-    private _confirmPassword: string
+    private _confirmPassword: string,
+    private _adminNumber: string
   ) {
   }
 
@@ -31,5 +32,9 @@ export class SignUpDto {
 
   get confirmPassword(): string {
     return this._confirmPassword;
+  }
+
+  get adminNumber(): string {
+    return this._adminNumber;
   }
 }
