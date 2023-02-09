@@ -21,6 +21,7 @@ export class SignUpComponent implements OnInit {
   phone: string;
   password: string;
   confirmPassword: string;
+  isAdmin: boolean;
 
   constructor(
     private router: Router,
@@ -31,6 +32,7 @@ export class SignUpComponent implements OnInit {
     private cartService: CartService
   ) {
     this.navigation = new NavigationService(this.router);
+    this.isAdmin = false;
   }
 
   ngOnInit(): void {
@@ -73,8 +75,11 @@ export class SignUpComponent implements OnInit {
         user.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10));
 
         this.addNewUser(user);
-        this.addRoleForNewUser(user);
-        this.addCartForNewUser(user);
+        this.addRoleForNewUser(user, this.isAdmin);
+
+        if (!this.isAdmin) {
+          this.addCartForNewUser(user);
+        }
 
         this.navigation.goToEndpoint('/sign-in');
       }
@@ -85,8 +90,14 @@ export class SignUpComponent implements OnInit {
     this.userService.saveUser(user).subscribe();
   }
 
-  private addRoleForNewUser(user: User): void {
-    this.userRoleService.saveRoleForUser(user).subscribe();
+  private addRoleForNewUser(
+    user: User,
+    isAdmin: boolean
+  ): void {
+    this.userRoleService.saveRoleForUser(
+      user,
+      isAdmin
+    ).subscribe();
   }
 
   private addCartForNewUser(user: User): void {
