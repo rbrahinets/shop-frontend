@@ -15,6 +15,7 @@ import {CartModule} from './cart/cart.module';
 import {StripePaymentModule} from './stripe-payment/stripe-payment.module';
 import {UsersModule} from './users/users.module';
 import {SharedModule} from './shared/shared.module';
+import {PageNotFoundModule} from './page-not-found/page-not-found.module';
 
 import {MainRoutingModule} from './main/main-routing.module';
 import {SignInRoutingModule} from './sign-in/sign-in-routing.module';
@@ -41,8 +42,10 @@ import {AppComponent} from './app.component';
     ProductsModule,
     ProfileModule,
     CartModule,
+    StripePaymentModule,
     UsersModule,
     SharedModule,
+    PageNotFoundModule,
     MainRoutingModule,
     SignInRoutingModule,
     SignUpRoutingModule,
@@ -50,7 +53,6 @@ import {AppComponent} from './app.component';
     ProductsRoutingModule,
     ProfileRoutingModule,
     CartRoutingModule,
-    StripePaymentModule,
   ],
   bootstrap: [AppComponent]
 })
