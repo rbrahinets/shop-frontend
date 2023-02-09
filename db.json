@@ -31,7 +31,8 @@
       "lastName": "admin",
       "email": "admin",
       "phone": "",
-      "password": "$2a$10$pRMWTfWKreWb1KfhqKUrI.sDIp4qFFwkcSgZYJdZriOYeZM3u.wCq"
+      "password": "$2a$10$pRMWTfWKreWb1KfhqKUrI.sDIp4qFFwkcSgZYJdZriOYeZM3u.wCq",
+      "adminNumber": "123"
     },
     {
       "id": 2,
@@ -39,7 +40,18 @@
       "lastName": "Simpson",
       "email": "bart.simpson@gmail.com",
       "phone": "+380639876543",
-      "password": "$2a$10$9E68dUTNr1eSGACoVpC3D.bCRnmQ.nrqb54gBaH0v/qcfW/z0YoVW"
+      "password": "$2a$10$9E68dUTNr1eSGACoVpC3D.bCRnmQ.nrqb54gBaH0v/qcfW/z0YoVW",
+      "adminNumber": ""
+    }
+  ],
+  "adminNumbers": [
+    {
+      "id": 1,
+      "number": "123"
+    },
+    {
+      "id": 2,
+      "number": "321"
     }
   ],
   "roles": [
