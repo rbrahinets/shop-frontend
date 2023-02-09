@@ -86,12 +86,16 @@ export class SignInComponent implements OnInit {
         this.login === user.email
         || this.login === user.phone
       ) {
-        if (!bcrypt.compareSync(this.password, user.password)) {
+        if (this.isMatchedPasswords(user.password)) {
           return undefined;
         }
 
         return user;
       }
     }
+  }
+
+  private isMatchedPasswords(password: string) {
+    return !bcrypt.compareSync(this.password, password);
   }
 }
