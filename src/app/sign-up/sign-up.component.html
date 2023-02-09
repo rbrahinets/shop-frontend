@@ -64,6 +64,18 @@
           (click)="onChangeIsAdmin()"
         />
     </div>
+    <div
+      *ngIf="isAdmin"
+      class="form-control"
+    >
+      <input
+        type="text"
+        name="admin-number"
+        id="admin-number"
+        placeholder="Admin Number"
+        [(ngModel)]="adminNumber"
+      />
+    </div>
     <shop-button
       text="Sign Up"
       color="#ffff00"
