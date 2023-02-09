@@ -31,7 +31,7 @@
       "lastName": "admin",
       "email": "admin",
       "phone": "",
-      "password": "admin"
+      "password": "$2a$10$pRMWTfWKreWb1KfhqKUrI.sDIp4qFFwkcSgZYJdZriOYeZM3u.wCq"
     },
     {
       "id": 2,
@@ -39,7 +39,7 @@
       "lastName": "Simpson",
       "email": "bart.simpson@gmail.com",
       "phone": "+380639876543",
-      "password": "bart"
+      "password": "$2a$10$9E68dUTNr1eSGACoVpC3D.bCRnmQ.nrqb54gBaH0v/qcfW/z0YoVW"
     }
   ],
   "roles": [
@@ -126,5 +126,7 @@
       "productId": 1,
       "cartId": 1
     }
+  ],
+  "checkout": [
   ]
 }
