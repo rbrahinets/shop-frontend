@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {User} from '../../users/shared/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,22 @@ export class EmailValidator {
       || email.startsWith('@')
       || !email.endsWith('.com')
       || email.endsWith('@.com');
+  }
+
+  private static isUniqueEmail(
+    email: string,
+    users: User[]
+  ) {
+    if (!users) {
+      return true;
+    }
+
+    for (const user of users) {
+      if (user.email === email) {
+        return false;
+      }
+    }
+
+    return true;
   }
 }
