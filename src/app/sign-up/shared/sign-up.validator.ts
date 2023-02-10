@@ -7,6 +7,7 @@ import {PhoneValidator} from '../../shared/validators/phone.validator';
 import {PasswordValidator} from '../../shared/validators/password.validator';
 import {ConfirmPasswordValidator} from '../../shared/validators/confirm-password.validator';
 import {AdminNumberValidator} from '../../shared/validators/admin-number.validator';
+import {User} from '../../users/shared/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,11 +26,15 @@ export class SignUpValidator {
 
   validate(
     credential: SignUpDto,
+    users: User[],
     isAdmin: boolean
   ): boolean {
     return this.firstNameValidator.validate(credential.firstName)
       && this.lastNameValidator.validate(credential.lastName)
-      && this.emailValidator.validate(credential.email)
+      && this.emailValidator.validate(
+        credential.email,
+        users
+      )
       && this.phoneValidator.validate(credential.phone)
       && this.passwordValidator.validate(credential.password)
       && this.confirmPasswordValidator.validate(

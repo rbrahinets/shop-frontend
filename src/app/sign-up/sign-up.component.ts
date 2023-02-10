@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import * as bcrypt from 'bcryptjs';
+import {User} from '../users/shared/user.model';
 import {NavigationService} from '../shared/navigation.service';
 import {SignUpValidator} from './shared/sign-up.validator';
 import {SignUpDto} from './shared/sign-up.dto';
 import {UserService} from '../users/shared/user.service';
 import {UserRoleService} from '../users/shared/user-role.service';
 import {CartService} from '../cart/shared/cart.service';
-import {User} from '../users/shared/user.model';
 
 @Component({
   selector: 'shop-sign-up',
@@ -23,6 +23,7 @@ export class SignUpComponent implements OnInit {
   confirmPassword: string;
   isAdmin: boolean;
   adminNumber: string;
+  private users: User[];
 
   constructor(
     private router: Router,
@@ -37,6 +38,9 @@ export class SignUpComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userService.getUsers().subscribe(
+      (users: User[]) => this.users = users
+    );
   }
 
   onSignUp(): void {
@@ -66,6 +70,7 @@ export class SignUpComponent implements OnInit {
         this.confirmPassword,
         this.adminNumber
       ),
+      this.users,
       this.isAdmin
     );
   }
