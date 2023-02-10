@@ -5,16 +5,25 @@ import {User} from '../../users/shared/user.model';
   providedIn: 'root'
 })
 export class PhoneValidator {
-  validate(phone: string): boolean {
-    return PhoneValidator.validatePhone(phone);
+  validate(
+    phone: string,
+    users?: User[]
+  ): boolean {
+    return PhoneValidator.validatePhone(phone, users);
   }
 
-  private static validatePhone(phone: string): boolean {
+  private static validatePhone(
+    phone: string,
+    users: User[]
+  ): boolean {
     if (!phone) {
       alert('You haven\'t entered a phone');
       return false;
     } else if (PhoneValidator.isInvalidPhone(phone)) {
       alert('You have entered an invalid phone');
+      return false;
+    } else if (!PhoneValidator.isUniquePhone(phone, users)) {
+      alert('You have entered an used phone');
       return false;
     }
 

@@ -35,7 +35,10 @@ export class SignUpValidator {
         credential.email,
         users
       )
-      && this.phoneValidator.validate(credential.phone)
+      && this.phoneValidator.validate(
+        credential.phone,
+        users
+      )
       && this.passwordValidator.validate(credential.password)
       && this.confirmPasswordValidator.validate(
         credential.password,
