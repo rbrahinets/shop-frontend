@@ -23,7 +23,7 @@ export class ProductsCartsService {
     return this.http.get<ProductsCartsDto[]>(this.apiUrl);
   }
 
-  getProductsFromCart(cartId: number): Observable<Product[]> {
+  getProductsFromCart(cartId: number): Product[] {
     const products: Product[] = [];
 
     this.getProductsCarts().subscribe(
@@ -34,13 +34,13 @@ export class ProductsCartsService {
               productCart.productId
             ).subscribe(
               (product: Product) => products.push(product)
-            )
+            );
           }
         }
       }
     );
 
-    return of(products);
+    return products;
   }
 
   saveProductToCart(
