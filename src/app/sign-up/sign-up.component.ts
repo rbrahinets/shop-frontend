@@ -75,7 +75,7 @@ export class SignUpComponent implements OnInit {
     );
   }
 
-  private signUp() {
+  private signUp(): void {
     this.userService.getUsers().subscribe(
       (users: User[]) => {
         const user = new User();
