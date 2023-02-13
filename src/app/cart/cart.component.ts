@@ -13,8 +13,8 @@ import {LoggedUserService} from '../users/shared/logged-user.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cart = new Cart();
-  products: Product[] = [];
+  cart: Cart;
+  products: Product[];
   faTimes = faTimes;
 
   constructor(
@@ -22,6 +22,8 @@ export class CartComponent implements OnInit {
     private productsCartsService: ProductsCartsService,
     private router: Router
   ) {
+    this.cart = new Cart();
+    this.products = [];
   }
 
   ngOnInit(): void {
