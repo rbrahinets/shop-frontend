@@ -29,6 +29,14 @@ export class ProfileEditComponent implements OnInit {
     this.setDefaultProfileData();
   }
 
+  onUpdate(): void {
+    if (!this.isValidData()) {
+      return;
+    }
+
+    this.updateProfileData();
+  }
+
   private setDefaultProfileData(): void {
     this.userService.getUserById(
       LoggedUserService.getUserId()
