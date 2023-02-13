@@ -4,6 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ButtonModule} from '../button/button.module';
 import {ProfileComponent} from './profile.component';
 import {UserService} from '../users/shared/user.service';
+import {NavigationService} from '../shared/navigation.service';
 import {LoggedUserService} from '../users/shared/logged-user.service';
 
 @NgModule({
@@ -15,6 +16,7 @@ import {LoggedUserService} from '../users/shared/logged-user.service';
   declarations: [ProfileComponent],
   providers: [
     UserService,
+    NavigationService,
     LoggedUserService
   ],
   exports: [ProfileComponent]
