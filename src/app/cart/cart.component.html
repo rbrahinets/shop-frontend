@@ -1,10 +1,6 @@
 <div>
   <h2 *ngIf="products.length <= 0">Cart is Empty!</h2>
   <div *ngIf="products.length > 0">
-    <shop-products-sort
-      [products]="products"
-    ></shop-products-sort>
-    <hr/>
     <div
       class="product"
       *ngFor="let product of products"
