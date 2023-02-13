@@ -1,0 +1,10 @@
+<div>
+  Sort by:
+  <span
+    *ngFor="let type of sortTypes"
+    class="sort"
+    (click)="sortCategories(type)"
+  >
+    {{type}}
+  </span>
+</div>
