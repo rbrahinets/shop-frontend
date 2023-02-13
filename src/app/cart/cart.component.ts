@@ -6,7 +6,6 @@ import {Product} from '../products/shared/product.model';
 import {ProductsGroupsDto} from './shared/products-groups.dto';
 import {CartService} from './shared/cart.service';
 import {ProductsCartsService} from './shared/products-carts.service';
-import {LoggedUserService} from '../users/shared/logged-user.service';
 
 @Component({
   selector: 'shop-cart',
@@ -56,13 +55,25 @@ export class CartComponent implements OnInit {
     );
   }
 
-  private static getCartId(carts: Cart[]): number {
-    for (const cart of carts) {
-      if (cart.userId === LoggedUserService.getUserId()) {
-        return cart.id;
+  private addProductToGroup(product: Product): void {
+    for (const group of this.groupsOfProducts) {
+      if (group.product === product.name) {
+        group.number += 1;
+        group.price += product.price;
+        return;
       }
     }
 
-    return 0;
+    this.addProductToNewGroup(product);
+  }
+
+  private addProductToNewGroup(product: Product) {
+    const group = new ProductsGroupsDto(
+      product.name,
+      product.price,
+      1
+    );
+
+    this.groupsOfProducts.push(group);
   }
 }
