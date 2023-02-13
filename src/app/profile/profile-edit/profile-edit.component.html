@@ -1,0 +1,35 @@
+<div class="center">
+  <h1>Edit Profile</h1>
+  <form class="form">
+    <div class="form-control">
+      <input
+        type="text"
+        name="first-name"
+        id="first-name"
+        placeholder="First Name"
+        value="{{firstName}}"
+        [(ngModel)]="firstName"
+      />
+    </div>
+    <div class="form-control">
+      <input
+        type="text"
+        name="last-name"
+        id="last-name"
+        placeholder="Last Name"
+        value="{{lastName}}"
+        [(ngModel)]="lastName"
+      />
+    </div>
+    <shop-button
+      text="Update"
+      color="#00ffff"
+      (btnClick)="onUpdate()"
+    ></shop-button>
+  </form>
+  <shop-button
+    text="Cancel"
+    color="#0000ff"
+    (btnClick)="onClickCancel()"
+  ></shop-button>
+</div>
