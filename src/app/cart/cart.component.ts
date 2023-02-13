@@ -41,14 +41,10 @@ export class CartComponent implements OnInit {
 
   private setCart(): void {
     this.cartService.getCarts().subscribe(
-      (carts: Cart[]) => this.cartService.getCart(
-        CartComponent.getCartId(carts)
-      ).subscribe(
-        (cart: Cart) => {
-          this.cart = cart;
-          this.setProductsForCart(cart);
-        }
-      )
+      (carts: Cart[]) => {
+        this.cart = CartService.getCartForCurrentUser(carts);
+        this.setProductsForCart(this.cart);
+      }
     );
   }
 
