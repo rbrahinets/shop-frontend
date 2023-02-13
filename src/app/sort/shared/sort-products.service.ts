@@ -42,4 +42,8 @@ export class SortProductsService {
       }
     );
   }
+
+  sortByPriceDesc(products: Product[]): Product[] {
+    return this.sortByPriceAsc(products).reverse();
+  }
 }
