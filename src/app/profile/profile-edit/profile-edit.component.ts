@@ -37,6 +37,10 @@ export class ProfileEditComponent implements OnInit {
     this.updateProfileData();
   }
 
+  onClickCancel(): void {
+    this.navigation.goToEndpoint('/profile');
+  }
+
   private setDefaultProfileData(): void {
     this.userService.getUserById(
       LoggedUserService.getUserId()
