@@ -21,4 +21,8 @@ export class SortCategoriesService {
       }
     );
   }
+
+  sortByNameDesc(categories: Category[]): Category[] {
+    return this.sortByNameAsc(categories).reverse();
+  }
 }
