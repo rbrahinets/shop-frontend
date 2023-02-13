@@ -21,4 +21,8 @@ export class SortProductsService {
       }
     );
   }
+
+  sortByNameDesc(products: Product[]): Product[] {
+    return this.sortByNameAsc(products).reverse();
+  }
 }
