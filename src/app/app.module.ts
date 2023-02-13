@@ -10,6 +10,7 @@ import {SignInModule} from './sign-in/sign-in.module';
 import {SignUpModule} from './sign-up/sign-up.module';
 import {CategoriesModule} from './categories/categories.module';
 import {ProductsModule} from './products/products.module';
+import {SortModule} from './sort/sort.module';
 import {ProfileModule} from './profile/profile.module';
 import {CartModule} from './cart/cart.module';
 import {StripePaymentModule} from './stripe-payment/stripe-payment.module';
@@ -41,6 +42,7 @@ import {AppComponent} from './app.component';
     SignUpModule,
     CategoriesModule,
     ProductsModule,
+    SortModule,
     ProfileModule,
     CartModule,
     StripePaymentModule,
