@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {User} from '../../users/shared/user.model';
+import {NavigationService} from '../../shared/navigation.service';
 import {ProfileValidator} from '../shared/profile.validator';
 import {ProfileDto} from '../shared/profile.dto';
 import {UserService} from '../../users/shared/user.service';
@@ -15,9 +17,12 @@ export class ProfileEditComponent implements OnInit {
   lastName: string;
 
   constructor(
+    private router: Router,
+    private navigation: NavigationService,
     private validator: ProfileValidator,
     private userService: UserService
   ) {
+    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {
@@ -41,6 +46,20 @@ export class ProfileEditComponent implements OnInit {
         this.firstName,
         this.lastName
       )
+    );
+  }
+
+  private updateProfileData(): void {
+    this.userService.getUserById(
+      LoggedUserService.getUserId()
+    ).subscribe(
+      (user: User) => {
+        user.firstName = this.firstName;
+        user.lastName = this.lastName;
+
+        this.userService.updateUser(user).subscribe();
+        this.navigation.goToEndpoint('/profile');
+      }
     );
   }
 }
