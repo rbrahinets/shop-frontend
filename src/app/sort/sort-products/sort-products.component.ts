@@ -1,4 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Product} from '../../products/shared/product.model';
+import {SortProductsService} from '../shared/sort-products.service';
 
 @Component({
   selector: 'shop-products-sort',
@@ -6,9 +8,27 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./sort-products.component.css']
 })
 export class SortProductsComponent implements OnInit {
-  constructor() {
+  @Input() products: Product[];
+  sortTypes: string[];
+
+  constructor(
+    private sortProductsService: SortProductsService
+  ) {
+    this.sortTypes = ['Name[A-Z]', 'Name[Z-A]', 'Price[0-9]', 'Price[9-0]'];
   }
 
   ngOnInit(): void {
+  }
+
+  sortProducts(typeSort: string): void {
+    if (typeSort === this.sortTypes[0]) {
+      this.products = this.sortProductsService.sortByNameAsc(this.products);
+    } else if (typeSort === this.sortTypes[1]) {
+      this.products = this.sortProductsService.sortByNameDesc(this.products);
+    } else if (typeSort === this.sortTypes[2]) {
+      this.products = this.sortProductsService.sortByPriceAsc(this.products);
+    } else if (typeSort === this.sortTypes[3]) {
+      this.products = this.sortProductsService.sortByPriceDesc(this.products);
+    }
   }
 }
