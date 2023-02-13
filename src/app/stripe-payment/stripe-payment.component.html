@@ -1,6 +1,6 @@
 <div>
   <shop-button
-    *ngIf="true"
+    *ngIf="amount > 0"
     text="Pay"
     color="#00ffff"
     (btnClick)="makePayment()"
