@@ -43,16 +43,19 @@ export class CartComponent implements OnInit {
     this.cartService.getCarts().subscribe(
       (carts: Cart[]) => {
         this.cart = CartService.getCartForCurrentUser(carts);
-        this.setProductsForCart(this.cart);
+        this.groupProductsInCart(this.cart);
       }
     );
   }
 
-  private setProductsForCart(cart: Cart): void {
-    this.productsCartsService
-      .getProductsFromCart(cart.id).subscribe(
-      (products: Product[]) => this.products = products
-    );
+  private groupProductsInCart(cart: Cart): void {
+    for (const product of this.getProductsFromCart(cart)) {
+      this.addProductToGroup(product);
+    }
+  }
+
+  private getProductsFromCart(cart: Cart): Product[] {
+    return this.productsCartsService.getProductsFromCart(cart.id);
   }
 
   private addProductToGroup(product: Product): void {
