@@ -3,17 +3,19 @@ import {CommonModule} from '@angular/common';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from '@angular/common/http';
 import {CartComponent} from './cart.component';
+import {SortModule} from '../sort/sort.module';
+import {StripePaymentModule} from '../stripe-payment/stripe-payment.module';
 import {CartService} from './shared/cart.service';
 import {ProductsCartsService} from './shared/products-carts.service';
-import {StripePaymentModule} from '../stripe-payment/stripe-payment.module';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FontAwesomeModule,
-        HttpClientModule,
-        StripePaymentModule
-    ],
+  imports: [
+    CommonModule,
+    FontAwesomeModule,
+    HttpClientModule,
+    SortModule,
+    StripePaymentModule
+  ],
   declarations: [CartComponent],
   providers: [
     CartService,
