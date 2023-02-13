@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {ButtonModule} from '../button/button.module';
 import {HttpClientModule} from '@angular/common/http';
+import {SortModule} from '../sort/sort.module';
 import {ProductListComponent} from './product-list/product-list.component';
 import {ProductListItemComponent} from './product-list-item/product-list-item.component';
 import {ProductComponent} from './product/product.component';
@@ -16,7 +17,8 @@ import {LoggedUserService} from '../users/shared/logged-user.service';
     CommonModule,
     RouterModule,
     ButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    SortModule
   ],
   declarations: [
     ProductListComponent,
