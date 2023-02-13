@@ -1,19 +1,20 @@
 <div>
-  <h2 *ngIf="products.length <= 0">Cart is Empty!</h2>
-  <div *ngIf="products.length > 0">
+  <h2 *ngIf="groupsOfProducts.length <= 0">Cart is Empty!</h2>
+  <div *ngIf="groupsOfProducts.length > 0">
     <div
       class="product"
-      *ngFor="let product of products"
+      *ngFor="let group of groupsOfProducts"
     >
       <h3>
-        Product: {{product.name}}
+        Product: {{group.product}}
         <fa-icon
           [icon]="faTimes"
           [ngStyle]="{color: 'red', cursor: 'pointer'}"
-          (click)="deleteProductFromCart(product)"
+          (click)="deleteProductFromCart(group.product)"
         ></fa-icon>
       </h3>
-      <p>Price: {{product.price}}</p>
+      <h3>Price: {{group.price}}</h3>
+      <h2>Number: {{group.number}}</h2>
     </div>
     <hr/>
     <h3>Total Cost: {{cart.totalCost}}</h3>

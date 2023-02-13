@@ -3,6 +3,7 @@ import {faTimes} from '@fortawesome/free-solid-svg-icons';
 import {Router} from '@angular/router';
 import {Cart} from './shared/cart.model';
 import {Product} from '../products/shared/product.model';
+import {ProductsGroupsDto} from './shared/products-groups.dto';
 import {CartService} from './shared/cart.service';
 import {ProductsCartsService} from './shared/products-carts.service';
 import {LoggedUserService} from '../users/shared/logged-user.service';
@@ -14,7 +15,7 @@ import {LoggedUserService} from '../users/shared/logged-user.service';
 })
 export class CartComponent implements OnInit {
   cart: Cart;
-  products: Product[];
+  groupsOfProducts: ProductsGroupsDto[];
   faTimes = faTimes;
 
   constructor(
@@ -23,7 +24,7 @@ export class CartComponent implements OnInit {
     private router: Router
   ) {
     this.cart = new Cart();
-    this.products = [];
+    this.groupsOfProducts = [];
   }
 
   ngOnInit(): void {
