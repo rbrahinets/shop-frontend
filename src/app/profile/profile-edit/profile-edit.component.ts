@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../users/shared/user.model';
+import {ProfileValidator} from '../shared/profile.validator';
+import {ProfileDto} from '../shared/profile.dto';
 import {UserService} from '../../users/shared/user.service';
 import {LoggedUserService} from '../../users/shared/logged-user.service';
 
@@ -13,6 +15,7 @@ export class ProfileEditComponent implements OnInit {
   lastName: string;
 
   constructor(
+    private validator: ProfileValidator,
     private userService: UserService
   ) {
   }
@@ -29,6 +32,15 @@ export class ProfileEditComponent implements OnInit {
         this.firstName = user.firstName;
         this.lastName = user.lastName;
       }
+    );
+  }
+
+  private isValidData(): boolean {
+    return this.validator.validate(
+      new ProfileDto(
+        this.firstName,
+        this.lastName
+      )
     );
   }
 }
