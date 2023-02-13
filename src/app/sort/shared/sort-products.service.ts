@@ -25,4 +25,21 @@ export class SortProductsService {
   sortByNameDesc(products: Product[]): Product[] {
     return this.sortByNameAsc(products).reverse();
   }
+
+  sortByPriceAsc(products: Product[]): Product[] {
+    return products.sort(
+      (
+        product1: Product,
+        product2: Product
+      ) => {
+        if (product1.price > product2.price) {
+          return 1;
+        } else if (product1.price < product2.price) {
+          return -1;
+        }
+
+        return 0;
+      }
+    );
+  }
 }
