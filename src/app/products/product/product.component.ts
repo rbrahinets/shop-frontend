@@ -54,7 +54,7 @@ export class ProductComponent implements OnInit {
   private setProduct(): void {
     this.productService.getProduct(
       this.navigationService.getCurrentPathId()
-    ).subscribe(
+    ).then(
       (product: Product) => {
         this.product = product;
         this.imagePath = product.image;
