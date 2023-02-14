@@ -44,22 +44,16 @@ export class ProductsCartsService {
   saveProductToCart(
     product: Product,
     cart: Cart
-  ): Observable<ProductsCartsDto> {
+  ): void {
+    const productsCart = this.getProductsInCart() ? this.getProductsInCart() : [];
+
     const productCart = new ProductsCartsDto();
-
-    this.getProductsCarts().subscribe(
-      (productsCarts: ProductsCartsDto[]) =>
-        productCart.id = (productsCarts.length as number) + 1
-    );
-
+    productCart.id = productsCart.length + 1;
     productCart.productId = product.id;
     productCart.cartId = cart.id;
 
-    return this.http.post<ProductsCartsDto>(
-      this.apiUrl,
-      productCart,
-      Http.getHttpOptions()
-    );
+    productsCart.push(productCart);
+    localStorage.setItem('productsCart', JSON.stringify(productsCart));
   }
 
   deleteProductFromCart(

@@ -64,8 +64,9 @@ export class ProductComponent implements OnInit {
 
   private addProductToCart(cart: Cart): void {
     this.productsCartsService.saveProductToCart(
-      this.product, cart
-    ).subscribe();
+      this.product,
+      cart
+    );
   }
 
   private updateTotalPriceInCart(cart: Cart): void {
