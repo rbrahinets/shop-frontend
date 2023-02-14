@@ -16,7 +16,10 @@ export class ProductsCartService {
   }
 
   getProductsInCart(cart: Cart): ProductsCartDto[] {
-    const productsCart: ProductsCartDto[] = JSON.parse(localStorage.getItem('productsCart'));
+    const productsCart: ProductsCartDto[] =
+      ProductsCartService.getProductsCart()
+        ? ProductsCartService.getProductsCart()
+        : [];
     const productsInCart: ProductsCartDto[] = [];
 
     for (const productCart of productsCart) {
@@ -26,6 +29,10 @@ export class ProductsCartService {
     }
 
     return productsInCart;
+  }
+
+  private static getProductsCart() {
+    return JSON.parse(localStorage.getItem('productsCart'));
   }
 
   async getProductsFromCart(cart: Cart): Promise<Product[]> {
