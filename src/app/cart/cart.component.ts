@@ -32,13 +32,8 @@ export class CartComponent implements OnInit {
     this.setCart();
   }
 
-  deleteProductFromCart(product: Product): void {
-    this.productsCartsService
-      .deleteProductFromCart(product, this.cart);
-    this.cart.totalCost -= product.price;
-    this.cartService.updateCart(this.cart).subscribe();
-    this.router.navigate(['/cart'])
-      .then(() => window.location.reload());
+  private getIndexOfGroup(group: ProductsGroupsDto): number {
+    return this.groupsOfProducts.indexOf(group, 0);
   }
 
   private setCart(): void {
