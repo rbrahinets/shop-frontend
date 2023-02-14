@@ -8,37 +8,29 @@ import {Cart} from './cart.model';
   providedIn: 'root'
 })
 export class ProductsCartsService {
+  private readonly products: Product[];
+
   constructor(
     private productService: ProductService
   ) {
+    this.products = [];
   }
 
   getProductsInCart(): ProductsCartsDto[] {
     return JSON.parse(localStorage.getItem('productsCart')) as ProductsCartsDto[];
   }
 
-  getProductsCarts(): Observable<ProductsCartsDto[]> {
-    return this.http.get<ProductsCartsDto[]>(this.apiUrl);
-  }
+  async getProductsFromCart(): Promise<Product[]> {
+    const productsCart = this.getProductsInCart() ? this.getProductsInCart() : [];
+    for (const productCart of productsCart) {
+      await this.productService.getProduct(
+        productCart.productId
+      ).then(
+        (product: Product) => this.products.push(product)
+      );
+    }
 
-  getProductsFromCart(cartId: number): Product[] {
-    const products: Product[] = [];
-
-    this.getProductsCarts().subscribe(
-      (productsCarts: ProductsCartsDto[]) => {
-        for (const productCart of productsCarts) {
-          if (productCart.cartId === cartId) {
-            this.productService.getProduct(
-              productCart.productId
-            ).subscribe(
-              (product: Product) => products.push(product)
-            );
-          }
-        }
-      }
-    );
-
-    return products;
+    return this.products;
   }
 
   saveProductToCart(
