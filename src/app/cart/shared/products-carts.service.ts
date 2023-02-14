@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Product} from '../../products/shared/product.model';
-import {ProductsCartsDto} from './products-carts.dto';
+import {ProductsCartDto} from './products-cart.dto';
 import {ProductService} from '../../products/shared/product.service';
 import {Cart} from './cart.model';
 
@@ -16,8 +16,8 @@ export class ProductsCartsService {
     this.products = [];
   }
 
-  getProductsInCart(): ProductsCartsDto[] {
-    return JSON.parse(localStorage.getItem('productsCart')) as ProductsCartsDto[];
+  getProductsInCart(): ProductsCartDto[] {
+    return JSON.parse(localStorage.getItem('productsCart')) as ProductsCartDto[];
   }
 
   async getProductsFromCart(): Promise<Product[]> {
@@ -39,7 +39,7 @@ export class ProductsCartsService {
   ): void {
     const productsCart = this.getProductsInCart() ? this.getProductsInCart() : [];
 
-    const productCart = new ProductsCartsDto();
+    const productCart = new ProductsCartDto();
     productCart.id = productsCart.length + 1;
     productCart.productId = product.id;
     productCart.cartId = cart.id;
@@ -67,8 +67,8 @@ export class ProductsCartsService {
   }
 
   private static deleteProductCart(
-    productsCart: ProductsCartsDto[],
-    productCart: ProductsCartsDto
+    productsCart: ProductsCartDto[],
+    productCart: ProductsCartDto
   ): void {
     if (ProductsCartsService.getIndexOfProductCart(productsCart, productCart) > -1) {
       productsCart.splice(ProductsCartsService.getIndexOfProductCart(productsCart, productCart), 1);
@@ -76,8 +76,8 @@ export class ProductsCartsService {
   }
 
   private static getIndexOfProductCart(
-    productsCart: ProductsCartsDto[],
-    productCart: ProductsCartsDto
+    productsCart: ProductsCartDto[],
+    productCart: ProductsCartDto
   ): number {
     return productsCart.indexOf(productCart, 0);
   }

@@ -1,4 +1,4 @@
-export class ProductsCartsDto {
+export class ProductsCartDto {
   id?: number;
   productId: number;
   cartId: number;
