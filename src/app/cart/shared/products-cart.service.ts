@@ -7,7 +7,7 @@ import {Cart} from './cart.model';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsCartsService {
+export class ProductsCartService {
   private products: Product[];
 
   constructor(
@@ -60,7 +60,7 @@ export class ProductsCartsService {
         productCart.productId === product.id
         && productCart.cartId === cart.id
       ) {
-        ProductsCartsService.deleteProductCart(productsCart, productCart);
+        ProductsCartService.deleteProductCart(productsCart, productCart);
         localStorage.setItem('productsCart', JSON.stringify(productsCart));
         break;
       }
@@ -71,8 +71,8 @@ export class ProductsCartsService {
     productsCart: ProductsCartDto[],
     productCart: ProductsCartDto
   ): void {
-    if (ProductsCartsService.getIndexOfProductCart(productsCart, productCart) > -1) {
-      productsCart.splice(ProductsCartsService.getIndexOfProductCart(productsCart, productCart), 1);
+    if (ProductsCartService.getIndexOfProductCart(productsCart, productCart) > -1) {
+      productsCart.splice(ProductsCartService.getIndexOfProductCart(productsCart, productCart), 1);
     }
   }
 

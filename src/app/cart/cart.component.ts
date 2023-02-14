@@ -4,7 +4,7 @@ import {Cart} from './shared/cart.model';
 import {Product} from '../products/shared/product.model';
 import {ProductsGroupsDto} from './shared/products-groups.dto';
 import {CartService} from './shared/cart.service';
-import {ProductsCartsService} from './shared/products-carts.service';
+import {ProductsCartService} from './shared/products-cart.service';
 
 @Component({
   selector: 'shop-cart',
@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private productsCartsService: ProductsCartsService
+    private productsCartsService: ProductsCartService
   ) {
     this.cart = new Cart();
     this.groupsOfProducts = [];

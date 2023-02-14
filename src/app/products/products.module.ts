@@ -9,7 +9,7 @@ import {ProductListItemComponent} from './product-list-item/product-list-item.co
 import {ProductComponent} from './product/product.component';
 import {ProductService} from './shared/product.service';
 import {CartService} from '../cart/shared/cart.service';
-import {ProductsCartsService} from '../cart/shared/products-carts.service';
+import {ProductsCartService} from '../cart/shared/products-cart.service';
 import {LoggedUserService} from '../users/shared/logged-user.service';
 
 @NgModule({
@@ -28,7 +28,7 @@ import {LoggedUserService} from '../users/shared/logged-user.service';
   providers: [
     ProductService,
     CartService,
-    ProductsCartsService,
+    ProductsCartService,
     LoggedUserService
   ],
   exports: [

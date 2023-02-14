@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from '../shared/product.model';
 import {ProductService} from '../shared/product.service';
-import {ProductsCartsService} from '../../cart/shared/products-carts.service';
+import {ProductsCartService} from '../../cart/shared/products-cart.service';
 import {CartService} from '../../cart/shared/cart.service';
 import {LoggedUserService} from '../../users/shared/logged-user.service';
 import {NavigationService} from '../../shared/navigation.service';
@@ -21,7 +21,7 @@ export class ProductComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private cartService: CartService,
-    private productsCartsService: ProductsCartsService,
+    private productsCartsService: ProductsCartService,
     private navigationService: NavigationService
   ) {
   }

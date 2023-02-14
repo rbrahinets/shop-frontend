@@ -5,7 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {CartComponent} from './cart.component';
 import {StripePaymentModule} from '../stripe-payment/stripe-payment.module';
 import {CartService} from './shared/cart.service';
-import {ProductsCartsService} from './shared/products-carts.service';
+import {ProductsCartService} from './shared/products-cart.service';
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import {ProductsCartsService} from './shared/products-carts.service';
   declarations: [CartComponent],
   providers: [
     CartService,
-    ProductsCartsService
+    ProductsCartService
   ],
   exports: [CartComponent]
 })
