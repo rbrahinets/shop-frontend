@@ -8,12 +8,11 @@ import {Cart} from './cart.model';
   providedIn: 'root'
 })
 export class ProductsCartsService {
-  private readonly products: Product[];
+  private products: Product[];
 
   constructor(
     private productService: ProductService
   ) {
-    this.products = [];
   }
 
   getProductsInCart(): ProductsCartDto[] {
@@ -21,7 +20,9 @@ export class ProductsCartsService {
   }
 
   async getProductsFromCart(): Promise<Product[]> {
+    this.products = [];
     const productsCart = this.getProductsInCart() ? this.getProductsInCart() : [];
+
     for (const productCart of productsCart) {
       await this.productService.getProduct(
         productCart.productId
