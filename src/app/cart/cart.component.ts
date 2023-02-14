@@ -51,15 +51,15 @@ export class CartComponent implements OnInit {
     );
   }
 
-  private async getProductsFromCart(): Promise<Product[]> {
-    return await this.productsCartsService.getProductsFromCart(this.cart);
-  }
-
   private async groupProductsInCart() {
     this.productsInCart = await this.getProductsFromCart();
     for (const product of this.productsInCart) {
       this.addProductToGroup(product);
     }
+  }
+
+  private async getProductsFromCart(): Promise<Product[]> {
+    return await this.productsCartsService.getProductsFromCart(this.cart);
   }
 
   private addProductToGroup(product: Product): void {
