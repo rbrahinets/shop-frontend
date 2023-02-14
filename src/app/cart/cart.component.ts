@@ -83,7 +83,8 @@ export class CartComponent implements OnInit {
     return await this.productsCartsService.getProductsFromCart();
   }
 
-  private groupProductsInCart(): void {
+  private async groupProductsInCart() {
+    this.productsInCart = await this.getProductsFromCart();
     for (const product of this.productsInCart) {
       this.addProductToGroup(product);
     }
