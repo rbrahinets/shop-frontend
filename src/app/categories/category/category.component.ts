@@ -42,7 +42,7 @@ export class CategoryComponent implements OnInit {
     for (const pc of productsCategory) {
       if (pc.categoryId === categoryId) {
         this.productService.getProduct(pc.productId)
-          .subscribe(
+          .then(
             (product: Product) => this.products.push(product)
           );
       }
