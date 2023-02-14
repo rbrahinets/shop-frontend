@@ -42,33 +42,6 @@ export class CartComponent implements OnInit {
     this.deleteProductFromGroup(productName);
   }
 
-  private updatePriceInCart(product: Product) {
-    this.cart.totalCost -= product.price;
-    this.cartService.updateCart(this.cart).subscribe();
-  }
-
-  private deleteProductFromGroup(productName: string): void {
-    for (const group of this.groupsOfProducts) {
-      if (group.product === productName) {
-        group.number -= 1;
-
-        if (group.number === 0) {
-          this.deleteEmptyGroupOfProducts(group);
-        }
-      }
-    }
-  }
-
-  private deleteEmptyGroupOfProducts(group: ProductsGroupsDto): void {
-    if (this.getIndexOfGroup(group) > -1) {
-      this.groupsOfProducts.splice(this.getIndexOfGroup(group), 1);
-    }
-  }
-
-  private getIndexOfGroup(group: ProductsGroupsDto): number {
-    return this.groupsOfProducts.indexOf(group, 0);
-  }
-
   private setCart(): void {
     this.cartService.getCarts().subscribe(
       (carts: Cart[]) => {
@@ -107,5 +80,32 @@ export class CartComponent implements OnInit {
     );
 
     this.groupsOfProducts.push(group);
+  }
+
+  private updatePriceInCart(product: Product) {
+    this.cart.totalCost -= product.price;
+    this.cartService.updateCart(this.cart).subscribe();
+  }
+
+  private deleteProductFromGroup(productName: string): void {
+    for (const group of this.groupsOfProducts) {
+      if (group.product === productName) {
+        group.number -= 1;
+
+        if (group.number === 0) {
+          this.deleteEmptyGroupOfProducts(group);
+        }
+      }
+    }
+  }
+
+  private deleteEmptyGroupOfProducts(group: ProductsGroupsDto): void {
+    if (this.getIndexOfGroup(group) > -1) {
+      this.groupsOfProducts.splice(this.getIndexOfGroup(group), 1);
+    }
+  }
+
+  private getIndexOfGroup(group: ProductsGroupsDto): number {
+    return this.groupsOfProducts.indexOf(group, 0);
   }
 }
