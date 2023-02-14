@@ -2,7 +2,7 @@
   "carts": [
     {
       "id": 1,
-      "totalCost": 1000,
+      "totalCost": 0,
       "userId": 2
     }
   ],
@@ -132,13 +132,5 @@
       "categoryId": 4
     }
   ],
-  "products-carts": [
-    {
-      "id": 1,
-      "productId": 1,
-      "cartId": 1
-    }
-  ],
-  "checkout": [
-  ]
+  "checkout": []
 }
