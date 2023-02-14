@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {faTimes} from '@fortawesome/free-solid-svg-icons';
-import {Router} from '@angular/router';
 import {Cart} from './shared/cart.model';
 import {Product} from '../products/shared/product.model';
 import {ProductsGroupsDto} from './shared/products-groups.dto';
@@ -20,8 +19,7 @@ export class CartComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private productsCartsService: ProductsCartsService,
-    private router: Router
+    private productsCartsService: ProductsCartsService
   ) {
     this.cart = new Cart();
     this.groupsOfProducts = [];
@@ -30,6 +28,19 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.setCart();
+  }
+
+  deleteProductFromCart(productName: string): void {
+    for (const product of this.productsInCart) {
+      if (product.name === productName) {
+        this.productsCartsService
+          .deleteProductFromCart(product, this.cart);
+        this.updatePriceInCart(product);
+        break;
+      }
+    }
+
+    this.deleteProductFromGroup(productName);
   }
 
   private updatePriceInCart(product: Product) {
