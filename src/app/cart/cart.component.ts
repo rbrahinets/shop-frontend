@@ -62,7 +62,6 @@ export class CartComponent implements OnInit {
     for (const group of this.groupsOfProducts) {
       if (group.product === product.name) {
         group.number += 1;
-        group.price += product.price;
         return;
       }
     }
@@ -73,7 +72,6 @@ export class CartComponent implements OnInit {
   private addProductToNewGroup(product: Product) {
     const group = new ProductsGroupsDto(
       product.name,
-      product.price,
       1
     );
 
