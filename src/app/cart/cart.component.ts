@@ -79,12 +79,8 @@ export class CartComponent implements OnInit {
     );
   }
 
-  private setProductsFromCart(cart: Cart) {
-    this.productsInCart = this.getProductsFromCart(cart);
-  }
-
-  private getProductsFromCart(cart: Cart): Product[] {
-    return this.productsCartsService.getProductsFromCart(cart.id);
+  private async getProductsFromCart(): Promise<Product[]> {
+    return await this.productsCartsService.getProductsFromCart();
   }
 
   private groupProductsInCart(): void {
