@@ -52,7 +52,7 @@ export class CartComponent implements OnInit {
   }
 
   private async getProductsFromCart(): Promise<Product[]> {
-    return await this.productsCartsService.getProductsFromCart();
+    return await this.productsCartsService.getProductsFromCart(this.cart);
   }
 
   private async groupProductsInCart() {
