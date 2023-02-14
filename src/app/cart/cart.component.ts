@@ -46,9 +46,24 @@ export class CartComponent implements OnInit {
     this.cartService.getCarts().subscribe(
       (carts: Cart[]) => {
         this.cart = CartService.getCartForCurrentUser(carts);
+
+        if (this.resetCart()) {
+          return;
+        }
+
         this.groupProductsInCart().then();
       }
     );
+  }
+
+  private resetCart(): boolean {
+    if (this.productsCartsService.getProductsInCart(this.cart).length > 0) {
+      return false;
+    }
+
+    this.cart.totalCost = 0;
+    this.cartService.updateCart(this.cart).subscribe();
+    return true;
   }
 
   private async groupProductsInCart() {
