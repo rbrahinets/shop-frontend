@@ -16,6 +16,7 @@ export class CartComponent implements OnInit {
   cart: Cart;
   groupsOfProducts: ProductsGroupsDto[];
   faTimes = faTimes;
+  private productsInCart: Product[];
 
   constructor(
     private cartService: CartService,
@@ -24,6 +25,7 @@ export class CartComponent implements OnInit {
   ) {
     this.cart = new Cart();
     this.groupsOfProducts = [];
+    this.productsInCart = [];
   }
 
   ngOnInit(): void {
@@ -43,19 +45,24 @@ export class CartComponent implements OnInit {
     this.cartService.getCarts().subscribe(
       (carts: Cart[]) => {
         this.cart = CartService.getCartForCurrentUser(carts);
-        this.groupProductsInCart(this.cart);
+        this.setProductsFromCart(this.cart);
+        this.groupProductsInCart();
       }
     );
   }
 
-  private groupProductsInCart(cart: Cart): void {
-    for (const product of this.getProductsFromCart(cart)) {
-      this.addProductToGroup(product);
-    }
+  private setProductsFromCart(cart: Cart) {
+    this.productsInCart = this.getProductsFromCart(cart);
   }
 
   private getProductsFromCart(cart: Cart): Product[] {
     return this.productsCartsService.getProductsFromCart(cart.id);
+  }
+
+  private groupProductsInCart(): void {
+    for (const product of this.productsInCart) {
+      this.addProductToGroup(product);
+    }
   }
 
   private addProductToGroup(product: Product): void {
