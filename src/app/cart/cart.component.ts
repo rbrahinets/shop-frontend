@@ -32,6 +32,11 @@ export class CartComponent implements OnInit {
     this.setCart();
   }
 
+  private updatePriceInCart(product: Product) {
+    this.cart.totalCost -= product.price;
+    this.cartService.updateCart(this.cart).subscribe();
+  }
+
   private deleteProductFromGroup(productName: string): void {
     for (const group of this.groupsOfProducts) {
       if (group.product === productName) {
