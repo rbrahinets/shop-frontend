@@ -60,20 +60,33 @@ export class ProductsCartsService {
     product: Product,
     cart: Cart
   ): void {
-    this.getProductsCarts().subscribe(
-      (productsCarts: ProductsCartsDto[]) => {
-        for (const productCart of productsCarts) {
-          if (
-            productCart.productId === product.id
-            && productCart.cartId === cart.id
-          ) {
-            this.http.delete<ProductsCartsDto>(
-              `${this.apiUrl + productCart.id}`
-            ).subscribe();
-            break;
-          }
-        }
+    const productsCart = this.getProductsInCart() ? this.getProductsInCart() : [];
+
+    for (const productCart of productsCart) {
+      if (
+        productCart.productId === product.id
+        && productCart.cartId === cart.id
+      ) {
+        ProductsCartsService.deleteProductCart(productsCart, productCart);
+        localStorage.setItem('productsCart', JSON.stringify(productsCart));
+        break;
       }
-    );
+    }
+  }
+
+  private static deleteProductCart(
+    productsCart: ProductsCartsDto[],
+    productCart: ProductsCartsDto
+  ): void {
+    if (ProductsCartsService.getIndexOfProductCart(productsCart, productCart) > -1) {
+      productsCart.splice(ProductsCartsService.getIndexOfProductCart(productsCart, productCart), 1);
+    }
+  }
+
+  private static getIndexOfProductCart(
+    productsCart: ProductsCartsDto[],
+    productCart: ProductsCartsDto
+  ): number {
+    return productsCart.indexOf(productCart, 0);
   }
 }

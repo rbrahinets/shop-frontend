@@ -33,8 +33,7 @@ export class CartComponent implements OnInit {
   deleteProductFromCart(productName: string): void {
     for (const product of this.productsInCart) {
       if (product.name === productName) {
-        this.productsCartsService
-          .deleteProductFromCart(product, this.cart);
+        this.productsCartsService.deleteProductFromCart(product, this.cart);
         this.updatePriceInCart(product);
         break;
       }
