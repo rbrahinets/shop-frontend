@@ -73,8 +73,7 @@ export class CartComponent implements OnInit {
     this.cartService.getCarts().subscribe(
       (carts: Cart[]) => {
         this.cart = CartService.getCartForCurrentUser(carts);
-        this.setProductsFromCart(this.cart);
-        this.groupProductsInCart();
+        this.groupProductsInCart().then();
       }
     );
   }
