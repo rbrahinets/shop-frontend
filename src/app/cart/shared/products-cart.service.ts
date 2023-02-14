@@ -31,10 +31,6 @@ export class ProductsCartService {
     return productsInCart;
   }
 
-  private static getProductsCart() {
-    return JSON.parse(localStorage.getItem('productsCart'));
-  }
-
   async getProductsFromCart(cart: Cart): Promise<Product[]> {
     this.products = [];
 
@@ -80,6 +76,10 @@ export class ProductsCartService {
         break;
       }
     }
+  }
+
+  private static getProductsCart() {
+    return JSON.parse(localStorage.getItem('productsCart'));
   }
 
   private static deleteProductCart(
