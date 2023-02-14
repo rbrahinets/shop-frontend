@@ -1,22 +1,20 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
 import {Product} from '../../products/shared/product.model';
 import {ProductsCartsDto} from './products-carts.dto';
 import {ProductService} from '../../products/shared/product.service';
 import {Cart} from './cart.model';
-import {Http} from '../../shared/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsCartsService {
-  private apiUrl: string = 'http://localhost:8080/products-carts/';
-
   constructor(
-    private http: HttpClient,
     private productService: ProductService
   ) {
+  }
+
+  getProductsInCart(): ProductsCartsDto[] {
+    return JSON.parse(localStorage.getItem('productsCart')) as ProductsCartsDto[];
   }
 
   getProductsCarts(): Observable<ProductsCartsDto[]> {
