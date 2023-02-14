@@ -32,6 +32,12 @@ export class CartComponent implements OnInit {
     this.setCart();
   }
 
+  private deleteEmptyGroupOfProducts(group: ProductsGroupsDto): void {
+    if (this.getIndexOfGroup(group) > -1) {
+      this.groupsOfProducts.splice(this.getIndexOfGroup(group), 1);
+    }
+  }
+
   private getIndexOfGroup(group: ProductsGroupsDto): number {
     return this.groupsOfProducts.indexOf(group, 0);
   }
