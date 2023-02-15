@@ -23,8 +23,11 @@ export class NavigationService {
   }
 
   getCurrentPathId(): number {
-    let currentPath = this.getCurrentPath();
-    return +currentPath[currentPath.length - 1];
+    if (Number(this.getCurrentPath()[this.getCurrentPath().length - 1])) {
+      return Number(this.getCurrentPath()[this.getCurrentPath().length - 1]);
+    } else {
+      return Number(this.getCurrentPath()[this.getCurrentPath().length - 2]);
+    }
   }
 
   private getCurrentPath(): string[] {
