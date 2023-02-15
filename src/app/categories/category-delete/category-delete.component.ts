@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {CategoryService} from '../shared/category.service';
+import {Category} from '../shared/category.model';
 
 @Component({
   selector: 'shop-category-delete',
@@ -8,9 +10,24 @@ import {Component, OnInit} from '@angular/core';
 export class CategoryDeleteComponent implements OnInit {
   categoryName: string;
 
-  constructor() {
+  constructor(
+    private categoryService: CategoryService
+  ) {
   }
 
   ngOnInit(): void {
+  }
+
+  private deleteCategory(): void {
+    this.categoryService.getCategories().subscribe(
+      (categories: Category[]) => {
+        for (const category of categories) {
+          if (category.name === this.categoryName) {
+            this.categoryService.deleteCategory(category);
+            break;
+          }
+        }
+      }
+    );
   }
 }
