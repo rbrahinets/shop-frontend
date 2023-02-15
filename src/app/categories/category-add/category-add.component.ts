@@ -3,6 +3,8 @@ import {Router} from '@angular/router';
 import {CategoryService} from '../shared/category.service';
 import {NavigationService} from '../../shared/navigation.service';
 import {Category} from '../shared/category.model';
+import {CategoryValidator} from '../shared/category.validator';
+import {CategoryDto} from '../shared/category.dto';
 
 @Component({
   selector: 'shop-category-add',
@@ -16,7 +18,8 @@ export class CategoryAddComponent implements OnInit {
   constructor(
     private router: Router,
     private categoryService: CategoryService,
-    private navigation: NavigationService
+    private navigation: NavigationService,
+    private validator: CategoryValidator
   ) {
     this.navigation = new NavigationService(this.router);
   }
@@ -48,6 +51,13 @@ export class CategoryAddComponent implements OnInit {
         newCategory.name = this.categoryName;
         this.categoryService.saveCategory(newCategory).subscribe();
       }
+    );
+  }
+
+  private isValidCategoryData(): boolean {
+    return this.validator.validate(
+      new CategoryDto(this.categoryName),
+      this.categories
     );
   }
 }
