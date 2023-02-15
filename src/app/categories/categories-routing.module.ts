@@ -2,9 +2,12 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {CategoryListComponent} from './category-list/category-list.component';
 import {CategoryComponent} from './category/category.component';
+import {CategoryAddComponent} from './category-add/category-add.component';
+import {RoleAdminGuard} from '../shared/role-admin-guard';
 
 const categoriesRoutes: Routes = [
   {path: 'categories', component: CategoryListComponent},
+  {path: 'categories/add', component: CategoryAddComponent, canActivate: [RoleAdminGuard]},
   {path: 'categories/:id', component: CategoryComponent},
 ];
 
