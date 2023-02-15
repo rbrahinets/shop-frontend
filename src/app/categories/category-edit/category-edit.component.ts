@@ -11,6 +11,7 @@ import {Category} from '../shared/category.model';
 })
 export class CategoryEditComponent implements OnInit {
   category: Category;
+  newCategoryName: string;
 
   constructor(
     private router: Router,
