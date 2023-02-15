@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {CategoryService} from '../shared/category.service';
-import {Category} from '../shared/category.model';
+import {NavigationService} from '../../shared/navigation.service';
+import {Category} from "../shared/category.model";
 
 @Component({
   selector: 'shop-category-add',
@@ -14,10 +15,17 @@ export class CategoryAddComponent implements OnInit {
   constructor(
     private router: Router,
     private categoryService: CategoryService,
+    private navigation: NavigationService
   ) {
+    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {
+  }
+
+  onAdd(): void {
+    this.addCategory();
+    this.navigation.goToEndpoint('/categories', true);
   }
 
   private addCategory(): void {
