@@ -13,7 +13,7 @@ import {CategoryDto} from '../shared/category.dto';
 })
 export class CategoryEditComponent implements OnInit {
   category: Category;
-  newCategoryName: string;
+  categoryName: string;
   private categories: Category[];
 
   constructor(
@@ -56,20 +56,20 @@ export class CategoryEditComponent implements OnInit {
     for (const category of categories) {
       if (category.id === this.navigation.getCurrentPathId()) {
         this.category = category;
-        this.newCategoryName = category.name;
+        this.categoryName = category.name;
       }
     }
   }
 
   private isValidCategoryData(): boolean {
     return this.validator.validate(
-      new CategoryDto(this.newCategoryName),
+      new CategoryDto(this.categoryName),
       this.categories
     );
   }
 
   private updateCategoryData(): void {
-    this.category.name = this.newCategoryName;
+    this.category.name = this.categoryName;
     this.categoryService.updateCategory(this.category).subscribe();
   }
 }
