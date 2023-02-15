@@ -9,12 +9,12 @@ import {CategoryListComponent} from './category-list/category-list.component';
 import {CategoryListItemComponent} from './category-list-item/category-list-item.component';
 import {CategoryComponent} from './category/category.component';
 import {CategoryAddComponent} from './category-add/category-add.component';
+import {CategoryDeleteComponent} from './category-delete/category-delete.component';
 import {CategoryService} from './shared/category.service';
 import {ProductsCategoryService} from './shared/products-category.service';
 import {ProductService} from '../products/shared/product.service';
 import {LoggedUserService} from '../users/shared/logged-user.service';
 import {NavigationService} from '../shared/navigation.service';
-
 
 @NgModule({
   imports: [
@@ -29,7 +29,8 @@ import {NavigationService} from '../shared/navigation.service';
     CategoryListComponent,
     CategoryListItemComponent,
     CategoryComponent,
-    CategoryAddComponent
+    CategoryAddComponent,
+    CategoryDeleteComponent
   ],
   providers: [
     CategoryService,
@@ -42,7 +43,8 @@ import {NavigationService} from '../shared/navigation.service';
     CategoryListComponent,
     CategoryListItemComponent,
     CategoryComponent,
-    CategoryAddComponent
+    CategoryAddComponent,
+    CategoryDeleteComponent
   ]
 })
 export class CategoriesModule {
