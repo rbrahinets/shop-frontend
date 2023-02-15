@@ -6,6 +6,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./category-add.component.css']
 })
 export class CategoryAddComponent implements OnInit {
+  categoryName: string;
+
   constructor() {
   }
 
