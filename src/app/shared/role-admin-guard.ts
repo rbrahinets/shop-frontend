@@ -9,9 +9,9 @@ import {NavigationService} from './navigation.service';
 export class RoleAdminGuard implements CanActivate {
   constructor(
     private router: Router,
-    private navigationService: NavigationService
+    private navigation: NavigationService
   ) {
-    this.navigationService = new NavigationService(router);
+    this.navigation = new NavigationService(router);
   }
 
   canActivate(
@@ -22,10 +22,10 @@ export class RoleAdminGuard implements CanActivate {
     const roleAdmin = LoggedUserService.getRoleOfUser() === 'ROLE_ADMIN';
 
     if (!authorized) {
-      this.navigationService.goToEndpoint('/sign-in');
+      this.navigation.goToEndpoint('/sign-in');
       return false;
     } else if (!roleAdmin) {
-      this.navigationService.goToEndpoint('/page-not-found');
+      this.navigation.goToEndpoint('/page-not-found');
       return false;
     }
 

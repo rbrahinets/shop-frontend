@@ -17,10 +17,10 @@ export class CategoryListComponent implements OnInit {
   constructor(
     private categoryService: CategoryService,
     private router: Router,
-    private navigationService: NavigationService
+    private navigation: NavigationService
   ) {
     this.userRole = LoggedUserService.getRoleOfUser();
-    this.navigationService = new NavigationService(this.router);
+    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class CategoryListComponent implements OnInit {
   }
 
   onAddNewCategory(): void {
-    this.navigationService.goToEndpoint('/categories/add');
+    this.navigation.goToEndpoint('/categories/add');
   }
 
   private setCategories() {
