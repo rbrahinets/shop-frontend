@@ -11,6 +11,9 @@ import {CategoryAddComponent} from './category-add/category-add.component';
 import {CategoryService} from './shared/category.service';
 import {ProductsCategoryService} from './shared/products-category.service';
 import {ProductService} from '../products/shared/product.service';
+import {LoggedUserService} from '../users/shared/logged-user.service';
+import {NavigationService} from '../shared/navigation.service';
+
 
 @NgModule({
   imports: [
@@ -29,7 +32,9 @@ import {ProductService} from '../products/shared/product.service';
   providers: [
     CategoryService,
     ProductsCategoryService,
-    ProductService
+    ProductService,
+    LoggedUserService,
+    NavigationService
   ],
   exports: [
     CategoryListComponent,
