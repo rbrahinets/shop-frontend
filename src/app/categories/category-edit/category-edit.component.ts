@@ -37,4 +37,9 @@ export class CategoryEditComponent implements OnInit {
       }
     );
   }
+
+  private updateCategoryData(): void {
+    this.category.name = this.newCategoryName;
+    this.categoryService.updateCategory(this.category).subscribe();
+  }
 }
