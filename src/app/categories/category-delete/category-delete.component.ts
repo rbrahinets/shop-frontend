@@ -50,7 +50,8 @@ export class CategoryDeleteComponent implements OnInit {
   private isValidCategoryData(): boolean {
     return this.validator.validate(
       new CategoryDto(this.categoryName),
-      this.categories
+      this.categories,
+      true
     );
   }
 
