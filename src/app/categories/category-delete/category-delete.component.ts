@@ -28,6 +28,10 @@ export class CategoryDeleteComponent implements OnInit {
     this.navigation.goToEndpoint('/categories', true);
   }
 
+  onClickCancel(): void {
+    this.navigation.goToEndpoint('/categories');
+  }
+
   private deleteCategory(): void {
     this.categoryService.getCategories().subscribe(
       (categories: Category[]) => {
