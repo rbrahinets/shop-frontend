@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {Product} from '../../products/shared/product.model';
 import {ProductsCategoryService} from '../shared/products-category.service';
 import {ProductService} from '../../products/shared/product.service';
@@ -16,8 +17,10 @@ export class CategoryComponent implements OnInit {
   constructor(
     private productsCategoryService: ProductsCategoryService,
     private productService: ProductService,
-    private navigationService: NavigationService
+    private router: Router,
+    private navigation: NavigationService
   ) {
+    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {
@@ -29,7 +32,7 @@ export class CategoryComponent implements OnInit {
       .subscribe(
         (productsCategory: ProductsCategoryDto[]) =>
           this.setProductsFromCategory(
-            this.navigationService.getCurrentPathId(),
+            this.navigation.getCurrentPathId(),
             productsCategory
           )
       );
