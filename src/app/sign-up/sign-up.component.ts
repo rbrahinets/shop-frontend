@@ -38,9 +38,7 @@ export class SignUpComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe(
-      (users: User[]) => this.users = users
-    );
+    this.setUsers();
   }
 
   onSignUp(): void {
@@ -57,6 +55,12 @@ export class SignUpComponent implements OnInit {
 
   onChangeIsAdmin(): void {
     this.isAdmin = !this.isAdmin;
+  }
+
+  private setUsers(): void {
+    this.userService.getUsers().subscribe(
+      (users: User[]) => this.users = users
+    );
   }
 
   private isValidCredential(): boolean {
