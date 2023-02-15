@@ -14,11 +14,13 @@ export class CategoryValidator {
 
   validate(
     category: CategoryDto,
-    categories: Category[]
+    categories: Category[],
+    isDelete: boolean = false
   ): boolean {
     return this.categoryNameValidator.validate(
       category.name,
-      categories
+      categories,
+      isDelete
     );
   }
 }
