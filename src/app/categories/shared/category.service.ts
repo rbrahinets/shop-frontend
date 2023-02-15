@@ -29,7 +29,7 @@ export class CategoryService {
 
   deleteCategory(category: Category): void {
     this.http.delete<Category>(
-      `${this.apiUrl}/${category.id}`
+      `${this.apiUrl + category.id}`
     ).subscribe();
   }
 }
