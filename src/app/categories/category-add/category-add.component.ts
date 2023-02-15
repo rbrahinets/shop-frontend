@@ -29,6 +29,10 @@ export class CategoryAddComponent implements OnInit {
   }
 
   onAdd(): void {
+    if (!this.isValidCategoryData()) {
+      return;
+    }
+
     this.addCategory();
     this.navigation.goToEndpoint('/categories', true);
   }
@@ -43,6 +47,13 @@ export class CategoryAddComponent implements OnInit {
     );
   }
 
+  private isValidCategoryData(): boolean {
+    return this.validator.validate(
+      new CategoryDto(this.categoryName),
+      this.categories
+    );
+  }
+
   private addCategory(): void {
     this.categoryService.getCategories().subscribe(
       (categories: Category[]) => {
@@ -51,13 +62,6 @@ export class CategoryAddComponent implements OnInit {
         newCategory.name = this.categoryName;
         this.categoryService.saveCategory(newCategory).subscribe();
       }
-    );
-  }
-
-  private isValidCategoryData(): boolean {
-    return this.validator.validate(
-      new CategoryDto(this.categoryName),
-      this.categories
     );
   }
 }
