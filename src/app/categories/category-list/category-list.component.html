@@ -6,9 +6,16 @@
   *ngFor="let category of categories"
   [category]="category"
 ></shop-category-list-item>
+<hr/>
 <shop-button
   *ngIf="userRole === 'ROLE_ADMIN'"
   text="Add New Category"
   color="#ff00ff"
   (btnClick)="onAddNewCategory()"
+></shop-button>
+<shop-button
+  *ngIf="userRole === 'ROLE_ADMIN'"
+  text="Delete Category"
+  color="#ff00ff"
+  (btnClick)="onDeleteCategory()"
 ></shop-button>
