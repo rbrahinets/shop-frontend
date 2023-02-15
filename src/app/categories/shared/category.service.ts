@@ -26,4 +26,10 @@ export class CategoryService {
       Http.getHttpOptions()
     );
   }
+
+  deleteCategory(category: Category): void {
+    this.http.delete<Category>(
+      `${this.apiUrl}/${category.id}`
+    ).subscribe();
+  }
 }
