@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 import {ProductsModule} from '../products/products.module';
 import {SortModule} from '../sort/sort.module';
 import {ButtonModule} from '../button/button.module';
@@ -20,6 +21,7 @@ import {NavigationService} from '../shared/navigation.service';
     CommonModule,
     ProductsModule,
     RouterModule,
+    FormsModule,
     SortModule,
     ButtonModule
   ],
