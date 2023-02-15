@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {LoggedUserService} from '../users/shared/logged-user.service';
+import {NavigationService} from './navigation.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,9 @@ import {LoggedUserService} from '../users/shared/logged-user.service';
 export class RoleUserGuard implements CanActivate {
   constructor(
     private router: Router,
+    private navigationService: NavigationService
   ) {
+    this.navigationService = new NavigationService(router);
   }
 
   canActivate(
@@ -19,10 +22,10 @@ export class RoleUserGuard implements CanActivate {
     const roleUser = LoggedUserService.getRoleOfUser() === 'ROLE_USER';
 
     if (!authorized) {
-      this.router.navigate(['/sign-in']).then();
+      this.navigationService.goToEndpoint('/sign-in');
       return false;
     } else if (!roleUser) {
-      this.router.navigate(['/page-not-found']).then();
+      this.navigationService.goToEndpoint('/page-not-found');
       return false;
     }
 
