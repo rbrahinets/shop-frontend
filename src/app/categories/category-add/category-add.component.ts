@@ -28,6 +28,10 @@ export class CategoryAddComponent implements OnInit {
     this.navigation.goToEndpoint('/categories', true);
   }
 
+  onClickCancel(): void {
+    this.navigation.goToEndpoint('/categories');
+  }
+
   private addCategory(): void {
     this.categoryService.getCategories().subscribe(
       (categories: Category[]) => {
