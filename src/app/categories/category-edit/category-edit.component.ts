@@ -31,6 +31,10 @@ export class CategoryEditComponent implements OnInit {
     this.navigation.goToEndpoint('/categories', true);
   }
 
+  onClickCancel(): void {
+    this.navigation.goToEndpoint(`/categories/${this.navigation.getCurrentPathId()}`);
+  }
+
   private setCurrentCategory() {
     this.categoryService.getCategories().subscribe(
       (categories: Category[]) => {
