@@ -7,17 +7,20 @@ import {Category} from '../../categories/shared/category.model';
 export class CategoryNameValidator {
   validate(
     categoryName: string,
-    categories: Category[]
+    categories: Category[],
+    isDelete: boolean = false
   ): boolean {
     return CategoryNameValidator.validateCategoryName(
       categoryName,
-      categories
+      categories,
+      isDelete
     );
   }
 
   private static validateCategoryName(
     categoryName: string,
-    categories: Category[]
+    categories: Category[],
+    isDelete: boolean = false
   ): boolean {
     if (!categoryName) {
       alert('You haven\'t entered a name of category');
@@ -25,11 +28,23 @@ export class CategoryNameValidator {
     } else if (CategoryNameValidator.isInvalidCategoryName(categoryName)) {
       alert('You have entered a short name of category');
       return false;
-    } else if (!CategoryNameValidator.isUniqueCategoryName(
-      categoryName,
-      categories
-    )) {
+    } else if (
+      CategoryNameValidator.isExistingCategoryName(
+        categoryName,
+        categories
+      )
+      && !isDelete
+    ) {
       alert('You have entered an existing name of category');
+      return false;
+    } else if (
+      !CategoryNameValidator.isExistingCategoryName(
+        categoryName,
+        categories
+      )
+      && isDelete
+    ) {
+      alert('You have entered a non-existent name of category');
       return false;
     }
 
