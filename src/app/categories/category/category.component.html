@@ -1,9 +1,12 @@
-<shop-products-sort
-  [products]="products"
-></shop-products-sort>
-<hr/>
-<shop-product-list-item
-  *ngFor="let product of products"
-  [product]="product"
-  [imagePath]="product.image"
-></shop-product-list-item>
+<h2 *ngIf="products.length <= 0">Products not Found!</h2>
+<div *ngIf="products.length > 0">
+  <shop-products-sort
+    [products]="products"
+  ></shop-products-sort>
+  <hr/>
+  <shop-product-list-item
+    *ngFor="let product of products"
+    [product]="product"
+    [imagePath]="product.image"
+  ></shop-product-list-item>
+</div>
