@@ -40,20 +40,20 @@ export class CategoryNameValidator {
     return categoryName.length < 2;
   }
 
-  private static isUniqueCategoryName(
+  private static isExistingCategoryName(
     categoryName: string,
     categories: Category[]
   ): boolean {
     if (!categories) {
-      return true;
+      return false;
     }
 
     for (const category of categories) {
       if (category.name === categoryName) {
-        return false;
+        return true;
       }
     }
 
-    return true;
+    return false;
   }
 }
