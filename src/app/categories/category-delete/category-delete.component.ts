@@ -29,6 +29,10 @@ export class CategoryDeleteComponent implements OnInit {
   }
 
   onDelete(): void {
+    if (!this.isValidCategoryData()) {
+      return;
+    }
+
     this.deleteCategory();
     this.navigation.goToEndpoint('/categories', true);
   }
