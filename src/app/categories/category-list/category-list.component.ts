@@ -31,7 +31,11 @@ export class CategoryListComponent implements OnInit {
     this.navigation.goToEndpoint('/categories/add');
   }
 
-  private setCategories() {
+  onDeleteCategory(): void {
+    this.navigation.goToEndpoint('/categories/delete');
+  }
+
+  private setCategories(): void {
     this.categoryService.getCategories().subscribe(
       (categories: Category[]) => this.categories = categories
     );
