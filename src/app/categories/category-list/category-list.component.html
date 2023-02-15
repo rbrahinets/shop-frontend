@@ -6,3 +6,9 @@
   *ngFor="let category of categories"
   [category]="category"
 ></shop-category-list-item>
+<shop-button
+  *ngIf="userRole === 'ROLE_ADMIN'"
+  text="Add New Category"
+  color="#ff00ff"
+  (btnClick)="onAddNewCategory()"
+></shop-button>
