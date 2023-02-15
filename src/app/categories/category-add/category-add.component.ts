@@ -11,6 +11,7 @@ import {Category} from '../shared/category.model';
 })
 export class CategoryAddComponent implements OnInit {
   categoryName: string;
+  private categories: Category[];
 
   constructor(
     private router: Router,
@@ -21,6 +22,7 @@ export class CategoryAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setCategories();
   }
 
   onAdd(): void {
@@ -30,6 +32,12 @@ export class CategoryAddComponent implements OnInit {
 
   onClickCancel(): void {
     this.navigation.goToEndpoint('/categories');
+  }
+
+  private setCategories(): void {
+    this.categoryService.getCategories().subscribe(
+      (categories: Category[]) => this.categories = categories
+    );
   }
 
   private addCategory(): void {
