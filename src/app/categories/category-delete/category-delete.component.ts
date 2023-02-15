@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {CategoryService} from '../shared/category.service';
+import {NavigationService} from '../../shared/navigation.service';
 import {Category} from '../shared/category.model';
 
 @Component({
@@ -11,11 +13,19 @@ export class CategoryDeleteComponent implements OnInit {
   categoryName: string;
 
   constructor(
-    private categoryService: CategoryService
+    private router: Router,
+    private categoryService: CategoryService,
+    private navigation: NavigationService
   ) {
+    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {
+  }
+
+  onDelete(): void {
+    this.deleteCategory();
+    this.navigation.goToEndpoint('/categories', true);
   }
 
   private deleteCategory(): void {
