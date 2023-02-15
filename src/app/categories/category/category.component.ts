@@ -27,6 +27,10 @@ export class CategoryComponent implements OnInit {
     this.setProducts();
   }
 
+  onClickEdit(): void {
+    this.navigation.goToEndpoint(`/categories/${this.navigation.getCurrentPathId()}/edit`);
+  }
+
   private setProducts(): void {
     this.productsCategoryService.getProductsCategory()
       .subscribe(
