@@ -5,6 +5,7 @@ import {ProductsCategoryService} from '../shared/products-category.service';
 import {ProductService} from '../../products/shared/product.service';
 import {NavigationService} from '../../shared/navigation.service';
 import {ProductsCategoryDto} from '../shared/products-category.dto';
+import {LoggedUserService} from "../../users/shared/logged-user.service";
 
 @Component({
   selector: 'shop-category',
@@ -12,6 +13,7 @@ import {ProductsCategoryDto} from '../shared/products-category.dto';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
+  userRole: string;
   products: Product[] = [];
 
   constructor(
@@ -21,6 +23,7 @@ export class CategoryComponent implements OnInit {
     private navigation: NavigationService
   ) {
     this.navigation = new NavigationService(this.router);
+    this.userRole = LoggedUserService.getRoleOfUser();
   }
 
   ngOnInit(): void {
