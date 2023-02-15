@@ -1,11 +1,14 @@
-<shop-categories-sort
-  [categories]="categories"
-></shop-categories-sort>
-<hr/>
-<shop-category-list-item
-  *ngFor="let category of categories"
-  [category]="category"
-></shop-category-list-item>
+<h2 *ngIf="categories.length <= 0">Categories not Found</h2>
+<div *ngIf="categories.length > 0">
+  <shop-categories-sort
+    [categories]="categories"
+  ></shop-categories-sort>
+  <hr/>
+  <shop-category-list-item
+    *ngFor="let category of categories"
+    [category]="category"
+  ></shop-category-list-item>
+</div>
 <div *ngIf="userRole === 'ROLE_ADMIN'">
   <hr/>
   <shop-button
