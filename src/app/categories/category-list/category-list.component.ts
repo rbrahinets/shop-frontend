@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {CategoryService} from '../shared/category.service';
 import {Category} from '../shared/category.model';
+import {LoggedUserService} from '../../users/shared/logged-user.service';
 import {NavigationService} from '../../shared/navigation.service';
 
 @Component({
@@ -11,12 +12,14 @@ import {NavigationService} from '../../shared/navigation.service';
 })
 export class CategoryListComponent implements OnInit {
   categories: Category[] = [];
+  userRole: string;
 
   constructor(
     private categoryService: CategoryService,
     private router: Router,
     private navigationService: NavigationService
   ) {
+    this.userRole = LoggedUserService.getRoleOfUser();
     this.navigationService = new NavigationService(this.router);
   }
 
