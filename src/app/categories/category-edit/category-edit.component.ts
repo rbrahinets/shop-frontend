@@ -35,16 +35,13 @@ export class CategoryEditComponent implements OnInit {
     this.navigation.goToEndpoint(`/categories/${this.navigation.getCurrentPathId()}`);
   }
 
-  private setCurrentCategory() {
-    this.categoryService.getCategories().subscribe(
-      (categories: Category[]) => {
-        for (const category of categories) {
-          if (category.id === this.navigation.getCurrentPathId()) {
-            this.category = category;
-          }
-        }
+  private setCurrentCategory(categories: Category[]) {
+    for (const category of categories) {
+      if (category.id === this.navigation.getCurrentPathId()) {
+        this.category = category;
+        this.newCategoryName = category.name;
       }
-    );
+    }
   }
 
   private updateCategoryData(): void {
