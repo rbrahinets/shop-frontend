@@ -9,6 +9,8 @@
     [product]="product"
     [imagePath]="product.image"
   ></shop-product-list-item>
+</div>
+<div *ngIf="userRole === 'ROLE_ADMIN'">
   <hr/>
   <shop-button
     text="Edit"
