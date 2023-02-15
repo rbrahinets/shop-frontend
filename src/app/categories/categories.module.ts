@@ -6,6 +6,7 @@ import {SortModule} from '../sort/sort.module';
 import {CategoryListComponent} from './category-list/category-list.component';
 import {CategoryListItemComponent} from './category-list-item/category-list-item.component';
 import {CategoryComponent} from './category/category.component';
+import {CategoryAddComponent} from './category-add/category-add.component';
 import {CategoryService} from './shared/category.service';
 import {ProductsCategoryService} from './shared/products-category.service';
 import {ProductService} from '../products/shared/product.service';
@@ -20,7 +21,8 @@ import {ProductService} from '../products/shared/product.service';
   declarations: [
     CategoryListComponent,
     CategoryListItemComponent,
-    CategoryComponent
+    CategoryComponent,
+    CategoryAddComponent
   ],
   providers: [
     CategoryService,
@@ -30,7 +32,8 @@ import {ProductService} from '../products/shared/product.service';
   exports: [
     CategoryListComponent,
     CategoryListItemComponent,
-    CategoryComponent
+    CategoryComponent,
+    CategoryAddComponent
   ]
 })
 export class CategoriesModule {
