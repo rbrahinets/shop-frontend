@@ -12,6 +12,7 @@ import {Category} from '../shared/category.model';
 export class CategoryEditComponent implements OnInit {
   category: Category;
   newCategoryName: string;
+  private categories: Category[];
 
   constructor(
     private router: Router,
@@ -23,7 +24,7 @@ export class CategoryEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.setCurrentCategory();
+    this.setCategories();
   }
 
   onUpdate(): void {
@@ -33,6 +34,15 @@ export class CategoryEditComponent implements OnInit {
 
   onClickCancel(): void {
     this.navigation.goToEndpoint(`/categories/${this.navigation.getCurrentPathId()}`);
+  }
+
+  private setCategories(): void {
+    this.categoryService.getCategories().subscribe(
+      (categories: Category[]) => {
+        this.categories = categories;
+        this.setCurrentCategory(categories);
+      }
+    );
   }
 
   private setCurrentCategory(categories: Category[]) {
