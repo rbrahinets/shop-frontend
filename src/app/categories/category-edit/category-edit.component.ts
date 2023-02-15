@@ -31,6 +31,10 @@ export class CategoryEditComponent implements OnInit {
   }
 
   onUpdate(): void {
+    if (!this.isValidCategoryData()) {
+      return;
+    }
+
     this.updateCategoryData();
     this.navigation.goToEndpoint('/categories', true);
   }
