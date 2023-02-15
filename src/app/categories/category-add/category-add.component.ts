@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {CategoryService} from '../shared/category.service';
 import {NavigationService} from '../../shared/navigation.service';
-import {Category} from "../shared/category.model";
+import {Category} from '../shared/category.model';
 
 @Component({
   selector: 'shop-category-add',
