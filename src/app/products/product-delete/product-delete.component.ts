@@ -52,8 +52,7 @@ export class ProductDeleteComponent implements OnInit {
   private isValidProductBarcode(): boolean {
     return this.validator.validate(
       this.productBarcode,
-      this.products,
-      true
+      this.products
     );
   }
 
