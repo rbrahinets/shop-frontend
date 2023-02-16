@@ -38,4 +38,10 @@ export class ProductService {
       Http.getHttpOptions()
     );
   }
+
+  deleteProduct(product: Product): void {
+    this.http.delete<Product>(
+      `${this.apiUrl + product.id}`
+    ).subscribe();
+  }
 }
