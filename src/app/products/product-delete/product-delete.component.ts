@@ -39,6 +39,10 @@ export class ProductDeleteComponent implements OnInit {
     this.navigation.goToEndpoint('/products', true);
   }
 
+  onClickCancel(): void {
+    this.navigation.goToEndpoint('/products');
+  }
+
   private setProducts(): void {
     this.productService.getProducts().subscribe(
       (products: Product[]) => this.products = products
