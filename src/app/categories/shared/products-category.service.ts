@@ -28,4 +28,14 @@ export class ProductsCategoryService {
       Http.getHttpOptions()
     );
   }
+
+  updateCategoryForProduct(
+    productsCategory: ProductsCategoryDto
+  ): Observable<ProductsCategoryDto> {
+    return this.http.put<ProductsCategoryDto>(
+      `${this.apiUrl + productsCategory.id}`,
+      productsCategory,
+      Http.getHttpOptions()
+    );
+  }
 }
