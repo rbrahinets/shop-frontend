@@ -3,7 +3,8 @@ export class ProductDto {
     private _name: string,
     private _describe: string,
     private _price: number,
-    private _barcode: string
+    private _barcode: string,
+    private _category: string,
   ) {
   }
 
@@ -21,5 +22,9 @@ export class ProductDto {
 
   get barcode(): string {
     return this._barcode;
+  }
+
+  get category(): string {
+    return this._category;
   }
 }
