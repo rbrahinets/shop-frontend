@@ -58,6 +58,28 @@ export class ProductAddComponent implements OnInit {
     );
   }
 
+  private addProduct(): void {
+    this.productService.getProducts().subscribe(
+      (products: Product[]) => {
+        const newProduct = new Product();
+        newProduct.id = products.length + 1;
+        newProduct.name = this.productName;
+        newProduct.describe = this.productDescribe;
+        newProduct.price = this.productPrice;
+        newProduct.barcode = this.productBarcode;
+        newProduct.inStock = true;
+        newProduct.image = '/assets/images/empty.jpg';
+
+        this.addProductToCategory(
+          newProduct,
+          this.getCategory()
+        );
+
+        this.productService.saveProduct(newProduct).subscribe();
+      }
+    );
+  }
+
   private getCategory(): Category {
     for (const category of this.categories) {
       if (category.name === this.productCategory) {
