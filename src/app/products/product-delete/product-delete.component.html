@@ -1,0 +1,24 @@
+<div class="center">
+  <h1>Delete Product</h1>
+  <form class="form">
+    <div class="form-control">
+      <input
+        type="text"
+        name="product-barcode"
+        id="product-barcode"
+        placeholder="Barcode"
+        [(ngModel)]="productBarcode"
+      />
+    </div>
+    <shop-button
+      text="Delete"
+      color="#ff00ff"
+      (btnClick)="onDelete()"
+    ></shop-button>
+  </form>
+  <shop-button
+    text="Cancel"
+    color="#0000ff"
+    (btnClick)="onClickCancel()"
+  ></shop-button>
+</div>
