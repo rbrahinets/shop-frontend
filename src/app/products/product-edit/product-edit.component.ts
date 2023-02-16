@@ -51,6 +51,10 @@ export class ProductEditComponent implements OnInit {
     this.navigation.goToEndpoint('/products', true);
   }
 
+  onCancel(): void {
+    this.navigation.goToEndpoint(`/products/${this.navigation.getCurrentPathId()}`);
+  }
+
   private setProducts(): void {
     this.productService.getProducts().subscribe(
       (products: Product[]) => {
