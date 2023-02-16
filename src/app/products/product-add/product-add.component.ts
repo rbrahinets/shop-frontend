@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../shared/product.service';
 import {CategoryService} from '../../categories/shared/category.service';
+import {ProductsCategoryService} from '../../categories/shared/products-category.service';
 import {Product} from '../shared/product.model';
 import {Category} from '../../categories/shared/category.model';
 import {ProductValidator} from '../shared/product.validator';
@@ -23,6 +24,7 @@ export class ProductAddComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private categoryService: CategoryService,
+    private productsCategoryService: ProductsCategoryService,
     private validator: ProductValidator
   ) {
   }
@@ -54,5 +56,15 @@ export class ProductAddComponent implements OnInit {
       ),
       this.products
     );
+  }
+
+  private addProductToCategory(
+    product: Product,
+    category: Category
+  ): void {
+    this.productsCategoryService.saveProductToCategory(
+      product,
+      category
+    ).subscribe();
   }
 }
