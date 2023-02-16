@@ -12,3 +12,11 @@
     (btnClick)="onAddToCart()"
   ></shop-button>
 </div>
+<div *ngIf="logged && !isUser">
+  <hr/>
+  <shop-button
+    text="Edit"
+    color="#ff00ff"
+    (btnClick)="onEdit()"
+  ></shop-button>
+</div>
