@@ -56,15 +56,11 @@ export class CategoryDeleteComponent implements OnInit {
   }
 
   private deleteCategory(): void {
-    this.categoryService.getCategories().subscribe(
-      (categories: Category[]) => {
-        for (const category of categories) {
-          if (category.name === this.categoryName) {
-            this.categoryService.deleteCategory(category);
-            break;
-          }
-        }
+    for (const category of this.categories) {
+      if (category.name === this.categoryName) {
+        this.categoryService.deleteCategory(category);
+        return;
       }
-    );
+    }
   }
 }
