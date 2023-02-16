@@ -7,3 +7,11 @@
   [product]="product"
   [imagePath]="product.image"
 ></shop-product-list-item>
+<div *ngIf="isAdmin">
+  <hr/>
+  <shop-button
+    text="Add New Product"
+    color="#ff00ff"
+    (btnClick)="onAddNewProduct()"
+  ></shop-button>
+</div>
