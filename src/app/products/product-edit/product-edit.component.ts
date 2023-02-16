@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {Product} from '../shared/product.model';
+import {ProductService} from '../shared/product.service';
 import {NavigationService} from '../../shared/navigation.service';
+import {Product} from '../shared/product.model';
 
 @Component({
   selector: 'shop-category-edit',
@@ -15,16 +16,28 @@ export class ProductEditComponent implements OnInit {
   productPrice: number;
   productInStock: string;
   productCategory: string;
+  private products: Product[];
 
   constructor(
+    private productService: ProductService,
     private router: Router,
     private navigation: NavigationService
   ) {
+    this.navigation = new NavigationService(this.router);
     this.product = new Product();
-    this.navigation = new NavigationService(router);
   }
 
   ngOnInit(): void {
+    this.setProducts();
+  }
+
+  private setProducts(): void {
+    this.productService.getProducts().subscribe(
+      (products: Product[]) => {
+        this.products = products;
+        this.setCurrentProduct(products);
+      }
+    );
   }
 
   private setCurrentProduct(products: Product[]): void {
