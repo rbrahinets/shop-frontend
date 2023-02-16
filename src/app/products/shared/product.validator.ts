@@ -3,6 +3,7 @@ import {ProductNameValidator} from '../../shared/validators/product-name.validat
 import {ProductDescribeValidator} from '../../shared/validators/product-describe.validator';
 import {ProductPriceValidator} from '../../shared/validators/product-price.validator';
 import {ProductBarcodeValidator} from '../../shared/validators/product-barcode.validator';
+import {ProductCategoryValidator} from '../../shared/validators/product-category.validator';
 import {ProductDto} from './product.dto';
 import {Product} from './product.model';
 
@@ -14,7 +15,8 @@ export class ProductValidator {
     private productNameValidator: ProductNameValidator,
     private productDescribeValidator: ProductDescribeValidator,
     private productPriceValidator: ProductPriceValidator,
-    private productBarcodeValidator: ProductBarcodeValidator
+    private productBarcodeValidator: ProductBarcodeValidator,
+    private productCategoryValidator: ProductCategoryValidator,
   ) {
   }
 
@@ -30,6 +32,7 @@ export class ProductValidator {
         product.barcode,
         products,
         isDelete
-      );
+      )
+      && this.productCategoryValidator.validate(product.category);
   }
 }
