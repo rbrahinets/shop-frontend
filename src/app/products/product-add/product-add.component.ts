@@ -74,7 +74,8 @@ export class ProductAddComponent implements OnInit {
         this.productBarcode,
         this.productCategory
       ),
-      this.products
+      this.products,
+      true
     );
   }
 
