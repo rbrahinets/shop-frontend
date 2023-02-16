@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
     this.setProfileOfUser();
   }
 
-  onClickEdit(): void {
+  onEdit(): void {
     this.navigation.goToEndpoint('/profile/edit');
   }
 

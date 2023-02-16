@@ -37,7 +37,7 @@ export class ProfileEditComponent implements OnInit {
     this.updateProfileData();
   }
 
-  onClickCancel(): void {
+  onCancel(): void {
     this.navigation.goToEndpoint('/profile');
   }
 

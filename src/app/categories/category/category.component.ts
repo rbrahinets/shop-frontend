@@ -30,7 +30,7 @@ export class CategoryComponent implements OnInit {
     this.setProducts();
   }
 
-  onClickEdit(): void {
+  onEdit(): void {
     this.navigation.goToEndpoint(`/categories/${this.navigation.getCurrentPathId()}/edit`);
   }
 

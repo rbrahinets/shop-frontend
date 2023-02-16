@@ -37,7 +37,7 @@ export class CategoryAddComponent implements OnInit {
     this.navigation.goToEndpoint('/categories', true);
   }
 
-  onClickCancel(): void {
+  onCancel(): void {
     this.navigation.goToEndpoint('/categories');
   }
 

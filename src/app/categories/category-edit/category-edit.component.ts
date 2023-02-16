@@ -39,7 +39,7 @@ export class CategoryEditComponent implements OnInit {
     this.navigation.goToEndpoint('/categories', true);
   }
 
-  onClickCancel(): void {
+  onCancel(): void {
     this.navigation.goToEndpoint(`/categories/${this.navigation.getCurrentPathId()}`);
   }
 

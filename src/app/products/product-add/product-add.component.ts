@@ -49,7 +49,7 @@ export class ProductAddComponent implements OnInit {
     this.navigation.goToEndpoint('/products', true);
   }
 
-  onClickCancel(): void {
+  onCancel(): void {
     this.navigation.goToEndpoint('/products');
   }
 
