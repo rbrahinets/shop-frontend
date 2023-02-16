@@ -42,6 +42,15 @@ export class ProductEditComponent implements OnInit {
     this.setCategories();
   }
 
+  onUpdate(): void {
+    if (!this.isValidProductData()) {
+      return;
+    }
+
+    this.updateProductData();
+    this.navigation.goToEndpoint('/products', true);
+  }
+
   private setProducts(): void {
     this.productService.getProducts().subscribe(
       (products: Product[]) => {
