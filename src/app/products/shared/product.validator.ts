@@ -23,7 +23,7 @@ export class ProductValidator {
   validate(
     product: ProductDto,
     products: Product[],
-    isDelete: boolean = false
+    isAdd: boolean = false
   ): boolean {
     return this.productNameValidator.validate(product.name)
       && this.productDescribeValidator.validate(product.describe)
@@ -31,7 +31,7 @@ export class ProductValidator {
       && this.productBarcodeValidator.validate(
         product.barcode,
         products,
-        isDelete
+        isAdd
       )
       && this.productCategoryValidator.validate(product.category);
   }
