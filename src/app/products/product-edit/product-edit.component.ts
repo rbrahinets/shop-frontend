@@ -82,6 +82,15 @@ export class ProductEditComponent implements OnInit {
     );
   }
 
+  private updateProductData(): void {
+    this.setUpdatedProductData();
+    this.productService.updateProduct(this.product).subscribe();
+    this.updateCategoryForProduct(
+      this.product,
+      this.getCategory()
+    );
+  }
+
   private setUpdatedProductData() {
     this.product.name = this.productName;
     this.product.describe = this.productDescribe;
