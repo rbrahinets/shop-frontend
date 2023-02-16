@@ -8,6 +8,7 @@ import {Product} from '../shared/product.model';
 import {Category} from '../../categories/shared/category.model';
 import {ProductValidator} from '../shared/product.validator';
 import {ProductDto} from '../shared/product.dto';
+import {ProductsCategoryDto} from '../../categories/shared/products-category.dto';
 
 @Component({
   selector: 'shop-category-edit',
@@ -96,5 +97,24 @@ export class ProductEditComponent implements OnInit {
     }
 
     return undefined;
+  }
+
+  private updateCategoryForProduct(
+    product: Product,
+    category: Category
+  ): void {
+    this.productsCategoryService.getProductsCategory()
+      .subscribe(
+        (productsCategories: ProductsCategoryDto[]) => {
+          const productCategory = new ProductsCategoryDto();
+          productCategory.id = productsCategories.length;
+          productCategory.productId = product.id;
+          productCategory.categoryId = category.id;
+
+          this.productsCategoryService.updateCategoryForProduct(
+            productCategory
+          ).subscribe();
+        }
+      );
   }
 }
