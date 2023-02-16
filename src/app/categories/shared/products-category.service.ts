@@ -2,8 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ProductsCategoryDto} from './products-category.dto';
-import {Product} from '../../products/shared/product.model';
-import {Category} from './category.model';
 import {Http} from '../../shared/http';
 
 @Injectable({
@@ -22,13 +20,8 @@ export class ProductsCategoryService {
   }
 
   saveProductToCategory(
-    product: Product,
-    category: Category
+    productsCategory: ProductsCategoryDto
   ): Observable<ProductsCategoryDto> {
-    const productsCategory = new ProductsCategoryDto();
-    productsCategory.productId = product.id;
-    productsCategory.categoryId = category.id;
-
     return this.http.post<ProductsCategoryDto>(
       this.apiUrl,
       productsCategory,
