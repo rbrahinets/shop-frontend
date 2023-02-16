@@ -58,6 +58,16 @@ export class ProductAddComponent implements OnInit {
     );
   }
 
+  private getCategory(): Category {
+    for (const category of this.categories) {
+      if (category.name === this.productCategory) {
+        return category;
+      }
+    }
+
+    return undefined;
+  }
+
   private addProductToCategory(
     product: Product,
     category: Category
