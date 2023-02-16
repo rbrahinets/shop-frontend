@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {ProductService} from '../shared/product.service';
 import {ProductsCategoryService} from '../../categories/shared/products-category.service';
+import {NavigationService} from '../../shared/navigation.service';
 import {Product} from '../shared/product.model';
 import {ProductBarcodeValidator} from '../../shared/validators/product-barcode.validator';
 import {ProductsCategoryDto} from '../../categories/shared/products-category.dto';
@@ -15,14 +17,26 @@ export class ProductDeleteComponent implements OnInit {
   private products: Product[];
 
   constructor(
+    private router: Router,
     private productService: ProductService,
     private productsCategoryService: ProductsCategoryService,
+    private navigation: NavigationService,
     private validator: ProductBarcodeValidator
   ) {
+    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {
     this.setProducts();
+  }
+
+  onDelete(): void {
+    if (!this.isValidProductBarcode()) {
+      return;
+    }
+
+    this.deleteProduct();
+    this.navigation.goToEndpoint('/products', true);
   }
 
   private setProducts(): void {
