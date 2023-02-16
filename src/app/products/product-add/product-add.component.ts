@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {ProductService} from '../shared/product.service';
 import {CategoryService} from '../../categories/shared/category.service';
 import {ProductsCategoryService} from '../../categories/shared/products-category.service';
+import {NavigationService} from '../../shared/navigation.service';
 import {Product} from '../shared/product.model';
 import {Category} from '../../categories/shared/category.model';
 import {ProductValidator} from '../shared/product.validator';
@@ -22,16 +24,28 @@ export class ProductAddComponent implements OnInit {
   private products: Product[];
 
   constructor(
+    private router: Router,
     private productService: ProductService,
     private categoryService: CategoryService,
     private productsCategoryService: ProductsCategoryService,
+    private navigation: NavigationService,
     private validator: ProductValidator
   ) {
+    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {
     this.setCategories();
     this.setProducts();
+  }
+
+  onAdd(): void {
+    if (!this.isValidProductData()) {
+      return;
+    }
+
+    this.addProduct();
+    this.navigation.goToEndpoint('/products', true);
   }
 
   private setCategories(): void {
