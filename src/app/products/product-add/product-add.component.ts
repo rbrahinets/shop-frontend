@@ -71,7 +71,8 @@ export class ProductAddComponent implements OnInit {
         this.productName,
         this.productDescribe,
         this.productPrice,
-        this.productBarcode
+        this.productBarcode,
+        this.productCategory
       ),
       this.products
     );
