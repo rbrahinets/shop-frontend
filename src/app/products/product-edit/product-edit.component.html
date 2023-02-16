@@ -1,0 +1,72 @@
+<div class="center">
+  <h1>Edit Category</h1>
+  <form class="form">
+    <div class="form-control">
+      <div class="form-control">
+        <input
+          type="text"
+          name="product-name"
+          id="product-name"
+          placeholder="Name"
+          [(ngModel)]="productName"
+        />
+      </div>
+      <div class="form-control">
+        <input
+          type="text"
+          name="product-describe"
+          id="product-describe"
+          placeholder="Describe"
+          [(ngModel)]="productDescribe"
+        />
+      </div>
+      <div class="form-control">
+        <input
+          type="number"
+          name="product-price"
+          id="product-price"
+          min="1"
+          value="0"
+          placeholder="Price"
+          [(ngModel)]="productPrice"
+        />
+      </div>
+      <div class="form-control">
+        <label for="product-in-stock">Is in Stock?</label>
+        <select
+          name="product-in-stock"
+          id="product-in-stock"
+          [(ngModel)]="productInStock"
+        >
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="form-control">
+        <label for="product-category">Category:</label>
+        <select
+          name="product-category"
+          id="product-category"
+          [(ngModel)]="productCategory"
+        >
+          <option
+            *ngFor="let category of categories"
+            value="{{category.name}}"
+          >
+            {{category.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <shop-button
+      text="Update"
+      color="#ff00ff"
+      (btnClick)="onUpdate()"
+    ></shop-button>
+  </form>
+  <shop-button
+    text="Cancel"
+    color="#0000ff"
+    (btnClick)="onCancel()"
+  ></shop-button>
+</div>
