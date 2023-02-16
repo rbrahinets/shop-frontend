@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {ProductService} from '../shared/product.service';
+import {CategoryService} from '../../categories/shared/category.service';
 import {NavigationService} from '../../shared/navigation.service';
 import {Product} from '../shared/product.model';
+import {Category} from '../../categories/shared/category.model';
 
 @Component({
   selector: 'shop-category-edit',
@@ -16,10 +18,12 @@ export class ProductEditComponent implements OnInit {
   productPrice: number;
   productInStock: string;
   productCategory: string;
+  categories: Category[];
   private products: Product[];
 
   constructor(
     private productService: ProductService,
+    private categoryService: CategoryService,
     private router: Router,
     private navigation: NavigationService
   ) {
@@ -29,6 +33,7 @@ export class ProductEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.setProducts();
+    this.setCategories();
   }
 
   private setProducts(): void {
@@ -50,5 +55,11 @@ export class ProductEditComponent implements OnInit {
         this.productInStock = product.inStock ? 'Yes' : 'No';
       }
     }
+  }
+
+  private setCategories(): void {
+    this.categoryService.getCategories().subscribe(
+      (categories: Category[]) => this.categories = categories
+    );
   }
 }
