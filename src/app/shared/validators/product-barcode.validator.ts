@@ -52,7 +52,7 @@ export class ProductBarcodeValidator {
   }
 
   private static isInvalidProductBarcode(productBarcode: string): boolean {
-    return productBarcode.length < 2;
+    return productBarcode.length < 12;
   }
 
   private static isExistingProductBarcode(
