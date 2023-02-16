@@ -8,19 +8,19 @@ export class ProductBarcodeValidator {
   validate(
     productBarcode: string,
     products: Product[],
-    isDelete: boolean = false
+    isAdd: boolean = false
   ): boolean {
     return ProductBarcodeValidator.validateProductBarcode(
       productBarcode,
       products,
-      isDelete
+      isAdd
     );
   }
 
   private static validateProductBarcode(
     productBarcode: string,
     products: Product[],
-    isDelete: boolean = false
+    isAdd: boolean = false
   ): boolean {
     if (!productBarcode) {
       alert('You haven\'t entered a barcode of product');
@@ -33,7 +33,7 @@ export class ProductBarcodeValidator {
         productBarcode,
         products
       )
-      && !isDelete
+      && isAdd
     ) {
       alert('You have entered an existing barcode of product');
       return false;
@@ -42,7 +42,7 @@ export class ProductBarcodeValidator {
         productBarcode,
         products
       )
-      && isDelete
+      && !isAdd
     ) {
       alert('You have entered a non-existent barcode of product');
       return false;
