@@ -25,10 +25,10 @@ export class ProductAddComponent implements OnInit {
   private products: Product[];
 
   constructor(
-    private router: Router,
     private productService: ProductService,
     private categoryService: CategoryService,
     private productsCategoryService: ProductsCategoryService,
+    private router: Router,
     private navigation: NavigationService,
     private validator: ProductValidator
   ) {
@@ -118,13 +118,13 @@ export class ProductAddComponent implements OnInit {
     this.productsCategoryService.getProductsCategory()
       .subscribe(
         (productsCategories: ProductsCategoryDto[]) => {
-          const productsCategory = new ProductsCategoryDto();
-          productsCategory.id = productsCategories.length + 1;
-          productsCategory.productId = product.id;
-          productsCategory.categoryId = category.id;
+          const productCategory = new ProductsCategoryDto();
+          productCategory.id = productsCategories.length + 1;
+          productCategory.productId = product.id;
+          productCategory.categoryId = category.id;
 
           this.productsCategoryService.saveProductToCategory(
-            productsCategory
+            productCategory
           ).subscribe();
         }
       );
