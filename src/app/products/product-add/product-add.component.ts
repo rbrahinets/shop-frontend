@@ -3,6 +3,8 @@ import {ProductService} from '../shared/product.service';
 import {CategoryService} from '../../categories/shared/category.service';
 import {Product} from '../shared/product.model';
 import {Category} from '../../categories/shared/category.model';
+import {ProductValidator} from '../shared/product.validator';
+import {ProductDto} from '../shared/product.dto';
 
 @Component({
   selector: 'shop-product-add',
@@ -10,12 +12,18 @@ import {Category} from '../../categories/shared/category.model';
   styleUrls: ['./product-add.component.css']
 })
 export class ProductAddComponent implements OnInit {
+  productName: string;
+  productDescribe: string;
+  productPrice: number;
+  productBarcode: string;
+  productCategory: string;
   categories: Category[];
   private products: Product[];
 
   constructor(
     private productService: ProductService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private validator: ProductValidator
   ) {
   }
 
@@ -33,6 +41,18 @@ export class ProductAddComponent implements OnInit {
   private setProducts(): void {
     this.productService.getProducts().subscribe(
       (products: Product[]) => this.products = products
+    );
+  }
+
+  private isValidProductData(): boolean {
+    return this.validator.validate(
+      new ProductDto(
+        this.productName,
+        this.productDescribe,
+        this.productPrice,
+        this.productBarcode
+      ),
+      this.products
     );
   }
 }
