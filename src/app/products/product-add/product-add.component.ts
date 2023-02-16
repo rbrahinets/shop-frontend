@@ -48,6 +48,10 @@ export class ProductAddComponent implements OnInit {
     this.navigation.goToEndpoint('/products', true);
   }
 
+  onClickCancel(): void {
+    this.navigation.goToEndpoint('/products');
+  }
+
   private setCategories(): void {
     this.categoryService.getCategories().subscribe(
       (categories: Category[]) => this.categories = categories
