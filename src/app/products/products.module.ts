@@ -7,6 +7,7 @@ import {SortModule} from '../sort/sort.module';
 import {ProductListComponent} from './product-list/product-list.component';
 import {ProductListItemComponent} from './product-list-item/product-list-item.component';
 import {ProductComponent} from './product/product.component';
+import {ProductAddComponent} from './product-add/product-add.component';
 import {ProductService} from './shared/product.service';
 import {CartService} from '../cart/shared/cart.service';
 import {ProductsCartService} from '../cart/shared/products-cart.service';
@@ -23,7 +24,8 @@ import {LoggedUserService} from '../users/shared/logged-user.service';
   declarations: [
     ProductListComponent,
     ProductListItemComponent,
-    ProductComponent
+    ProductComponent,
+    ProductAddComponent
   ],
   providers: [
     ProductService,
@@ -34,7 +36,8 @@ import {LoggedUserService} from '../users/shared/logged-user.service';
   exports: [
     ProductListComponent,
     ProductListItemComponent,
-    ProductComponent
+    ProductComponent,
+    ProductAddComponent
   ]
 })
 export class ProductsModule {
