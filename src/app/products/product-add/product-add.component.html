@@ -46,7 +46,10 @@
         id="product-category"
         [(ngModel)]="productCategory"
       >
-        <option *ngFor="let category of categories">
+        <option
+          *ngFor="let category of categories"
+          value="{{category.name}}"
+        >
           {{category.name}}
         </option>
       </select>
