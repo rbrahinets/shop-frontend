@@ -9,6 +9,7 @@ import {ProductListComponent} from './product-list/product-list.component';
 import {ProductListItemComponent} from './product-list-item/product-list-item.component';
 import {ProductComponent} from './product/product.component';
 import {ProductAddComponent} from './product-add/product-add.component';
+import {ProductDeleteComponent} from './product-delete/product-delete.component';
 import {ProductService} from './shared/product.service';
 import {CategoryService} from '../categories/shared/category.service';
 import {ProductsCategoryService} from '../categories/shared/products-category.service';
@@ -30,7 +31,8 @@ import {NavigationService} from '../shared/navigation.service';
     ProductListComponent,
     ProductListItemComponent,
     ProductComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    ProductDeleteComponent
   ],
   providers: [
     ProductService,
@@ -45,7 +47,8 @@ import {NavigationService} from '../shared/navigation.service';
     ProductListComponent,
     ProductListItemComponent,
     ProductComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    ProductDeleteComponent
   ]
 })
 export class ProductsModule {
