@@ -80,4 +80,11 @@ export class ProductEditComponent implements OnInit {
       this.products
     );
   }
+
+  private setUpdatedProductData() {
+    this.product.name = this.productName;
+    this.product.describe = this.productDescribe;
+    this.product.price = this.productPrice;
+    this.product.inStock = this.productInStock === 'Yes';
+  }
 }
