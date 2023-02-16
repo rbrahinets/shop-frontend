@@ -50,6 +50,10 @@ export class ProductComponent implements OnInit {
     );
   }
 
+  onEdit(): void {
+    this.navigation.goToEndpoint(`/products/${this.navigation.getCurrentPathId()}/edit`);
+  }
+
   private checkLoggedUser(): void {
     this.logged = LoggedUserService.getUserId() > 0;
   }
