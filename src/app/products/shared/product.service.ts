@@ -30,4 +30,12 @@ export class ProductService {
       Http.getHttpOptions()
     );
   }
+
+  updateProduct(product: Product): Observable<Product> {
+    return this.http.put<Product>(
+      `${this.apiUrl + product.id}`,
+      product,
+      Http.getHttpOptions()
+    );
+  }
 }
