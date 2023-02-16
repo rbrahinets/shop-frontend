@@ -17,8 +17,8 @@ export class CategoryEditComponent implements OnInit {
   private categories: Category[];
 
   constructor(
-    private router: Router,
     private categoryService: CategoryService,
+    private router: Router,
     private navigation: NavigationService,
     private validator: CategoryValidator
   ) {
@@ -52,7 +52,7 @@ export class CategoryEditComponent implements OnInit {
     );
   }
 
-  private setCurrentCategory(categories: Category[]) {
+  private setCurrentCategory(categories: Category[]): void {
     for (const category of categories) {
       if (category.id === this.navigation.getCurrentPathId()) {
         this.category = category;
