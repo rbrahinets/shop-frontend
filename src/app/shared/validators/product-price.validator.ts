@@ -11,11 +11,11 @@ export class ProductPriceValidator {
   }
 
   private static validateProductPrice(productPrice: number): boolean {
-    if (!productPrice) {
-      alert('You haven\'t entered a price of product');
-      return false;
-    } else if (ProductPriceValidator.isInvalidProductPrice(productPrice)) {
+    if (ProductPriceValidator.isInvalidProductPrice(productPrice)) {
       alert('You have entered a short price of product');
+      return false;
+    } else if (!productPrice) {
+      alert('You haven\'t entered a price of product');
       return false;
     }
 
