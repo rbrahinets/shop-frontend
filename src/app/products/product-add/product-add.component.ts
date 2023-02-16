@@ -8,6 +8,7 @@ import {Product} from '../shared/product.model';
 import {Category} from '../../categories/shared/category.model';
 import {ProductValidator} from '../shared/product.validator';
 import {ProductDto} from '../shared/product.dto';
+import {ProductsCategoryDto} from '../../categories/shared/products-category.dto';
 
 @Component({
   selector: 'shop-product-add',
@@ -112,9 +113,18 @@ export class ProductAddComponent implements OnInit {
     product: Product,
     category: Category
   ): void {
-    this.productsCategoryService.saveProductToCategory(
-      product,
-      category
-    ).subscribe();
+    this.productsCategoryService.getProductsCategory()
+      .subscribe(
+        (productsCategories: ProductsCategoryDto[]) => {
+          const productsCategory = new ProductsCategoryDto();
+          productsCategory.id = productsCategories.length + 1;
+          productsCategory.productId = product.id;
+          productsCategory.categoryId = category.id;
+
+          this.productsCategoryService.saveProductToCategory(
+            productsCategory
+          ).subscribe();
+        }
+      );
   }
 }
