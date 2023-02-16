@@ -2,8 +2,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
-import {ButtonModule} from '../button/button.module';
 import {HttpClientModule} from '@angular/common/http';
+import {ButtonModule} from '../button/button.module';
 import {SortModule} from '../sort/sort.module';
 import {ProductListComponent} from './product-list/product-list.component';
 import {ProductListItemComponent} from './product-list-item/product-list-item.component';
@@ -22,8 +22,8 @@ import {NavigationService} from '../shared/navigation.service';
     CommonModule,
     RouterModule,
     FormsModule,
-    ButtonModule,
     HttpClientModule,
+    ButtonModule,
     SortModule
   ],
   declarations: [
