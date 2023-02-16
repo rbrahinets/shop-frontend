@@ -87,4 +87,14 @@ export class ProductEditComponent implements OnInit {
     this.product.price = this.productPrice;
     this.product.inStock = this.productInStock === 'Yes';
   }
+
+  private getCategory(): Category {
+    for (const category of this.categories) {
+      if (category.name === this.productCategory) {
+        return category;
+      }
+    }
+
+    return undefined;
+  }
 }
