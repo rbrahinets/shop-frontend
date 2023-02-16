@@ -38,4 +38,12 @@ export class ProductsCategoryService {
       Http.getHttpOptions()
     );
   }
+
+  deleteProductFromCategory(
+    productsCategory: ProductsCategoryDto
+  ): void {
+    this.http.delete<ProductsCategoryDto>(
+      `${this.apiUrl + productsCategory.id}`
+    ).subscribe();
+  }
 }
