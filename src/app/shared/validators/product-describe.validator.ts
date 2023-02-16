@@ -23,6 +23,6 @@ export class ProductDescribeValidator {
   }
 
   private static isInvalidProductDescribe(productDescribe: string): boolean {
-    return productDescribe.length < 10;
+    return productDescribe.length < 5;
   }
 }
