@@ -31,6 +31,10 @@ export class ProductListComponent implements OnInit {
     this.navigation.goToEndpoint('/products/add');
   }
 
+  onDeleteProduct(): void {
+    this.navigation.goToEndpoint('/products/delete');
+  }
+
   private setProducts() {
     this.productService.getProducts().subscribe(
       (products: Product[]) => this.products = products
