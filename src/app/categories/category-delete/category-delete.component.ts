@@ -16,8 +16,8 @@ export class CategoryDeleteComponent implements OnInit {
   private categories: Category[];
 
   constructor(
-    private router: Router,
     private categoryService: CategoryService,
+    private router: Router,
     private navigation: NavigationService,
     private validator: CategoryValidator
   ) {
