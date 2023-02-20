@@ -36,7 +36,6 @@ export class CategoryEditComponent implements OnInit {
     }
 
     this.updateCategoryData();
-    this.navigation.goToEndpoint('/categories', true);
   }
 
   onCancel(): void {
@@ -71,5 +70,6 @@ export class CategoryEditComponent implements OnInit {
   private updateCategoryData(): void {
     this.category.name = this.categoryName;
     this.categoryService.updateCategory(this.category).subscribe();
+    this.navigation.goToEndpoint('/categories', true);
   }
 }

@@ -34,7 +34,6 @@ export class CategoryDeleteComponent implements OnInit {
     }
 
     this.deleteCategory();
-    this.navigation.goToEndpoint('/categories', true);
   }
 
   onCancel(): void {
@@ -59,8 +58,10 @@ export class CategoryDeleteComponent implements OnInit {
     for (const category of this.categories) {
       if (category.name === this.categoryName) {
         this.categoryService.deleteCategory(category);
-        return;
+        break;
       }
     }
+
+    this.navigation.goToEndpoint('/categories', true);
   }
 }

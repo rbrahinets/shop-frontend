@@ -34,7 +34,6 @@ export class CategoryAddComponent implements OnInit {
     }
 
     this.addCategory();
-    this.navigation.goToEndpoint('/categories', true);
   }
 
   onCancel(): void {
@@ -61,6 +60,7 @@ export class CategoryAddComponent implements OnInit {
         newCategory.id = categories.length + 1;
         newCategory.name = this.categoryName;
         this.categoryService.saveCategory(newCategory).subscribe();
+        this.navigation.goToEndpoint('/categories', true);
       }
     );
   }
