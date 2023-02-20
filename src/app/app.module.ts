@@ -15,6 +15,7 @@ import {ProfileModule} from './profile/profile.module';
 import {CartModule} from './cart/cart.module';
 import {StripePaymentModule} from './stripe-payment/stripe-payment.module';
 import {UsersModule} from './users/users.module';
+import {AdminPanelModule} from './admin-panel/admin-panel.module';
 import {SharedModule} from './shared/shared.module';
 import {PageNotFoundModule} from './page-not-found/page-not-found.module';
 
@@ -30,7 +31,6 @@ import {PageNotFoundRoutingModule} from './page-not-found/page-not-found-routing
 import {AppComponent} from './app.component';
 
 @NgModule({
-  declarations: [AppComponent],
   imports: [
     BrowserModule,
     RouterModule,
@@ -46,6 +46,7 @@ import {AppComponent} from './app.component';
     ProfileModule,
     CartModule,
     StripePaymentModule,
+    AdminPanelModule,
     UsersModule,
     SharedModule,
     PageNotFoundModule,
@@ -58,6 +59,7 @@ import {AppComponent} from './app.component';
     CartRoutingModule,
     PageNotFoundRoutingModule,
   ],
+  declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
