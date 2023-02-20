@@ -5,7 +5,7 @@ import {UserDeleteComponent} from './user-delete/user-delete.component';
 import {AdminNumberAddComponent} from './admin-number-add/admin-number-add.component';
 import {AdminNumberEditComponent} from './admin-number-edit/admin-number-edit.component';
 import {AdminNumberDeleteComponent} from './admin-number-delete/admin-number-delete.component';
-import {RoleSuperadminGuard} from '../shared/role-superadmin.guard';
+import {RoleSuperadminGuard} from '../shared/guards/role-superadmin.guard';
 
 const adminPanelRoutes: Routes = [
   {path: 'admin-panel', component: AdminPanelComponent, canActivate: [RoleSuperadminGuard]},

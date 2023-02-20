@@ -1,9 +1,9 @@
 import {Injectable, OnInit} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
-import {UserService} from '../users/shared/user.service';
-import {LoggedUserService} from '../users/shared/logged-user.service';
-import {NavigationService} from './navigation.service';
-import {User} from '../users/shared/user.model';
+import {UserService} from '../../users/shared/user.service';
+import {LoggedUserService} from '../../users/shared/logged-user.service';
+import {NavigationService} from '../navigation.service';
+import {User} from '../../users/shared/user.model';
 
 @Injectable({
   providedIn: 'root'
