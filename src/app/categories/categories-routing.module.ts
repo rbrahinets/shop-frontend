@@ -5,7 +5,7 @@ import {CategoryComponent} from './category/category.component';
 import {CategoryAddComponent} from './category-add/category-add.component';
 import {CategoryEditComponent} from './category-edit/category-edit.component';
 import {CategoryDeleteComponent} from './category-delete/category-delete.component';
-import {RoleAdminGuard} from '../shared/role-admin-guard';
+import {RoleAdminGuard} from '../shared/role-admin.guard';
 
 const categoriesRoutes: Routes = [
   {path: 'categories', component: CategoryListComponent},
