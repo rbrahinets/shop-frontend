@@ -42,7 +42,7 @@ export class ProfileEditComponent implements OnInit {
   }
 
   private setDefaultProfileData(): void {
-    this.userService.getUserById(
+    this.userService.getUser(
       LoggedUserService.getUserId()
     ).subscribe(
       (user: User) => {
@@ -62,7 +62,7 @@ export class ProfileEditComponent implements OnInit {
   }
 
   private updateProfileData(): void {
-    this.userService.getUserById(
+    this.userService.getUser(
       LoggedUserService.getUserId()
     ).subscribe(
       (user: User) => {
