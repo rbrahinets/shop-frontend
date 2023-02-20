@@ -8,6 +8,7 @@ import {ButtonModule} from '../button/button.module';
 import {AdminPanelComponent} from './admin-panel.component';
 import {UserDeleteComponent} from './user-delete/user-delete.component';
 import {AdminNumberAddComponent} from './admin-number-add/admin-number-add.component';
+import {AdminNumberEditComponent} from './admin-number-edit/admin-number-edit.component';
 import {AdminPanelService} from './shared/admin-panel.service';
 import {UserService} from '../users/shared/user.service';
 import {LoggedUserService} from '../users/shared/logged-user.service';
@@ -26,6 +27,7 @@ import {NavigationService} from '../shared/navigation.service';
     AdminPanelComponent,
     UserDeleteComponent,
     AdminNumberAddComponent,
+    AdminNumberEditComponent,
   ],
   providers: [
     AdminPanelService,
@@ -37,6 +39,7 @@ import {NavigationService} from '../shared/navigation.service';
     AdminPanelComponent,
     UserDeleteComponent,
     AdminNumberAddComponent,
+    AdminNumberEditComponent,
   ]
 })
 export class AdminPanelModule {
