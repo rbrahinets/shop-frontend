@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NavigationService} from '../shared/navigation.service';
 import {LoggedUserService} from '../users/shared/logged-user.service';
+import {User} from '../users/shared/user.model';
+import {UserService} from '../users/shared/user.service';
 
 @Component({
   selector: 'shop-header',
@@ -11,8 +13,10 @@ import {LoggedUserService} from '../users/shared/logged-user.service';
 export class HeaderComponent implements OnInit {
   logged: boolean;
   userRole: string;
+  isSuperadmin: boolean;
 
   constructor(
+    private userService: UserService,
     private router: Router,
     private navigation: NavigationService
   ) {
@@ -22,6 +26,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setIsSuperadmin();
   }
 
   hasRoute(route: string): boolean {
@@ -37,7 +42,19 @@ export class HeaderComponent implements OnInit {
     this.navigation.goToEndpoint(endpoint);
   }
 
-  private onSignOut() {
+  private setIsSuperadmin(): void {
+    if (!LoggedUserService.getUserId()) {
+      return;
+    }
+
+    this.userService.getUser(
+      LoggedUserService.getUserId()
+    ).subscribe(
+      (user: User) => this.isSuperadmin = user.adminNumber === '123'
+    );
+  }
+
+  private onSignOut(): void {
     LoggedUserService.setUserId('0');
     LoggedUserService.setRoleOfUser('');
     this.logged = !this.logged;
