@@ -9,6 +9,13 @@
   </div>
   <div>
     <shop-button
+      *ngIf="logged && isSuperadmin
+      && !hasRoute('/admin-panel') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
+      text="Admin Panel"
+      color="#33ff33"
+      (btnClick)="onClickButton('/admin-panel')"
+    ></shop-button>
+    <shop-button
       *ngIf="!hasRoute('/categories') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
       text="Categories"
       color="#33ff33"
