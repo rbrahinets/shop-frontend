@@ -7,6 +7,7 @@ import {SortModule} from '../sort/sort.module';
 import {ButtonModule} from '../button/button.module';
 import {AdminPanelComponent} from './admin-panel.component';
 import {UserDeleteComponent} from './user-delete/user-delete.component';
+import {AdminNumberAddComponent} from './admin-number-add/admin-number-add.component';
 import {AdminPanelService} from './shared/admin-panel.service';
 import {UserService} from '../users/shared/user.service';
 import {LoggedUserService} from '../users/shared/logged-user.service';
@@ -24,6 +25,7 @@ import {NavigationService} from '../shared/navigation.service';
   declarations: [
     AdminPanelComponent,
     UserDeleteComponent,
+    AdminNumberAddComponent,
   ],
   providers: [
     AdminPanelService,
@@ -34,6 +36,7 @@ import {NavigationService} from '../shared/navigation.service';
   exports: [
     AdminPanelComponent,
     UserDeleteComponent,
+    AdminNumberAddComponent,
   ]
 })
 export class AdminPanelModule {
