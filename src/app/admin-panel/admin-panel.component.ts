@@ -25,4 +25,8 @@ export class AdminPanelComponent implements OnInit {
   onAddAdminNumber(): void {
     this.navigation.goToEndpoint('/admin-panel/add-admin-number');
   }
+
+  onEditAdminNumber(): void {
+    this.navigation.goToEndpoint('/admin-panel/edit-admin-number');
+  }
 }
