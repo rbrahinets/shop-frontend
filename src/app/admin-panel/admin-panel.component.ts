@@ -21,4 +21,8 @@ export class AdminPanelComponent implements OnInit {
   onDeleteUser(): void {
     this.navigation.goToEndpoint('/admin-panel/delete-user');
   }
+
+  onAddAdminNumber(): void {
+    this.navigation.goToEndpoint('/admin-panel/add-admin-number');
+  }
 }
