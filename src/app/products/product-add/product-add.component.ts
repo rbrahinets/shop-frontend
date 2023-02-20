@@ -46,7 +46,6 @@ export class ProductAddComponent implements OnInit {
     }
 
     this.addProduct();
-    this.navigation.goToEndpoint('/products', true);
   }
 
   onCancel(): void {
@@ -97,6 +96,7 @@ export class ProductAddComponent implements OnInit {
         );
 
         this.productService.saveProduct(newProduct).subscribe();
+        this.navigation.goToEndpoint('/products', true);
       }
     );
   }

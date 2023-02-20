@@ -36,7 +36,6 @@ export class ProductDeleteComponent implements OnInit {
     }
 
     this.deleteProduct();
-    this.navigation.goToEndpoint('/products', true);
   }
 
   onCancel(): void {
@@ -61,9 +60,11 @@ export class ProductDeleteComponent implements OnInit {
       if (product.barcode === this.productBarcode) {
         this.productService.deleteProduct(product);
         this.deleteProductFromCategory(product);
-        return;
+        break;
       }
     }
+
+    this.navigation.goToEndpoint('/products', true);
   }
 
   private deleteProductFromCategory(product: Product) {

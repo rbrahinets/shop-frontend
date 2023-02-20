@@ -48,7 +48,6 @@ export class ProductEditComponent implements OnInit {
     }
 
     this.updateProductData();
-    this.navigation.goToEndpoint(`/products/${this.navigation.getCurrentPathId()}`, true);
   }
 
   onCancel(): void {
@@ -102,6 +101,7 @@ export class ProductEditComponent implements OnInit {
       this.product,
       this.getCategory()
     );
+    this.navigation.goToEndpoint(`/products/${this.navigation.getCurrentPathId()}`, true);
   }
 
   private setUpdatedProductData() {
