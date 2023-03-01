@@ -34,6 +34,10 @@ export class UserDeleteComponent implements OnInit {
     this.deleteUser();
   }
 
+  onCancel(): void {
+    this.navigation.goToEndpoint('/admin-panel');
+  }
+
   private setUsers(): void {
     this.userService.getUsers().subscribe(
       (users: User[]) => this.users = users
