@@ -17,6 +17,7 @@ export class UserDeleteComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setUsers();
   }
 
   private setUsers(): void {
