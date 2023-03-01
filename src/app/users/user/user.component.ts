@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../shared/user.model';
 import {UserService} from '../shared/user.service';
+import {UserRoleService} from '../shared/user-role.service';
 import {LoggedUserService} from '../shared/logged-user.service';
 import {NavigationService} from '../../shared/navigation.service';
+import {UserRoleDto} from '../shared/user-role.dto';
 
 @Component({
   selector: 'shop-user',
@@ -15,28 +17,35 @@ export class UserComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private userRoleService: UserRoleService,
     private navigation: NavigationService
   ) {
   }
 
   ngOnInit(): void {
     this.setUser();
-    this.setRole();
   }
 
   private setUser(): void {
     this.userService.getUser(
       this.navigation.getCurrentPathId()
     ).then(
-      (user: User) => this.user = user
+      (user: User) => {
+        this.user = user;
+        this.setRole();
+      }
     );
   }
 
   private setRole(): void {
-    if (LoggedUserService.getRoleById(this.user.id) === 'ROLE_ADMIN') {
-      this.role = 'Admin';
-    } else if (LoggedUserService.getRoleById(this.user.id) === 'ROLE_USER') {
-      this.role = 'User';
-    }
+    this.userRoleService.getRoleForUser(this.user.id).subscribe(
+      (userRoleDto: UserRoleDto) => {
+        if (LoggedUserService.getRoleById(userRoleDto.roleId) === 'ROLE_ADMIN') {
+          this.role = 'Admin';
+        } else if (LoggedUserService.getRoleById(userRoleDto.roleId) === 'ROLE_USER') {
+          this.role = 'User';
+        }
+      }
+    );
   }
 }
