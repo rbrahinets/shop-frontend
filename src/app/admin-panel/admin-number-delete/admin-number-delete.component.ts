@@ -27,6 +27,14 @@ export class AdminNumberDeleteComponent implements OnInit {
     this.setAdminNumbers();
   }
 
+  onDelete(): void {
+    if (!this.isValidAdminNumber()) {
+      return;
+    }
+
+    this.deleteAdminNumber();
+  }
+
   private setAdminNumbers(): void {
     this.adminService.getAdminsNumbers().subscribe(
       (adminNumbers: AdminNumberDto[]) => this.adminsNumbers = adminNumbers
