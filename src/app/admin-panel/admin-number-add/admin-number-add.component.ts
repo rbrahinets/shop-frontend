@@ -12,7 +12,7 @@ import {AdminNumberValidator} from '../../shared/validators/admin-number.validat
 })
 export class AdminNumberAddComponent implements OnInit {
   adminNumber: string;
-  private adminNumbers: AdminNumberDto[];
+  private adminsNumbers: AdminNumberDto[];
 
   constructor(
     private router: Router,
@@ -41,20 +41,20 @@ export class AdminNumberAddComponent implements OnInit {
 
   private setAdminNumbers(): void {
     this.adminService.getAdminsNumbers().subscribe(
-      (adminNumbers: AdminNumberDto[]) => this.adminNumbers = adminNumbers
+      (adminNumbers: AdminNumberDto[]) => this.adminsNumbers = adminNumbers
     );
   }
 
   private isValidAdminNumber(): boolean {
     return this.validator.validate(
       this.adminNumber,
-      this.adminNumbers
+      this.adminsNumbers
     );
   }
 
   private addAdminNumber(): void {
     const adminNumbersDto = new AdminNumberDto();
-    adminNumbersDto.id = this.adminNumbers.length + 1;
+    adminNumbersDto.id = this.adminsNumbers.length + 1;
     adminNumbersDto.number = this.adminNumber;
     this.adminService.saveAdminNumber(adminNumbersDto).subscribe();
     this.navigation.goToEndpoint('/admin-panel', true);
