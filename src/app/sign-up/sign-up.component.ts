@@ -6,6 +6,8 @@ import {NavigationService} from '../shared/navigation.service';
 import {SignUpValidator} from './shared/sign-up.validator';
 import {SignUpDto} from './shared/sign-up.dto';
 import {UserService} from '../users/shared/user.service';
+import {AdminService} from '../users/shared/admin.service';
+import {AdminNumbersDto} from '../users/shared/admin-numbers.dto';
 import {UserRoleService} from '../users/shared/user-role.service';
 import {CartService} from '../cart/shared/cart.service';
 
@@ -24,12 +26,14 @@ export class SignUpComponent implements OnInit {
   isAdmin: boolean;
   adminNumber: string;
   private users: User[];
+  private adminNumbers: AdminNumbersDto[];
 
   constructor(
     private router: Router,
     private navigation: NavigationService,
     private validator: SignUpValidator,
     private userService: UserService,
+    private adminService: AdminService,
     private userRoleService: UserRoleService,
     private cartService: CartService
   ) {
@@ -39,6 +43,7 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.setUsers();
+    this.setAdminNumbers();
   }
 
   onSignUp(): void {
@@ -60,6 +65,12 @@ export class SignUpComponent implements OnInit {
   private setUsers(): void {
     this.userService.getUsers().subscribe(
       (users: User[]) => this.users = users
+    );
+  }
+
+  private setAdminNumbers(): void {
+    this.adminService.getAdminNumbers().subscribe(
+      (adminNumbers: AdminNumbersDto[]) => this.adminNumbers = adminNumbers
     );
   }
 
