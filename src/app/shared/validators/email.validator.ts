@@ -7,14 +7,16 @@ import {User} from '../../users/shared/user.model';
 export class EmailValidator {
   validate(
     email: string,
-    users?: User[]
+    users?: User[],
+    isDelete: boolean = false
   ): boolean {
-    return EmailValidator.validateEmail(email, users);
+    return EmailValidator.validateEmail(email, users, isDelete);
   }
 
   private static validateEmail(
     email: string,
-    users: User[]
+    users: User[],
+    isDelete: boolean
   ): boolean {
     if (!email) {
       alert('You haven\'t entered an email');
@@ -24,6 +26,9 @@ export class EmailValidator {
       return false;
     } else if (EmailValidator.isUsedEmail(email, users) && !isDelete) {
       alert('You have entered an used email');
+      return false;
+    } else if (!EmailValidator.isUsedEmail(email, users) && isDelete) {
+      alert('You have entered a non-existed email');
       return false;
     }
 
