@@ -42,4 +42,8 @@ export class SortUsersService {
       }
     );
   }
+
+  sortByLastNameDesc(users: User[]): User[] {
+    return this.sortByLastNameAsc(users).reverse();
+  }
 }
