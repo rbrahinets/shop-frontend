@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {AdminService} from '../../users/shared/admin.service';
 import {AdminNumberDto} from '../../users/shared/admin-number.dto';
+import {NavigationService} from '../../shared/navigation.service';
 import {AdminNumberValidator} from '../../shared/validators/admin-number.validator';
 
 @Component({
@@ -13,9 +15,12 @@ export class AdminNumberDeleteComponent implements OnInit {
   private adminsNumbers: AdminNumberDto[];
 
   constructor(
+    private router: Router,
     private adminService: AdminService,
+    private navigation: NavigationService,
     private validator: AdminNumberValidator
   ) {
+    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {
@@ -34,5 +39,16 @@ export class AdminNumberDeleteComponent implements OnInit {
       this.adminsNumbers,
       true
     );
+  }
+
+  private deleteAdminNumber(): void {
+    for (const adminNumber of this.adminsNumbers) {
+      if (adminNumber.number === this.adminNumber) {
+        this.adminService.deleteAdminNumber(adminNumber);
+        break;
+      }
+    }
+
+    this.navigation.goToEndpoint('/admin-panel', true);
   }
 }
