@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {AdminService} from '../../users/shared/admin.service';
 import {AdminNumberDto} from '../../users/shared/admin-number.dto';
 import {NavigationService} from '../../shared/navigation.service';
+import {AdminNumberValidator} from '../../shared/validators/admin-number.validator';
 
 @Component({
   selector: 'shop-admin-number-add',
@@ -17,6 +18,7 @@ export class AdminNumberAddComponent implements OnInit {
     private router: Router,
     private adminService: AdminService,
     private navigation: NavigationService,
+    private validator: AdminNumberValidator
   ) {
     this.navigation = new NavigationService(this.router);
   }
@@ -28,6 +30,13 @@ export class AdminNumberAddComponent implements OnInit {
   private setAdminNumbers(): void {
     this.adminService.getAdminsNumbers().subscribe(
       (adminNumbers: AdminNumberDto[]) => this.adminNumbers = adminNumbers
+    );
+  }
+
+  private isValidAdminNumber(): boolean {
+    return this.validator.validate(
+      this.adminNumber,
+      this.adminNumbers
     );
   }
 
