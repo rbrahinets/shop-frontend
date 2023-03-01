@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {AdminNumbersDto} from '../../users/shared/admin-numbers.dto';
+import {AdminNumberDto} from '../../users/shared/admin-number.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,7 @@ import {AdminNumbersDto} from '../../users/shared/admin-numbers.dto';
 export class AdminNumberValidator {
   validate(
     adminNumber: string,
-    adminNumbers: AdminNumbersDto[],
+    adminNumbers: AdminNumberDto[],
     isDelete: boolean = false
   ): boolean {
     return AdminNumberValidator.validateAdminNumber(
@@ -19,7 +19,7 @@ export class AdminNumberValidator {
 
   private static validateAdminNumber(
     adminNumber: string,
-    adminNumbers: AdminNumbersDto[],
+    adminNumbers: AdminNumberDto[],
     isDelete: boolean
   ): boolean {
     if (!adminNumber) {
@@ -57,7 +57,7 @@ export class AdminNumberValidator {
 
   private static isExistingAdminNumber(
     adminNumber: string,
-    adminNumbers: AdminNumbersDto[]
+    adminNumbers: AdminNumberDto[]
   ): boolean {
     if (!adminNumbers) {
       return false;
