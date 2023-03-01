@@ -30,4 +30,12 @@ export class AdminService {
       Http.getHttpOptions()
     );
   }
+
+  updateAdminNumber(adminNumber: AdminNumbersDto): Observable<AdminNumbersDto> {
+    return this.http.put<AdminNumbersDto>(
+      `${this.apiUrl + adminNumber.id}`,
+      adminNumber,
+      Http.getHttpOptions()
+    );
+  }
 }
