@@ -25,4 +25,21 @@ export class SortUsersService {
   sortByFirstNameDesc(users: User[]): User[] {
     return this.sortByFirstNameAsc(users).reverse();
   }
+
+  sortByLastNameAsc(users: User[]): User[] {
+    return users.sort(
+      (
+        category1: User,
+        category2: User
+      ) => {
+        if (category1.lastName > category2.lastName) {
+          return 1;
+        } else if (category1.lastName < category2.lastName) {
+          return -1;
+        }
+
+        return 0;
+      }
+    );
+  }
 }
