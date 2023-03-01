@@ -16,6 +16,13 @@
       (btnClick)="onClickButton('/admin-panel')"
     ></shop-button>
     <shop-button
+      *ngIf="logged && isSuperadmin
+      && !hasRoute('/users') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
+      text="Users"
+      color="#33ff33"
+      (btnClick)="onClickButton('/users')"
+    ></shop-button>
+    <shop-button
       *ngIf="!hasRoute('/categories') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
       text="Categories"
       color="#33ff33"
