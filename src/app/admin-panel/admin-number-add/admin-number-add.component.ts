@@ -27,6 +27,14 @@ export class AdminNumberAddComponent implements OnInit {
     this.setAdminNumbers();
   }
 
+  onAdd(): void {
+    if (!this.isValidAdminNumber()) {
+      return;
+    }
+
+    this.addAdminNumber();
+  }
+
   private setAdminNumbers(): void {
     this.adminService.getAdminsNumbers().subscribe(
       (adminNumbers: AdminNumberDto[]) => this.adminNumbers = adminNumbers
