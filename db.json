@@ -44,7 +44,7 @@
       "adminNumber": ""
     }
   ],
-  "adminNumbers": [
+  "admin-numbers": [
     {
       "id": 1,
       "number": "123"
