@@ -15,6 +15,7 @@ export class AdminNumberAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setAdminNumbers();
   }
 
   private setAdminNumbers(): void {
