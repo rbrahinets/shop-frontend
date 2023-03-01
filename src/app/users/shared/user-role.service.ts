@@ -46,7 +46,7 @@ export class UserRoleService {
     );
   }
 
-  setRoleForLoggedUser(userId: number) {
+  setRoleForLoggedUser(userId: number): void {
     this.getRoleForUser(userId)
       .subscribe(
         (userRole: UserRoleDto) =>
