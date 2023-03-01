@@ -5,16 +5,46 @@ import {AdminNumbersDto} from '../../users/shared/admin-numbers.dto';
   providedIn: 'root'
 })
 export class AdminNumberValidator {
-  validate(adminNumber: string): boolean {
-    return AdminNumberValidator.validateAdminNumber(adminNumber);
+  validate(
+    adminNumber: string,
+    adminNumbers: AdminNumbersDto[],
+    isDelete: boolean = false
+  ): boolean {
+    return AdminNumberValidator.validateAdminNumber(
+      adminNumber,
+      adminNumbers,
+      isDelete
+    );
   }
 
-  private static validateAdminNumber(adminNumber: string): boolean {
+  private static validateAdminNumber(
+    adminNumber: string,
+    adminNumbers: AdminNumbersDto[],
+    isDelete: boolean
+  ): boolean {
     if (!adminNumber) {
       alert('You haven\'t entered a number of admin');
       return false;
     } else if (AdminNumberValidator.isInvalidAdminNumber(adminNumber)) {
       alert('You have entered an invalid number of admin');
+      return false;
+    } else if (
+      AdminNumberValidator.isExistingAdminNumber(
+        adminNumber,
+        adminNumbers
+      )
+      && !isDelete
+    ) {
+      alert('You have entered an existing number of admin');
+      return false;
+    } else if (
+      !AdminNumberValidator.isExistingAdminNumber(
+        adminNumber,
+        adminNumbers
+      )
+      && isDelete
+    ) {
+      alert('You have entered a non-existing number of admin');
       return false;
     }
 
