@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {AdminNumbersDto} from './admin-numbers.dto';
+import {AdminNumberDto} from './admin-number.dto';
 import {Http} from '../../shared/http';
 
 @Injectable({
@@ -15,32 +15,32 @@ export class AdminService {
   ) {
   }
 
-  getAdminNumbers(): Observable<AdminNumbersDto[]> {
-    return this.http.get<AdminNumbersDto[]>(this.apiUrl);
+  getAdminNumbers(): Observable<AdminNumberDto[]> {
+    return this.http.get<AdminNumberDto[]>(this.apiUrl);
   }
 
-  getAdminNumber(id: number): Observable<AdminNumbersDto> {
-    return this.http.get<AdminNumbersDto>(`${this.apiUrl + id}`);
+  getAdminNumber(id: number): Observable<AdminNumberDto> {
+    return this.http.get<AdminNumberDto>(`${this.apiUrl + id}`);
   }
 
-  saveAdminNumber(adminNumber: AdminNumbersDto): Observable<AdminNumbersDto> {
-    return this.http.post<AdminNumbersDto>(
+  saveAdminNumber(adminNumber: AdminNumberDto): Observable<AdminNumberDto> {
+    return this.http.post<AdminNumberDto>(
       this.apiUrl,
       adminNumber,
       Http.getHttpOptions()
     );
   }
 
-  updateAdminNumber(adminNumber: AdminNumbersDto): Observable<AdminNumbersDto> {
-    return this.http.put<AdminNumbersDto>(
+  updateAdminNumber(adminNumber: AdminNumberDto): Observable<AdminNumberDto> {
+    return this.http.put<AdminNumberDto>(
       `${this.apiUrl + adminNumber.id}`,
       adminNumber,
       Http.getHttpOptions()
     );
   }
 
-  deleteAdminNumber(adminNumber: AdminNumbersDto): void {
-    this.http.delete<AdminNumbersDto>(
+  deleteAdminNumber(adminNumber: AdminNumberDto): void {
+    this.http.delete<AdminNumberDto>(
       `${this.apiUrl + adminNumber.id}`
     ).subscribe();
   }

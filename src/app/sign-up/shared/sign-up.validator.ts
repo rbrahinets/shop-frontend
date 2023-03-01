@@ -8,7 +8,7 @@ import {PasswordValidator} from '../../shared/validators/password.validator';
 import {ConfirmPasswordValidator} from '../../shared/validators/confirm-password.validator';
 import {AdminNumberValidator} from '../../shared/validators/admin-number.validator';
 import {User} from '../../users/shared/user.model';
-import {AdminNumbersDto} from '../../users/shared/admin-numbers.dto';
+import {AdminNumberDto} from '../../users/shared/admin-number.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,7 @@ export class SignUpValidator {
   validate(
     credential: SignUpDto,
     users: User[],
-    adminNumbers: AdminNumbersDto[],
+    adminNumbers: AdminNumberDto[],
     isAdmin: boolean
   ): boolean {
     return this.firstNameValidator.validate(credential.firstName)
