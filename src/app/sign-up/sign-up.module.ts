@@ -7,6 +7,7 @@ import {ButtonModule} from '../button/button.module';
 import {SignUpComponent} from './sign-up.component';
 import {NavigationService} from '../shared/navigation.service';
 import {UserService} from '../users/shared/user.service';
+import {AdminService} from '../users/shared/admin.service';
 import {UserRoleService} from '../users/shared/user-role.service';
 import {CartService} from '../cart/shared/cart.service';
 
@@ -22,6 +23,7 @@ import {CartService} from '../cart/shared/cart.service';
   providers: [
     NavigationService,
     UserService,
+    AdminService,
     UserRoleService,
     CartService,
   ],
