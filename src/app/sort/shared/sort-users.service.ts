@@ -21,4 +21,8 @@ export class SortUsersService {
       }
     );
   }
+
+  sortByFirstNameDesc(users: User[]): User[] {
+    return this.sortByFirstNameAsc(users).reverse();
+  }
 }
