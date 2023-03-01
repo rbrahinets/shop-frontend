@@ -35,6 +35,10 @@ export class AdminNumberDeleteComponent implements OnInit {
     this.deleteAdminNumber();
   }
 
+  onCancel(): void {
+    this.navigation.goToEndpoint('/admin-panel');
+  }
+
   private setAdminNumbers(): void {
     this.adminService.getAdminsNumbers().subscribe(
       (adminNumbers: AdminNumberDto[]) => this.adminsNumbers = adminNumbers
