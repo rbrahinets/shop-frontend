@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import {NavigationService} from '../shared/navigation.service';
 import {LoggedUserService} from '../users/shared/logged-user.service';
 import {User} from '../users/shared/user.model';
@@ -17,7 +16,6 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router,
     private navigation: NavigationService
   ) {
     this.logged = LoggedUserService.isUserLogged();
@@ -29,7 +27,7 @@ export class HeaderComponent implements OnInit {
   }
 
   hasRoute(route: string): boolean {
-    return this.router.url === route;
+    return this.navigation.isEqualsRoutes(route);
   }
 
   onClickButton(endpoint: string): void {
