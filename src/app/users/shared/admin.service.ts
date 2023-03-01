@@ -38,4 +38,10 @@ export class AdminService {
       Http.getHttpOptions()
     );
   }
+
+  deleteAdminNumber(adminNumber: AdminNumbersDto): void {
+    this.http.delete<AdminNumbersDto>(
+      `${this.apiUrl + adminNumber.id}`
+    ).subscribe();
+  }
 }
