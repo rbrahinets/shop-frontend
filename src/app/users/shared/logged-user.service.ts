@@ -22,6 +22,12 @@ export class LoggedUserService {
   }
 
   static getRoleById(id: number): string {
-    return id === 1 ? 'ROLE_ADMIN' : 'ROLE_USER';
+    if (id === 1) {
+      return 'ROLE_ADMIN';
+    } else if (id === 2) {
+      return 'ROLE_USER';
+    }
+
+    return undefined;
   }
 }
