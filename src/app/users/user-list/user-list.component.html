@@ -1,0 +1,11 @@
+<h2 *ngIf="users.length <= 0">Users not Found</h2>
+<div *ngIf="users.length > 0">
+  <shop-users-sort
+    [users]="users"
+  ></shop-users-sort>
+  <hr/>
+  <shop-user-list-item
+    *ngFor="let user of users"
+    [user]="user"
+  ></shop-user-list-item>
+</div>
