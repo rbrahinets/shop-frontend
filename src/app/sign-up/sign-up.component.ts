@@ -86,6 +86,7 @@ export class SignUpComponent implements OnInit {
         this.adminNumber
       ),
       this.users,
+      this.adminNumbers,
       this.isAdmin
     );
   }
