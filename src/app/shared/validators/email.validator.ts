@@ -22,7 +22,7 @@ export class EmailValidator {
     } else if (EmailValidator.isInvalidEmail(email)) {
       alert('You have entered an invalid email');
       return false;
-    } else if (!EmailValidator.isUniqueEmail(email, users)) {
+    } else if (EmailValidator.isUsedEmail(email, users) && !isDelete) {
       alert('You have entered an used email');
       return false;
     }
@@ -37,20 +37,20 @@ export class EmailValidator {
       || email.endsWith('@.com');
   }
 
-  private static isUniqueEmail(
+  private static isUsedEmail(
     email: string,
     users: User[]
   ) {
     if (!users) {
-      return true;
+      return false;
     }
 
     for (const user of users) {
       if (user.email === email) {
-        return false;
+        return true;
       }
     }
 
-    return true;
+    return false;
   }
 }
