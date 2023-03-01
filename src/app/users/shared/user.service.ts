@@ -38,4 +38,10 @@ export class UserService {
       Http.getHttpOptions()
     );
   }
+
+  deleteUser(user: User): void {
+    this.http.delete<User>(
+      `${this.apiUrl + user.id}`
+    ).subscribe();
+  }
 }
