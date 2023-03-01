@@ -6,11 +6,9 @@ import {ProductsModule} from '../products/products.module';
 import {SortModule} from '../sort/sort.module';
 import {ButtonModule} from '../button/button.module';
 import {AdminPanelComponent} from './admin-panel.component';
-import {UserDeleteComponent} from './user-delete/user-delete.component';
 import {AdminNumberAddComponent} from './admin-number-add/admin-number-add.component';
 import {AdminNumberDeleteComponent} from './admin-number-delete/admin-number-delete.component';
 import {AdminPanelService} from './shared/admin-panel.service';
-import {UserService} from '../users/shared/user.service';
 import {LoggedUserService} from '../users/shared/logged-user.service';
 import {NavigationService} from '../shared/navigation.service';
 
@@ -25,19 +23,16 @@ import {NavigationService} from '../shared/navigation.service';
   ],
   declarations: [
     AdminPanelComponent,
-    UserDeleteComponent,
     AdminNumberAddComponent,
     AdminNumberDeleteComponent
   ],
   providers: [
     AdminPanelService,
-    UserService,
     LoggedUserService,
     NavigationService
   ],
   exports: [
     AdminPanelComponent,
-    UserDeleteComponent,
     AdminNumberAddComponent,
     AdminNumberDeleteComponent
   ]

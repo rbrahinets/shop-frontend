@@ -27,6 +27,7 @@ import {ProductsRoutingModule} from './products/products-routing.module';
 import {ProfileRoutingModule} from './profile/profile-routing.module';
 import {CartRoutingModule} from './cart/cart-routing.module';
 import {AdminPanelRoutingModule} from './admin-panel/admin-panel-routing.module';
+import {UserRoutingModule} from './users/user-routing.module';
 import {PageNotFoundRoutingModule} from './page-not-found/page-not-found-routing.module';
 
 import {AppComponent} from './app.component';
@@ -59,6 +60,7 @@ import {AppComponent} from './app.component';
     ProfileRoutingModule,
     CartRoutingModule,
     AdminPanelRoutingModule,
+    UserRoutingModule,
     PageNotFoundRoutingModule,
   ],
   declarations: [AppComponent],

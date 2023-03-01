@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {UserService} from '../../users/shared/user.service';
-import {User} from '../../users/shared/user.model';
+import {UserService} from '../shared/user.service';
+import {User} from '../shared/user.model';
 import {NavigationService} from '../../shared/navigation.service';
 import {EmailValidator} from '../../shared/validators/email.validator';
 
