@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {AdminNumbersDto} from '../../users/shared/admin-numbers.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,22 @@ export class AdminNumberValidator {
 
   private static isInvalidAdminNumber(adminNumber: string): boolean {
     return adminNumber.length < 3
+  }
+
+  private static isExistingAdminNumber(
+    adminNumber: string,
+    adminNumbers: AdminNumbersDto[]
+  ): boolean {
+    if (!adminNumbers) {
+      return false;
+    }
+
+    for (const number of adminNumbers) {
+      if (number.number === adminNumber) {
+        return true;
+      }
+    }
+
+    return false;
   }
 }
