@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../users/shared/user.service';
 import {User} from '../../users/shared/user.model';
+import {EmailValidator} from '../../shared/validators/email.validator';
 
 @Component({
   selector: 'shop-user-delete',
@@ -13,6 +14,7 @@ export class UserDeleteComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private validator: EmailValidator
   ) {
   }
 
@@ -23,6 +25,14 @@ export class UserDeleteComponent implements OnInit {
   private setUsers(): void {
     this.userService.getUsers().subscribe(
       (users: User[]) => this.users = users
+    );
+  }
+
+  private isValidUserEmail(): boolean {
+    return this.validator.validate(
+      this.email,
+      this.users,
+      true
     );
   }
 }
