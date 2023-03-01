@@ -4,6 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {ButtonModule} from '../button/button.module';
+import {UserComponent} from './user/user.component';
 import {UserDeleteComponent} from './user-delete/user-delete.component';
 import {LoggedUserService} from './shared/logged-user.service';
 import {UserService} from './shared/user.service';
@@ -18,6 +19,7 @@ import {UserRoleService} from './shared/user-role.service';
     ButtonModule
   ],
   declarations: [
+    UserComponent,
     UserDeleteComponent
   ],
   providers: [
@@ -26,6 +28,7 @@ import {UserRoleService} from './shared/user-role.service';
     UserRoleService,
   ],
   exports: [
+    UserComponent,
     UserDeleteComponent
   ],
 })
