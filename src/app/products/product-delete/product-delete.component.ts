@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import {ProductService} from '../shared/product.service';
 import {ProductsCategoryService} from '../../categories/shared/products-category.service';
 import {NavigationService} from '../../shared/navigation.service';
@@ -17,13 +16,11 @@ export class ProductDeleteComponent implements OnInit {
   private products: Product[];
 
   constructor(
-    private router: Router,
     private productService: ProductService,
     private productsCategoryService: ProductsCategoryService,
     private navigation: NavigationService,
     private validator: ProductBarcodeValidator
   ) {
-    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {

@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
   ) {
     this.logged = LoggedUserService.isUserLogged();
     this.userRole = LoggedUserService.getRoleOfUser();
-    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {

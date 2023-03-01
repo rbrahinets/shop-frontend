@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import {NavigationService} from '../shared/navigation.service';
 
 @Component({
@@ -9,10 +8,8 @@ import {NavigationService} from '../shared/navigation.service';
 })
 export class AdminPanelComponent implements OnInit {
   constructor(
-    private router: Router,
     private navigation: NavigationService
   ) {
-    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {

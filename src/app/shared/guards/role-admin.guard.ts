@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
+import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot} from '@angular/router';
 import {LoggedUserService} from '../../users/shared/logged-user.service';
 import {NavigationService} from '../navigation.service';
 
@@ -8,10 +8,8 @@ import {NavigationService} from '../navigation.service';
 })
 export class RoleAdminGuard implements CanActivate {
   constructor(
-    private router: Router,
     private navigation: NavigationService
   ) {
-    this.navigation = new NavigationService(router);
   }
 
   canActivate(

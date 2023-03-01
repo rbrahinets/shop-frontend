@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import {ProductService} from '../shared/product.service';
 import {CategoryService} from '../../categories/shared/category.service';
 import {ProductsCategoryService} from '../../categories/shared/products-category.service';
@@ -29,11 +28,9 @@ export class ProductEditComponent implements OnInit {
     private productService: ProductService,
     private categoryService: CategoryService,
     private productsCategoryService: ProductsCategoryService,
-    private router: Router,
     private navigation: NavigationService,
     private validator: ProductValidator
   ) {
-    this.navigation = new NavigationService(this.router);
     this.product = new Product();
   }
 

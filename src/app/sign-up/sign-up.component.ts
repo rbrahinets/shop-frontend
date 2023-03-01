@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import * as bcrypt from 'bcryptjs';
 import {User} from '../users/shared/user.model';
 import {NavigationService} from '../shared/navigation.service';
@@ -29,7 +28,6 @@ export class SignUpComponent implements OnInit {
   private adminNumbers: AdminNumberDto[];
 
   constructor(
-    private router: Router,
     private navigation: NavigationService,
     private validator: SignUpValidator,
     private userService: UserService,
@@ -37,7 +35,6 @@ export class SignUpComponent implements OnInit {
     private userRoleService: UserRoleService,
     private cartService: CartService
   ) {
-    this.navigation = new NavigationService(this.router);
     this.isAdmin = false;
   }
 

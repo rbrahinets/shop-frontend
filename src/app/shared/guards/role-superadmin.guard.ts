@@ -1,5 +1,5 @@
 import {Injectable, OnInit} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
+import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot} from '@angular/router';
 import {UserService} from '../../users/shared/user.service';
 import {LoggedUserService} from '../../users/shared/logged-user.service';
 import {NavigationService} from '../navigation.service';
@@ -13,10 +13,8 @@ export class RoleSuperadminGuard implements OnInit, CanActivate {
 
   constructor(
     private userService: UserService,
-    private router: Router,
     private navigation: NavigationService
   ) {
-    this.navigation = new NavigationService(router);
   }
 
   ngOnInit(): void {

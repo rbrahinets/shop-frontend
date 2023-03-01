@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import {CategoryService} from '../shared/category.service';
 import {Category} from '../shared/category.model';
 import {LoggedUserService} from '../../users/shared/logged-user.service';
@@ -16,11 +15,9 @@ export class CategoryListComponent implements OnInit {
 
   constructor(
     private categoryService: CategoryService,
-    private router: Router,
     private navigation: NavigationService
   ) {
     this.userRole = LoggedUserService.getRoleOfUser();
-    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {

@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import {CategoryService} from '../shared/category.service';
 import {NavigationService} from '../../shared/navigation.service';
 import {Category} from '../shared/category.model';
@@ -16,12 +15,10 @@ export class CategoryAddComponent implements OnInit {
   private categories: Category[];
 
   constructor(
-    private router: Router,
     private categoryService: CategoryService,
     private navigation: NavigationService,
     private validator: CategoryValidator
   ) {
-    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {

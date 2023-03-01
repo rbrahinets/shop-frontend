@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import {Product} from '../shared/product.model';
 import {ProductService} from '../shared/product.service';
 import {ProductsCartService} from '../../cart/shared/products-cart.service';
@@ -23,10 +22,8 @@ export class ProductComponent implements OnInit {
     private productService: ProductService,
     private cartService: CartService,
     private productsCartsService: ProductsCartService,
-    private router: Router,
     private navigation: NavigationService
   ) {
-    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {

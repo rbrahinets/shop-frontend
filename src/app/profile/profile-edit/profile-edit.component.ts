@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import {User} from '../../users/shared/user.model';
 import {NavigationService} from '../../shared/navigation.service';
 import {ProfileValidator} from '../shared/profile.validator';
@@ -17,12 +16,10 @@ export class ProfileEditComponent implements OnInit {
   lastName: string;
 
   constructor(
-    private router: Router,
     private navigation: NavigationService,
     private validator: ProfileValidator,
     private userService: UserService
   ) {
-    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {

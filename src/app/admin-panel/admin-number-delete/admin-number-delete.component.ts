@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import {AdminService} from '../../users/shared/admin.service';
 import {AdminNumberDto} from '../../users/shared/admin-number.dto';
 import {NavigationService} from '../../shared/navigation.service';
@@ -15,12 +14,10 @@ export class AdminNumberDeleteComponent implements OnInit {
   private adminsNumbers: AdminNumberDto[];
 
   constructor(
-    private router: Router,
     private adminService: AdminService,
     private navigation: NavigationService,
     private validator: AdminNumberValidator
   ) {
-    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {

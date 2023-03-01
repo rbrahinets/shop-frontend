@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import {User} from '../users/shared/user.model';
 import {UserService} from '../users/shared/user.service';
 import {NavigationService} from '../shared/navigation.service';
@@ -15,10 +14,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router,
     private navigation: NavigationService
   ) {
-    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {

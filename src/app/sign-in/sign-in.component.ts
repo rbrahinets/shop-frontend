@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import * as bcrypt from 'bcryptjs';
 import {NavigationService} from '../shared/navigation.service';
 import {SignInValidator} from './shared/sign-in.validator';
@@ -19,13 +18,11 @@ export class SignInComponent implements OnInit {
   password: string;
 
   constructor(
-    private router: Router,
     private navigation: NavigationService,
     private validator: SignInValidator,
     private userService: UserService,
     private userRoleService: UserRoleService
   ) {
-    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {

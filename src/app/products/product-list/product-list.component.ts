@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import {Product} from '../shared/product.model';
 import {ProductService} from '../shared/product.service';
 import {LoggedUserService} from '../../users/shared/logged-user.service';
@@ -16,11 +15,9 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private router: Router,
     private navigation: NavigationService
   ) {
     this.isAdmin = LoggedUserService.getRoleOfUser() === 'ROLE_ADMIN';
-    this.navigation = new NavigationService(this.router);
   }
 
   ngOnInit(): void {

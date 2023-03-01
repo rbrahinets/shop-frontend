@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import {Product} from '../../products/shared/product.model';
 import {ProductsCategoryService} from '../shared/products-category.service';
 import {ProductService} from '../../products/shared/product.service';
@@ -19,10 +18,8 @@ export class CategoryComponent implements OnInit {
   constructor(
     private productsCategoryService: ProductsCategoryService,
     private productService: ProductService,
-    private router: Router,
     private navigation: NavigationService
   ) {
-    this.navigation = new NavigationService(this.router);
     this.userRole = LoggedUserService.getRoleOfUser();
   }
 
