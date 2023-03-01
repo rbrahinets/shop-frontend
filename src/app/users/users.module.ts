@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {ButtonModule} from '../button/button.module';
 import {SortModule} from '../sort/sort.module';
+import {UserListComponent} from './user-list/user-list.component';
 import {UserListItemComponent} from './user-list-item/user-list-item.component';
 import {UserComponent} from './user/user.component';
 import {UserDeleteComponent} from './user-delete/user-delete.component';
@@ -22,6 +23,7 @@ import {UserRoleService} from './shared/user-role.service';
     SortModule
   ],
   declarations: [
+    UserListComponent,
     UserListItemComponent,
     UserComponent,
     UserDeleteComponent
@@ -32,6 +34,7 @@ import {UserRoleService} from './shared/user-role.service';
     UserRoleService,
   ],
   exports: [
+    UserListComponent,
     UserListItemComponent,
     UserComponent,
     UserDeleteComponent
