@@ -19,8 +19,8 @@ export class UserService {
     return this.http.get<User[]>(this.apiUrl);
   }
 
-  getUser(id: number): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl + id}`);
+  getUser(id: number): Promise<User> {
+    return this.http.get<User>(`${this.apiUrl + id}`).toPromise();
   }
 
   saveUser(user: User): Observable<User> {

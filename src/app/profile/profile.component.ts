@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
   private setProfileOfUser(): void {
     this.userService.getUser(
       LoggedUserService.getUserId()
-    ).subscribe(
+    ).then(
       (user: User) => this.user = user
     );
   }

@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
 
     this.userService.getUser(
       LoggedUserService.getUserId()
-    ).subscribe(
+    ).then(
       (user: User) => this.isSuperadmin = user.adminNumber === '123'
     );
   }
