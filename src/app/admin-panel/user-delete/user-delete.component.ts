@@ -26,6 +26,14 @@ export class UserDeleteComponent implements OnInit {
     this.setUsers();
   }
 
+  onDelete(): void {
+    if (!this.isValidUserEmail()) {
+      return;
+    }
+
+    this.deleteUser();
+  }
+
   private setUsers(): void {
     this.userService.getUsers().subscribe(
       (users: User[]) => this.users = users
