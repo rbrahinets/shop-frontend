@@ -35,6 +35,10 @@ export class AdminNumberAddComponent implements OnInit {
     this.addAdminNumber();
   }
 
+  onCancel(): void {
+    this.navigation.goToEndpoint('/admin-panel');
+  }
+
   private setAdminNumbers(): void {
     this.adminService.getAdminsNumbers().subscribe(
       (adminNumbers: AdminNumberDto[]) => this.adminNumbers = adminNumbers
