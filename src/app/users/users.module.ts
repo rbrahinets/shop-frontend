@@ -4,6 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {ButtonModule} from '../button/button.module';
+import {SortModule} from '../sort/sort.module';
 import {UserListItemComponent} from './user-list-item/user-list-item.component';
 import {UserComponent} from './user/user.component';
 import {UserDeleteComponent} from './user-delete/user-delete.component';
@@ -17,7 +18,8 @@ import {UserRoleService} from './shared/user-role.service';
     HttpClientModule,
     RouterModule,
     FormsModule,
-    ButtonModule
+    ButtonModule,
+    SortModule
   ],
   declarations: [
     UserListItemComponent,
