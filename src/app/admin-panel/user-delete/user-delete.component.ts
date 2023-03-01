@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {UserService} from '../../users/shared/user.service';
 import {User} from '../../users/shared/user.model';
+import {NavigationService} from '../../shared/navigation.service';
 import {EmailValidator} from '../../shared/validators/email.validator';
 
 @Component({
@@ -13,7 +15,9 @@ export class UserDeleteComponent implements OnInit {
   private users: User[];
 
   constructor(
+    private router: Router,
     private userService: UserService,
+    private navigation: NavigationService,
     private validator: EmailValidator
   ) {
   }
@@ -34,5 +38,16 @@ export class UserDeleteComponent implements OnInit {
       this.users,
       true
     );
+  }
+
+  private deleteUser(): void {
+    for (const user of this.users) {
+      if (user.email === this.email) {
+        this.userService.deleteUser(user);
+        break;
+      }
+    }
+
+    this.navigation.goToEndpoint('/users', true);
   }
 }
