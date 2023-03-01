@@ -69,7 +69,7 @@ export class SignUpComponent implements OnInit {
   }
 
   private setAdminNumbers(): void {
-    this.adminService.getAdminNumbers().subscribe(
+    this.adminService.getAdminsNumbers().subscribe(
       (adminNumbers: AdminNumberDto[]) => this.adminNumbers = adminNumbers
     );
   }

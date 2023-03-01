@@ -15,7 +15,7 @@ export class AdminService {
   ) {
   }
 
-  getAdminNumbers(): Observable<AdminNumberDto[]> {
+  getAdminsNumbers(): Observable<AdminNumberDto[]> {
     return this.http.get<AdminNumberDto[]>(this.apiUrl);
   }
 
