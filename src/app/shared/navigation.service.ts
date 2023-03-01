@@ -10,6 +10,10 @@ export class NavigationService {
   ) {
   }
 
+  isEqualsRoutes(route: string) {
+    return this.router.url === route;
+  }
+
   goToEndpoint(
     endpoint: string,
     reload: boolean = false
