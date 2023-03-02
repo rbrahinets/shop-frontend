@@ -50,7 +50,8 @@ export class SignUpValidator {
         isAdmin
           ? this.adminNumberValidator.validate(
             credential.adminNumber,
-            adminNumbers
+            adminNumbers,
+            users
           )
           : true
       );
