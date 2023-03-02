@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AdminService} from '../../users/shared/admin.service';
+import {UserService} from '../../users/shared/user.service';
 import {AdminNumberDto} from '../../users/shared/admin-number.dto';
+import {User} from '../../users/shared/user.model';
 import {NavigationService} from '../../shared/navigation.service';
 import {AdminNumberValidator} from '../../shared/validators/admin-number.validator';
 
@@ -12,9 +14,11 @@ import {AdminNumberValidator} from '../../shared/validators/admin-number.validat
 export class AdminNumberAddComponent implements OnInit {
   adminNumber: string;
   private adminsNumbers: AdminNumberDto[];
+  private users: User[];
 
   constructor(
     private adminService: AdminService,
+    private userService: UserService,
     private navigation: NavigationService,
     private validator: AdminNumberValidator
   ) {
@@ -22,6 +26,7 @@ export class AdminNumberAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.setAdminNumbers();
+    this.setUsers();
   }
 
   onAdd(): void {
@@ -39,6 +44,12 @@ export class AdminNumberAddComponent implements OnInit {
   private setAdminNumbers(): void {
     this.adminService.getAdminsNumbers().subscribe(
       (adminNumbers: AdminNumberDto[]) => this.adminsNumbers = adminNumbers
+    );
+  }
+
+  private setUsers(): void {
+    this.userService.getUsers().subscribe(
+      (users: User[]) => this.users = users
     );
   }
 
