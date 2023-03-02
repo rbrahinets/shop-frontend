@@ -56,7 +56,9 @@ export class AdminNumberAddComponent implements OnInit {
   private isValidAdminNumber(): boolean {
     return this.validator.validate(
       this.adminNumber,
-      this.adminsNumbers
+      this.adminsNumbers,
+      this.users,
+      true
     );
   }
 
