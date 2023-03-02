@@ -57,7 +57,7 @@ export class AdminNumberDeleteComponent implements OnInit {
     return this.validator.validate(
       this.adminNumber,
       this.adminsNumbers,
-      true
+      this.users
     );
   }
 
