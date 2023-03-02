@@ -8,19 +8,19 @@ export class AdminNumberValidator {
   validate(
     adminNumber: string,
     adminNumbers: AdminNumberDto[],
-    isDelete: boolean = false
+    isAdd: boolean = false
   ): boolean {
     return AdminNumberValidator.validateAdminNumber(
       adminNumber,
       adminNumbers,
-      isDelete
+      isAdd
     );
   }
 
   private static validateAdminNumber(
     adminNumber: string,
     adminNumbers: AdminNumberDto[],
-    isDelete: boolean
+    isAdd: boolean
   ): boolean {
     if (!adminNumber) {
       alert('You haven\'t entered a number of admin');
@@ -29,22 +29,20 @@ export class AdminNumberValidator {
       alert('You have entered an invalid number of admin');
       return false;
     } else if (
-      AdminNumberValidator.isExistingAdminNumber(
-        adminNumber,
-        adminNumbers
-      )
-      && !isDelete
-    ) {
-      alert('You have entered an existing number of admin');
-      return false;
-    } else if (
       !AdminNumberValidator.isExistingAdminNumber(
         adminNumber,
         adminNumbers
-      )
-      && isDelete
+      ) && !isAdd
     ) {
       alert('You have entered a non-existing number of admin');
+      return false;
+    } else if (
+      AdminNumberValidator.isExistingAdminNumber(
+        adminNumber,
+        adminNumbers
+      ) && isAdd
+    ) {
+      alert('You have entered an existing number of admin');
       return false;
     }
 
