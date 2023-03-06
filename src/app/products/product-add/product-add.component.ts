@@ -90,7 +90,9 @@ export class ProductAddComponent implements OnInit {
         newProduct.price = this.productPrice;
         newProduct.barcode = this.productBarcode;
         newProduct.inStock = true;
-        newProduct.image = '/assets/images/empty.jpg';
+        newProduct.image = this.productImage
+          ? this.productImage.name
+          : '/assets/images/empty.jpg';
 
         this.addProductToCategory(
           newProduct,
