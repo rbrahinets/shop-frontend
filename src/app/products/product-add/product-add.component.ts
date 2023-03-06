@@ -38,6 +38,10 @@ export class ProductAddComponent implements OnInit {
     this.setProducts();
   }
 
+  onChangeFile(event) {
+    this.productImage = event.target.files[0];
+  }
+
   onAdd(): void {
     if (!this.isValidProductData()) {
       return;
