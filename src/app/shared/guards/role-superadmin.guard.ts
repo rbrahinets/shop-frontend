@@ -1,4 +1,4 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot} from '@angular/router';
 import {UserService} from '../../users/shared/user.service';
 import {LoggedUserService} from '../../users/shared/logged-user.service';
@@ -8,7 +8,7 @@ import {User} from '../../users/shared/user.model';
 @Injectable({
   providedIn: 'root'
 })
-export class RoleSuperadminGuard implements OnInit, CanActivate {
+export class RoleSuperadminGuard implements CanActivate {
   private isSuperadmin: boolean;
 
   constructor(
@@ -17,14 +17,12 @@ export class RoleSuperadminGuard implements OnInit, CanActivate {
   ) {
   }
 
-  ngOnInit(): void {
-    this.setIsSuperadmin();
-  }
-
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
+    this.setIsSuperadmin();
+
     const authorized = LoggedUserService.getUserId() > 0;
 
     if (!authorized) {
