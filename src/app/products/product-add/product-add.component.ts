@@ -21,6 +21,7 @@ export class ProductAddComponent implements OnInit {
   productBarcode: string;
   productCategory: string;
   categories: Category[];
+  private productImage: File;
   private products: Product[];
 
   constructor(
