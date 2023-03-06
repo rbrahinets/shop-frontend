@@ -5,5 +5,5 @@ export class Product {
   price: number;
   barcode: string;
   inStock: boolean;
-  image: string;
+  image: any;
 }
