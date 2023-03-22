@@ -11,7 +11,7 @@ import {Http} from '../../shared/http';
   providedIn: 'root'
 })
 export class UserRoleService {
-  private apiUrl: string = 'http://localhost:8080/user-role/';
+  private apiUrl = 'http://localhost:8080/api/user-role/';
 
   constructor(
     private http: HttpClient
