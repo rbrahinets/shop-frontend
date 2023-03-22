@@ -3,7 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from './user.model';
 import {UserRoleDto} from './user-role.dto';
-import {LoggedUserService} from "./logged-user.service";
+import {RoleDto} from './role.dto';
+import {LoggedUserService} from './logged-user.service';
 import {Http} from '../../shared/http';
 
 @Injectable({
@@ -21,8 +22,8 @@ export class UserRoleService {
     return this.http.get<UserRoleDto[]>(this.apiUrl);
   }
 
-  getRoleForUser(userId: number): Observable<UserRoleDto> {
-    return this.http.get<UserRoleDto>(`${this.apiUrl + userId}`);
+  getRoleForUser(userId: number): Observable<RoleDto> {
+    return this.http.get<RoleDto>(`${this.apiUrl + userId}`);
   }
 
   saveRoleForUser(
@@ -49,10 +50,7 @@ export class UserRoleService {
   setRoleForLoggedUser(userId: number): void {
     this.getRoleForUser(userId)
       .subscribe(
-        (userRole: UserRoleDto) =>
-          LoggedUserService.setRoleOfUser(
-            LoggedUserService.getRoleById(userRole.roleId)
-          )
-      )
+        (roleDto: RoleDto) => LoggedUserService.setRoleOfUser(roleDto.name)
+      );
   }
 }

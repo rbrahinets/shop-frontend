@@ -2,9 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {User} from '../shared/user.model';
 import {UserService} from '../shared/user.service';
 import {UserRoleService} from '../shared/user-role.service';
-import {LoggedUserService} from '../shared/logged-user.service';
 import {NavigationService} from '../../shared/navigation.service';
-import {UserRoleDto} from '../shared/user-role.dto';
+import {RoleDto} from '../shared/role.dto';
 
 @Component({
   selector: 'shop-user',
@@ -39,10 +38,10 @@ export class UserComponent implements OnInit {
 
   private setRole(): void {
     this.userRoleService.getRoleForUser(this.user.id).subscribe(
-      (userRoleDto: UserRoleDto) => {
-        if (LoggedUserService.getRoleById(userRoleDto.roleId) === 'ROLE_ADMIN') {
+      (roleDto: RoleDto) => {
+        if (roleDto.name === 'ROLE_ADMIN') {
           this.role = 'Admin';
-        } else if (LoggedUserService.getRoleById(userRoleDto.roleId) === 'ROLE_USER') {
+        } else if (roleDto.name === 'ROLE_USER') {
           this.role = 'User';
         }
       }
