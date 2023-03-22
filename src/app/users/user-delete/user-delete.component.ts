@@ -39,7 +39,7 @@ export class UserDeleteComponent implements OnInit {
   }
 
   private setUsers(): void {
-    this.userService.getUsers().subscribe(
+    this.userService.findAll().subscribe(
       (users: User[]) => this.users = users
     );
   }
@@ -55,7 +55,7 @@ export class UserDeleteComponent implements OnInit {
   private deleteUser(): void {
     for (const user of this.users) {
       if (user.email === this.email) {
-        this.userService.deleteUser(user);
+        this.userService.delete(user);
         break;
       }
     }

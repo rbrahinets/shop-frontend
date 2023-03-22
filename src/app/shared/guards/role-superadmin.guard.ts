@@ -41,7 +41,7 @@ export class RoleSuperadminGuard implements CanActivate {
       return;
     }
 
-    this.userService.getUser(
+    this.userService.findById(
       LoggedUserService.getUserId()
     ).then(
       (user: User) => this.isSuperadmin = user.adminNumber === '123'

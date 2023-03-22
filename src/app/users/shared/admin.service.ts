@@ -15,15 +15,15 @@ export class AdminService {
   ) {
   }
 
-  getAdminsNumbers(): Observable<AdminNumberDto[]> {
+  findAll(): Observable<AdminNumberDto[]> {
     return this.http.get<AdminNumberDto[]>(this.apiUrl);
   }
 
-  getAdminNumber(id: number): Observable<AdminNumberDto> {
+  findById(id: number): Observable<AdminNumberDto> {
     return this.http.get<AdminNumberDto>(`${this.apiUrl + id}`);
   }
 
-  saveAdminNumber(adminNumber: AdminNumberDto): Observable<AdminNumberDto> {
+  save(adminNumber: AdminNumberDto): Observable<AdminNumberDto> {
     return this.http.post<AdminNumberDto>(
       this.apiUrl,
       adminNumber,
@@ -31,7 +31,7 @@ export class AdminService {
     );
   }
 
-  updateAdminNumber(adminNumber: AdminNumberDto): Observable<AdminNumberDto> {
+  update(adminNumber: AdminNumberDto): Observable<AdminNumberDto> {
     return this.http.put<AdminNumberDto>(
       `${this.apiUrl + adminNumber.id}`,
       adminNumber,
@@ -39,7 +39,7 @@ export class AdminService {
     );
   }
 
-  deleteAdminNumber(adminNumber: AdminNumberDto): void {
+  delete(adminNumber: AdminNumberDto): void {
     this.http.delete<AdminNumberDto>(
       `${this.apiUrl + adminNumber.id}`
     ).subscribe();

@@ -15,15 +15,15 @@ export class ProductService {
   ) {
   }
 
-  getProducts(): Observable<Product[]> {
+  findAll(): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrl);
   }
 
-  getProduct(id: number): Promise<Product> {
+  findById(id: number): Promise<Product> {
     return this.http.get<Product>(`${this.apiUrl + id}`).toPromise();
   }
 
-  saveProduct(product: Product): Observable<Product> {
+  save(product: Product): Observable<Product> {
     return this.http.post<Product>(
       this.apiUrl,
       product,
@@ -31,7 +31,7 @@ export class ProductService {
     );
   }
 
-  updateProduct(product: Product): Observable<Product> {
+  update(product: Product): Observable<Product> {
     return this.http.put<Product>(
       `${this.apiUrl + product.id}`,
       product,
@@ -39,7 +39,7 @@ export class ProductService {
     );
   }
 
-  deleteProduct(product: Product): void {
+  delete(product: Product): void {
     this.http.delete<Product>(
       `${this.apiUrl + product.id}`
     ).subscribe();

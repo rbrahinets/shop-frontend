@@ -15,11 +15,11 @@ export class CategoryService {
   ) {
   }
 
-  getCategories(): Observable<Category[]> {
+  findAll(): Observable<Category[]> {
     return this.http.get<Category[]>(this.apiUrl);
   }
 
-  saveCategory(category: Category): Observable<Category> {
+  save(category: Category): Observable<Category> {
     return this.http.post<Category>(
       this.apiUrl,
       category,
@@ -27,7 +27,7 @@ export class CategoryService {
     );
   }
 
-  updateCategory(category: Category): Observable<Category> {
+  update(category: Category): Observable<Category> {
     return this.http.put<Category>(
       `${this.apiUrl + category.id}`,
       category,
@@ -35,7 +35,7 @@ export class CategoryService {
     );
   }
 
-  deleteCategory(category: Category): void {
+  delete(category: Category): void {
     this.http.delete<Category>(
       `${this.apiUrl + category.id}`
     ).subscribe();

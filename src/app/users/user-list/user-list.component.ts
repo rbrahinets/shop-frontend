@@ -20,7 +20,7 @@ export class UserListComponent implements OnInit {
   }
 
   private setUsers(): void {
-    this.userService.getUsers().subscribe(
+    this.userService.findAll().subscribe(
       (users: User[]) => this.users = users
     );
   }

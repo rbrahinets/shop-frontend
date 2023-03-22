@@ -15,15 +15,15 @@ export class UserService {
   ) {
   }
 
-  getUsers(): Observable<User[]> {
+  findAll(): Observable<User[]> {
     return this.http.get<User[]>(this.apiUrl);
   }
 
-  getUser(id: number): Promise<User> {
+  findById(id: number): Promise<User> {
     return this.http.get<User>(`${this.apiUrl + id}`).toPromise();
   }
 
-  saveUser(user: User): Observable<User> {
+  save(user: User): Observable<User> {
     return this.http.post<User>(
       this.apiUrl,
       user,
@@ -31,7 +31,7 @@ export class UserService {
     );
   }
 
-  updateUser(user: User): Observable<User> {
+  update(user: User): Observable<User> {
     return this.http.put<User>(
       `${this.apiUrl + user.id}`,
       user,
@@ -39,7 +39,7 @@ export class UserService {
     );
   }
 
-  deleteUser(user: User): void {
+  delete(user: User): void {
     this.http.delete<User>(
       `${this.apiUrl + user.id}`
     ).subscribe();

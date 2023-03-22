@@ -40,7 +40,7 @@ export class ProductDeleteComponent implements OnInit {
   }
 
   private setProducts(): void {
-    this.productService.getProducts().subscribe(
+    this.productService.findAll().subscribe(
       (products: Product[]) => this.products = products
     );
   }
@@ -55,7 +55,7 @@ export class ProductDeleteComponent implements OnInit {
   private deleteProduct(): void {
     for (const product of this.products) {
       if (product.barcode === this.productBarcode) {
-        this.productService.deleteProduct(product);
+        this.productService.delete(product);
         this.deleteProductFromCategory(product);
         break;
       }

@@ -55,13 +55,13 @@ export class ProductAddComponent implements OnInit {
   }
 
   private setCategories(): void {
-    this.categoryService.getCategories().subscribe(
+    this.categoryService.findAll().subscribe(
       (categories: Category[]) => this.categories = categories
     );
   }
 
   private setProducts(): void {
-    this.productService.getProducts().subscribe(
+    this.productService.findAll().subscribe(
       (products: Product[]) => this.products = products
     );
   }
@@ -81,7 +81,7 @@ export class ProductAddComponent implements OnInit {
   }
 
   private addProduct(): void {
-    this.productService.getProducts().subscribe(
+    this.productService.findAll().subscribe(
       (products: Product[]) => {
         const newProduct = new Product();
         newProduct.id = products.length + 1;
@@ -99,7 +99,7 @@ export class ProductAddComponent implements OnInit {
           this.getCategory()
         );
 
-        this.productService.saveProduct(newProduct).subscribe();
+        this.productService.save(newProduct).subscribe();
         this.navigation.goToEndpoint('/products', true);
       }
     );

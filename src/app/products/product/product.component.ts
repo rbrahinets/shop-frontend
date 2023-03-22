@@ -33,7 +33,7 @@ export class ProductComponent implements OnInit {
   }
 
   onAddToCart(): void {
-    this.cartService.getCarts().subscribe(
+    this.cartService.findAll().subscribe(
       (carts: Cart[]) => {
         if (!CartService.getCartForCurrentUser(carts)) {
           return;
@@ -56,7 +56,7 @@ export class ProductComponent implements OnInit {
   }
 
   private setProduct(): void {
-    this.productService.getProduct(
+    this.productService.findById(
       this.navigation.getCurrentPathId()
     ).then(
       (product: Product) => {
@@ -75,6 +75,6 @@ export class ProductComponent implements OnInit {
 
   private updateTotalPriceInCart(cart: Cart): void {
     cart.totalCost += this.product.price;
-    this.cartService.updateCart(cart).subscribe();
+    this.cartService.update(cart).subscribe();
   }
 }

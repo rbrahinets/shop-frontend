@@ -35,7 +35,7 @@ export class ProductsCartService {
     this.products = [];
 
     for (const productCart of this.getProductsInCart(cart)) {
-      await this.productService.getProduct(
+      await this.productService.findById(
         productCart.productId
       ).then(
         (product: Product) => this.products.push(product)

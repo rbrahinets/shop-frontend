@@ -60,13 +60,13 @@ export class SignUpComponent implements OnInit {
   }
 
   private setUsers(): void {
-    this.userService.getUsers().subscribe(
+    this.userService.findAll().subscribe(
       (users: User[]) => this.users = users
     );
   }
 
   private setAdminNumbers(): void {
-    this.adminService.getAdminsNumbers().subscribe(
+    this.adminService.findAll().subscribe(
       (adminNumbers: AdminNumberDto[]) => this.adminNumbers = adminNumbers
     );
   }
@@ -89,7 +89,7 @@ export class SignUpComponent implements OnInit {
   }
 
   private signUp(): void {
-    this.userService.getUsers().subscribe(
+    this.userService.findAll().subscribe(
       (users: User[]) => {
         const user = new User();
         user.id = (users.length as number) + 1;
@@ -113,7 +113,7 @@ export class SignUpComponent implements OnInit {
   }
 
   private addNewUser(user: User): void {
-    this.userService.saveUser(user).subscribe();
+    this.userService.save(user).subscribe();
   }
 
   private addRoleForNewUser(

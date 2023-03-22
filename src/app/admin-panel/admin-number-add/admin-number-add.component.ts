@@ -42,13 +42,13 @@ export class AdminNumberAddComponent implements OnInit {
   }
 
   private setAdminNumbers(): void {
-    this.adminService.getAdminsNumbers().subscribe(
+    this.adminService.findAll().subscribe(
       (adminNumbers: AdminNumberDto[]) => this.adminsNumbers = adminNumbers
     );
   }
 
   private setUsers(): void {
-    this.userService.getUsers().subscribe(
+    this.userService.findAll().subscribe(
       (users: User[]) => this.users = users
     );
   }
@@ -66,7 +66,7 @@ export class AdminNumberAddComponent implements OnInit {
     const adminNumbersDto = new AdminNumberDto();
     adminNumbersDto.id = this.adminsNumbers.length + 1;
     adminNumbersDto.number = this.adminNumber;
-    this.adminService.saveAdminNumber(adminNumbersDto).subscribe();
+    this.adminService.save(adminNumbersDto).subscribe();
     this.navigation.goToEndpoint('/admin-panel', true);
   }
 }

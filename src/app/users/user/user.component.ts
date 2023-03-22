@@ -27,7 +27,7 @@ export class UserComponent implements OnInit {
   }
 
   private setUser(): void {
-    this.userService.getUser(
+    this.userService.findById(
       this.navigation.getCurrentPathId()
     ).then(
       (user: User) => {

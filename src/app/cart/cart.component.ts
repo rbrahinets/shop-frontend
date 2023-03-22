@@ -43,7 +43,7 @@ export class CartComponent implements OnInit {
   }
 
   private setCart(): void {
-    this.cartService.getCarts().subscribe(
+    this.cartService.findAll().subscribe(
       (carts: Cart[]) => {
         this.cart = CartService.getCartForCurrentUser(carts);
 
@@ -62,7 +62,7 @@ export class CartComponent implements OnInit {
     }
 
     this.cart.totalCost = 0;
-    this.cartService.updateCart(this.cart).subscribe();
+    this.cartService.update(this.cart).subscribe();
     return true;
   }
 
@@ -88,7 +88,7 @@ export class CartComponent implements OnInit {
     this.addProductToNewGroup(product);
   }
 
-  private addProductToNewGroup(product: Product) {
+  private addProductToNewGroup(product: Product): void {
     const group = new ProductsGroupsDto(
       product.name,
       1
@@ -97,9 +97,9 @@ export class CartComponent implements OnInit {
     this.groupsOfProducts.push(group);
   }
 
-  private updatePriceInCart(product: Product) {
+  private updatePriceInCart(product: Product): void {
     this.cart.totalCost -= product.price;
-    this.cartService.updateCart(this.cart).subscribe();
+    this.cartService.update(this.cart).subscribe();
   }
 
   private deleteProductFromGroup(productName: string): void {

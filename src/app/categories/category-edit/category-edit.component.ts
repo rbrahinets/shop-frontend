@@ -40,7 +40,7 @@ export class CategoryEditComponent implements OnInit {
   }
 
   private setCategories(): void {
-    this.categoryService.getCategories().subscribe(
+    this.categoryService.findAll().subscribe(
       (categories: Category[]) => {
         this.categories = categories;
         this.setCurrentCategory(categories);
@@ -66,7 +66,7 @@ export class CategoryEditComponent implements OnInit {
 
   private updateCategoryData(): void {
     this.category.name = this.categoryName;
-    this.categoryService.updateCategory(this.category).subscribe();
+    this.categoryService.update(this.category).subscribe();
     this.navigation.goToEndpoint('/categories', true);
   }
 }

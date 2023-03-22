@@ -52,7 +52,7 @@ export class ProductEditComponent implements OnInit {
   }
 
   private setProducts(): void {
-    this.productService.getProducts().subscribe(
+    this.productService.findAll().subscribe(
       (products: Product[]) => {
         this.products = products;
         this.setCurrentProduct(products);
@@ -73,7 +73,7 @@ export class ProductEditComponent implements OnInit {
   }
 
   private setCategories(): void {
-    this.categoryService.getCategories().subscribe(
+    this.categoryService.findAll().subscribe(
       (categories: Category[]) => this.categories = categories
     );
   }
@@ -93,7 +93,7 @@ export class ProductEditComponent implements OnInit {
 
   private updateProductData(): void {
     this.setUpdatedProductData();
-    this.productService.updateProduct(this.product).subscribe();
+    this.productService.update(this.product).subscribe();
     this.updateCategoryForProduct(
       this.product,
       this.getCategory()

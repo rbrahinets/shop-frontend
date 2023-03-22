@@ -33,7 +33,7 @@ export class CategoryListComponent implements OnInit {
   }
 
   private setCategories(): void {
-    this.categoryService.getCategories().subscribe(
+    this.categoryService.findAll().subscribe(
       (categories: Category[]) => this.categories = categories
     );
   }

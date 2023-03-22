@@ -27,15 +27,15 @@ export class CartService {
     return undefined;
   }
 
-  getCarts(): Observable<Cart[]> {
+  findAll(): Observable<Cart[]> {
     return this.http.get<Cart[]>(this.apiUrl);
   }
 
-  getCart(id: number): Observable<Cart> {
+  findById(id: number): Observable<Cart> {
     return this.http.get<Cart>(`${this.apiUrl + id}`);
   }
 
-  saveCart(cart: Cart): Observable<Cart> {
+  save(cart: Cart): Observable<Cart> {
     return this.http.post<Cart>(
       this.apiUrl,
       cart,
@@ -43,7 +43,7 @@ export class CartService {
     );
   }
 
-  updateCart(cart: Cart): Observable<Cart> {
+  update(cart: Cart): Observable<Cart> {
     return this.http.put<Cart>(
       `${this.apiUrl + cart.id}`,
       cart,
@@ -54,13 +54,13 @@ export class CartService {
   saveCartForUser(user: User): void {
     const cart = new Cart();
 
-    this.getCarts().subscribe(
+    this.findAll().subscribe(
       (carts: Cart[]) => cart.id = (carts.length as number) + 1
     );
 
     cart.totalCost = 0;
     cart.userId = user.id;
 
-    this.saveCart(cart).subscribe();
+    this.save(cart).subscribe();
   }
 }

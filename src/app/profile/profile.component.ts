@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit {
   }
 
   private setProfileOfUser(): void {
-    this.userService.getUser(
+    this.userService.findById(
       LoggedUserService.getUserId()
     ).then(
       (user: User) => this.user = user

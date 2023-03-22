@@ -38,7 +38,7 @@ export class CategoryAddComponent implements OnInit {
   }
 
   private setCategories(): void {
-    this.categoryService.getCategories().subscribe(
+    this.categoryService.findAll().subscribe(
       (categories: Category[]) => this.categories = categories
     );
   }
@@ -51,12 +51,12 @@ export class CategoryAddComponent implements OnInit {
   }
 
   private addCategory(): void {
-    this.categoryService.getCategories().subscribe(
+    this.categoryService.findAll().subscribe(
       (categories: Category[]) => {
         const newCategory = new Category();
         newCategory.id = categories.length + 1;
         newCategory.name = this.categoryName;
-        this.categoryService.saveCategory(newCategory).subscribe();
+        this.categoryService.save(newCategory).subscribe();
         this.navigation.goToEndpoint('/categories', true);
       }
     );

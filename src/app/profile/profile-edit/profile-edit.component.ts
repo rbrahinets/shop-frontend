@@ -39,7 +39,7 @@ export class ProfileEditComponent implements OnInit {
   }
 
   private setDefaultProfileData(): void {
-    this.userService.getUser(
+    this.userService.findById(
       LoggedUserService.getUserId()
     ).then(
       (user: User) => {
@@ -59,14 +59,14 @@ export class ProfileEditComponent implements OnInit {
   }
 
   private updateProfileData(): void {
-    this.userService.getUser(
+    this.userService.findById(
       LoggedUserService.getUserId()
     ).then(
       (user: User) => {
         user.firstName = this.firstName;
         user.lastName = this.lastName;
 
-        this.userService.updateUser(user).subscribe();
+        this.userService.update(user).subscribe();
         this.navigation.goToEndpoint('/profile');
       }
     );

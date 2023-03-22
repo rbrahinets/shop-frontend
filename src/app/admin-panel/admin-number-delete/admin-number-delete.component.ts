@@ -42,13 +42,13 @@ export class AdminNumberDeleteComponent implements OnInit {
   }
 
   private setAdminNumbers(): void {
-    this.adminService.getAdminsNumbers().subscribe(
+    this.adminService.findAll().subscribe(
       (adminNumbers: AdminNumberDto[]) => this.adminsNumbers = adminNumbers
     );
   }
 
   private setUsers(): void {
-    this.userService.getUsers().subscribe(
+    this.userService.findAll().subscribe(
       (users: User[]) => this.users = users
     );
   }
@@ -64,7 +64,7 @@ export class AdminNumberDeleteComponent implements OnInit {
   private deleteAdminNumber(): void {
     for (const adminNumber of this.adminsNumbers) {
       if (adminNumber.number === this.adminNumber) {
-        this.adminService.deleteAdminNumber(adminNumber);
+        this.adminService.delete(adminNumber);
         break;
       }
     }

@@ -33,7 +33,7 @@ export class ProductListComponent implements OnInit {
   }
 
   private setProducts() {
-    this.productService.getProducts().subscribe(
+    this.productService.findAll().subscribe(
       (products: Product[]) => this.products = products
     );
   }

@@ -21,7 +21,7 @@ export class MainComponent implements OnInit {
   }
 
   private setRandomProducts(): void {
-    this.productService.getProducts().subscribe(
+    this.productService.findAll().subscribe(
       (products: Product[]) =>
         this.products = RandomProductService.getRandomProducts(products)
     );
