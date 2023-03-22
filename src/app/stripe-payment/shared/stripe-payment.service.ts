@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class StripePaymentService {
-  private apiUrl: string = 'http://localhost:8080/checkout/';
+  private apiUrl = 'http://localhost:8080/api/checkout/';
 
   constructor(
     private http: HttpClient

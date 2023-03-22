@@ -8,7 +8,7 @@ import {Http} from '../../shared/http';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl: string = 'http://localhost:8080/users/';
+  private apiUrl = 'http://localhost:8080/api/users/';
 
   constructor(
     private http: HttpClient
