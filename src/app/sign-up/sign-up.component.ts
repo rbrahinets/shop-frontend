@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import * as bcrypt from 'bcryptjs';
 import {User} from '../users/shared/user.model';
 import {NavigationService} from '../shared/navigation.service';
 import {SignUpValidator} from './shared/sign-up.validator';
@@ -97,8 +96,8 @@ export class SignUpComponent implements OnInit {
         user.lastName = this.lastName;
         user.email = this.email;
         user.phone = this.phone;
-        user.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10));
-        user.adminNumber = this.isAdmin ? this.adminNumber : "";
+        user.password = this.password;
+        user.adminNumber = this.isAdmin ? this.adminNumber : '';
 
         this.addNewUser(user);
         this.addRoleForNewUser(user, this.isAdmin);
