@@ -24,6 +24,7 @@ export class UserService {
   }
 
   save(user: User): Observable<User> {
+    user.password = Array.from(user.password);
     return this.http.post<User>(
       this.apiUrl,
       user,
