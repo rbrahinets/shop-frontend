@@ -92,7 +92,7 @@ export class SignUpComponent implements OnInit {
     this.userService.findAll().subscribe(
       (users: User[]) => {
         const user = new User();
-        user.id = (users.length as number) + 1;
+        user.id = users[users.length - 1].id + 1;
         user.firstName = this.firstName;
         user.lastName = this.lastName;
         user.email = this.email;
