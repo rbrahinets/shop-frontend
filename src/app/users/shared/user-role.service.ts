@@ -31,14 +31,8 @@ export class UserRoleService {
     isAdmin: boolean
   ): Observable<UserRoleDto> {
     const userRole = new UserRoleDto();
-
-    this.getUsersRoles().subscribe(
-      (roleUsersRoles: UserRoleDto[]) =>
-        userRole.id = (roleUsersRoles.length as number) + 1
-    );
-
-    userRole.roleId = isAdmin ? 1 : 2;
     userRole.userId = user.id;
+    userRole.roleId = isAdmin ? 1 : 2;
 
     return this.http.post<UserRoleDto>(
       this.apiUrl,
