@@ -53,11 +53,6 @@ export class CartService {
 
   saveCartForUser(user: User): void {
     const cart = new Cart();
-
-    this.findAll().subscribe(
-      (carts: Cart[]) => cart.id = (carts.length as number) + 1
-    );
-
     cart.totalCost = 0;
     cart.userId = user.id;
 
