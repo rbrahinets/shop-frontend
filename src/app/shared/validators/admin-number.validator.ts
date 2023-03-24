@@ -62,7 +62,7 @@ export class AdminNumberValidator {
   }
 
   private static isInvalidAdminNumber(adminNumber: string): boolean {
-    return adminNumber.length < 3
+    return adminNumber.length !== 8;
   }
 
   private static isExistingAdminNumber(
