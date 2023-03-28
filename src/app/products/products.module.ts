@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {ButtonModule} from '../button/button.module';
 import {SortModule} from '../sort/sort.module';
+import {ImageModule} from '../image/image.module';
 import {ProductListComponent} from './product-list/product-list.component';
 import {ProductListItemComponent} from './product-list-item/product-list-item.component';
 import {ProductComponent} from './product/product.component';
@@ -26,7 +27,8 @@ import {NavigationService} from '../shared/navigation.service';
     FormsModule,
     HttpClientModule,
     ButtonModule,
-    SortModule
+    SortModule,
+    ImageModule
   ],
   declarations: [
     ProductListComponent,

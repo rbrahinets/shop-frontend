@@ -8,7 +8,6 @@ import {Product} from '../shared/product.model';
 })
 export class ProductListItemComponent implements OnInit {
   @Input() product = new Product();
-  @Input() imagePath: string;
 
   constructor() {
   }

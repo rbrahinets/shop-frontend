@@ -1,5 +1,8 @@
 <div>
-  <img [src]="imagePath" [alt]="product.name"/>
+  <shop-image
+    [imageBytes]="product.image"
+    [alt]="product.name"
+  ></shop-image>
   <h3>Name: {{product.name}}</h3>
   <h4>Describe: {{product.describe}}</h4>
   <h4>Barcode: {{product.barcode}}</h4>

@@ -14,7 +14,6 @@ import {Cart} from '../../cart/shared/cart.model';
 })
 export class ProductComponent implements OnInit {
   product = new Product();
-  imagePath: string;
   logged: boolean;
   isUser: boolean;
 
@@ -59,10 +58,7 @@ export class ProductComponent implements OnInit {
     this.productService.findById(
       this.navigation.getCurrentPathId()
     ).then(
-      (product: Product) => {
-        this.product = product;
-        this.imagePath = product.image;
-      }
+      (product: Product) => this.product = product
     );
   }
 

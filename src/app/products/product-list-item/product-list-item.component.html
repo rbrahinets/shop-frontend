@@ -3,7 +3,10 @@
   routerLink="/products/{{product.id}}"
 >
   <div class="inline">
-    <img [src]="imagePath" [alt]="product.name"/>
+    <shop-image
+      [imageBytes]="product.image"
+      [alt]="product.name"
+    ></shop-image>
   </div>
   <div class="inline">
     <h3>{{product.name}}</h3>
