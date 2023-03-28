@@ -3,22 +3,26 @@ import {Random} from '../../shared/random';
 
 export class RandomProductService {
   static getRandomProducts(
-    products: Product[]
+    products: Product[],
+    count: number
   ): Product[] {
     const idsOfProducts: number[] =
-      RandomProductService.getIdsOfRandomProducts(products);
+      RandomProductService.getIdsOfRandomProducts(products, count);
     const arrayOfProducts: Product[] = [];
 
-    for (let i = 0; i < RandomProductService.getCountOfRandomProducts(); i++) {
+    for (let i = 0; i < count; i++) {
       arrayOfProducts.push(products[idsOfProducts[i]]);
     }
 
     return arrayOfProducts;
   }
 
-  private static getIdsOfRandomProducts(products: Product[]): number[] {
+  private static getIdsOfRandomProducts(
+    products: Product[],
+    count: number
+  ): number[] {
     return Random.getRandomIds(
-      RandomProductService.getCountOfRandomProducts(),
+      count,
       products.length
     );
   }
