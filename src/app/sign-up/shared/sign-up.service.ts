@@ -16,9 +16,6 @@ export class SignUpService {
   }
 
   signUp(signUpDto: SignUpDto): Observable<SignUpDto> {
-    console.log('SignUpService::signUp');
-    console.log(signUpDto);
-
     return this.http.post<SignUpDto>(
       this.apiUrl,
       signUpDto,
