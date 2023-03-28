@@ -6,6 +6,7 @@ import {ButtonModule} from './button/button.module';
 import {HeaderModule} from './header/header.module';
 import {FooterModule} from './footer/footer.module';
 import {MainModule} from './main/main.module';
+import {ImageModule} from './image/image.module';
 import {SignInModule} from './sign-in/sign-in.module';
 import {SignUpModule} from './sign-up/sign-up.module';
 import {CategoriesModule} from './categories/categories.module';
@@ -40,6 +41,7 @@ import {AppComponent} from './app.component';
     HeaderModule,
     FooterModule,
     MainModule,
+    ImageModule,
     SignInModule,
     SignUpModule,
     CategoriesModule,
