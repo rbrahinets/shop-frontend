@@ -14,7 +14,7 @@ import {ProductEditComponent} from './product-edit/product-edit.component';
 import {ProductDeleteComponent} from './product-delete/product-delete.component';
 import {ProductService} from './shared/product.service';
 import {CategoryService} from '../categories/shared/category.service';
-import {ProductsCategoryService} from '../categories/shared/products-category.service';
+import {ProductCategoryService} from '../categories/shared/product-category.service';
 import {CartService} from '../cart/shared/cart.service';
 import {ProductsCartService} from '../cart/shared/products-cart.service';
 import {LoggedUserService} from '../users/shared/logged-user.service';
@@ -41,7 +41,7 @@ import {NavigationService} from '../shared/navigation.service';
   providers: [
     ProductService,
     CategoryService,
-    ProductsCategoryService,
+    ProductCategoryService,
     CartService,
     ProductsCartService,
     LoggedUserService,

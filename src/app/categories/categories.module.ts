@@ -12,7 +12,7 @@ import {CategoryAddComponent} from './category-add/category-add.component';
 import {CategoryEditComponent} from './category-edit/category-edit.component';
 import {CategoryDeleteComponent} from './category-delete/category-delete.component';
 import {CategoryService} from './shared/category.service';
-import {ProductsCategoryService} from './shared/products-category.service';
+import {ProductCategoryService} from './shared/product-category.service';
 import {ProductService} from '../products/shared/product.service';
 import {LoggedUserService} from '../users/shared/logged-user.service';
 import {NavigationService} from '../shared/navigation.service';
@@ -36,7 +36,7 @@ import {NavigationService} from '../shared/navigation.service';
   ],
   providers: [
     CategoryService,
-    ProductsCategoryService,
+    ProductCategoryService,
     ProductService,
     LoggedUserService,
     NavigationService

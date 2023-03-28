@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../shared/product.service';
-import {ProductsCategoryService} from '../../categories/shared/products-category.service';
+import {ProductCategoryService} from '../../categories/shared/product-category.service';
 import {NavigationService} from '../../shared/navigation.service';
 import {Product} from '../shared/product.model';
 import {ProductBarcodeValidator} from '../../shared/validators/product-barcode.validator';
-import {ProductsCategoryDto} from '../../categories/shared/products-category.dto';
+import {ProductCategoryDto} from '../../categories/shared/product-category.dto';
 
 @Component({
   selector: 'shop-product-delete',
@@ -17,7 +17,7 @@ export class ProductDeleteComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private productsCategoryService: ProductsCategoryService,
+    private productsCategoryService: ProductCategoryService,
     private navigation: NavigationService,
     private validator: ProductBarcodeValidator
   ) {
@@ -64,10 +64,10 @@ export class ProductDeleteComponent implements OnInit {
     this.navigation.goToEndpoint('/products', true);
   }
 
-  private deleteProductFromCategory(product: Product) {
-    this.productsCategoryService.getProductsCategory().subscribe(
-      (productsCategories: ProductsCategoryDto[]) => {
-        for (const productsCategory of productsCategories) {
+  private deleteProductFromCategory(product: Product): void {
+    this.productsCategoryService.getProductsFromCategories().subscribe(
+      (productsFromCategories: ProductCategoryDto[]) => {
+        for (const productsCategory of productsFromCategories) {
           if (productsCategory.productId === product.id) {
             this.productsCategoryService.deleteProductFromCategory(
               productsCategory

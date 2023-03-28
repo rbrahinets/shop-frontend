@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../shared/product.service';
 import {CategoryService} from '../../categories/shared/category.service';
-import {ProductsCategoryService} from '../../categories/shared/products-category.service';
+import {ProductCategoryService} from '../../categories/shared/product-category.service';
 import {NavigationService} from '../../shared/navigation.service';
 import {Product} from '../shared/product.model';
 import {Category} from '../../categories/shared/category.model';
 import {ProductValidator} from '../shared/product.validator';
 import {ProductDto} from '../shared/product.dto';
-import {ProductsCategoryDto} from '../../categories/shared/products-category.dto';
+import {ProductCategoryDto} from '../../categories/shared/product-category.dto';
 
 @Component({
   selector: 'shop-category-edit',
@@ -27,7 +27,7 @@ export class ProductEditComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private categoryService: CategoryService,
-    private productsCategoryService: ProductsCategoryService,
+    private productsCategoryService: ProductCategoryService,
     private navigation: NavigationService,
     private validator: ProductValidator
   ) {
@@ -122,11 +122,11 @@ export class ProductEditComponent implements OnInit {
     product: Product,
     category: Category
   ): void {
-    this.productsCategoryService.getProductsCategory()
+    this.productsCategoryService.getProductsFromCategories()
       .subscribe(
-        (productsCategories: ProductsCategoryDto[]) => {
-          const productCategory = new ProductsCategoryDto();
-          productCategory.id = productsCategories.length;
+        (productsFromCategories: ProductCategoryDto[]) => {
+          const productCategory = new ProductCategoryDto();
+          productCategory.id = productsFromCategories.length;
           productCategory.productId = product.id;
           productCategory.categoryId = category.id;
 
