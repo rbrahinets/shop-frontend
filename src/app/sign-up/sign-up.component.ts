@@ -5,9 +5,8 @@ import {SignUpValidator} from './shared/sign-up.validator';
 import {SignUpDto} from './shared/sign-up.dto';
 import {UserService} from '../users/shared/user.service';
 import {AdminService} from '../users/shared/admin.service';
+import {SignUpService} from './shared/sign-up.service';
 import {AdminNumberDto} from '../users/shared/admin-number.dto';
-import {UserRoleService} from '../users/shared/user-role.service';
-import {CartService} from '../cart/shared/cart.service';
 
 @Component({
   selector: 'shop-sign-up',
@@ -31,8 +30,7 @@ export class SignUpComponent implements OnInit {
     private validator: SignUpValidator,
     private userService: UserService,
     private adminService: AdminService,
-    private userRoleService: UserRoleService,
-    private cartService: CartService
+    private signUpService: SignUpService
   ) {
     this.isAdmin = false;
   }
@@ -50,7 +48,7 @@ export class SignUpComponent implements OnInit {
     this.signUp();
   }
 
-  onClickSignIn(endpoint: string) {
+  onClickSignIn(endpoint: string): void {
     this.navigation.goToEndpoint(endpoint);
   }
 
@@ -88,44 +86,19 @@ export class SignUpComponent implements OnInit {
   }
 
   private signUp(): void {
-    this.userService.findAll().subscribe(
-      (users: User[]) => {
-        const user = new User();
-        user.id = users[users.length - 1].id + 1;
-        user.firstName = this.firstName;
-        user.lastName = this.lastName;
-        user.email = this.email;
-        user.phone = this.phone;
-        user.password = this.password;
-        user.adminNumber = this.isAdmin ? this.adminNumber : '';
-
-        this.addNewUser(user);
-        this.addRoleForNewUser(user, this.isAdmin);
-
-        if (!this.isAdmin) {
-          this.addCartForNewUser(user);
-        }
-
-        this.navigation.goToEndpoint('/sign-in');
-      }
-    );
+    this.signUpService.signUp(this.getSignUpDto()).subscribe();
+    this.navigation.goToEndpoint('/sign-in');
   }
 
-  private addNewUser(user: User): void {
-    this.userService.save(user).subscribe();
-  }
-
-  private addRoleForNewUser(
-    user: User,
-    isAdmin: boolean
-  ): void {
-    this.userRoleService.saveRoleForUser(
-      user,
-      isAdmin
-    ).subscribe();
-  }
-
-  private addCartForNewUser(user: User): void {
-    this.cartService.saveCartForUser(user);
+  private getSignUpDto(): SignUpDto {
+    const signUpDto = new SignUpDto();
+    signUpDto.firstName = this.firstName;
+    signUpDto.lastName = this.lastName;
+    signUpDto.email = this.email;
+    signUpDto.phone = this.phone;
+    signUpDto.password = this.password;
+    signUpDto.confirmPassword = this.confirmPassword;
+    signUpDto.adminNumber = this.isAdmin ? this.adminNumber : '';
+    return signUpDto;
   }
 }
