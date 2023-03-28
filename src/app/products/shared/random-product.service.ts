@@ -26,8 +26,4 @@ export class RandomProductService {
       products.length
     );
   }
-
-  private static getCountOfRandomProducts(): number {
-    return 5;
-  }
 }
