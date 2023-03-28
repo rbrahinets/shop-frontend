@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'shop-image',
@@ -6,6 +6,9 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./image.component.css']
 })
 export class ImageComponent implements OnInit {
+  @Input() imageBytes: any;
+  @Input() alt: string;
+
   constructor() {
   }
 
