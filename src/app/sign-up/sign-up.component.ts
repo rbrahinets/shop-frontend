@@ -70,15 +70,7 @@ export class SignUpComponent implements OnInit {
 
   private isValidCredential(): boolean {
     return this.validator.validate(
-      new SignUpDto(
-        this.firstName,
-        this.lastName,
-        this.email,
-        this.phone,
-        this.password,
-        this.confirmPassword,
-        this.adminNumber
-      ),
+      this.getSignUpDto(),
       this.users,
       this.adminNumbers,
       this.isAdmin
