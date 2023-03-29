@@ -41,7 +41,7 @@ export class ProductService {
 
   delete(product: Product): void {
     this.http.delete<Product>(
-      `${this.apiUrl + product.id}`
+      `${this.apiUrl + product.barcode}`
     ).subscribe();
   }
 }
