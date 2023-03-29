@@ -41,7 +41,7 @@ export class AdminService {
 
   delete(adminNumber: AdminNumberDto): void {
     this.http.delete<AdminNumberDto>(
-      `${this.apiUrl + adminNumber.id}`
+      `${this.apiUrl + adminNumber.number}`
     ).subscribe();
   }
 }
