@@ -38,7 +38,7 @@ export class ProductAddComponent implements OnInit {
     this.setProducts();
   }
 
-  onChangeFile(event) {
+  onChangeFile(event): void {
     this.productImage = event.target.files[0];
   }
 

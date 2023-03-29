@@ -101,7 +101,7 @@ export class ProductEditComponent implements OnInit {
     this.navigation.goToEndpoint(`/products/${this.navigation.getCurrentPathId()}`, true);
   }
 
-  private setUpdatedProductData() {
+  private setUpdatedProductData(): void {
     this.product.name = this.productName;
     this.product.describe = this.productDescribe;
     this.product.price = this.productPrice;
