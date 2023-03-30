@@ -122,18 +122,12 @@ export class ProductEditComponent implements OnInit {
     product: Product,
     category: Category
   ): void {
-    this.productsCategoryService.getProductsFromCategories()
-      .subscribe(
-        (productsFromCategories: ProductCategoryDto[]) => {
-          const productCategory = new ProductCategoryDto();
-          productCategory.id = productsFromCategories.length;
-          productCategory.productId = product.id;
-          productCategory.categoryId = category.id;
+    const productCategory = new ProductCategoryDto();
+    productCategory.productBarcode = product.barcode;
+    productCategory.categoryName = category.name;
 
-          this.productsCategoryService.updateCategoryForProduct(
-            productCategory
-          ).subscribe();
-        }
-      );
+    this.productsCategoryService.updateCategoryForProduct(
+      productCategory
+    ).subscribe();
   }
 }

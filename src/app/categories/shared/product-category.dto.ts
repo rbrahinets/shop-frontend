@@ -1,5 +1,4 @@
 export class ProductCategoryDto {
-  id?: number;
-  productId: number;
-  categoryId: number;
+  productBarcode: string;
+  categoryName: string;
 }

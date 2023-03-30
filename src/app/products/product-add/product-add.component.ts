@@ -119,18 +119,12 @@ export class ProductAddComponent implements OnInit {
     product: Product,
     category: Category
   ): void {
-    this.productsCategoryService.getProductsFromCategories()
-      .subscribe(
-        (productsFromCategories: ProductCategoryDto[]) => {
-          const productCategory = new ProductCategoryDto();
-          productCategory.id = productsFromCategories.length + 1;
-          productCategory.productId = product.id;
-          productCategory.categoryId = category.id;
+    const productCategory = new ProductCategoryDto();
+    productCategory.productBarcode = product.barcode;
+    productCategory.categoryName = category.name;
 
-          this.productsCategoryService.saveProductToCategory(
-            productCategory
-          ).subscribe();
-        }
-      );
+    this.productsCategoryService.saveProductToCategory(
+      productCategory
+    ).subscribe();
   }
 }

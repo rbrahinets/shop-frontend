@@ -34,7 +34,7 @@ export class ProductCategoryService {
     productCategory: ProductCategoryDto
   ): Observable<ProductCategoryDto> {
     return this.http.put<ProductCategoryDto>(
-      `${this.apiUrl + productCategory.id}`,
+      this.apiUrl,
       productCategory,
       Http.getHttpOptions()
     );
@@ -44,7 +44,7 @@ export class ProductCategoryService {
     productCategory: ProductCategoryDto
   ): void {
     this.http.delete<ProductCategoryDto>(
-      `${this.apiUrl + productCategory.id}`
+      `${this.apiUrl + productCategory.productBarcode}`
     ).subscribe();
   }
 }
