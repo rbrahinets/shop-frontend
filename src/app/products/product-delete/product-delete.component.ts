@@ -56,25 +56,10 @@ export class ProductDeleteComponent implements OnInit {
     for (const product of this.products) {
       if (product.barcode === this.productBarcode) {
         this.productService.delete(product);
-        this.deleteProductFromCategory(product);
         break;
       }
     }
 
     this.navigation.goToEndpoint('/products', true);
-  }
-
-  private deleteProductFromCategory(product: Product): void {
-    this.productsCategoryService.getProductsFromCategories().subscribe(
-      (productsFromCategories: ProductCategoryDto[]) => {
-        for (const productsCategory of productsFromCategories) {
-          if (productsCategory.productId === product.id) {
-            this.productsCategoryService.deleteProductFromCategory(
-              productsCategory
-            );
-          }
-        }
-      }
-    );
   }
 }

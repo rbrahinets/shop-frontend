@@ -41,18 +41,4 @@ export class CategoryComponent implements OnInit {
           )
       );
   }
-
-  private setProductsFromCategory(
-    categoryId: number,
-    productsFromCategories: ProductCategoryDto[]
-  ) {
-    for (const pc of productsFromCategories) {
-      if (pc.categoryId === categoryId) {
-        this.productService.findById(pc.productId)
-          .then(
-            (product: Product) => this.products.push(product)
-          );
-      }
-    }
-  }
 }

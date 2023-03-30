@@ -23,15 +23,6 @@ export class UserService {
     return this.http.get<User>(`${this.apiUrl + id}`).toPromise();
   }
 
-  save(user: User): Observable<User> {
-    user.password = Array.from(user.password);
-    return this.http.post<User>(
-      this.apiUrl,
-      user,
-      Http.getHttpOptions()
-    );
-  }
-
   update(user: User): Observable<User> {
     return this.http.put<User>(
       `${this.apiUrl + user.id}`,

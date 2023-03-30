@@ -26,21 +26,6 @@ export class UserRoleService {
     return this.http.get<RoleDto>(`${this.apiUrl + userId}`);
   }
 
-  saveRoleForUser(
-    user: User,
-    isAdmin: boolean
-  ): Observable<UserRoleDto> {
-    const userRole = new UserRoleDto();
-    userRole.userId = user.id;
-    userRole.roleId = isAdmin ? 1 : 2;
-
-    return this.http.post<UserRoleDto>(
-      this.apiUrl,
-      userRole,
-      Http.getHttpOptions()
-    );
-  }
-
   setRoleForLoggedUser(userId: number): void {
     this.getRoleForUser(userId)
       .subscribe(
