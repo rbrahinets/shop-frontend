@@ -31,13 +31,11 @@ export class CategoryComponent implements OnInit {
   }
 
   private setProducts(): void {
-    this.productsCategoryService.getProductsFromCategories()
+    this.productsCategoryService.findAllProductsInCategory(
+      this.navigation.getCurrentPathId()
+    )
       .subscribe(
-        (productsFromCategories: ProductCategoryDto[]) =>
-          this.setProductsFromCategory(
-            this.navigation.getCurrentPathId(),
-            productsFromCategories
-          )
+        (products: Product[]) => this.products = products
       );
   }
 }
