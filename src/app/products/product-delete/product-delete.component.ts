@@ -4,7 +4,6 @@ import {ProductCategoryService} from '../../categories/shared/product-category.s
 import {NavigationService} from '../../shared/navigation.service';
 import {Product} from '../shared/product.model';
 import {ProductBarcodeValidator} from '../../shared/validators/product-barcode.validator';
-import {ProductCategoryDto} from '../../categories/shared/product-category.dto';
 
 @Component({
   selector: 'shop-product-delete',
