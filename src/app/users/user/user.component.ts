@@ -37,7 +37,7 @@ export class UserComponent implements OnInit {
   }
 
   private setRole(): void {
-    this.userRoleService.getRoleForUser(this.user.id).subscribe(
+    this.userRoleService.findRoleForUser(this.user.id).subscribe(
       (roleDto: RoleDto) => {
         if (roleDto.name === 'ROLE_ADMIN') {
           this.role = 'Admin';

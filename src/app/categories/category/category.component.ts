@@ -3,8 +3,7 @@ import {Product} from '../../products/shared/product.model';
 import {ProductCategoryService} from '../shared/product-category.service';
 import {ProductService} from '../../products/shared/product.service';
 import {NavigationService} from '../../shared/navigation.service';
-import {ProductCategoryDto} from '../shared/product-category.dto';
-import {LoggedUserService} from "../../users/shared/logged-user.service";
+import {LoggedUserService} from '../../users/shared/logged-user.service';
 
 @Component({
   selector: 'shop-category',

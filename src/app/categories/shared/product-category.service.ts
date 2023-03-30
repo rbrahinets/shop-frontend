@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ProductCategoryDto} from './product-category.dto';
+import {Product} from '../../products/shared/product.model';
 import {Http} from '../../shared/http';
 
 @Injectable({
@@ -15,8 +16,8 @@ export class ProductCategoryService {
   ) {
   }
 
-  getProductsFromCategories(): Observable<ProductCategoryDto[]> {
-    return this.http.get<ProductCategoryDto[]>(this.apiUrl);
+  findAllProductsInCategory(categoryId: number): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.apiUrl + categoryId}`);
   }
 
   saveProductToCategory(
