@@ -34,14 +34,6 @@ export class CartService {
     return this.http.get<Cart>(`${this.apiUrl + id}`);
   }
 
-  save(cart: Cart): Observable<Cart> {
-    return this.http.post<Cart>(
-      this.apiUrl,
-      cart,
-      Http.getHttpOptions()
-    );
-  }
-
   update(cart: Cart): Observable<Cart> {
     return this.http.put<Cart>(
       `${this.apiUrl + cart.id}`,
