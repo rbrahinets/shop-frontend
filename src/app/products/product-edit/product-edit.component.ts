@@ -99,20 +99,28 @@ export class ProductEditComponent implements OnInit {
   }
 
   private updateProductData(): void {
-    this.setUpdatedProductData();
-    this.productService.update(this.product).subscribe();
-    this.updateCategoryForProduct(
-      this.product,
-      this.getCategory()
-    );
-    this.navigation.goToEndpoint(`/products/${this.navigation.getCurrentPathId()}`, true);
-  }
-
-  private setUpdatedProductData(): void {
     this.product.name = this.productName;
     this.product.describe = this.productDescribe;
     this.product.price = this.productPrice;
     this.product.inStock = this.productInStock === 'Yes';
+
+    if (this.imageFile) {
+      const reader = new FileReader();
+      reader.readAsDataURL(this.imageFile);
+      reader.onload = () => {
+        this.product.image = reader.result.toString().split(',')[1];
+        this.productService.update(this.product).subscribe(
+          (product: Product) => this.updateCategoryForProduct(product, this.getCategory()
+          )
+        );
+      };
+    } else {
+      this.product.image = this.productImage;
+      this.productService.update(this.product).subscribe(
+        (product: Product) => this.updateCategoryForProduct(product, this.getCategory()
+        )
+      );
+    }
   }
 
   private getCategory(): Category {
@@ -135,6 +143,8 @@ export class ProductEditComponent implements OnInit {
 
     this.productsCategoryService.updateCategoryForProduct(
       productCategory
-    ).subscribe();
+    ).subscribe(
+      () => this.navigation.goToEndpoint(`/products/${this.navigation.getCurrentPathId()}`, true)
+    );
   }
 }
