@@ -22,6 +22,8 @@ export class ProductEditComponent implements OnInit {
   productInStock: string;
   productCategory: string;
   categories: Category[];
+  private productImage: any;
+  private imageFile: File;
   private products: Product[];
 
   constructor(
@@ -37,6 +39,10 @@ export class ProductEditComponent implements OnInit {
   ngOnInit(): void {
     this.setProducts();
     this.setCategories();
+  }
+
+  onChangeFile(event): void {
+    this.imageFile = event.target.files[0];
   }
 
   onUpdate(): void {
@@ -68,6 +74,7 @@ export class ProductEditComponent implements OnInit {
         this.productDescribe = product.describe;
         this.productPrice = product.price;
         this.productInStock = product.inStock ? 'Yes' : 'No';
+        this.productImage = product.image;
       }
     }
   }

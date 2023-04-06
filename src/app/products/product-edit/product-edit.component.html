@@ -58,6 +58,14 @@
         </select>
       </div>
     </div>
+    <div class="form-control">
+      <input
+        type="file"
+        name="product-image"
+        id="product-image"
+        (change)="onChangeFile($event)"
+      >
+    </div>
     <shop-button
       text="Update"
       color="#ff00ff"
