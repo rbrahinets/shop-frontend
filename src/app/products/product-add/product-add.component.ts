@@ -81,28 +81,28 @@ export class ProductAddComponent implements OnInit {
   }
 
   private addProduct(): void {
-    this.productService.findAll().subscribe(
-      (products: Product[]) => {
-        const newProduct = new Product();
-        newProduct.id = products.length + 1;
-        newProduct.name = this.productName;
-        newProduct.describe = this.productDescribe;
-        newProduct.price = this.productPrice;
-        newProduct.barcode = this.productBarcode;
-        newProduct.inStock = true;
-        newProduct.image = this.productImage
-          ? this.productImage.name
-          : '/assets/images/empty.jpg';
+    const newProduct = new Product();
+    newProduct.name = this.productName;
+    newProduct.describe = this.productDescribe;
+    newProduct.price = this.productPrice;
+    newProduct.barcode = this.productBarcode;
+    newProduct.inStock = true;
 
-        this.addProductToCategory(
-          newProduct,
-          this.getCategory()
+    if (this.productImage) {
+      const reader = new FileReader();
+      reader.readAsDataURL(this.productImage);
+      reader.onload = () => {
+        newProduct.image = reader.result.toString().split(',')[1];
+        this.productService.save(newProduct).subscribe(
+          (product: Product) => this.addProductToCategory(product, this.getCategory())
         );
-
-        this.productService.save(newProduct).subscribe();
-        this.navigation.goToEndpoint('/products', true);
-      }
-    );
+      };
+    } else {
+      newProduct.image = [];
+      this.productService.save(newProduct).subscribe(
+        (product: Product) => this.addProductToCategory(product, this.getCategory())
+      );
+    }
   }
 
   private getCategory(): Category {
@@ -125,6 +125,8 @@ export class ProductAddComponent implements OnInit {
 
     this.productsCategoryService.saveProductToCategory(
       productCategory
-    ).subscribe();
+    ).subscribe(
+      () => this.navigation.goToEndpoint('/products', true)
+    );
   }
 }
