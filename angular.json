@@ -121,5 +121,8 @@
       }
     }
   },
-  "defaultProject": "shop-frontend"
+  "defaultProject": "shop-frontend",
+  "cli": {
+    "analytics": "e5735056-6cd5-4861-8bf0-cc2739ae17f5"
+  }
 }
