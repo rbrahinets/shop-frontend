@@ -8,7 +8,7 @@ import {Http} from '../../shared/http';
   providedIn: 'root'
 })
 export class AdminService {
-  private apiUrl = 'http://localhost:8080/api/admins-numbers/';
+  private apiUrl = 'http://localhost:8080/api/admins-numbers';
 
   constructor(
     private http: HttpClient
@@ -20,7 +20,7 @@ export class AdminService {
   }
 
   findById(id: number): Observable<AdminNumberDto> {
-    return this.http.get<AdminNumberDto>(`${this.apiUrl + id}`);
+    return this.http.get<AdminNumberDto>(`${this.apiUrl + '/' + id}`);
   }
 
   save(adminNumber: AdminNumberDto): Observable<AdminNumberDto> {
@@ -33,7 +33,7 @@ export class AdminService {
 
   update(adminNumber: AdminNumberDto): Observable<AdminNumberDto> {
     return this.http.put<AdminNumberDto>(
-      `${this.apiUrl + adminNumber.id}`,
+      `${this.apiUrl + '/' + adminNumber.id}`,
       adminNumber,
       Http.getHttpOptions()
     );
@@ -41,7 +41,7 @@ export class AdminService {
 
   delete(adminNumber: AdminNumberDto): void {
     this.http.delete<AdminNumberDto>(
-      `${this.apiUrl + adminNumber.number}`
+      `${this.apiUrl + '/' + adminNumber.number}`
     ).subscribe();
   }
 }

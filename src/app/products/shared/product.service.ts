@@ -8,7 +8,7 @@ import {Http} from '../../shared/http';
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:8080/api/products/';
+  private apiUrl = 'http://localhost:8080/api/products';
 
   constructor(
     private http: HttpClient
@@ -20,7 +20,7 @@ export class ProductService {
   }
 
   findById(id: number): Promise<Product> {
-    return this.http.get<Product>(`${this.apiUrl + id}`).toPromise();
+    return this.http.get<Product>(`${this.apiUrl + '/' + id}`).toPromise();
   }
 
   save(product: Product): Observable<Product> {
@@ -33,7 +33,7 @@ export class ProductService {
 
   update(product: Product): Observable<Product> {
     return this.http.put<Product>(
-      `${this.apiUrl + product.id}`,
+      `${this.apiUrl + '/' + product.id}`,
       product,
       Http.getHttpOptions()
     );
@@ -41,7 +41,7 @@ export class ProductService {
 
   delete(product: Product): void {
     this.http.delete<Product>(
-      `${this.apiUrl + product.barcode}`
+      `${this.apiUrl + '/' + product.barcode}`
     ).subscribe();
   }
 }

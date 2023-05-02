@@ -9,7 +9,7 @@ import {LoggedUserService} from '../../users/shared/logged-user.service';
   providedIn: 'root'
 })
 export class CartService {
-  private apiUrl = 'http://localhost:8080/api/carts/';
+  private apiUrl = 'http://localhost:8080/api/carts';
 
   constructor(
     private http: HttpClient
@@ -31,12 +31,12 @@ export class CartService {
   }
 
   findById(id: number): Observable<Cart> {
-    return this.http.get<Cart>(`${this.apiUrl + id}`);
+    return this.http.get<Cart>(`${this.apiUrl + '/' + id}`);
   }
 
   update(cart: Cart): Observable<Cart> {
     return this.http.put<Cart>(
-      `${this.apiUrl + cart.id}`,
+      `${this.apiUrl + '/' + cart.id}`,
       cart,
       Http.getHttpOptions()
     );

@@ -8,7 +8,7 @@ import {Http} from '../../shared/http';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:8080/api/users/';
+  private apiUrl = 'http://localhost:8080/api/users';
 
   constructor(
     private http: HttpClient
@@ -20,12 +20,12 @@ export class UserService {
   }
 
   findById(id: number): Promise<User> {
-    return this.http.get<User>(`${this.apiUrl + id}`).toPromise();
+    return this.http.get<User>(`${this.apiUrl + '/' + id}`).toPromise();
   }
 
   update(user: User): Observable<User> {
     return this.http.put<User>(
-      `${this.apiUrl + user.id}`,
+      `${this.apiUrl + '/' + user.id}`,
       user,
       Http.getHttpOptions()
     );
@@ -33,7 +33,7 @@ export class UserService {
 
   delete(user: User): void {
     this.http.delete<User>(
-      `${this.apiUrl + user.id}`
+      `${this.apiUrl + '/' + user.id}`
     ).subscribe();
   }
 }

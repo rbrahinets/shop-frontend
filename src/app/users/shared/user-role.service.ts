@@ -8,7 +8,7 @@ import {LoggedUserService} from './logged-user.service';
   providedIn: 'root'
 })
 export class UserRoleService {
-  private apiUrl = 'http://localhost:8080/api/user-role/';
+  private apiUrl = 'http://localhost:8080/api/user-role';
 
   constructor(
     private http: HttpClient
@@ -16,7 +16,7 @@ export class UserRoleService {
   }
 
   findRoleForUser(userId: number): Observable<RoleDto> {
-    return this.http.get<RoleDto>(`${this.apiUrl + userId}`);
+    return this.http.get<RoleDto>(`${this.apiUrl + '/' + userId}`);
   }
 
   setRoleForLoggedUser(userId: number): void {

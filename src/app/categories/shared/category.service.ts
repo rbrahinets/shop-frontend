@@ -8,7 +8,7 @@ import {Http} from '../../shared/http';
   providedIn: 'root'
 })
 export class CategoryService {
-  private apiUrl = 'http://localhost:8080/api/categories/';
+  private apiUrl = 'http://localhost:8080/api/categories';
 
   constructor(
     private http: HttpClient
@@ -29,7 +29,7 @@ export class CategoryService {
 
   update(category: Category): Observable<Category> {
     return this.http.put<Category>(
-      `${this.apiUrl + category.id}`,
+      `${this.apiUrl + '/' + category.id}`,
       category,
       Http.getHttpOptions()
     );
@@ -37,7 +37,7 @@ export class CategoryService {
 
   delete(category: Category): void {
     this.http.delete<Category>(
-      `${this.apiUrl + category.name}`
+      `${this.apiUrl + '/' + category.name}`
     ).subscribe();
   }
 }
