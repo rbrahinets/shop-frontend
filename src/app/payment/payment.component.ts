@@ -3,7 +3,8 @@ import {PaymentService} from './shared/payment.service';
 import {CartService} from '../cart/shared/cart.service';
 import {ProductsCartService} from '../cart/shared/products-cart.service';
 import {PaymentRequestDto} from './shared/payment-request.dto';
-import {PaymentResponse} from './shared/payment-response.dto';
+import {PaymentResponseDto} from './shared/payment-response.dto';
+import {ReportDto} from './shared/report.dto';
 import {PaymentValidator} from './shared/payment.validator';
 import {Cart} from '../cart/shared/cart.model';
 import {NavigationService} from '../shared/navigation.service';
@@ -18,7 +19,7 @@ export class PaymentComponent implements OnInit {
   cardNumber: string;
   cardExpiry: string;
   cardCvc: string;
-  private paymentRequest: PaymentRequest;
+  private paymentRequest: PaymentRequestDto;
 
   constructor(
     private paymentService: PaymentService,
@@ -55,7 +56,7 @@ export class PaymentComponent implements OnInit {
 
   private payment(): void {
     this.paymentService.payment(this.paymentRequest).subscribe(
-      (response: PaymentResponse) => {
+      (response: PaymentResponseDto) => {
         alert(response.responseMessage);
         console.log(response.responseMessage);
         this.resetCart();

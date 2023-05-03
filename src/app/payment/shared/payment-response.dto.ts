@@ -1,4 +1,4 @@
-export class PaymentResponse {
+export class PaymentResponseDto {
   responseMessage: string;
 
   constructor(
