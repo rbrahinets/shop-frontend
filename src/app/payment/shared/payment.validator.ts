@@ -59,4 +59,46 @@ export class PaymentValidator {
 
     return sum % 10 === 0;
   }
+
+
+  private static validateCardExpiry(cardExpiry: string): boolean {
+    if (!cardExpiry) {
+      alert('You haven\'t entered an expiry');
+      return false;
+    } else if (!PaymentValidator.isValidCardExpiry(cardExpiry)) {
+      alert('You have entered an invalid expiry');
+      return false;
+    }
+
+    return true;
+  }
+
+  private static isValidCardExpiry(cardExpiry: string): boolean {
+    if (cardExpiry.length !== 5) {
+      return false;
+    } else if (!cardExpiry.includes('/', 2)) {
+      return false;
+    }
+
+    const partsOfExpiry: string[] = cardExpiry.split('/');
+
+    if (partsOfExpiry.length !== 2) {
+      return false;
+    }
+
+    const month: number = parseInt(partsOfExpiry[0], 10);
+    const year: number = parseInt(partsOfExpiry[1], 10);
+    const currentDate: Date = new Date();
+    const currentYear: number = currentDate.getFullYear() % 100;
+
+    if (isNaN(month) || isNaN(year)) {
+      return false;
+    } else if (month < 1 || month > 12) {
+      return false;
+    } else if (year < currentYear || (year === currentYear && month < currentDate.getMonth() + 1)) {
+      return false;
+    }
+
+    return true;
+  }
 }
