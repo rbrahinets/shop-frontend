@@ -14,7 +14,7 @@ import {ProductsModule} from './products/products.module';
 import {SortModule} from './sort/sort.module';
 import {ProfileModule} from './profile/profile.module';
 import {CartModule} from './cart/cart.module';
-import {StripePaymentModule} from './stripe-payment/stripe-payment.module';
+import {PaymentModule} from './payment/payment.module';
 import {UsersModule} from './users/users.module';
 import {AdminPanelModule} from './admin-panel/admin-panel.module';
 import {SharedModule} from './shared/shared.module';
@@ -49,7 +49,7 @@ import {AppComponent} from './app.component';
     SortModule,
     ProfileModule,
     CartModule,
-    StripePaymentModule,
+    PaymentModule,
     AdminPanelModule,
     UsersModule,
     SharedModule,
