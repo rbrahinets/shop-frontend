@@ -1,4 +1,4 @@
-export class PaymentRequest {
+export class PaymentRequestDto {
   priceAmount: number;
   cardNumber: string;
   cardExpiry: string;

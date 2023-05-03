@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {PaymentService} from './shared/payment.service';
 import {CartService} from '../cart/shared/cart.service';
 import {ProductsCartService} from '../cart/shared/products-cart.service';
-import {PaymentRequest} from './shared/payment-request.dto';
+import {PaymentRequestDto} from './shared/payment-request.dto';
 import {PaymentResponse} from './shared/payment-response.dto';
 import {PaymentValidator} from './shared/payment.validator';
 import {Cart} from '../cart/shared/cart.model';
@@ -33,7 +33,7 @@ export class PaymentComponent implements OnInit {
   }
 
   onPay(): void {
-    this.paymentRequest = new PaymentRequest(
+    this.paymentRequest = new PaymentRequestDto(
       this.priceAmount,
       this.cardNumber,
       this.cardExpiry,
