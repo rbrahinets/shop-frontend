@@ -1,9 +1,9 @@
 export class PaymentResponseDto {
-  responseMessage: string;
+  message: string;
 
   constructor(
-    responseMessage: string
+    message: string,
   ) {
-    this.responseMessage = responseMessage;
+    this.message = message;
   }
 }

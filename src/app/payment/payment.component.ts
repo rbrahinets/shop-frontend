@@ -57,8 +57,8 @@ export class PaymentComponent implements OnInit {
   private payment(): void {
     this.paymentService.payment(this.paymentRequest).subscribe(
       (response: PaymentResponseDto) => {
-        alert(response.responseMessage);
-        console.log(response.responseMessage);
+        alert(response.message);
+        console.log(response.message);
         this.resetCart();
       }
     );
