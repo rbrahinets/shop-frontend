@@ -60,6 +60,10 @@ export class ProductsCartService {
     localStorage.setItem('productsCart', JSON.stringify(productsCart));
   }
 
+  deleteProductsFromCurrentCart(): void {
+    localStorage.removeItem('productsCart');
+  }
+
   deleteProductFromCart(
     product: Product,
     cart: Cart
