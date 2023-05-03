@@ -24,8 +24,9 @@
       (btnClick)="onPay()"
     ></shop-button>
 
-    <shop-stripe-payment
+    <shop-payment
+      *ngIf="showPayment"
       [amount]="cart.totalCost"
-    ></shop-stripe-payment>
+    ></shop-payment>
   </div>
 </div>
