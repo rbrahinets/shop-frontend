@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {PaymentRequest} from './payment-request.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -112,5 +113,12 @@ export class PaymentValidator {
     }
 
     return true;
+  }
+
+  validate(paymentData: PaymentRequest): boolean {
+    return PaymentValidator.validateAmount(paymentData.amount)
+      && PaymentValidator.validateCardNumber(paymentData.cardNumber)
+      && PaymentValidator.validateCardExpiry(paymentData.cardExpiry)
+      && PaymentValidator.validateCardCvc(paymentData.cardCvc);
   }
 }
