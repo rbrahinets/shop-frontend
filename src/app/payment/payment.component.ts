@@ -59,7 +59,10 @@ export class PaymentComponent implements OnInit {
       (response: PaymentResponseDto) => {
         alert(response.message);
         console.log(response.message);
-        this.resetCart();
+
+        if (response.isSuccessfully) {
+          this.resetCart();
+        }
       }
     );
   }
