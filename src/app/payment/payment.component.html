@@ -1,0 +1,36 @@
+<div class="center">
+  <form class="form">
+    <div class="form-control">
+      <input
+        type="text"
+        name="card-number"
+        id="card-number"
+        placeholder="Enter your card number"
+        [(ngModel)]="cardNumber"
+      >
+    </div>
+    <div class="form-control">
+      <input
+        type="text"
+        name="card-expiry"
+        id="card-expiry"
+        placeholder="MM/YY"
+        [(ngModel)]="cardExpiry"
+      >
+    </div>
+    <div class="form-control">
+      <input
+        type="text"
+        name="card-cvc"
+        id="card-cvc"
+        placeholder="Enter CVC code"
+        [(ngModel)]="cardCvc"
+      >
+    </div>
+    <shop-button
+      text="Pay"
+      color="#11ffaa"
+      (btnClick)="onPay()"
+    ></shop-button>
+  </form>
+</div>

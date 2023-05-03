@@ -1,13 +1,17 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import {ButtonModule} from '../button/button.module';
 import {PaymentComponent} from './payment.component';
 import {PaymentService} from './shared/payment.service';
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ButtonModule
   ],
   declarations: [PaymentComponent],
   providers: [PaymentService],
