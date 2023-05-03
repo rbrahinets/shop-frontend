@@ -26,6 +26,7 @@
 
     <shop-payment
       *ngIf="showPayment"
+      [products]="productsInCart"
       [priceAmount]="cart.priceAmount"
     ></shop-payment>
   </div>

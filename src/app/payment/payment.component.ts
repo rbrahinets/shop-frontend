@@ -6,6 +6,7 @@ import {PaymentRequestDto} from './shared/payment-request.dto';
 import {PaymentResponseDto} from './shared/payment-response.dto';
 import {ReportDto} from './shared/report.dto';
 import {PaymentValidator} from './shared/payment.validator';
+import {Product} from '../products/shared/product.model';
 import {Cart} from '../cart/shared/cart.model';
 import {NavigationService} from '../shared/navigation.service';
 
@@ -15,6 +16,7 @@ import {NavigationService} from '../shared/navigation.service';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
+  @Input() products: Product[];
   @Input() priceAmount: number;
   cardNumber: string;
   cardExpiry: string;

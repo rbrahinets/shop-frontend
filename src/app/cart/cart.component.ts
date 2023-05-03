@@ -16,7 +16,7 @@ export class CartComponent implements OnInit {
   groupsOfProducts: ProductsGroupsDto[];
   showPayment: boolean;
   faTimes = faTimes;
-  private productsInCart: Product[];
+  productsInCart: Product[];
 
   constructor(
     private cartService: CartService,
