@@ -14,6 +14,7 @@ import {ProductsCartService} from './shared/products-cart.service';
 export class CartComponent implements OnInit {
   cart: Cart;
   groupsOfProducts: ProductsGroupsDto[];
+  showPayment: boolean;
   faTimes = faTimes;
   private productsInCart: Product[];
 
@@ -27,7 +28,12 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.showPayment = false;
     this.setCart();
+  }
+
+  onPay(): void {
+    this.showPayment = !this.showPayment;
   }
 
   deleteProductFromCart(productName: string): void {
