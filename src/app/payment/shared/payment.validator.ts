@@ -101,4 +101,16 @@ export class PaymentValidator {
 
     return true;
   }
+
+  private static validateCardCvc(cardCvc: string): boolean {
+    if (!cardCvc) {
+      alert('You haven\'t entered an cvc');
+      return false;
+    } else if (cardCvc.length !== 3) {
+      alert('You have entered an invalid cvc');
+      return false;
+    }
+
+    return true;
+  }
 }
