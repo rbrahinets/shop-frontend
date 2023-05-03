@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PaymentService} from './shared/payment.service';
+import {ReportService} from './shared/report.service';
 import {CartService} from '../cart/shared/cart.service';
 import {ProductsCartService} from '../cart/shared/products-cart.service';
 import {PaymentRequestDto} from './shared/payment-request.dto';
@@ -25,6 +26,7 @@ export class PaymentComponent implements OnInit {
 
   constructor(
     private paymentService: PaymentService,
+    private reportService: ReportService,
     private cartService: CartService,
     private productsCartsService: ProductsCartService,
     private navigation: NavigationService,
@@ -76,7 +78,21 @@ export class PaymentComponent implements OnInit {
         cart.priceAmount = 0;
         this.productsCartsService.deleteProductsFromCurrentCart();
         this.cartService.update(cart).subscribe(
-          () => this.navigation.goToEndpoint('/cart', true)
+          () => {
+            this.reportService.downloadReport(
+              new ReportDto(
+                this.products,
+                this.priceAmount
+              )
+            ).subscribe(
+              (response: any) => {
+                const blob: Blob = new Blob([response], {type: 'application/pdf'});
+                const url: string = window.URL.createObjectURL(blob);
+                window.open(url);
+                this.navigation.goToEndpoint('cart', true);
+              }
+            );
+          }
         );
       }
     );

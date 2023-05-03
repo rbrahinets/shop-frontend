@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {ButtonModule} from '../button/button.module';
 import {PaymentComponent} from './payment.component';
 import {PaymentService} from './shared/payment.service';
+import {ReportService} from './shared/report.service';
 
 @NgModule({
   imports: [
@@ -14,7 +15,10 @@ import {PaymentService} from './shared/payment.service';
     ButtonModule
   ],
   declarations: [PaymentComponent],
-  providers: [PaymentService],
+  providers: [
+    PaymentService,
+    ReportService
+  ],
   exports: [PaymentComponent]
 })
 export class PaymentModule {
