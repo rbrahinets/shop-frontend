@@ -8,9 +8,9 @@ export class PaymentValidator {
   constructor() {
   }
 
-  private static validateAmount(amount: number): boolean {
-    if (!amount || amount < 0) {
-      alert('An amount is invalid');
+  private static validatePriceAmount(priceAmount: number): boolean {
+    if (!priceAmount || priceAmount < 0) {
+      alert('A price amount is invalid');
       return false;
     }
 
@@ -116,7 +116,7 @@ export class PaymentValidator {
   }
 
   validate(paymentData: PaymentRequest): boolean {
-    return PaymentValidator.validateAmount(paymentData.amount)
+    return PaymentValidator.validatePriceAmount(paymentData.priceAmount)
       && PaymentValidator.validateCardNumber(paymentData.cardNumber)
       && PaymentValidator.validateCardExpiry(paymentData.cardExpiry)
       && PaymentValidator.validateCardCvc(paymentData.cardCvc);

@@ -14,7 +14,7 @@ import {NavigationService} from '../shared/navigation.service';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-  @Input() amount: number;
+  @Input() priceAmount: number;
   cardNumber: string;
   cardExpiry: string;
   cardCvc: string;
@@ -34,7 +34,7 @@ export class PaymentComponent implements OnInit {
 
   onPay(): void {
     this.paymentRequest = new PaymentRequest(
-      this.amount,
+      this.priceAmount,
       this.cardNumber,
       this.cardExpiry,
       this.cardCvc

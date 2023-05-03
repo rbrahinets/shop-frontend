@@ -1,16 +1,16 @@
 export class PaymentRequest {
-  amount: number;
+  priceAmount: number;
   cardNumber: string;
   cardExpiry: string;
   cardCvc: string;
 
   constructor(
-    amount: number,
+    priceAmount: number,
     cardNumber: string,
     cardExpiry: string,
     cardCvc: string
   ) {
-    this.amount = amount;
+    this.priceAmount = priceAmount;
     this.cardNumber = cardNumber;
     this.cardExpiry = cardExpiry;
     this.cardCvc = cardCvc;
