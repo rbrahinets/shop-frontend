@@ -16,6 +16,14 @@
     </div>
     <hr/>
     <h3>Total Cost: {{cart.totalCost}}</h3>
+
+    <shop-button
+      *ngIf="!showPayment"
+      text="Pay"
+      color="#aaff11"
+      (btnClick)="onPay()"
+    ></shop-button>
+
     <shop-stripe-payment
       [amount]="cart.totalCost"
     ></shop-stripe-payment>

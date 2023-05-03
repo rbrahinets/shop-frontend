@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from '@angular/common/http';
 import {CartComponent} from './cart.component';
-import {StripePaymentModule} from '../stripe-payment/stripe-payment.module';
+import {ButtonModule} from '../button/button.module';
 import {CartService} from './shared/cart.service';
 import {ProductsCartService} from './shared/products-cart.service';
 
@@ -12,7 +12,7 @@ import {ProductsCartService} from './shared/products-cart.service';
     CommonModule,
     FontAwesomeModule,
     HttpClientModule,
-    StripePaymentModule
+    ButtonModule
   ],
   declarations: [CartComponent],
   providers: [
