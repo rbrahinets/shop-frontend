@@ -70,7 +70,7 @@ export class ProductComponent implements OnInit {
   }
 
   private updateTotalPriceInCart(cart: Cart): void {
-    cart.totalCost += this.product.price;
+    cart.priceAmount += this.product.price;
     this.cartService.update(cart).subscribe();
   }
 }

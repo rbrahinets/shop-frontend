@@ -1,5 +1,5 @@
 export class Cart {
   id?: number;
-  totalCost: number;
+  priceAmount: number;
   userId: number;
 }

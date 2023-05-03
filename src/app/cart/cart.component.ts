@@ -67,7 +67,7 @@ export class CartComponent implements OnInit {
       return false;
     }
 
-    this.cart.totalCost = 0;
+    this.cart.priceAmount = 0;
     this.cartService.update(this.cart).subscribe();
     return true;
   }
@@ -104,7 +104,7 @@ export class CartComponent implements OnInit {
   }
 
   private updatePriceInCart(product: Product): void {
-    this.cart.totalCost -= product.price;
+    this.cart.priceAmount -= product.price;
     this.cartService.update(this.cart).subscribe();
   }
 

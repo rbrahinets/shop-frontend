@@ -67,7 +67,7 @@ export class PaymentComponent implements OnInit {
     this.cartService.findAll().subscribe(
       (carts: Cart[]) => {
         const cart: Cart = CartService.getCartForCurrentUser(carts);
-        cart.totalCost = 0;
+        cart.priceAmount = 0;
         this.productsCartsService.deleteProductsFromCurrentCart();
         this.cartService.update(cart).subscribe(
           () => this.navigation.goToEndpoint('/cart', true)

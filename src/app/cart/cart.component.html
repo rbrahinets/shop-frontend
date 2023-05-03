@@ -15,7 +15,7 @@
       <h2>Number: {{group.number}}</h2>
     </div>
     <hr/>
-    <h3>Total Cost: {{cart.totalCost}}</h3>
+    <h3>Price Amount: {{cart.priceAmount}}</h3>
 
     <shop-button
       *ngIf="!showPayment"
@@ -26,7 +26,7 @@
 
     <shop-payment
       *ngIf="showPayment"
-      [amount]="cart.totalCost"
+      [amount]="cart.priceAmount"
     ></shop-payment>
   </div>
 </div>
