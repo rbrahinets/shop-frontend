@@ -79,6 +79,14 @@ export class ProductEditComponent implements OnInit {
     }
   }
 
+  private setCategoryForProduct(product: Product): void {
+    this.productsCategoryService
+      .findCategoryForProduct(product)
+      .subscribe(
+        (category: Category) => this.productCategory = category.name
+      );
+  }
+
   private setCategories(): void {
     this.categoryService.findAll().subscribe(
       (categories: Category[]) => this.categories = categories
