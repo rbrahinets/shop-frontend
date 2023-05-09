@@ -39,9 +39,9 @@ export class AdminService {
     );
   }
 
-  delete(adminNumber: AdminNumberDto): void {
-    this.http.delete<AdminNumberDto>(
+  delete(adminNumber: AdminNumberDto): Observable<void> {
+    return this.http.delete<void>(
       `${this.apiUrl + '/' + adminNumber.number}`
-    ).subscribe();
+    );
   }
 }

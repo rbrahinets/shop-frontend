@@ -39,9 +39,9 @@ export class ProductService {
     );
   }
 
-  delete(product: Product): void {
-    this.http.delete<Product>(
+  delete(product: Product): Observable<void> {
+    return this.http.delete<void>(
       `${this.apiUrl + '/' + product.barcode}`
-    ).subscribe();
+    );
   }
 }

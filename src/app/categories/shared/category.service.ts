@@ -35,9 +35,9 @@ export class CategoryService {
     );
   }
 
-  delete(category: Category): void {
-    this.http.delete<Category>(
+  delete(category: Category): Observable<void> {
+    return this.http.delete<void>(
       `${this.apiUrl + '/' + category.name}`
-    ).subscribe();
+    );
   }
 }

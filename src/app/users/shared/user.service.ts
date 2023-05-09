@@ -31,9 +31,9 @@ export class UserService {
     );
   }
 
-  delete(user: User): void {
-    this.http.delete<User>(
+  delete(user: User): Observable<void> {
+    return this.http.delete<void>(
       `${this.apiUrl + '/' + user.id}`
-    ).subscribe();
+    );
   }
 }
