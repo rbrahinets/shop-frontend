@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {DatePipe} from '@angular/common';
 import {PaymentService} from './shared/payment.service';
 import {ReportService} from './shared/report.service';
 import {CartService} from '../cart/shared/cart.service';
@@ -85,12 +86,19 @@ export class PaymentComponent implements OnInit {
                 this.priceAmount
               )
             ).subscribe(
-              (response: any) => {
-                const blob: Blob = new Blob([response], {type: 'application/pdf'});
-                const url: string = window.URL.createObjectURL(blob);
-                window.open(url);
-                this.navigation.goToEndpoint('cart', true);
-              }
+              (response: Blob) => {
+                const date = new DatePipe('en-US');
+                const formattedDate = date.transform(new Date(), 'yyyy-MM-dd_HH:mm:ss');
+                const filename = `report_${formattedDate}.pdf`;
+                this.reportService.saveReportAsFile(
+                  response,
+                  filename
+                )
+                  .subscribe(
+                    () => this.navigation.goToEndpoint('cart', true)
+                  );
+              },
+              (error: any) => console.error('Error downloading report:', error)
             );
           }
         );
