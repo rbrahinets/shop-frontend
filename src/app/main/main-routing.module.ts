@@ -12,7 +12,8 @@ const mainRoutes: Routes = [
       mainRoutes,
       {enableTracing: true}
     )
-  ]
+  ],
+  exports: [RouterModule]
 })
 export class MainRoutingModule {
 }

@@ -14,7 +14,8 @@ const profileRoutes: Routes = [
       profileRoutes,
       {enableTracing: true}
     )
-  ]
+  ],
+  exports: [RouterModule]
 })
 export class ProfileRoutingModule {
 }

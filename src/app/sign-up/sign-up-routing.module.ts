@@ -12,7 +12,8 @@ const signUpRoutes: Routes = [
       signUpRoutes,
       {enableTracing: true}
     )
-  ]
+  ],
+  exports: [RouterModule]
 })
 export class SignUpRoutingModule {
 }

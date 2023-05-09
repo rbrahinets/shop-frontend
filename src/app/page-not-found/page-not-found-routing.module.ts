@@ -12,7 +12,8 @@ const pageNotFoundRoutes: Routes = [
       pageNotFoundRoutes,
       {enableTracing: true}
     )
-  ]
+  ],
+  exports: [RouterModule]
 })
 export class PageNotFoundRoutingModule {
 }
