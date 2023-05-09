@@ -52,6 +52,7 @@
           <option
             *ngFor="let category of categories"
             value="{{category.name}}"
+            [selected]="category.name === productCategory"
           >
             {{category.name}}
           </option>
