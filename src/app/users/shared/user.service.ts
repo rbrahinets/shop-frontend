@@ -19,8 +19,8 @@ export class UserService {
     return this.http.get<User[]>(this.apiUrl);
   }
 
-  findById(id: number): Promise<User> {
-    return this.http.get<User>(`${this.apiUrl + '/' + id}`).toPromise();
+  findById(id: number): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl + '/' + id}`);
   }
 
   update(user: User): Observable<User> {

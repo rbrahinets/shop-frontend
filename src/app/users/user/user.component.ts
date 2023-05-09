@@ -28,7 +28,7 @@ export class UserComponent implements OnInit {
   private setUser(): void {
     this.userService.findById(
       this.navigation.getCurrentPathId()
-    ).then(
+    ).subscribe(
       (user: User) => {
         this.user = user;
         this.setRole();
