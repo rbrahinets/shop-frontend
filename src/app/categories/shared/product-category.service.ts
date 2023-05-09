@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ProductCategoryDto} from './product-category.dto';
 import {Product} from '../../products/shared/product.model';
+import {Category} from './category.model';
 import {Http} from '../../shared/http';
 
 @Injectable({
@@ -18,6 +19,10 @@ export class ProductCategoryService {
 
   findAllProductsInCategory(categoryId: number): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.apiUrl + '/' + categoryId}`);
+  }
+
+  findCategoryForProduct(product: Product): Observable<Category> {
+    return this.http.get<Category>(`${this.apiUrl + '/category/' + product.barcode}`);
   }
 
   saveProductToCategory(
