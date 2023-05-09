@@ -66,8 +66,9 @@ export class ProfileEditComponent implements OnInit {
         user.firstName = this.firstName;
         user.lastName = this.lastName;
 
-        this.userService.update(user).subscribe();
-        this.navigation.goToEndpoint('/profile');
+        this.userService.update(user).subscribe(
+          () => this.navigation.goToEndpoint('/profile', true)
+        );
       }
     );
   }
