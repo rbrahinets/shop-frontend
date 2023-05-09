@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ReportDto} from './report.dto';
 
@@ -14,11 +14,16 @@ export class ReportService {
   ) {
   }
 
-  downloadReport(reportDto: ReportDto): Observable<any> {
-    return this.http.post(
+  downloadReport(reportDto: ReportDto): Observable<Blob> {
+    return this.http.post<Blob>(
       `${this.apiUrl}/download`,
       reportDto,
-      {responseType: 'blob'}
+      {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        }),
+        responseType: 'blob' as 'json'
+      }
     );
   }
 }
