@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
+import {saveAs} from 'file-saver';
 import {ReportDto} from './report.dto';
 
 @Injectable({
@@ -25,5 +26,10 @@ export class ReportService {
         responseType: 'blob' as 'json'
       }
     );
+  }
+
+  saveReportAsFile(response: Blob, filename: string): Observable<string> {
+    saveAs(response, filename);
+    return of(filename);
   }
 }
