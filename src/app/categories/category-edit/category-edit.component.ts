@@ -66,7 +66,8 @@ export class CategoryEditComponent implements OnInit {
 
   private updateCategoryData(): void {
     this.category.name = this.categoryName;
-    this.categoryService.update(this.category).subscribe();
-    this.navigation.goToEndpoint('/categories', true);
+    this.categoryService.update(this.category).subscribe(
+      () => this.navigation.goToEndpoint('/categories', true)
+    );
   }
 }

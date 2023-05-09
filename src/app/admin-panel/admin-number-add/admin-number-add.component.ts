@@ -66,7 +66,8 @@ export class AdminNumberAddComponent implements OnInit {
     const adminNumbersDto = new AdminNumberDto();
     adminNumbersDto.id = this.adminsNumbers.length + 1;
     adminNumbersDto.number = this.adminNumber;
-    this.adminService.save(adminNumbersDto).subscribe();
-    this.navigation.goToEndpoint('/admin-panel', true);
+    this.adminService.save(adminNumbersDto).subscribe(
+      () => this.navigation.goToEndpoint('/admin-panel', true)
+    );
   }
 }

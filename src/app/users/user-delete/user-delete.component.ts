@@ -55,11 +55,11 @@ export class UserDeleteComponent implements OnInit {
   private deleteUser(): void {
     for (const user of this.users) {
       if (user.email === this.email) {
-        this.userService.delete(user);
+        this.userService.delete(user).subscribe(
+          () => this.navigation.goToEndpoint('/users', true)
+        );
         break;
       }
     }
-
-    this.navigation.goToEndpoint('/users', true);
   }
 }

@@ -64,11 +64,11 @@ export class AdminNumberDeleteComponent implements OnInit {
   private deleteAdminNumber(): void {
     for (const adminNumber of this.adminsNumbers) {
       if (adminNumber.number === this.adminNumber) {
-        this.adminService.delete(adminNumber);
+        this.adminService.delete(adminNumber).subscribe(
+          () => this.navigation.goToEndpoint('/admin-panel', true)
+        );
         break;
       }
     }
-
-    this.navigation.goToEndpoint('/admin-panel', true);
   }
 }

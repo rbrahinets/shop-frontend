@@ -54,11 +54,11 @@ export class ProductDeleteComponent implements OnInit {
   private deleteProduct(): void {
     for (const product of this.products) {
       if (product.barcode === this.productBarcode) {
-        this.productService.delete(product);
+        this.productService.delete(product).subscribe(
+          () => this.navigation.goToEndpoint('/products', true)
+        );
         break;
       }
     }
-
-    this.navigation.goToEndpoint('/products', true);
   }
 }
