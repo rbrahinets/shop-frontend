@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {CartComponent} from './cart.component';
-import {RoleUserGuard} from '../shared/guards/role-user.guard';
+import {roleUserGuard} from '../shared/guards/role-user.guard';
 
 const cartRoutes: Routes = [
-  {path: 'cart', canActivate: [RoleUserGuard], component: CartComponent},
+  {path: 'cart', component: CartComponent, canActivate: [roleUserGuard]},
 ];
 
 @NgModule({
@@ -13,7 +13,8 @@ const cartRoutes: Routes = [
       cartRoutes,
       {enableTracing: true}
     )
-  ]
+  ],
+  exports: [RouterModule]
 })
 export class CartRoutingModule {
 }
