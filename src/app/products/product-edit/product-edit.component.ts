@@ -75,6 +75,7 @@ export class ProductEditComponent implements OnInit {
         this.productPrice = product.price;
         this.productInStock = product.inStock ? 'Yes' : 'No';
         this.productImage = product.image;
+        this.setCategoryForProduct(product);
       }
     }
   }
