@@ -3,12 +3,12 @@ import {RouterModule, Routes} from '@angular/router';
 import {AdminPanelComponent} from './admin-panel.component';
 import {AdminNumberAddComponent} from './admin-number-add/admin-number-add.component';
 import {AdminNumberDeleteComponent} from './admin-number-delete/admin-number-delete.component';
-import {RoleSuperadminGuard} from '../shared/guards/role-superadmin.guard';
+import {roleSuperadminGuard} from '../shared/guards/role-superadmin.guard';
 
 const adminPanelRoutes: Routes = [
-  {path: 'admin-panel', component: AdminPanelComponent, canActivate: [RoleSuperadminGuard]},
-  {path: 'admin-panel/add-admin-number', component: AdminNumberAddComponent, canActivate: [RoleSuperadminGuard]},
-  {path: 'admin-panel/delete-admin-number', component: AdminNumberDeleteComponent, canActivate: [RoleSuperadminGuard]},
+  {path: 'admin-panel', component: AdminPanelComponent, canActivate: [roleSuperadminGuard]},
+  {path: 'admin-panel/add-admin-number', component: AdminNumberAddComponent, canActivate: [roleSuperadminGuard]},
+  {path: 'admin-panel/delete-admin-number', component: AdminNumberDeleteComponent, canActivate: [roleSuperadminGuard]},
 ];
 
 @NgModule({
@@ -17,7 +17,8 @@ const adminPanelRoutes: Routes = [
       adminPanelRoutes,
       {enableTracing: true}
     )
-  ]
+  ],
+  exports: [RouterModule]
 })
 export class AdminPanelRoutingModule {
 }
