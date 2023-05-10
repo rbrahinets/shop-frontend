@@ -10,6 +10,10 @@ export class RandomProductService {
       RandomProductService.getIdsOfRandomProducts(products, count);
     const arrayOfProducts: Product[] = [];
 
+    if (products.length < count) {
+      count = products.length;
+    }
+
     for (let i = 0; i < count; i++) {
       arrayOfProducts.push(products[idsOfProducts[i]]);
     }
