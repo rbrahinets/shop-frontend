@@ -26,14 +26,41 @@ export class UserComponent implements OnInit {
   }
 
   private setUser(): void {
-    this.userService.findById(
-      this.navigation.getCurrentPathId()
-    ).subscribe(
-      (user: User) => {
-        this.user = user;
-        this.setRole();
+    this.userService.findAll().subscribe(
+      (users: User[]) => {
+        if (!this.isCorrectUserId(users)) {
+          return;
+        }
+
+        this.userService.findById(
+          this.navigation.getCurrentPathId()
+        ).subscribe(
+          (user: User) => {
+            this.user = user;
+            this.setRole();
+          }
+        );
       }
     );
+  }
+
+  private isCorrectUserId(users: User[]): boolean {
+    if (!this.navigation.getCurrentPathId() || !this.isUserExisted(users)) {
+      this.navigation.goToEndpoint('/page-not-found');
+      return false;
+    }
+
+    return true;
+  }
+
+  private isUserExisted(users: User[]): boolean {
+    for (const user of users) {
+      if (user.id === this.navigation.getCurrentPathId()) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   private setRole(): void {
