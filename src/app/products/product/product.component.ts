@@ -55,11 +55,38 @@ export class ProductComponent implements OnInit {
   }
 
   private setProduct(): void {
-    this.productService.findById(
-      this.navigation.getCurrentPathId()
-    ).then(
-      (product: Product) => this.product = product
+    this.productService.findAll().subscribe(
+      (products: Product[]) => {
+        if (!this.isCorrectProductId(products)) {
+          return;
+        }
+
+        this.productService.findById(
+          this.navigation.getCurrentPathId()
+        ).then(
+          (product: Product) => this.product = product
+        );
+      }
     );
+  }
+
+  private isCorrectProductId(products: Product[]): boolean {
+    if (!this.navigation.getCurrentPathId() || !this.isProductExisted(products)) {
+      this.navigation.goToEndpoint('/page-not-found');
+      return false;
+    }
+
+    return true;
+  }
+
+  private isProductExisted(products: Product[]): boolean {
+    for (const product of products) {
+      if (product.id === this.navigation.getCurrentPathId()) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   private addProductToCart(cart: Cart): void {
