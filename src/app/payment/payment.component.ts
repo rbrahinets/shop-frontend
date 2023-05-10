@@ -62,8 +62,13 @@ export class PaymentComponent implements OnInit {
   private payment(): void {
     this.paymentService.payment(this.paymentRequest).subscribe(
       (response: PaymentResponseDto) => {
-        alert(response.message);
         console.log(response.message);
+
+        if (response.message.includes('successfully')) {
+          alert('Payment Processed Successfully!');
+        } else {
+          alert('Payment Processed Unsuccessfully!');
+        }
 
         if (response.isSuccessfully) {
           this.resetCart();
