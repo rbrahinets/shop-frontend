@@ -9,7 +9,7 @@ import {Http} from '../../shared/http';
   providedIn: 'root'
 })
 export class PaymentService {
-  private apiUrl = 'http://localhost:8080/api/payment';
+  private apiUrl = 'http://localhost:8080/api/v1/payment';
 
   constructor(
     private http: HttpClient

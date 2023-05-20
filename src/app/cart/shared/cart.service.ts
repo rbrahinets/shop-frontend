@@ -9,7 +9,7 @@ import {LoggedUserService} from '../../users/shared/logged-user.service';
   providedIn: 'root'
 })
 export class CartService {
-  private apiUrl = 'http://localhost:8080/api/carts';
+  private apiUrl = 'http://localhost:8080/api/v1/carts';
 
   constructor(
     private http: HttpClient

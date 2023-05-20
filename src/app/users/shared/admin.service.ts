@@ -8,7 +8,7 @@ import {Http} from '../../shared/http';
   providedIn: 'root'
 })
 export class AdminService {
-  private apiUrl = 'http://localhost:8080/api/admins-numbers';
+  private apiUrl = 'http://localhost:8080/api/v1/admins-numbers';
 
   constructor(
     private http: HttpClient

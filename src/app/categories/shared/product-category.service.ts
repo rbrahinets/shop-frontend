@@ -10,7 +10,7 @@ import {Http} from '../../shared/http';
   providedIn: 'root'
 })
 export class ProductCategoryService {
-  private apiUrl = 'http://localhost:8080/api/product-category';
+  private apiUrl = 'http://localhost:8080/api/v1/product-category';
 
   constructor(
     private http: HttpClient

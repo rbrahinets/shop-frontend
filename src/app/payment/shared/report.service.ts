@@ -8,7 +8,7 @@ import {ReportDto} from './report.dto';
   providedIn: 'root'
 })
 export class ReportService {
-  private apiUrl = 'http://localhost:8080/api/report';
+  private apiUrl = 'http://localhost:8080/api/v1/report';
 
   constructor(
     private http: HttpClient
