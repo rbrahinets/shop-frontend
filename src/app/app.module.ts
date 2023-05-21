@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
+import {HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
 
 import {ButtonModule} from './button/button.module';
 import {HeaderModule} from './header/header.module';
@@ -37,6 +38,11 @@ import {AppComponent} from './app.component';
   imports: [
     BrowserModule,
     RouterModule,
+    HttpClientModule,
+    HttpClientXsrfModule.withOptions({
+      cookieName: 'XSRF-TOKEN',
+      headerName: 'X-Xsrf-Token'
+    }),
     ButtonModule,
     HeaderModule,
     FooterModule,
