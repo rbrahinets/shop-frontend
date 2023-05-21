@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {CookieService} from 'ng2-cookies';
 import {AdminNumberDto} from './admin-number.dto';
 import {Http} from '../../shared/http';
 
@@ -11,7 +12,8 @@ export class AdminService {
   private apiUrl = 'http://localhost:8080/api/v1/admins-numbers';
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private cookieService: CookieService
   ) {
   }
 
@@ -27,7 +29,7 @@ export class AdminService {
     return this.http.post<AdminNumberDto>(
       this.apiUrl,
       adminNumber,
-      Http.getHttpOptions()
+      Http.getHttpOptions(this.cookieService)
     );
   }
 
@@ -35,7 +37,7 @@ export class AdminService {
     return this.http.put<AdminNumberDto>(
       `${this.apiUrl + '/' + adminNumber.id}`,
       adminNumber,
-      Http.getHttpOptions()
+      Http.getHttpOptions(this.cookieService)
     );
   }
 

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {CookieService} from 'ng2-cookies';
 import {User} from './user.model';
 import {Http} from '../../shared/http';
 
@@ -11,7 +12,8 @@ export class UserService {
   private apiUrl = 'http://localhost:8080/api/v1/users';
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private cookieService: CookieService
   ) {
   }
 
@@ -27,7 +29,7 @@ export class UserService {
     return this.http.put<User>(
       `${this.apiUrl + '/' + user.id}`,
       user,
-      Http.getHttpOptions()
+      Http.getHttpOptions(this.cookieService)
     );
   }
 

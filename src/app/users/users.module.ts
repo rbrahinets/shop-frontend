@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import {CookieService} from 'ng2-cookies';
 import {ButtonModule} from '../button/button.module';
 import {SortModule} from '../sort/sort.module';
 import {UserListComponent} from './user-list/user-list.component';
@@ -29,6 +30,7 @@ import {UserRoleService} from './shared/user-role.service';
     UserDeleteComponent
   ],
   providers: [
+    CookieService,
     LoggedUserService,
     UserService,
     UserRoleService,
