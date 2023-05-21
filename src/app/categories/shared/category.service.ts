@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {CookieService} from 'ng2-cookies';
 import {Category} from './category.model';
 import {Http} from '../../shared/http';
 
@@ -11,7 +12,8 @@ export class CategoryService {
   private apiUrl = 'http://localhost:8080/api/v1/categories';
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private cookieService: CookieService
   ) {
   }
 
@@ -23,7 +25,7 @@ export class CategoryService {
     return this.http.post<Category>(
       this.apiUrl,
       category,
-      Http.getHttpOptions()
+      Http.getHttpOptions(this.cookieService)
     );
   }
 
@@ -31,7 +33,7 @@ export class CategoryService {
     return this.http.put<Category>(
       `${this.apiUrl + '/' + category.id}`,
       category,
-      Http.getHttpOptions()
+      Http.getHttpOptions(this.cookieService)
     );
   }
 
