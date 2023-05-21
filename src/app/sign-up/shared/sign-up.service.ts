@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {CookieService} from 'ng2-cookies';
 import {SignUpDto} from './sign-up.dto';
 import {Http} from '../../shared/http';
 
@@ -11,7 +12,8 @@ export class SignUpService {
   private apiUrl = 'http://localhost:8080/api/v1/sign-up';
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private cookieService: CookieService
   ) {
   }
 
@@ -19,7 +21,7 @@ export class SignUpService {
     return this.http.post<SignUpDto>(
       this.apiUrl,
       signUpDto,
-      Http.getHttpOptions()
+      Http.getHttpOptions(this.cookieService)
     );
   }
 }

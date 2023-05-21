@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
+import {CookieService} from 'ng2-cookies';
 import {ButtonModule} from '../button/button.module';
 import {SignUpComponent} from './sign-up.component';
 import {NavigationService} from '../shared/navigation.service';
@@ -21,6 +22,7 @@ import {CartService} from '../cart/shared/cart.service';
   ],
   declarations: [SignUpComponent],
   providers: [
+    CookieService,
     NavigationService,
     UserService,
     AdminService,
