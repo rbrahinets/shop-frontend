@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {CookieService} from 'ng2-cookies';
 import {Product} from './product.model';
 import {Http} from '../../shared/http';
 
@@ -11,7 +12,8 @@ export class ProductService {
   private apiUrl = 'http://localhost:8080/api/v1/products';
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private cookieService: CookieService
   ) {
   }
 
@@ -27,7 +29,7 @@ export class ProductService {
     return this.http.post<Product>(
       this.apiUrl,
       product,
-      Http.getHttpOptions()
+      Http.getHttpOptions(this.cookieService)
     );
   }
 
@@ -35,7 +37,7 @@ export class ProductService {
     return this.http.put<Product>(
       `${this.apiUrl + '/' + product.id}`,
       product,
-      Http.getHttpOptions()
+      Http.getHttpOptions(this.cookieService)
     );
   }
 

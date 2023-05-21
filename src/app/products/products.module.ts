@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {CookieService} from 'ng2-cookies';
 import {ButtonModule} from '../button/button.module';
 import {SortModule} from '../sort/sort.module';
 import {ImageModule} from '../image/image.module';
@@ -39,6 +40,7 @@ import {NavigationService} from '../shared/navigation.service';
     ProductDeleteComponent
   ],
   providers: [
+    CookieService,
     ProductService,
     CategoryService,
     ProductCategoryService,

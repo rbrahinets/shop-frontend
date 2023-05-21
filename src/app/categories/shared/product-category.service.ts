@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {CookieService} from 'ng2-cookies';
 import {ProductCategoryDto} from './product-category.dto';
 import {Product} from '../../products/shared/product.model';
 import {Category} from './category.model';
@@ -13,7 +14,8 @@ export class ProductCategoryService {
   private apiUrl = 'http://localhost:8080/api/v1/product-category';
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private cookieService: CookieService
   ) {
   }
 
@@ -31,7 +33,7 @@ export class ProductCategoryService {
     return this.http.post<ProductCategoryDto>(
       this.apiUrl,
       productCategory,
-      Http.getHttpOptions()
+      Http.getHttpOptions(this.cookieService)
     );
   }
 
@@ -41,7 +43,7 @@ export class ProductCategoryService {
     return this.http.put<ProductCategoryDto>(
       this.apiUrl,
       productCategory,
-      Http.getHttpOptions()
+      Http.getHttpOptions(this.cookieService)
     );
   }
 }
