@@ -41,7 +41,7 @@ export class ProductComponent implements OnInit {
         this.addProductToCart(CartService.getCartForCurrentUser(carts));
         this.updateTotalPriceInCart(CartService.getCartForCurrentUser(carts));
 
-        alert(`'${this.product.name}' Added to Cart`);
+        alert(`'${this.product.name}' додано до кошика`);
       }
     );
   }

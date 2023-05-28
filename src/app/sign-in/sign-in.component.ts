@@ -53,7 +53,7 @@ export class SignInComponent implements OnInit {
     this.userService.findAll().subscribe(
       (users: User[]) => {
         if (!this.findUserByCredential(users)) {
-          alert('You have entered an incorrect login or password');
+          alert('Неправельний логін або пароль');
           return;
         }
 

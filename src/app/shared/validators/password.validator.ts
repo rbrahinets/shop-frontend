@@ -10,10 +10,10 @@ export class PasswordValidator {
 
   private static validatePassword(password: string): boolean {
     if (!password) {
-      alert('You haven\'t entered a password');
+      alert('Ви не ввели пароль');
       return false;
     } else if (password.length < 4) {
-      alert('You enter a short password');
+      alert('Ви ввели закороткий пароль');
       return false;
     }
 

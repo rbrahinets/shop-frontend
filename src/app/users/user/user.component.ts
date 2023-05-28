@@ -67,9 +67,9 @@ export class UserComponent implements OnInit {
     this.userRoleService.findRoleForUser(this.user.id).subscribe(
       (roleDto: RoleDto) => {
         if (roleDto.name === 'ROLE_ADMIN') {
-          this.role = 'Admin';
+          this.role = 'Адмін';
         } else if (roleDto.name === 'ROLE_USER') {
-          this.role = 'User';
+          this.role = 'Клієнт';
         }
       }
     );

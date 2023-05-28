@@ -12,10 +12,10 @@ export class ProductDescribeValidator {
 
   private static validateProductDescribe(productDescribe: string): boolean {
     if (!productDescribe) {
-      alert('You haven\'t entered a describe of product');
+      alert('Ви не ввели опис товару');
       return false;
     } else if (ProductDescribeValidator.isInvalidProductDescribe(productDescribe)) {
-      alert('You have entered a short describe of product');
+      alert('Ви ввели закороткий опис товару');
       return false;
     }
 

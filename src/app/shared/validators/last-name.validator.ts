@@ -10,10 +10,10 @@ export class LastNameValidator {
 
   private static validateLastName(lastName: string): boolean {
     if (!lastName) {
-      alert('You haven\'t entered a last name');
+      alert('Ви не ввели прізвище');
       return false;
     } else if (LastNameValidator.isInvalidLastName(lastName)) {
-      alert('You have entered a short last name');
+      alert('Ви ввели закоротке прізвище');
       return false;
     }
 

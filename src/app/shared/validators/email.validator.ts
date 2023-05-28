@@ -19,16 +19,16 @@ export class EmailValidator {
     isDelete: boolean
   ): boolean {
     if (!email) {
-      alert('You haven\'t entered an email');
+      alert('Ви не ввели електронну адресу');
       return false;
     } else if (EmailValidator.isInvalidEmail(email)) {
-      alert('You have entered an invalid email');
+      alert('Ви ввели неправильну електронну адресу');
       return false;
     } else if (EmailValidator.isUsedEmail(email, users) && !isDelete) {
-      alert('You have entered an used email');
+      alert('Ви ввели вже використовувану електронну адресу');
       return false;
     } else if (!EmailValidator.isUsedEmail(email, users) && isDelete) {
-      alert('You have entered a non-existed email');
+      alert('Ви ввели неіснуючу електронну адресу');
       return false;
     }
 

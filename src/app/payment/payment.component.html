@@ -5,7 +5,7 @@
         type="text"
         name="card-number"
         id="card-number"
-        placeholder="Enter your card number"
+        placeholder="Номер карти"
         [(ngModel)]="cardNumber"
       >
     </div>
@@ -14,7 +14,7 @@
         type="text"
         name="card-expiry"
         id="card-expiry"
-        placeholder="MM/YY"
+        placeholder="ММ/РР"
         [(ngModel)]="cardExpiry"
       >
     </div>
@@ -23,12 +23,12 @@
         type="text"
         name="card-cvc"
         id="card-cvc"
-        placeholder="Enter CVC code"
+        placeholder="CVC"
         [(ngModel)]="cardCvc"
       >
     </div>
     <shop-button
-      text="Pay"
+      text="Оплатити"
       color="#11ffaa"
       (btnClick)="onPay()"
     ></shop-button>

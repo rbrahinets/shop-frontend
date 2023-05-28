@@ -3,14 +3,14 @@
     [imageBytes]="product.image"
     [alt]="product.name"
   ></shop-image>
-  <h3>Name: {{product.name}}</h3>
-  <h4>Describe: {{product.describe}}</h4>
-  <h4>Barcode: {{product.barcode}}</h4>
-  <h4>Price: {{product.price}}</h4>
-  <h4>{{product.inStock ? 'In Stock' : 'Out of Stock'}}</h4>
+  <h3>Назва: {{product.name}}</h3>
+  <h4>Опис: {{product.describe}}</h4>
+  <h4>Штрих-код: {{product.barcode}}</h4>
+  <h4>Ціна: {{product.price}}</h4>
+  <h4>{{product.inStock ? 'Є на складі' : 'Немає на складі'}}</h4>
   <shop-button
     *ngIf="logged && isUser && product.inStock"
-    text="Add to Cart"
+    text="Додати до кошика"
     color="#00ffff"
     (btnClick)="onAddToCart()"
   ></shop-button>
@@ -18,7 +18,7 @@
 <div *ngIf="logged && !isUser">
   <hr/>
   <shop-button
-    text="Edit"
+    text="Редагувати"
     color="#ff00ff"
     (btnClick)="onEdit()"
   ></shop-button>

@@ -27,10 +27,10 @@ export class AdminNumberValidator {
     isAdd: boolean
   ): boolean {
     if (!adminNumber) {
-      alert('You haven\'t entered a number of admin');
+      alert('Ви не ввели номер адміна');
       return false;
     } else if (AdminNumberValidator.isInvalidAdminNumber(adminNumber)) {
-      alert('You have entered an invalid number of admin');
+      alert('Ви ввели неправильний номер адміна');
       return false;
     } else if (
       !AdminNumberValidator.isExistingAdminNumber(
@@ -38,7 +38,7 @@ export class AdminNumberValidator {
         adminNumbers
       ) && !isAdd
     ) {
-      alert('You have entered a non-existing number of admin');
+      alert('Ви ввели неіснуючий номер адміна');
       return false;
     } else if (
       AdminNumberValidator.isExistingAdminNumber(
@@ -46,7 +46,7 @@ export class AdminNumberValidator {
         adminNumbers
       ) && isAdd
     ) {
-      alert('You have entered an existing number of admin');
+      alert('Ви ввели існуючий номер адміна');
       return false;
     } else if (
       AdminNumberValidator.isUsedAdminNumber(
@@ -54,7 +54,7 @@ export class AdminNumberValidator {
         users
       )
     ) {
-      alert('You have entered a used number of admin');
+      alert('Ви ввели вже використовуваний номер адміна');
       return false;
     }
 

@@ -23,7 +23,7 @@ export class ConfirmPasswordValidator {
       !confirmPassword
       || password !== confirmPassword
     ) {
-      alert('Your passwords are different');
+      alert('Ваші паролі різні');
       return false;
     }
 

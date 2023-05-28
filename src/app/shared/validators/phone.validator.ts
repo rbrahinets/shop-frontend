@@ -17,13 +17,13 @@ export class PhoneValidator {
     users: User[]
   ): boolean {
     if (!phone) {
-      alert('You haven\'t entered a phone');
+      alert('Ви не ввели номер телефону');
       return false;
     } else if (PhoneValidator.isInvalidPhone(phone)) {
-      alert('You have entered an invalid phone');
+      alert('Ви ввели неправельний номер телефону');
       return false;
     } else if (!PhoneValidator.isUniquePhone(phone, users)) {
-      alert('You have entered an used phone');
+      alert('Ви ввели вже використовуваний номер телефону');
       return false;
     }
 

@@ -12,10 +12,10 @@ export class ProductNameValidator {
 
   private static validateProductName(productName: string): boolean {
     if (!productName) {
-      alert('You haven\'t entered a name of product');
+      alert('Ви не ввели назву товару');
       return false;
     } else if (ProductNameValidator.isInvalidProductName(productName)) {
-      alert('You have entered a short name of product');
+      alert('Ви ввели закоротку назву товару');
       return false;
     }
 

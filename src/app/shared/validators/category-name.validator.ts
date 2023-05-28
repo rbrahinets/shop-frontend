@@ -23,10 +23,10 @@ export class CategoryNameValidator {
     isDelete: boolean = false
   ): boolean {
     if (!categoryName) {
-      alert('You haven\'t entered a name of category');
+      alert('Ви не ввели назву категорії');
       return false;
     } else if (CategoryNameValidator.isInvalidCategoryName(categoryName)) {
-      alert('You have entered a short name of category');
+      alert('Ви ввели неправильну назву категорії');
       return false;
     } else if (
       CategoryNameValidator.isExistingCategoryName(
@@ -35,7 +35,7 @@ export class CategoryNameValidator {
       )
       && !isDelete
     ) {
-      alert('You have entered an existing name of category');
+      alert('Ви ввели існуючу назву категорії');
       return false;
     } else if (
       !CategoryNameValidator.isExistingCategoryName(
@@ -44,7 +44,7 @@ export class CategoryNameValidator {
       )
       && isDelete
     ) {
-      alert('You have entered a non-existent name of category');
+      alert('Ви ввели неіснуючу назву категорії');
       return false;
     }
 

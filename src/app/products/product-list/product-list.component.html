@@ -1,4 +1,4 @@
-<h2 *ngIf="products.length <= 0">Products not Found</h2>
+<h2 *ngIf="products.length <= 0">Товари не знайдено!</h2>
 <div *ngIf="products.length > 0">
   <shop-products-sort
     [products]="products"
@@ -12,12 +12,12 @@
 <div *ngIf="isAdmin">
   <hr/>
   <shop-button
-    text="Add New Product"
+    text="Додати товар"
     color="#ff00ff"
     (btnClick)="onAddNewProduct()"
   ></shop-button>
   <shop-button
-    text="Delete Product"
+    text="Видалити товар"
     color="#ff00ff"
     (btnClick)="onDeleteProduct()"
   ></shop-button>

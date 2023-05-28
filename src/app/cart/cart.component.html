@@ -1,5 +1,5 @@
 <div>
-  <h2 *ngIf="groupsOfProducts.length <= 0">Cart is Empty!</h2>
+  <h2 *ngIf="groupsOfProducts.length <= 0">Кошик порожній!</h2>
   <div *ngIf="groupsOfProducts.length > 0">
     <div
       class="product"
@@ -12,14 +12,14 @@
           (click)="deleteProductFromCart(group.product)"
         ></fa-icon>
       </h3>
-      <h2>Number: {{group.number}}</h2>
+      <h2>Кількість: {{group.number}}</h2>
     </div>
     <hr/>
-    <h3>Price Amount: {{cart.priceAmount}}</h3>
+    <h3>Ціна: {{cart.priceAmount}}</h3>
 
     <shop-button
       *ngIf="!showPayment"
-      text="Pay"
+      text="Оплатити"
       color="#aaff11"
       (btnClick)="onPay()"
     ></shop-button>

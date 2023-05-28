@@ -1,12 +1,12 @@
 <div class="center">
-  <h1>Sign In</h1>
+  <h1>Вхід</h1>
   <form class="form">
     <div class="form-control">
       <input
         type="text"
         name="login"
         id="login"
-        placeholder="Email or Phone"
+        placeholder="Електрона адреса або номер телефону"
         [(ngModel)]="login"
       />
     </div>
@@ -15,18 +15,18 @@
         type="password"
         name="password"
         id="password"
-        placeholder="Password"
+        placeholder="Пароль"
         [(ngModel)]="password"
       />
     </div>
     <shop-button
-      text="Sign In"
+      text="Увійти"
       color="#ffff00"
       (btnClick)="onSignIn()"
     ></shop-button>
   </form>
   <shop-button
-    text="Sign Up"
+    text="Зареєструватися"
     color="#0000ff"
     (btnClick)="onClickSignUp('/sign-up')"
   ></shop-button>

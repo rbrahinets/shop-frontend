@@ -1,22 +1,22 @@
 <div class="center">
-  <h1>Sign Up</h1>
+  <h1>Реєстрація</h1>
   <form class="form">
-    <div class="form-control">
-      <input
-        type="text"
-        name="first-name"
-        id="first-name"
-        placeholder="First Name"
-        [(ngModel)]="firstName"
-      />
-    </div>
     <div class="form-control">
       <input
         type="text"
         name="last-name"
         id="last-name"
-        placeholder="Last Name"
+        placeholder="Прізвище"
         [(ngModel)]="lastName"
+      />
+    </div>
+    <div class="form-control">
+      <input
+        type="text"
+        name="first-name"
+        id="first-name"
+        placeholder="Ім'я"
+        [(ngModel)]="firstName"
       />
     </div>
     <div class="form-control">
@@ -24,7 +24,7 @@
         type="text"
         name="email"
         id="email"
-        placeholder="Email"
+        placeholder="Електронна адреса"
         [(ngModel)]="email"
       />
     </div>
@@ -33,7 +33,7 @@
         type="text"
         name="phone"
         id="phone"
-        placeholder="Phone"
+        placeholder="Номер телефону"
         [(ngModel)]="phone"
       />
     </div>
@@ -42,7 +42,7 @@
         type="password"
         name="password"
         id="password"
-        placeholder="Password"
+        placeholder="Пароль"
         [(ngModel)]="password"
       />
     </div>
@@ -51,12 +51,12 @@
         type="password"
         name="confirm-password"
         id="confirm-password"
-        placeholder="Confirm Password"
+        placeholder="Підтвердження паролю"
         [(ngModel)]="confirmPassword"
       />
     </div>
     <div class="form-control">
-      <label for="is-admin">Is Admin?</label>
+      <label for="is-admin">Ви адмін?</label>
       <input
           type="checkbox"
           name="is-admin"
@@ -72,18 +72,18 @@
         type="text"
         name="admin-number"
         id="admin-number"
-        placeholder="Admin Number"
+        placeholder="Номер адміна"
         [(ngModel)]="adminNumber"
       />
     </div>
     <shop-button
-      text="Sign Up"
+      text="Зареєструватися"
       color="#ffff00"
       (btnClick)="onSignUp()"
     ></shop-button>
   </form>
   <shop-button
-    text="Sign In"
+    text="Увійти"
     color="#0000ff"
     (btnClick)="onClickSignIn('/sign-in')"
   ></shop-button>

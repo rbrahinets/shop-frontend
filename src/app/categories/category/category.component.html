@@ -1,4 +1,4 @@
-<h2 *ngIf="products.length <= 0">Products not Found!</h2>
+<h2 *ngIf="products.length <= 0">Товар не знайдено!</h2>
 <div *ngIf="products.length > 0">
   <shop-products-sort
     [products]="products"
@@ -12,7 +12,7 @@
 <div *ngIf="userRole === 'ROLE_ADMIN'">
   <hr/>
   <shop-button
-    text="Edit"
+    text="Редагувати"
     color="#00ffff"
     (btnClick)="onEdit()"
   ></shop-button>

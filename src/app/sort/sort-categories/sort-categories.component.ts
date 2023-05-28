@@ -14,7 +14,7 @@ export class SortCategoriesComponent implements OnInit {
   constructor(
     private sortCategoriesService: SortCategoriesService
   ) {
-    this.sortTypes = ['Name[A-Z]', 'Name[Z-A]'];
+    this.sortTypes = ['Ім\'я[А-Я]', 'Ім\'я[Я-А]'];
   }
 
   ngOnInit(): void {

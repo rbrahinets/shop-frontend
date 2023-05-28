@@ -23,10 +23,10 @@ export class ProductBarcodeValidator {
     isAdd: boolean = false
   ): boolean {
     if (!productBarcode) {
-      alert('You haven\'t entered a barcode of product');
+      alert('Ви не ввели штрих-код товару');
       return false;
     } else if (ProductBarcodeValidator.isInvalidProductBarcode(productBarcode)) {
-      alert('You have entered a short barcode of product');
+      alert('Ви ввели закороткий штрих-код товару');
       return false;
     } else if (
       ProductBarcodeValidator.isExistingProductBarcode(
@@ -35,7 +35,7 @@ export class ProductBarcodeValidator {
       )
       && isAdd
     ) {
-      alert('You have entered an existing barcode of product');
+      alert('Ви ввели існуючий штрих-код товару');
       return false;
     } else if (
       !ProductBarcodeValidator.isExistingProductBarcode(
@@ -44,7 +44,7 @@ export class ProductBarcodeValidator {
       )
       && !isAdd
     ) {
-      alert('You have entered a non-existent barcode of product');
+      alert('Ви ввели неіснуючий штрих-код товару');
       return false;
     }
 

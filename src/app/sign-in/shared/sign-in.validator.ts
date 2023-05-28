@@ -22,7 +22,7 @@ export class SignInValidator {
 
   private validateLogin(login: string): boolean {
     if (!login) {
-      alert('You haven\'t entered a login');
+      alert('Ви не ввели логін');
       return false;
     } else if (login === 'admin') {
       return true;
@@ -38,7 +38,7 @@ export class SignInValidator {
       return !this.phoneValidator.validate(login);
     }
 
-    alert('You have entered an invalid login');
+    alert('Ви ввели неправильний логін');
     return true;
   }
 }

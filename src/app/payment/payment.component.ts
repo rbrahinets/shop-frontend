@@ -65,9 +65,9 @@ export class PaymentComponent implements OnInit {
         console.log(response.message);
 
         if (response.message.includes('successfully')) {
-          alert('Payment Processed Successfully!');
+          alert('Успішно оплачено!');
         } else {
-          alert('Payment Processed Unsuccessfully!');
+          alert('Помилка оплати!');
         }
 
         if (response.isSuccessfully) {
@@ -103,7 +103,7 @@ export class PaymentComponent implements OnInit {
                     () => this.navigation.goToEndpoint('cart', true)
                   );
               },
-              (error: any) => console.error('Error downloading report:', error)
+              (error: any) => console.error('Помилка під час завантаження звіту:', error)
             );
           }
         );

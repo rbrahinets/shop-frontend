@@ -73,7 +73,7 @@ export class ProductEditComponent implements OnInit {
         this.productName = product.name;
         this.productDescribe = product.describe;
         this.productPrice = product.price;
-        this.productInStock = product.inStock ? 'Yes' : 'No';
+        this.productInStock = product.inStock ? 'Так' : 'Ні';
         this.productImage = product.image;
         this.setCategoryForProduct(product);
       }
@@ -111,7 +111,7 @@ export class ProductEditComponent implements OnInit {
     this.product.name = this.productName;
     this.product.describe = this.productDescribe;
     this.product.price = this.productPrice;
-    this.product.inStock = this.productInStock === 'Yes';
+    this.product.inStock = this.productInStock === 'Так';
 
     if (this.imageFile) {
       const reader = new FileReader();

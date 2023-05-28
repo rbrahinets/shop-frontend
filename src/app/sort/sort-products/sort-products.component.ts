@@ -14,7 +14,7 @@ export class SortProductsComponent implements OnInit {
   constructor(
     private sortProductsService: SortProductsService
   ) {
-    this.sortTypes = ['Name[A-Z]', 'Name[Z-A]', 'Price[0-9]', 'Price[9-0]'];
+    this.sortTypes = ['Ім\'я[А-Я]', 'Ім\'я[Я-А]', 'Ціна[0-9]', 'Ціна[9-0]'];
   }
 
   ngOnInit(): void {

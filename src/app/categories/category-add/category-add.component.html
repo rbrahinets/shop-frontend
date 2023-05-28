@@ -1,23 +1,23 @@
 <div class="center">
-  <h1>Add New Category</h1>
+  <h1>Додати категорію</h1>
   <form class="form">
     <div class="form-control">
       <input
         type="text"
         name="category-name"
         id="category-name"
-        placeholder="Category Name"
+        placeholder="Назва категорії"
         [(ngModel)]="categoryName"
       />
     </div>
     <shop-button
-      text="Add"
+      text="Додати"
       color="#ff00ff"
       (btnClick)="onAdd()"
     ></shop-button>
   </form>
   <shop-button
-    text="Cancel"
+    text="Відмінити"
     color="#0000ff"
     (btnClick)="onCancel()"
   ></shop-button>

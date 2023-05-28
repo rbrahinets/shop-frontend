@@ -10,7 +10,7 @@ export class PaymentValidator {
 
   private static validatePriceAmount(priceAmount: number): boolean {
     if (!priceAmount || priceAmount < 0) {
-      alert('A price amount is invalid');
+      alert('Неправильна ціна');
       return false;
     }
 
@@ -19,10 +19,10 @@ export class PaymentValidator {
 
   private static validateCardNumber(cardNumber: string): boolean {
     if (!cardNumber) {
-      alert('You haven\'t entered an number');
+      alert('Ви не ввели номер');
       return false;
     } else if (!PaymentValidator.isValidCardNumber(cardNumber)) {
-      alert('You have entered an invalid number');
+      alert('Ви ввели неправильний номер');
       return false;
     }
 
@@ -64,10 +64,10 @@ export class PaymentValidator {
 
   private static validateCardExpiry(cardExpiry: string): boolean {
     if (!cardExpiry) {
-      alert('You haven\'t entered an expiry');
+      alert('Ви не ввели термін дії');
       return false;
     } else if (!PaymentValidator.isValidCardExpiry(cardExpiry)) {
-      alert('You have entered an invalid expiry');
+      alert('Ви ввели неправильний термін дії');
       return false;
     }
 
@@ -105,10 +105,10 @@ export class PaymentValidator {
 
   private static validateCardCvc(cardCvc: string): boolean {
     if (!cardCvc) {
-      alert('You haven\'t entered an cvc');
+      alert('Ви не ввели CVC');
       return false;
     } else if (cardCvc.length !== 3) {
-      alert('You have entered an invalid cvc');
+      alert('Ви ввели неправильний CVC');
       return false;
     }
 

@@ -12,7 +12,7 @@ export class ProductCategoryValidator {
 
   private static validateProductCategory(productCategory: string): boolean {
     if (!productCategory) {
-      alert('You haven\'t select a category of product');
+      alert('Ви не обрали категорію товару');
       return false;
     }
 

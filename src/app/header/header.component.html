@@ -4,46 +4,46 @@
       class="btn-image"
       (click)="onClickButton('/')"
     >
-      <img src="assets/images/main.png" alt="main-page"/>
+      <img src="assets/images/shop.png" alt="main-page" height="200" width="200"/>
     </button>
   </div>
   <div>
     <shop-button
       *ngIf="logged && isSuperadmin
       && !hasRoute('/admin-panel') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
-      text="Admin Panel"
+      text="Адмін-панель"
       color="#33ff33"
       (btnClick)="onClickButton('/admin-panel')"
     ></shop-button>
     <shop-button
       *ngIf="logged && isSuperadmin
       && !hasRoute('/users') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
-      text="Users"
+      text="Користувачі"
       color="#33ff33"
       (btnClick)="onClickButton('/users')"
     ></shop-button>
     <shop-button
       *ngIf="!hasRoute('/categories') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
-      text="Categories"
+      text="Категорії"
       color="#33ff33"
       (btnClick)="onClickButton('/categories')"
     ></shop-button>
     <shop-button
       *ngIf="!hasRoute('/products') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
-      text="Products"
+      text="Товари"
       color="#33ff33"
       (btnClick)="onClickButton('/products')"
     ></shop-button>
     <shop-button
       *ngIf="logged && !hasRoute('/profile') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
-      text="Profile"
+      text="Профіль"
       color="#33ff33"
       (btnClick)="onClickButton('/profile')"
     ></shop-button>
     <shop-button
       *ngIf="logged && userRole === 'ROLE_USER'
       && !hasRoute('/cart') && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
-      text="Cart"
+      text="Кошик"
       color="#33ff33"
       (btnClick)="onClickButton('/cart')"
     ></shop-button>
@@ -51,13 +51,13 @@
   <div>
     <shop-button
       *ngIf="!logged && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
-      text="Sign In"
+      text="Увійти"
       color="#0000ff"
       (btnClick)="onClickButton('/sign-in')"
     ></shop-button>
     <shop-button
       *ngIf="logged && !hasRoute('/sign-in') && !hasRoute('/sign-up')"
-      text="Sign Out"
+      text="Вийти"
       color="#0000ff"
       (btnClick)="onClickButton('/sign-out')"
     ></shop-button>

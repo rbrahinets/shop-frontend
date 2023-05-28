@@ -1,23 +1,23 @@
 <div class="center">
-  <h1>Delete Product</h1>
+  <h1>Видалити товар</h1>
   <form class="form">
     <div class="form-control">
       <input
         type="text"
         name="product-barcode"
         id="product-barcode"
-        placeholder="Barcode"
+        placeholder="Штрих-код"
         [(ngModel)]="productBarcode"
       />
     </div>
     <shop-button
-      text="Delete"
+      text="Видалити"
       color="#ff00ff"
       (btnClick)="onDelete()"
     ></shop-button>
   </form>
   <shop-button
-    text="Cancel"
+    text="Відмінити"
     color="#0000ff"
     (btnClick)="onCancel()"
   ></shop-button>

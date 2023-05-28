@@ -1,12 +1,12 @@
 <div class="center">
-  <h1>Add New Product</h1>
+  <h1>Додати товар</h1>
   <form class="form">
     <div class="form-control">
       <input
         type="text"
         name="product-name"
         id="product-name"
-        placeholder="Name"
+        placeholder="Назва"
         [(ngModel)]="productName"
       />
     </div>
@@ -15,7 +15,7 @@
         type="text"
         name="product-describe"
         id="product-describe"
-        placeholder="Describe"
+        placeholder="Опис"
         [(ngModel)]="productDescribe"
       />
     </div>
@@ -26,7 +26,7 @@
         id="product-price"
         min="1"
         value="0"
-        placeholder="Price"
+        placeholder="Ціна"
         [(ngModel)]="productPrice"
       />
     </div>
@@ -35,12 +35,12 @@
         type="text"
         name="product-barcode"
         id="product-barcode"
-        placeholder="Barcode"
+        placeholder="Штрих-код"
         [(ngModel)]="productBarcode"
       />
     </div>
     <div class="form-control">
-      <label for="product-category">Category:</label>
+      <label for="product-category">Категорія:</label>
       <select
         name="product-category"
         id="product-category"
@@ -63,13 +63,13 @@
       >
     </div>
     <shop-button
-      text="Add"
+      text="Додати"
       color="#ff00ff"
       (btnClick)="onAdd()"
     ></shop-button>
   </form>
   <shop-button
-    text="Cancel"
+    text="Відмінити"
     color="#0000ff"
     (btnClick)="onCancel()"
   ></shop-button>

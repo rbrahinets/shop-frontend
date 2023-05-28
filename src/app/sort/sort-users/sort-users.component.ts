@@ -14,7 +14,7 @@ export class SortUsersComponent implements OnInit {
   constructor(
     private sortUsersService: SortUsersService
   ) {
-    this.sortTypes = ['First Name[A-Z]', 'First Name[Z-A]', 'Last Name[A-Z]', 'Last Name[Z-A]'];
+    this.sortTypes = ['Прізвище[А-Я]', 'Прізвище[Я-А]', 'Ім\'я[А-Я]', 'Ім\'я[Я-А]'];
   }
 
   ngOnInit(): void {
@@ -22,13 +22,13 @@ export class SortUsersComponent implements OnInit {
 
   sortUsers(typeSort: string): void {
     if (typeSort === this.sortTypes[0]) {
-      this.users = this.sortUsersService.sortByFirstNameAsc(this.users);
-    } else if (typeSort === this.sortTypes[1]) {
-      this.users = this.sortUsersService.sortByFirstNameDesc(this.users);
-    } else if (typeSort === this.sortTypes[2]) {
       this.users = this.sortUsersService.sortByLastNameAsc(this.users);
-    } else if (typeSort === this.sortTypes[3]) {
+    } else if (typeSort === this.sortTypes[1]) {
       this.users = this.sortUsersService.sortByLastNameDesc(this.users);
+    } else if (typeSort === this.sortTypes[2]) {
+      this.users = this.sortUsersService.sortByFirstNameAsc(this.users);
+    } else if (typeSort === this.sortTypes[3]) {
+      this.users = this.sortUsersService.sortByFirstNameDesc(this.users);
     }
   }
 }
