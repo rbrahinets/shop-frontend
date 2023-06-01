@@ -6,7 +6,7 @@
       *ngFor="let group of groupsOfProducts"
     >
       <h3>
-        Product: {{group.product}}
+        Товар: {{group.product}}
         <fa-icon
           [icon]="faTimes"
           (click)="deleteProductFromCart(group.product)"
