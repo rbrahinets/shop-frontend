@@ -14,6 +14,7 @@ import {LoggedUserService} from '../../users/shared/logged-user.service';
 })
 export class CategoryComponent implements OnInit {
   userRole: string;
+  categoryName: string;
   products: Product[] = [];
 
   constructor(
@@ -26,6 +27,12 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.categoryService.findById(
+      this.navigation.getCurrentPathId()
+    )
+      .subscribe(
+        (category) => this.categoryName = category.name
+      );
     this.setProducts();
   }
 
