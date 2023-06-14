@@ -21,6 +21,10 @@ export class CategoryService {
     return this.http.get<Category[]>(this.apiUrl);
   }
 
+  findById(id: number): Observable<Category> {
+    return this.http.get<Category>(`${this.apiUrl + '/' + id}`);
+  }
+
   save(category: Category): Observable<Category> {
     return this.http.post<Category>(
       this.apiUrl,
